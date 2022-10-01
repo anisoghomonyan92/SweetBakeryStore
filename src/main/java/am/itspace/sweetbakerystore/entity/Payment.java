@@ -11,10 +11,10 @@ import javax.persistence.*;
 import java.util.Date;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "payment")
 public class Payment {
     @Id

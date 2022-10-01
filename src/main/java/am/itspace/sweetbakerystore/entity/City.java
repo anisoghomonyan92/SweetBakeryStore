@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "city")
 public class City {
     @Id
