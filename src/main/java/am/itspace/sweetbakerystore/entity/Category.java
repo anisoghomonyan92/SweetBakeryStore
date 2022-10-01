@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "category")
 public class Category {
     @Id

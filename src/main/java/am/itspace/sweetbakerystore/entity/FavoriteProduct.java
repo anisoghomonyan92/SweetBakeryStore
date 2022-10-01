@@ -10,10 +10,10 @@ import javax.persistence.*;
 import java.util.Date;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "favorite_product")
 public class FavoriteProduct {
     @Id
