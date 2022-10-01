@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class BlogController {
     @GetMapping(value = "/blog/index.htm")
     public String blog() {
-        return "/blog/index.htm";
+        return "web/blog/index.htm";
     }
 }

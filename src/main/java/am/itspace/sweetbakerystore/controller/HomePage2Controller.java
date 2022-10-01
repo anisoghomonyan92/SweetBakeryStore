@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomePage2Controller {
     @GetMapping(value = "/homePage2/index-5.htm")
     public String page2() {
-        return "/homePage2/index-5.htm";
+        return "web/homePage2/index-5.htm";
     }
 }

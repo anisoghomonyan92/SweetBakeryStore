@@ -8,6 +8,6 @@ public class MainController {
 
     @GetMapping(value = "/")
     public String massage() {
-        return "index";
+        return "web/index";
     }
 }
