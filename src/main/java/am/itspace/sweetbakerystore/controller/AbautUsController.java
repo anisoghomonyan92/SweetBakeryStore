@@ -5,8 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AbautUsController {
-    @GetMapping(value = "/aboutUs/index.htm")
+
+    @GetMapping(value = "/about_us")
     public String aboutUs() {
-        return "/aboutUs/index.htm";
+        return "/aboutUs/index";
     }
 }
