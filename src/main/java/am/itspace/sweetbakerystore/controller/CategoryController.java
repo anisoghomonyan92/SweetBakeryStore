@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class CategoryController {
     @GetMapping(value = "/category/theRollingPin/index.htm")
     public String productRollingPin() {
-        return "/category/theRollingPin/index.htm";
+        return "web/category/theRollingPin/index.htm";
     }
 }

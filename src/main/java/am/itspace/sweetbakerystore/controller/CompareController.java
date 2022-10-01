@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class CompareController {
     @GetMapping(value = "/compare/index.htm")
     public String compare() {
-        return "/compare/index.htm";
+        return "web/compare/index.htm";
     }
 }

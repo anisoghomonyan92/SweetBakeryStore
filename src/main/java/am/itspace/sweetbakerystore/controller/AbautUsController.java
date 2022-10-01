@@ -8,6 +8,6 @@ public class AbautUsController {
 
     @GetMapping(value = "/about_us")
     public String aboutUs() {
-        return "/aboutUs/index";
+        return "web/aboutUs/index";
     }
 }
