@@ -1,4 +1,4 @@
-package repository;
+package am.itspace.sweetbakerystore.repository;
 
 import am.itspace.sweetbakerystore.entity.City;
 import org.springframework.data.jpa.repository.JpaRepository;
