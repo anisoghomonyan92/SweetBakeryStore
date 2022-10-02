@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org/" lang="en-US">
+<html xmlns:th="http://www.thymeleaf.org/" lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title>Noucake &#8211; Bakery wordpress theme</title>
-    <div th:insert="/fragments/fragment.html::headerImport"></div>
+    <div th:insert="/web/fragments/fragment.html::headerImport"></div>
 
     <style id='global-styles-inline-css' type='text/css'>
         body {
@@ -327,9 +327,9 @@
     <script type='text/javascript' src='/assets/wp-includes/js/jquery/jquery.min.js' id='jquery-core-js'></script>
     <script type='text/javascript' src='/assets/wp-includes/js/jquery/jquery-migrate.min.js'
             id='jquery-migrate-js'></script>
-    <script type='text/javascript' src='/assets/wp-content/plugins/revslider/public/assets/js/rbtools.min.js'
+    <script type='text/javascript' src='/assets/js/rbtools.min.js'
             defer="" async="" id='tp-tools-js'></script>
-    <script type='text/javascript' src='/assets/wp-content/plugins/revslider/public/assets/js/rs6.min.js' defer=""
+    <script type='text/javascript' src='/assets/js/rs6.min.js' defer=""
             async="" id='revmin-js'></script>
     <script type='text/javascript'
             src='/assets/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js'
@@ -790,7 +790,8 @@
 
         <li><a class="ps-search-btn" href="#"><i class="ps-icon--search"></i><span>Search</span></a></li>
 
-        <li><a class="ps-cart-count" href="web/cart/index.html"><i class="ps-icon--shopping-cart"></i><span class="quantity"><i
+        <li><a class="ps-cart-count" href="web/cart/index.html"><i class="ps-icon--shopping-cart"></i><span
+                class="quantity"><i
                 class="mobile_cart_content">0</i></span><span>Cart</span></a></li>
     </ul>
 </nav>
@@ -807,7 +808,7 @@
                                 <rs-slide style="position: absolute;" data-key="rs-32" data-title="Slide"
                                           data-thumb="https://noucake.s3.amazonaws.com/revslider/img-slider-1.jpg"
                                           data-anim="ms:900;r:0;e:slidingoverlay;" data-in="y:-100%;e:expo.out;">
-                                    <img src="/assets/wp-content2/plugins/revslider/public/assets/assets/dummy.png"
+                                    <img src="/assets/assets/dummy.png"
                                          title="home page" class="rev-slidebg tp-rs-img rs-lazyload"
                                          data-lazyload="https://noucake.s3.amazonaws.com/revslider/img-slider-1.jpg"
                                          data-parallax="7" data-panzoom="d:40000;ss:100;se:150;rs:1;re:2;"
@@ -844,7 +845,7 @@
                                               data-frame_1="tp:600;e:expo.out;st:1000;sp:900;sR:1000;"
                                               data-frame_999="y:175%;tp:600;e:expo.out;st:w;sp:900;sR:7100;"
                                               data-frame_999_mask="u:t;" style="z-index:7;"><img
-                                            src="/assets/wp-content2/plugins/revslider/public/assets/assets/dummy.png"
+                                            src="/assets/assets/dummy.png"
                                             class="tp-rs-img rs-lazyload" width="59" height="36"
                                             data-lazyload="https://noucake.s3.amazonaws.com/revslider/shape.png"
                                             data-no-retina="">
@@ -858,7 +859,7 @@
                                               data-frame_1="tp:600;e:expo.out;st:1000;sp:900;sR:1000;"
                                               data-frame_999="y:175%;tp:600;e:expo.out;st:w;sp:900;sR:7100;"
                                               data-frame_999_mask="u:t;" style="z-index:8;"><img
-                                            src="/assets/wp-content2/plugins/revslider/public/assets/assets/dummy.png"
+                                            src="/assets/assets/dummy.png"
                                             class="tp-rs-img rs-lazyload" width="59" height="36"
                                             data-lazyload="https://noucake.s3.amazonaws.com/revslider/shape-2.png"
                                             data-no-retina="">
@@ -879,7 +880,7 @@
                                 <rs-slide style="position: absolute;" data-key="rs-33" data-title="Slide"
                                           data-thumb="https://noucake.s3.amazonaws.com/revslider/slider-21.jpg"
                                           data-anim="ms:900;r:0;e:slidingoverlay;" data-in="y:-100%;e:expo.out;">
-                                    <img src="/assets/wp-content2/plugins/revslider/public/assets/assets/dummy.png"
+                                    <img src="/assets/assets/dummy.png"
                                          title="home page" class="rev-slidebg tp-rs-img rs-lazyload"
                                          data-lazyload="https://noucake.s3.amazonaws.com/revslider/slider-21.jpg"
                                          data-parallax="7" data-panzoom="d:40000;ss:100;se:150;rs:1;re:2;"
@@ -920,7 +921,7 @@
                                 <rs-slide style="position: absolute;" data-key="rs-34" data-title="Slide"
                                           data-thumb="https://noucake.s3.amazonaws.com/revslider/slider-31.jpg"
                                           data-anim="ms:900;r:0;e:slidingoverlay;" data-in="y:-100%;e:expo.out;">
-                                    <img src="/assets/wp-content2/plugins/revslider/public/assets/assets/dummy.png"
+                                    <img src="/assets/assets/dummy.png"
                                          title="home page" class="rev-slidebg tp-rs-img rs-lazyload"
                                          data-lazyload="https://noucake.s3.amazonaws.com/revslider/slider-31.jpg"
                                          data-parallax="7" data-panzoom="d:40000;ss:100;se:150;rs:1;re:2;"
@@ -1073,7 +1074,8 @@
                                         <div class="ps-product__thumbnail">
                                             <div class="ps-badge"><span>51%</span></div>
                                             <a class="ps-product__overlay" href="product/sweet-cakes/index.htm"></a>
-                                            <img src="/images/2013/06/img-cake-6-524x566.jpg" class="" alt="Sweet Cakes">
+                                            <img src="/images/2013/06/img-cake-6-524x566.jpg" class=""
+                                                 alt="Sweet Cakes">
                                             <ul class="ps-product__action">
 
                                                 <li><a data-product_id="199" class="product-quickview popup-modal"
@@ -2053,459 +2055,474 @@
     </div>
 
 
-    <div th:insert="/fragments/fragment.html::ourStoryImport"></div>
-    <div th:insert="/fragments/fragment.html::contactUsImport"></div>
-    <div th:insert="/fragments/fragment.html::aboutUs"></div>
-    <div th:insert="/fragments/fragment.html::footerImport"></div>
+    <div th:insert="/web/fragments/fragment.html::ourStoryImport"></div>
+    <div th:insert="/web/fragments/fragment.html::contactUsImport"></div>
+    <div th:insert="/web/fragments/fragment.html::aboutUs"></div>
+    <div th:insert="/web/fragments/fragment.html::footerImport"></div>
 
 
-<div class="modal-popup mfp-with-anim mfp-hide" id="quickview-modal" tabindex="-1">
-    <button class="modal-close"><i class="fa fa-remove"></i></button>
-    <div class="ps-product-modal ps-product--detail clearfix">
-        <span class="cart-loading"><i class="fa fa-spinner fa-spin"></i></span>
-        <div id="product-199"
-             class="post-199 product type-product status-publish has-post-thumbnail product_cat-music product_cat-singles first instock sale featured shipping-taxable purchasable product-type-simple">
-            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 ">
-                <div class="ps-product__thumbnail">
-                    <div class="quickview--main" data-owl-auto="true" data-owl-loop="false" data-owl-speed="10000"
-                         data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-animate-in=""
-                         data-owl-animate-out="" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1"
-                         data-owl-item-md="1" data-owl-item-lg="1"
-                         data-owl-nav-left="&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;"
-                         data-owl-nav-right="&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;">
-                        <div class="ps-product__image">
-                            <img src="/images/2013/06/img-cake-6-458x493.jpg" alt="Sweet Cakes">
+    <div class="modal-popup mfp-with-anim mfp-hide" id="quickview-modal" tabindex="-1">
+        <button class="modal-close"><i class="fa fa-remove"></i></button>
+        <div class="ps-product-modal ps-product--detail clearfix">
+            <span class="cart-loading"><i class="fa fa-spinner fa-spin"></i></span>
+            <div id="product-199"
+                 class="post-199 product type-product status-publish has-post-thumbnail product_cat-music product_cat-singles first instock sale featured shipping-taxable purchasable product-type-simple">
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 ">
+                    <div class="ps-product__thumbnail">
+                        <div class="quickview--main" data-owl-auto="true" data-owl-loop="false" data-owl-speed="10000"
+                             data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-animate-in=""
+                             data-owl-animate-out="" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1"
+                             data-owl-item-md="1" data-owl-item-lg="1"
+                             data-owl-nav-left="&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;"
+                             data-owl-nav-right="&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;">
+                            <div class="ps-product__image">
+                                <img src="/images/2013/06/img-cake-6-458x493.jpg" alt="Sweet Cakes">
+                            </div>
+                            <div class="ps-product__image">
+                                <img src="/images/2013/06/img-cake-7-458x493.jpg" alt="Sweet Cakes">
+                            </div>
+                            <div class="ps-product__image">
+                                <img src="/images/2013/06/img-cake-5-458x493.jpg" alt="Sweet Cakes">
+                            </div>
+                            <div class="ps-product__image">
+                                <img src="/images/2013/06/img-cake-4-458x493.jpg" alt="Sweet Cakes">
+                            </div>
+                            <div class="ps-product__image">
+                                <img src="/images/2013/06/img-cake-3-458x493.jpg" alt="Sweet Cakes">
+                            </div>
+                            <div class="ps-product__image">
+                                <img src="/images/2013/06/img-cake-2-458x493.jpg" alt="Sweet Cakes">
+                            </div>
+                            <div class="ps-product__image">
+                                <img src="/images/2013/06/img-cake-1-458x493.jpg" alt="Sweet Cakes">
+                            </div>
                         </div>
-                        <div class="ps-product__image">
-                            <img src="/images/2013/06/img-cake-7-458x493.jpg" alt="Sweet Cakes">
+                        <div class="quickview--thumbnail" data-owl-auto="true" data-owl-loop="false"
+                             data-owl-speed="10000"
+                             data-owl-gap="20" data-owl-nav="false" data-owl-dots="false" data-owl-animate-in=""
+                             data-owl-animate-out="" data-owl-item="4" data-owl-item-xs="2" data-owl-item-sm="3"
+                             data-owl-item-md="4" data-owl-item-lg="4"
+                             data-owl-nav-left="&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;"
+                             data-owl-nav-right="&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;">
+                            <img src="/images/2013/06/img-cake-6-100x107.jpg"
+                                 alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-6-100x107.jpg">
+                            <img src="/images/2013/06/img-cake-7-100x107.jpg"
+                                 alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-7-100x107.jpg">
+                            <img src="/images/2013/06/img-cake-5-100x107.jpg"
+                                 alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-5-100x107.jpg">
+                            <img src="/images/2013/06/img-cake-4-100x107.jpg"
+                                 alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-4-100x107.jpg">
+                            <img src="/images/2013/06/img-cake-3-100x107.jpg"
+                                 alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-3-100x107.jpg">
+                            <img src="/images/2013/06/img-cake-2-100x107.jpg"
+                                 alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-2-100x107.jpg">
+                            <img src="/images/2013/06/img-cake-1-100x107.jpg"
+                                 alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-1-100x107.jpg">
                         </div>
-                        <div class="ps-product__image">
-                            <img src="/images/2013/06/img-cake-5-458x493.jpg" alt="Sweet Cakes">
-                        </div>
-                        <div class="ps-product__image">
-                            <img src="/images/2013/06/img-cake-4-458x493.jpg" alt="Sweet Cakes">
-                        </div>
-                        <div class="ps-product__image">
-                            <img src="/images/2013/06/img-cake-3-458x493.jpg" alt="Sweet Cakes">
-                        </div>
-                        <div class="ps-product__image">
-                            <img src="/images/2013/06/img-cake-2-458x493.jpg" alt="Sweet Cakes">
-                        </div>
-                        <div class="ps-product__image">
-                            <img src="/images/2013/06/img-cake-1-458x493.jpg" alt="Sweet Cakes">
-                        </div>
-                    </div>
-                    <div class="quickview--thumbnail" data-owl-auto="true" data-owl-loop="false" data-owl-speed="10000"
-                         data-owl-gap="20" data-owl-nav="false" data-owl-dots="false" data-owl-animate-in=""
-                         data-owl-animate-out="" data-owl-item="4" data-owl-item-xs="2" data-owl-item-sm="3"
-                         data-owl-item-md="4" data-owl-item-lg="4"
-                         data-owl-nav-left="&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;"
-                         data-owl-nav-right="&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;">
-                        <img src="/images/2013/06/img-cake-6-100x107.jpg"
-                             alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-6-100x107.jpg">
-                        <img src="/images/2013/06/img-cake-7-100x107.jpg"
-                             alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-7-100x107.jpg">
-                        <img src="/images/2013/06/img-cake-5-100x107.jpg"
-                             alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-5-100x107.jpg">
-                        <img src="/images/2013/06/img-cake-4-100x107.jpg"
-                             alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-4-100x107.jpg">
-                        <img src="/images/2013/06/img-cake-3-100x107.jpg"
-                             alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-3-100x107.jpg">
-                        <img src="/images/2013/06/img-cake-2-100x107.jpg"
-                             alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-2-100x107.jpg">
-                        <img src="/images/2013/06/img-cake-1-100x107.jpg"
-                             alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-1-100x107.jpg">
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 ">
-                <header>
-                    <h3 class="ps-product__name">Sweet Cakes</h3>
-                    <select class="ps-rating rating-0">
-                        <option value="0" selected='selected'>0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <p class="ps-product__price price-for-default"><span class="woocs_price_code" data-product-id="199"><del
-                            aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span
-                            class="woocommerce-Price-currencySymbol">&pound;</span>49.14</bdi></span></del> <ins><span
-                            class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&pound;</span>24.15</bdi></span></ins></span>
-                    </p>
-                    <p class="ps-product__price price-for-varian"></p>
-
-                    <div class="ps-product__meta">
-
-
-                        <p><span>Availability: </span> 20 in stock</p>
-
-                        <p class="panel-product-line panel-product-info">
-                            <span class="panel-product-label">SKU:</span> <span class="sku-for-default sku-value">HGEGX12</span><span
-                                class="sku-for-varian sku-value"></span>
+                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 ">
+                    <header>
+                        <h3 class="ps-product__name">Sweet Cakes</h3>
+                        <select class="ps-rating rating-0">
+                            <option value="0" selected='selected'>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <p class="ps-product__price price-for-default"><span class="woocs_price_code"
+                                                                             data-product-id="199"><del
+                                aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span
+                                class="woocommerce-Price-currencySymbol">&pound;</span>49.14</bdi></span></del> <ins><span
+                                class="woocommerce-Price-amount amount"><bdi><span
+                                class="woocommerce-Price-currencySymbol">&pound;</span>24.15</bdi></span></ins></span>
                         </p>
+                        <p class="ps-product__price price-for-varian"></p>
+
+                        <div class="ps-product__meta">
 
 
-                        <p class="category"><span>Categories:</span> <a href="product-category/music/index.htm"
-                                                                        rel="tag">Music</a>, <a
-                                href="product-category/music/singles/index.htm" rel="tag">Singles</a></p>
+                            <p><span>Availability: </span> 20 in stock</p>
+
+                            <p class="panel-product-line panel-product-info">
+                                <span class="panel-product-label">SKU:</span> <span class="sku-for-default sku-value">HGEGX12</span><span
+                                    class="sku-for-varian sku-value"></span>
+                            </p>
 
 
-                    </div>
+                            <p class="category"><span>Categories:</span> <a href="product-category/music/index.htm"
+                                                                            rel="tag">Music</a>, <a
+                                    href="product-category/music/singles/index.htm" rel="tag">Singles</a></p>
 
 
-                    <form class="cart" method="post" enctype='multipart/form-data'>
-                        <div class="ps-product__shop">
-                            <div class="form-group--number quantity">
-                                <button type="button" class="minus"><span>-</span></button>
-                                <input type="number" step="1" min="1" max="20" name="quantity" value="1"
-                                       class="form-control input-text qty text" size="4">
-                                <button type="button" class="plus"><span>+</span></button>
-                            </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-lg-6 col-md-5 col-sm-6 col-xs-12 ">
-                                <button type="submit" name="add-to-cart" value="199"
-                                        class="single_add_to_cart_button button alt ps-btn--fullwidth ps-btn">Add to
-                                    cart <i class="fa fa-angle-right"></i></button>
+
+                        <form class="cart" method="post" enctype='multipart/form-data'>
+                            <div class="ps-product__shop">
+                                <div class="form-group--number quantity">
+                                    <button type="button" class="minus"><span>-</span></button>
+                                    <input type="number" step="1" min="1" max="20" name="quantity" value="1"
+                                           class="form-control input-text qty text" size="4">
+                                    <button type="button" class="plus"><span>+</span></button>
+                                </div>
                             </div>
-                            <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12 ">
-                                <p class="noubakery-share-post ps-product__sharing"
-                                   data-url="http://warethemes.com/wordpress/bakery/product/sweet-cakes/"
-                                   data-title="Sweet Cakes">
-                                    Share with:
-                                    <a href="#" data-type="facebook" class="share"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" data-type="google" class="share"><i class="fa fa-google-plus"></i></a>
 
-                                    <a href="#" data-type="twitter" class="share"><i class="fa fa-twitter"></i></a>
-                                </p>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-5 col-sm-6 col-xs-12 ">
+                                    <button type="submit" name="add-to-cart" value="199"
+                                            class="single_add_to_cart_button button alt ps-btn--fullwidth ps-btn">Add to
+                                        cart <i class="fa fa-angle-right"></i></button>
+                                </div>
+                                <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12 ">
+                                    <p class="noubakery-share-post ps-product__sharing"
+                                       data-url="http://warethemes.com/wordpress/bakery/product/sweet-cakes/"
+                                       data-title="Sweet Cakes">
+                                        Share with:
+                                        <a href="#" data-type="facebook" class="share"><i
+                                                class="fa fa-facebook"></i></a>
+                                        <a href="#" data-type="google" class="share"><i
+                                                class="fa fa-google-plus"></i></a>
+
+                                        <a href="#" data-type="twitter" class="share"><i class="fa fa-twitter"></i></a>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
 
-                    </form>
+                        </form>
 
 
-                </header>
+                    </header>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="mfp-with-anim modal-popup mfp-hide" id="modal--subscribe">
-    <button class="modal-close"><i class="fa fa-remove"></i></button>
-    <img src="/assets/wp-content2/uploads/2019/09/img-demo-4.png" alt="modal-popup">
-    <form action="http://warethemes.com/wordpress/bakery/?na=s" method="post" class="ps-subscribe__form">
-        <h3>STAY UP-TO-DATE WITH OUR NEWLETTER</h3>
-        <p>Follow us &amp; get <span style="color: #ee7560">20% OFF</span> coupon for first purchase !!!!!</p>
-        <div class="form-group">
-            <input class="form-control" type="text" placeholder="Type your email...">
-            <button class="ps-btn ps-btn--sm">Subscribe</button>
-        </div>
-    </form>
-</div>
+    <div class="mfp-with-anim modal-popup mfp-hide" id="modal--subscribe">
+        <button class="modal-close"><i class="fa fa-remove"></i></button>
+        <img src="/assets/wp-content2/uploads/2019/09/img-demo-4.png" alt="modal-popup">
+        <form action="http://warethemes.com/wordpress/bakery/?na=s" method="post" class="ps-subscribe__form">
+            <h3>STAY UP-TO-DATE WITH OUR NEWLETTER</h3>
+            <p>Follow us &amp; get <span style="color: #ee7560">20% OFF</span> coupon for first purchase !!!!!</p>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Type your email...">
+                <button class="ps-btn ps-btn--sm">Subscribe</button>
+            </div>
+        </form>
+    </div>
 
-<script type="text/javascript">
-    window.RS_MODULES = window.RS_MODULES || {};
-    window.RS_MODULES.modules = window.RS_MODULES.modules || {};
-    window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
-    window.RS_MODULES.defered = true;
-    window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
-    window.RS_MODULES.type = 'compiled';
-</script>
-<script type="text/html" id="wpb-modifications"></script>
-<script type="text/javascript">
-    (function () {
-        var c = document.body.className;
-        c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
-        document.body.className = c;
-    })();
-</script>
-<script type="text/javascript">
-    if (typeof revslider_showDoubleJqueryError === "undefined") {
-        function revslider_showDoubleJqueryError(sliderID) {
-            console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion.");
-            console.log("To fix this, you can:");
-            console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on");
-            console.log("2. Find the double jQuery.js inclusion and remove it");
-            return "Double Included jQuery Library";
+    <script type="text/javascript">
+        window.RS_MODULES = window.RS_MODULES || {};
+        window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+        window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+        window.RS_MODULES.defered = true;
+        window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+        window.RS_MODULES.type = 'compiled';
+    </script>
+    <script type="text/html" id="wpb-modifications"></script>
+    <script type="text/javascript">
+        (function () {
+            var c = document.body.className;
+            c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+            document.body.className = c;
+        })();
+    </script>
+    <script type="text/javascript">
+        if (typeof revslider_showDoubleJqueryError === "undefined") {
+            function revslider_showDoubleJqueryError(sliderID) {
+                console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion.");
+                console.log("To fix this, you can:");
+                console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on");
+                console.log("2. Find the double jQuery.js inclusion and remove it");
+                return "Double Included jQuery Library";
+            }
         }
-    }
-</script>
-<link rel="preload" as="font" id="rs-icon-set-fa-icon-woff" type="font/woff2" crossorigin="anonymous"
-      href="/assets/wp-content2/plugins/revslider/public/assets/fonts/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0"
-      media="all">
-<link rel="stylesheet" property="stylesheet" id="rs-icon-set-fa-icon-css"
-      href="/assets/wp-content2/plugins/revslider/public/assets/fonts/font-awesome/css/font-awesome.css" type="text/css"
-      media="all">
-<link rel='stylesheet' id='woocommerce-currency-switcher-css'
-      href='/assets/wp-content/plugins/woocommerce-currency-switcher/css/front.css' type='text/css' media='all'>
-<link rel='stylesheet' id='rs-plugin-settings-css' href='/assets/wp-content2/plugins/revslider/public/assets/css/rs6.css'
-      type='text/css' media='all'>
-<style id='rs-plugin-settings-inline-css' type='text/css'>
-    #rev_slider_14_1_wrapper .hermes.tp-bullets {
-    }
+    </script>
+    <link rel="preload" as="font" id="rs-icon-set-fa-icon-woff" type="font/woff2" crossorigin="anonymous"
+          href="/assets/fonts/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0"
+          media="all">
+    <link rel="stylesheet" property="stylesheet" id="rs-icon-set-fa-icon-css"
+          href="/assets/fonts/font-awesome/css/font-awesome.css"
+          type="text/css"
+          media="all">
+    <link rel='stylesheet' id='woocommerce-currency-switcher-css'
+          href='/assets/wp-content/plugins/woocommerce-currency-switcher/css/front.css' type='text/css' media='all'>
+    <link rel='stylesheet' id='rs-plugin-settings-css'
+          href='/assets/css/rs6.css'
+          type='text/css' media='all'>
+    <style id='rs-plugin-settings-inline-css' type='text/css'>
+        #rev_slider_14_1_wrapper .hermes.tp-bullets {
+        }
 
-    #rev_slider_14_1_wrapper .hermes .tp-bullet {
-        overflow: hidden;
-        border-radius: 50%;
-        width: 16px;
-        height: 16px;
-        background-color: rgba(0, 0, 0, 0);
-        box-shadow: inset 0 0 0 2px #ffffff;
-        -webkit-transition: background 0.3s ease;
-        transition: background 0.3s ease;
-        position: absolute
-    }
+        #rev_slider_14_1_wrapper .hermes .tp-bullet {
+            overflow: hidden;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            background-color: rgba(0, 0, 0, 0);
+            box-shadow: inset 0 0 0 2px #ffffff;
+            -webkit-transition: background 0.3s ease;
+            transition: background 0.3s ease;
+            position: absolute
+        }
 
-    #rev_slider_14_1_wrapper .hermes .tp-bullet.rs-touchhover {
-        background-color: rgba(0, 0, 0, 0.21)
-    }
+        #rev_slider_14_1_wrapper .hermes .tp-bullet.rs-touchhover {
+            background-color: rgba(0, 0, 0, 0.21)
+        }
 
-    #rev_slider_14_1_wrapper .hermes .tp-bullet:after {
-        content: ' ';
-        position: absolute;
-        bottom: 0;
-        height: 0;
-        left: 0;
-        width: 100%;
-        background-color: #ffffff;
-        box-shadow: 0 0 1px #ffffff;
-        -webkit-transition: height 0.3s ease;
-        transition: height 0.3s ease
-    }
+        #rev_slider_14_1_wrapper .hermes .tp-bullet:after {
+            content: ' ';
+            position: absolute;
+            bottom: 0;
+            height: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 0 1px #ffffff;
+            -webkit-transition: height 0.3s ease;
+            transition: height 0.3s ease
+        }
 
-    #rev_slider_14_1_wrapper .hermes .tp-bullet.selected:after {
-        height: 100%
-    }
-</style>
-<script type='text/javascript' src='/assets/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js'
-        id='js-cookie-js'></script>
-<script type='text/javascript' id='woocommerce-js-extra'>
-    /* <![CDATA[ */
-    var woocommerce_params = {
-        "ajax_url": "\/wordpress\/bakery\/wp-admin\/admin-ajax.php",
-        "wc_ajax_url": "\/wordpress\/bakery\/?wc-ajax=%%endpoint%%"
-    };
-    /* ]]> */
-</script>
-<script type='text/javascript' src='/assets/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js'
-        id='woocommerce-js'></script>
-<script type='text/javascript' id='wc-cart-fragments-js-extra'>
-    /* <![CDATA[ */
-    var wc_cart_fragments_params = {
-        "ajax_url": "\/wordpress\/bakery\/wp-admin\/admin-ajax.php",
-        "wc_ajax_url": "\/wordpress\/bakery\/?wc-ajax=%%endpoint%%",
-        "cart_hash_key": "wc_cart_hash_affd112d0875df899f894fefd5b5a652",
-        "fragment_name": "wc_fragments_affd112d0875df899f894fefd5b5a652",
-        "request_timeout": "5000"
-    };
-    /* ]]> */
-</script>
-<script type='text/javascript'
-        src='/assets/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js'
-        id='wc-cart-fragments-js'></script>
-<script type='text/javascript' id='bootstrap-js-extra'>
-    /* <![CDATA[ */
-    var noubakery_theme_params = {
-        "home_url": "http:\/\/warethemes.com\/wordpress\/bakery\/",
-        "ajax_url": "http:\/\/warethemes.com\/wordpress\/bakery\/wp-admin\/admin-ajax.php",
-        "ajax_nonce": "72ab4fdf92",
-        "menu_desktop_fixed": "yes",
-        "lazy_loading": "no",
-        "warning_text": "Warning!",
-        "success_text": "Success!",
-        "error_text": "Error!",
-        "email_empty_text": "Email is required. Please fill email field.",
-        "email_invalid_text": "Email is invalid.",
-        "notify_delay": "3000",
-        "map_marker": "http:\/\/warethemes.com\/wordpress\/bakery\/wp-content\/themes\/bakery\/assets\/images\/marker.png",
-        "map_api": "AIzaSyBQDEK_bp8E3TJz1Sg1VMqF7jn8J3Z7Haw",
-        "name_empty_text": "First name is required. Please fill this field.",
-        "required_empty_text": "Please fill all required fields.",
-        "content_empty_text": "Message is required. Please fill this field.",
-        "send_email_success_text": "Email has send successfully.",
-        "quick_order_success_text": "Thanks you, your order has been successfully.",
-        "quick_order_fail_text": "Order has failed, please contact administrator.",
-        "send_email_fail_text": "Email has send fail.",
-        "btn_contact_text": "Submit",
-        "btn_quick_order_text": "Order Bakery Now",
-        "btn_send_message_text": "Send Message",
-        "added_to_cart_text": "Product has been added to your cart.",
-        "compare_page_url": "http:\/\/warethemes.com\/wordpress\/bakery\/compare\/",
-        "wishlist_page_url": "http:\/\/warethemes.com\/wordpress\/bakery\/wishlist\/",
-        "date_time_format": "MM\/DD\/YYYY hh:mm",
-        "subscribe_popup_delay": "7000",
-        "single_enable_lightbox": "1",
-        "not_found_posts": "No posts were found matching your keyworks."
-    };
-    /* ]]> */
-</script>
-<script type='text/javascript'
-        src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/bootstrap/dist/js/bootstrap.min.js'
-        id='bootstrap-js'></script>
-<script type='text/javascript'
-        src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/owl-carousel/owl.carousel.min.js'
-        id='owl-carousel-js'></script>
-<script type='text/javascript' src='/assets/wp-content/themes/noucake/assets/js/bootstrap-notify.min.js'
-        id='bootstrap-notify-js'></script>
-<script type='text/javascript' src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/overflow-text.js'
-        id='overflow-text-js'></script>
-<script type='text/javascript'
-        src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/lightGallery-master/dist/js/lightgallery-all.min.js'
-        id='lightGallery-js'></script>
-<script type='text/javascript' src='/assets/wp-includes/js/imagesloaded.min.js' id='imagesloaded-js'></script>
-<script type='text/javascript' src='/assets/wp-includes/js/masonry.min.js' id='masonry-js'></script>
-<script type='text/javascript'
-        src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/jquery-bar-rating/dist/jquery.barrating.min.js'
-        id='jquery-bar-rating-js'></script>
-<script type='text/javascript'
-        src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/jquery-nice-select/js/jquery.nice-select.min.js'
-        id='jquery-nice-select-js'></script>
-<script type='text/javascript'
-        src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/Magnific-Popup/dist/jquery.magnific-popup.min.js'
-        id='Magnific-Popup-js'></script>
-<script type='text/javascript'
-        src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/noubakery-custom/noubakery-custom-ui.js'
-        id='noubakery-custom-UI-js'></script>
-<script type='text/javascript' src='/assets/wp-includes/js/dist/vendor/moment.min.js' id='moment-js'></script>
-<script type='text/javascript' id='moment-js-after'>
-    moment.updateLocale('en_US', {
-        "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-        "monthsShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        "weekdays": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "weekdaysShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-        "week": {"dow": 1},
-        "longDateFormat": {"LT": "g:i a", "LTS": null, "L": null, "LL": "F d, Y", "LLL": "F j, Y g:i a", "LLLL": null}
-    });
-</script>
-<script type='text/javascript'
-        src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'
-        id='bootstrap-datetimepicker-js'></script>
-<script type='text/javascript'
-        src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/slick/slick/slick.min.js'
-        id='slick-js'></script>
-<script type='text/javascript'
-        src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/lazy-loading-google-maps/jquery.lazy-load-google-maps.js'
-        id='noubakery-maps-js'></script>
-<script type='text/javascript'
-        src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/matchHeight/jquery.matchHeight.js'
-        id='matchHeight-js'></script>
-<script type='text/javascript' src='/assets/wp-includes/js/underscore.min.js' id='underscore-js'></script>
-<script type='text/javascript' id='wp-util-js-extra'>
-    /* <![CDATA[ */
-    var _wpUtilSettings = {"ajax": {"url": "\/wordpress\/bakery\/wp-admin\/admin-ajax.php"}};
-    /* ]]> */
-</script>
-<script type='text/javascript' src='/assets/wp-includes/js/wp-util.min.js' id='wp-util-js'></script>
-<script type='text/javascript' id='wc-add-to-cart-variation-js-extra'>
-    /* <![CDATA[ */
-    var wc_add_to_cart_variation_params = {
-        "wc_ajax_url": "\/wordpress\/bakery\/?wc-ajax=%%endpoint%%",
-        "i18n_no_matching_variations_text": "Sorry, no products matched your selection. Please choose a different combination.",
-        "i18n_make_a_selection_text": "Please select some product options before adding this product to your cart.",
-        "i18n_unavailable_text": "Sorry, this product is unavailable. Please choose a different combination."
-    };
-    /* ]]> */
-</script>
-<script type='text/javascript'
-        src='/assets/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.min.js'
-        id='wc-add-to-cart-variation-js'></script>
-<script type='text/javascript' src='/assets/wp-content/themes/noucake/assets/js/main.js' id='main-js'></script>
-<script type='text/javascript' src='/assets/wp-includes/js/jquery/ui/core.min.js' id='jquery-ui-core-js'></script>
-<script type='text/javascript' src='/assets/wp-includes/js/jquery/ui/mouse.min.js'
-        id='jquery-ui-mouse-js'></script>
-<script type='text/javascript' src='/assets/wp-includes/js/jquery/ui/slider.min.js'
-        id='jquery-ui-slider-js'></script>
-<script type='text/javascript'
-        src='/assets/wp-content/plugins/woocommerce/assets/js/jquery-ui-touch-punch/jquery-ui-touch-punch.min.js'
-        id='wc-jquery-ui-touchpunch-js'></script>
-<script type='text/javascript' src='/assets/wp-content/plugins/woocommerce-currency-switcher/js/price-slider_33.js'
-        id='wc-price-slider_33-js'></script>
-<script type='text/javascript'
-        src='/assets/wp-content/plugins/woocommerce-currency-switcher/js/jquery.ddslick.min.js'
-        id='jquery.ddslick.min-js'></script>
-<script type='text/javascript' src='/assets/wp-content/plugins/woocommerce-currency-switcher/js/front.js'
-        id='woocommerce-currency-switcher-js'></script>
-<script type='text/javascript' src='/assets/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'
-        id='wpb_composer_front_js-js'></script>
-<script type="text/javascript" id="rs-initialisation-scripts">
-    var tpj = jQuery;
-
-    var revapi14;
-
-    if (window.RS_MODULES === undefined) window.RS_MODULES = {};
-    if (RS_MODULES.modules === undefined) RS_MODULES.modules = {};
-    RS_MODULES.modules["revslider141"] = {
-        once: RS_MODULES.modules["revslider141"] !== undefined ? RS_MODULES.modules["revslider141"].once : undefined,
-        init: function () {
-            window.revapi14 = window.revapi14 === undefined || window.revapi14 === null || window.revapi14.length === 0 ? document.getElementById("rev_slider_14_1") : window.revapi14;
-            if (window.revapi14 === null || window.revapi14 === undefined || window.revapi14.length == 0) {
-                window.revapi14initTry = window.revapi14initTry === undefined ? 0 : window.revapi14initTry + 1;
-                if (window.revapi14initTry < 20) requestAnimationFrame(function () {
-                    RS_MODULES.modules["revslider141"].init()
-                });
-                return;
+        #rev_slider_14_1_wrapper .hermes .tp-bullet.selected:after {
+            height: 100%
+        }
+    </style>
+    <script type='text/javascript' src='/assets/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js'
+            id='js-cookie-js'></script>
+    <script type='text/javascript' id='woocommerce-js-extra'>
+        /* <![CDATA[ */
+        var woocommerce_params = {
+            "ajax_url": "\/wordpress\/bakery\/wp-admin\/admin-ajax.php",
+            "wc_ajax_url": "\/wordpress\/bakery\/?wc-ajax=%%endpoint%%"
+        };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='/assets/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js'
+            id='woocommerce-js'></script>
+    <script type='text/javascript' id='wc-cart-fragments-js-extra'>
+        /* <![CDATA[ */
+        var wc_cart_fragments_params = {
+            "ajax_url": "\/wordpress\/bakery\/wp-admin\/admin-ajax.php",
+            "wc_ajax_url": "\/wordpress\/bakery\/?wc-ajax=%%endpoint%%",
+            "cart_hash_key": "wc_cart_hash_affd112d0875df899f894fefd5b5a652",
+            "fragment_name": "wc_fragments_affd112d0875df899f894fefd5b5a652",
+            "request_timeout": "5000"
+        };
+        /* ]]> */
+    </script>
+    <script type='text/javascript'
+            src='/assets/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js'
+            id='wc-cart-fragments-js'></script>
+    <script type='text/javascript' id='bootstrap-js-extra'>
+        /* <![CDATA[ */
+        var noubakery_theme_params = {
+            "home_url": "http:\/\/warethemes.com\/wordpress\/bakery\/",
+            "ajax_url": "http:\/\/warethemes.com\/wordpress\/bakery\/wp-admin\/admin-ajax.php",
+            "ajax_nonce": "72ab4fdf92",
+            "menu_desktop_fixed": "yes",
+            "lazy_loading": "no",
+            "warning_text": "Warning!",
+            "success_text": "Success!",
+            "error_text": "Error!",
+            "email_empty_text": "Email is required. Please fill email field.",
+            "email_invalid_text": "Email is invalid.",
+            "notify_delay": "3000",
+            "map_marker": "http:\/\/warethemes.com\/wordpress\/bakery\/wp-content\/themes\/bakery\/assets\/images\/marker.png",
+            "map_api": "AIzaSyBQDEK_bp8E3TJz1Sg1VMqF7jn8J3Z7Haw",
+            "name_empty_text": "First name is required. Please fill this field.",
+            "required_empty_text": "Please fill all required fields.",
+            "content_empty_text": "Message is required. Please fill this field.",
+            "send_email_success_text": "Email has send successfully.",
+            "quick_order_success_text": "Thanks you, your order has been successfully.",
+            "quick_order_fail_text": "Order has failed, please contact administrator.",
+            "send_email_fail_text": "Email has send fail.",
+            "btn_contact_text": "Submit",
+            "btn_quick_order_text": "Order Bakery Now",
+            "btn_send_message_text": "Send Message",
+            "added_to_cart_text": "Product has been added to your cart.",
+            "compare_page_url": "http:\/\/warethemes.com\/wordpress\/bakery\/compare\/",
+            "wishlist_page_url": "http:\/\/warethemes.com\/wordpress\/bakery\/wishlist\/",
+            "date_time_format": "MM\/DD\/YYYY hh:mm",
+            "subscribe_popup_delay": "7000",
+            "single_enable_lightbox": "1",
+            "not_found_posts": "No posts were found matching your keyworks."
+        };
+        /* ]]> */
+    </script>
+    <script type='text/javascript'
+            src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/bootstrap/dist/js/bootstrap.min.js'
+            id='bootstrap-js'></script>
+    <script type='text/javascript'
+            src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/owl-carousel/owl.carousel.min.js'
+            id='owl-carousel-js'></script>
+    <script type='text/javascript' src='/assets/wp-content/themes/noucake/assets/js/bootstrap-notify.min.js'
+            id='bootstrap-notify-js'></script>
+    <script type='text/javascript' src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/overflow-text.js'
+            id='overflow-text-js'></script>
+    <script type='text/javascript'
+            src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/lightGallery-master/dist/js/lightgallery-all.min.js'
+            id='lightGallery-js'></script>
+    <script type='text/javascript' src='/assets/wp-includes/js/imagesloaded.min.js' id='imagesloaded-js'></script>
+    <script type='text/javascript' src='/assets/wp-includes/js/masonry.min.js' id='masonry-js'></script>
+    <script type='text/javascript'
+            src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/jquery-bar-rating/dist/jquery.barrating.min.js'
+            id='jquery-bar-rating-js'></script>
+    <script type='text/javascript'
+            src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/jquery-nice-select/js/jquery.nice-select.min.js'
+            id='jquery-nice-select-js'></script>
+    <script type='text/javascript'
+            src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/Magnific-Popup/dist/jquery.magnific-popup.min.js'
+            id='Magnific-Popup-js'></script>
+    <script type='text/javascript'
+            src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/noubakery-custom/noubakery-custom-ui.js'
+            id='noubakery-custom-UI-js'></script>
+    <script type='text/javascript' src='/assets/wp-includes/js/dist/vendor/moment.min.js' id='moment-js'></script>
+    <script type='text/javascript' id='moment-js-after'>
+        moment.updateLocale('en_US', {
+            "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            "monthsShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            "weekdays": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "weekdaysShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+            "week": {"dow": 1},
+            "longDateFormat": {
+                "LT": "g:i a",
+                "LTS": null,
+                "L": null,
+                "LL": "F d, Y",
+                "LLL": "F j, Y g:i a",
+                "LLLL": null
             }
-            window.revapi14 = jQuery(window.revapi14);
-            if (window.revapi14.revolution == undefined) {
-                revslider_showDoubleJqueryError("rev_slider_14_1");
-                return;
-            }
-            revapi14.revolutionInit({
-                revapi: "revapi14",
-                sliderLayout: "fullwidth",
-                duration: 5000,
-                visibilityLevels: "1240,1024,778,480",
-                gridwidth: "1240,1024,778,480",
-                gridheight: "650,768,960,720",
-                lazyType: "smart",
-                spinner: "spinner0",
-                perspectiveType: "local",
-                editorheight: "650,768,960,720",
-                responsiveLevels: "1240,1024,778,480",
-                progressBar: {disableProgressBar: true},
-                navigation: {
-                    mouseScrollNavigation: false,
-                    onHoverStop: false,
-                    touch: {
-                        touchenabled: true,
-                        touchOnDesktop: true
+        });
+    </script>
+    <script type='text/javascript'
+            src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'
+            id='bootstrap-datetimepicker-js'></script>
+    <script type='text/javascript'
+            src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/slick/slick/slick.min.js'
+            id='slick-js'></script>
+    <script type='text/javascript'
+            src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/lazy-loading-google-maps/jquery.lazy-load-google-maps.js'
+            id='noubakery-maps-js'></script>
+    <script type='text/javascript'
+            src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/matchHeight/jquery.matchHeight.js'
+            id='matchHeight-js'></script>
+    <script type='text/javascript' src='/assets/wp-includes/js/underscore.min.js' id='underscore-js'></script>
+    <script type='text/javascript' id='wp-util-js-extra'>
+        /* <![CDATA[ */
+        var _wpUtilSettings = {"ajax": {"url": "\/wordpress\/bakery\/wp-admin\/admin-ajax.php"}};
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='/assets/wp-includes/js/wp-util.min.js' id='wp-util-js'></script>
+    <script type='text/javascript' id='wc-add-to-cart-variation-js-extra'>
+        /* <![CDATA[ */
+        var wc_add_to_cart_variation_params = {
+            "wc_ajax_url": "\/wordpress\/bakery\/?wc-ajax=%%endpoint%%",
+            "i18n_no_matching_variations_text": "Sorry, no products matched your selection. Please choose a different combination.",
+            "i18n_make_a_selection_text": "Please select some product options before adding this product to your cart.",
+            "i18n_unavailable_text": "Sorry, this product is unavailable. Please choose a different combination."
+        };
+        /* ]]> */
+    </script>
+    <script type='text/javascript'
+            src='/assets/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.min.js'
+            id='wc-add-to-cart-variation-js'></script>
+    <script type='text/javascript' src='/assets/wp-content/themes/noucake/assets/js/main.js' id='main-js'></script>
+    <script type='text/javascript' src='/assets/wp-includes/js/jquery/ui/core.min.js' id='jquery-ui-core-js'></script>
+    <script type='text/javascript' src='/assets/wp-includes/js/jquery/ui/mouse.min.js'
+            id='jquery-ui-mouse-js'></script>
+    <script type='text/javascript' src='/assets/wp-includes/js/jquery/ui/slider.min.js'
+            id='jquery-ui-slider-js'></script>
+    <script type='text/javascript'
+            src='/assets/wp-content/plugins/woocommerce/assets/js/jquery-ui-touch-punch/jquery-ui-touch-punch.min.js'
+            id='wc-jquery-ui-touchpunch-js'></script>
+    <script type='text/javascript' src='/assets/wp-content/plugins/woocommerce-currency-switcher/js/price-slider_33.js'
+            id='wc-price-slider_33-js'></script>
+    <script type='text/javascript'
+            src='/assets/wp-content/plugins/woocommerce-currency-switcher/js/jquery.ddslick.min.js'
+            id='jquery.ddslick.min-js'></script>
+    <script type='text/javascript' src='/assets/wp-content/plugins/woocommerce-currency-switcher/js/front.js'
+            id='woocommerce-currency-switcher-js'></script>
+    <script type='text/javascript' src='/assets/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'
+            id='wpb_composer_front_js-js'></script>
+    <script type="text/javascript" id="rs-initialisation-scripts">
+        var tpj = jQuery;
+
+        var revapi14;
+
+        if (window.RS_MODULES === undefined) window.RS_MODULES = {};
+        if (RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+        RS_MODULES.modules["revslider141"] = {
+            once: RS_MODULES.modules["revslider141"] !== undefined ? RS_MODULES.modules["revslider141"].once : undefined,
+            init: function () {
+                window.revapi14 = window.revapi14 === undefined || window.revapi14 === null || window.revapi14.length === 0 ? document.getElementById("rev_slider_14_1") : window.revapi14;
+                if (window.revapi14 === null || window.revapi14 === undefined || window.revapi14.length == 0) {
+                    window.revapi14initTry = window.revapi14initTry === undefined ? 0 : window.revapi14initTry + 1;
+                    if (window.revapi14initTry < 20) requestAnimationFrame(function () {
+                        RS_MODULES.modules["revslider141"].init()
+                    });
+                    return;
+                }
+                window.revapi14 = jQuery(window.revapi14);
+                if (window.revapi14.revolution == undefined) {
+                    revslider_showDoubleJqueryError("rev_slider_14_1");
+                    return;
+                }
+                revapi14.revolutionInit({
+                    revapi: "revapi14",
+                    sliderLayout: "fullwidth",
+                    duration: 5000,
+                    visibilityLevels: "1240,1024,778,480",
+                    gridwidth: "1240,1024,778,480",
+                    gridheight: "650,768,960,720",
+                    lazyType: "smart",
+                    spinner: "spinner0",
+                    perspectiveType: "local",
+                    editorheight: "650,768,960,720",
+                    responsiveLevels: "1240,1024,778,480",
+                    progressBar: {disableProgressBar: true},
+                    navigation: {
+                        mouseScrollNavigation: false,
+                        onHoverStop: false,
+                        touch: {
+                            touchenabled: true,
+                            touchOnDesktop: true
+                        },
+                        bullets: {
+                            enable: true,
+                            tmp: "",
+                            style: "hermes",
+                            v_offset: 100,
+                            space: 10
+                        }
                     },
-                    bullets: {
-                        enable: true,
-                        tmp: "",
-                        style: "hermes",
-                        v_offset: 100,
-                        space: 10
-                    }
-                },
-                parallax: {
-                    levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 51, 55],
-                    type: "scroll",
-                    speed: 1200,
-                    disable_onmobile: true
-                },
-                viewPort: {
-                    global: true,
-                    globalDist: "-200px",
-                    enable: false,
-                    visible_area: "20%"
-                },
-                fallbacks: {
-                    allowHTML5AutoPlayOnAndroid: true
-                },
-            });
+                    parallax: {
+                        levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 51, 55],
+                        type: "scroll",
+                        speed: 1200,
+                        disable_onmobile: true
+                    },
+                    viewPort: {
+                        global: true,
+                        globalDist: "-200px",
+                        enable: false,
+                        visible_area: "20%"
+                    },
+                    fallbacks: {
+                        allowHTML5AutoPlayOnAndroid: true
+                    },
+                });
 
+            }
+        } // End of RevInitScript
+
+        if (window.RS_MODULES.checkMinimal !== undefined) {
+            window.RS_MODULES.checkMinimal();
         }
-    } // End of RevInitScript
-
-    if (window.RS_MODULES.checkMinimal !== undefined) {
-        window.RS_MODULES.checkMinimal();
-    }
-    ;
-</script>
+        ;
+    </script>
+</div>
 </body>
 </html>
 <!-- Cache Enabler by KeyCDN @ Fri, 23 Sep 2022 17:57:51 GMT (http-index.html.gz) -->
