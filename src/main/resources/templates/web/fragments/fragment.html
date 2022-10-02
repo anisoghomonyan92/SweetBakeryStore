@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html  html xmlns:th="http://www.thymeleaf.org/"lang="en">
+
+<body>
+<div th:fragment="headerImport">
+    <meta name='robots' content='max-image-preview:large'>
+    <link rel='dns-prefetch' href='/index.html'>
+    <link rel='dns-prefetch' href='//fonts.googleapis.com'>
+    <link rel='dns-prefetch' href='//s.w.org'>
+    <link rel="alternate" type="application/rss+xml" title="Noucake &raquo; Feed" href="../feed/index.htm">
+    <link rel="alternate" type="application/rss+xml" title="Noucake &raquo; Comments Feed" href="../comments/feed/index.htm">
+    <link rel='stylesheet' id='wp-block-library-css' href='/assets/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all'>
+    <link rel='stylesheet' id='wc-blocks-vendors-style-css' href='/assets/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css' type='text/css' media='all'>
+    <link rel='stylesheet' id='wc-blocks-style-css' href='/assets/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css' type='text/css' media='all'>
+</div>
+
+<div th:fragment="ourStoryImport">
+    <div class="ps-section row wpb_row vc_row-fluid ps-section ps-section--news pt-100 pb-100">
+        <div class="container">
+            <div class="wpb_column vc_column_container vc_col-sm-12">
+                <div class="vc_column-inner">
+                    <div class="wpb_wrapper">
+                        <div class="ps-section__header text-center">
+                            <h4 class="ps-section__top">Our Story</h4>
+                            <h3 class="ps-section__title ps-section__title--full">BLOG &amp; NEWS</h3></div>
+                        <div class="vc_row wpb_row vc_inner vc_row-fluid ps-section__content">
+                            <div class="wpb_column vc_column_container vc_col-sm-6">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="ps-new ps-new--large">
+                                            <img src="/images/2017/06/new-large-555x500.jpg" alt="">
+                                            <div class="ps-new__container">
+                                                <header class="ps-new__header">
+                                                    <p>by<a href="author/admin/index.htm"> NouThemes</a> / June 23, 2017
+                                                    </p>
+                                                    <a class="ps-new__title"
+                                                       href="2017/06/23/barbecue-party-tips-for-a-truly-amazing-event-9/index.htm">Barbecue
+                                                        Party Tips For A Truly Amazing Event</a>
+                                                </header>
+                                                <div class="ps-new__content">
+                                                    <p data-number-line="2">No matter how far along you are in your
+                                                        sophistication as an amateur astronomer, there ...</p>
+                                                    <a class="ps-btn ps-btn--sm"
+                                                       href="2017/06/23/barbecue-party-tips-for-a-truly-amazing-event-9/index.htm">Read
+                                                        more</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wpb_column vc_column_container vc_col-sm-6">
+                                <div class="vc_column-inner">
+                                    <div class="wpb_wrapper">
+                                        <div class="ps-new ">
+                                            <img src="/images/2017/06/new-small-1-555x235.jpg" alt="">
+                                            <div class="ps-new__container">
+                                                <header class="ps-new__header">
+                                                    <p>by<a href="author/admin/index.htm"> NouThemes</a> / February 23,
+                                                        2017</p>
+                                                    <a class="ps-new__title"
+                                                       href="2017/02/23/barbecue-party-tips-for-a-truly-amazing-event-8/index.htm">Where
+                                                        I Learning Cook Cupcakes ?</a>
+                                                </header>
+                                                <div class="ps-new__content">
+                                                    <p data-number-line="2">No matter how far along you are in your
+                                                        sophistication as an amateur astronomer, there ...</p>
+                                                    <a class="ps-btn ps-btn--sm"
+                                                       href="2017/02/23/barbecue-party-tips-for-a-truly-amazing-event-8/index.htm">Read
+                                                        more</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ps-new ">
+                                            <img src="/images/2017/06/new-small-2-555x235.jpg" alt="">
+                                            <div class="ps-new__container">
+                                                <header class="ps-new__header">
+                                                    <p>by<a href="author/admin/index.htm"> NouThemes</a> / June 22, 2017
+                                                    </p>
+                                                    <a class="ps-new__title"
+                                                       href="2017/06/22/barbecue-party-tips-for-a-truly-amazing-event-5/index.htm">Where
+                                                        I Learning Cook Cupcakes ?</a>
+                                                </header>
+                                                <div class="ps-new__content">
+                                                    <p data-number-line="2">No matter how far along you are in your
+                                                        sophistication as an amateur astronomer, there ...</p>
+                                                    <a class="ps-btn ps-btn--sm"
+                                                       href="2017/06/22/barbecue-party-tips-for-a-truly-amazing-event-5/index.htm">Read
+                                                        more</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="contactUsImport">
+
+    <div class="ps-section row wpb_row vc_row-fluid">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+            <div class="vc_column-inner">
+                <div class="wpb_wrapper">
+                    <div class="ps-section ps-section--partner">
+                        <div class="container">
+                            <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="10000"
+                                 data-owl-gap="40" data-owl-nav="false" data-owl-dots="false" data-owl-animate-in=""
+                                 data-owl-animate-out="" data-owl-item="6" data-owl-item-xs="3" data-owl-item-sm="4"
+                                 data-owl-item-md="5" data-owl-item-lg="6"
+                                 data-owl-nav-left="&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;"
+                                 data-owl-nav-right="&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;">
+                                <a class="panel-partner-item" href="" target="_blank">
+                                    <img src="/images/2017/06/2-157x157.png" class="" alt="home page"> </a>
+                                <a class="panel-partner-item" href="" target="_blank">
+                                    <img src="/images/2017/06/1-157x157.png" class="" alt="home page"> </a>
+                                <a class="panel-partner-item" href="" target="_blank">
+                                    <img src="/images/2017/06/2-157x157.png" class="" alt="home page"> </a>
+                                <a class="panel-partner-item" href="" target="_blank">
+                                    <img src="/images/2017/06/3-157x157.png" class="" alt="home page"> </a>
+                                <a class="panel-partner-item" href="" target="_blank">
+                                    <img src="/images/2017/06/4-157x157.png" class="" alt="home page"> </a>
+                                <a class="panel-partner-item" href="" target="_blank">
+                                    <img src="/images/2017/06/5-157x157.png" class="" alt="home page"> </a>
+                                <a class="panel-partner-item" href="" target="_blank">
+                                    <img src="/images/2017/06/3-157x157.png" class="" alt="home page"> </a>
+                                <a class="panel-partner-item" href="" target="_blank">
+                                    <img src="/images/2017/06/6-157x157.png" class="" alt="home page"> </a>
+                            </div>
+                        </div>
+                    </div><!--/.panel-partner-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ps-section row wpb_row vc_row-fluid row-remove-padding">
+        <div class="wpb_column vc_column_container vc_col-sm-12">
+            <div class="vc_column-inner">
+                <div class="wpb_wrapper">
+                    <section class="ps-section ps-section--map">
+                        <div id="contact-map" data-type="coordinates" data-lat="40.74241242338376"
+                             data-lng="-74.00412082672119" data-address="92 9th Ave, New York" data-zoom="17"></div>
+
+                        <div class="ps-delivery">
+                            <div class="ps-delivery__header">
+                                <h3>Contact Us</h3>
+                                <p>Our Company is the best, meet the creative team that never sleeps. Say something to
+                                    us we will answer to you.</p>
+                            </div>
+                            <div class="ps-delivery__content">
+                                <form class="ps-delivery__form" action="http://warethemes.com/wordpress/bakery/"
+                                      method="post">
+                                    <div class="form-group">
+                                        <label>Name<span>*</span></label>
+                                        <input class="form-control" type="text" name="name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email<span>*</span></label>
+                                        <input class="form-control" type="email" name="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Phone Number<span>*</span></label>
+                                        <input class="form-control" type="text" name="phone">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Your message<span>*</span></label>
+                                        <textarea class="form-control" name="content"></textarea>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <button class="ps-btn noubakery-contact__submit">Send Message<i
+                                                class="fa fa-angle-right"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div><!--End .page-wrap-->
+
+
+<div th:fragment="aboutUs">
+<div id="back2top"><i class="fa fa-angle-up"></i></div>
+<div class="loader"></div>
+<section class="ps-section ps-section--subscribe pt-80 pb-80">
+    <div class="container">
+        <div class="ps-subscribe">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 ">
+                    <h4>ABOUT US</h4>
+                    <p>Te pri oblique ullamcorper, magna persequeris has eu. Mei prompta dolores examad debet suavitate.
+                        Pri te vocibus electram. Eu eleifend rationibus vis, at.</p>
+                    <p class="text-uppercase ps-subscribe__highlight">240 CENTRAL PARK, LONDON, OR 10019</p>
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 ">
+                    <a class="ps-subscribe__logo" href="index.html">
+                        <img src="/assets/wp-content2/themes/bakery/assets/images/logo-1.png" alt="Noucake">
+                    </a>
+                </div>
+
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 ">
+                    <h4>SUBSCRIBE EMAIL</h4>
+                    <p>Te pri oblique ullamcorper, magna persequeris has eu. Mei prompta dolores examad debet suavitate.
+                        Pri te vocibus electram. Eu eleifend rationibus vis, at.</p>
+                    <form class="ps-subscribe__form" method="post"
+                          action="http://warethemes.com/wordpress/bakery/?na=s">
+                        <input class="form-control" type="text" placeholder="Type your email..." name="ne">
+                        <button class="ps-btn ps-btn--sm">Subscribe</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+    </div>
+<div th:fragment="footerImport">
+<footer class="ps-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="ps-widget ps-widget--footer widget noubakery_theme_widget_payment_img-2 ps-widget--payment">
+                    <h3 class="ps-widget__title">PAYMENTS ACCEPTED</h3>
+                    <ul>
+                        <li><a href="/images/2017/06/thanhtoan.png"><img src="/images/2017/06/thanhtoan.png"
+                                                                         alt="PAYMENTS ACCEPTED"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="ps-widget ps-widget--footer widget noubakery_theme_widget_worktime-2 ps-widget--worktime">
+                    <h3 class="ps-widget__title">WORK TIME</h3>
+                    <p><strong>Monday - Friday</strong> 8:00 am - 8:30 pm</p>
+                    <p><strong>Satuday - Sunday</strong>10:00 am - 16:32 pm</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="ps-widget ps-widget--footer widget nav_menu-2 widget_nav_menu"><h3 class="ps-widget__title">
+                    ORDERS AND RETURNS</h3>
+                    <ul id="menu-orders-and-returns" class="ps-list--line">
+                        <li id="menu-item-455"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-455"><a href="#">Order</a>
+                        </li>
+                        <li id="menu-item-456"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-456"><a href="#">Shipping</a>
+                        </li>
+                        <li id="menu-item-457"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-457"><a href="#">Policy
+                            Return Policy</a></li>
+                        <li id="menu-item-458"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-458"><a href="#">Payments</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="ps-widget ps-widget--footer widget noubakery_theme_widget_social-2 ps-widget--connect"><h3
+                        class="ps-widget__title">CONNECT US</h3>
+                    <ul class="ps-widget__social">
+                        <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                    <div class="footer-copyright"><p>© 2017 Design by<a href="#"> Alena Studio</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</div>
+
+
+</body>
+</html>
