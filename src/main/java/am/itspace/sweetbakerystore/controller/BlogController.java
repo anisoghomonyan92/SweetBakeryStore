@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class BlogController {
-    @GetMapping(value = "/blog/index.htm")
+    @GetMapping(value = "/blog")
     public String blog() {
-        return "web/blog/index.htm";
+        return "web/blog/index";
     }
 }

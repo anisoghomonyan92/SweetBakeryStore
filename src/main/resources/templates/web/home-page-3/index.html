@@ -7,608 +7,13 @@
     <meta name="format-detection" content="telephone=no">
     <title>Home page #3 &#8211; Noucake</title>
 
-    <div th:insert="/fragments/fragment.html::headerImport"></div>
+    <th:block th:insert="web/fragments/fragment.html::headerImport"></th:block>
+    <th:block th:insert="web/fragments/fragment.html::global-styles-inline-css"></th:block>
+    <th:block th:insert="web/fragments/fragment.html::js-css"></th:block>
 
-    <style id='global-styles-inline-css' type='text/css'>
-        body {
-            --wp--preset--color--black: #000000;
-            --wp--preset--color--cyan-bluish-gray: #abb8c3;
-            --wp--preset--color--white: #ffffff;
-            --wp--preset--color--pale-pink: #f78da7;
-            --wp--preset--color--vivid-red: #cf2e2e;
-            --wp--preset--color--luminous-vivid-orange: #ff6900;
-            --wp--preset--color--luminous-vivid-amber: #fcb900;
-            --wp--preset--color--light-green-cyan: #7bdcb5;
-            --wp--preset--color--vivid-green-cyan: #00d084;
-            --wp--preset--color--pale-cyan-blue: #8ed1fc;
-            --wp--preset--color--vivid-cyan-blue: #0693e3;
-            --wp--preset--color--vivid-purple: #9b51e0;
-            --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
-            --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
-            --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
-            --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
-            --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
-            --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
-            --wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
-            --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
-            --wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
-            --wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
-            --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
-            --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
-            --wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');
-            --wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');
-            --wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');
-            --wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');
-            --wp--preset--duotone--midnight: url('#wp-duotone-midnight');
-            --wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');
-            --wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');
-            --wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');
-            --wp--preset--font-size--small: 13px;
-            --wp--preset--font-size--medium: 20px;
-            --wp--preset--font-size--large: 36px;
-            --wp--preset--font-size--x-large: 42px;
-        }
-
-        .has-black-color {
-            color: var(--wp--preset--color--black) !important;
-        }
-
-        .has-cyan-bluish-gray-color {
-            color: var(--wp--preset--color--cyan-bluish-gray) !important;
-        }
-
-        .has-white-color {
-            color: var(--wp--preset--color--white) !important;
-        }
-
-        .has-pale-pink-color {
-            color: var(--wp--preset--color--pale-pink) !important;
-        }
-
-        .has-vivid-red-color {
-            color: var(--wp--preset--color--vivid-red) !important;
-        }
-
-        .has-luminous-vivid-orange-color {
-            color: var(--wp--preset--color--luminous-vivid-orange) !important;
-        }
-
-        .has-luminous-vivid-amber-color {
-            color: var(--wp--preset--color--luminous-vivid-amber) !important;
-        }
-
-        .has-light-green-cyan-color {
-            color: var(--wp--preset--color--light-green-cyan) !important;
-        }
-
-        .has-vivid-green-cyan-color {
-            color: var(--wp--preset--color--vivid-green-cyan) !important;
-        }
-
-        .has-pale-cyan-blue-color {
-            color: var(--wp--preset--color--pale-cyan-blue) !important;
-        }
-
-        .has-vivid-cyan-blue-color {
-            color: var(--wp--preset--color--vivid-cyan-blue) !important;
-        }
-
-        .has-vivid-purple-color {
-            color: var(--wp--preset--color--vivid-purple) !important;
-        }
-
-        .has-black-background-color {
-            background-color: var(--wp--preset--color--black) !important;
-        }
-
-        .has-cyan-bluish-gray-background-color {
-            background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
-        }
-
-        .has-white-background-color {
-            background-color: var(--wp--preset--color--white) !important;
-        }
-
-        .has-pale-pink-background-color {
-            background-color: var(--wp--preset--color--pale-pink) !important;
-        }
-
-        .has-vivid-red-background-color {
-            background-color: var(--wp--preset--color--vivid-red) !important;
-        }
-
-        .has-luminous-vivid-orange-background-color {
-            background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
-        }
-
-        .has-luminous-vivid-amber-background-color {
-            background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
-        }
-
-        .has-light-green-cyan-background-color {
-            background-color: var(--wp--preset--color--light-green-cyan) !important;
-        }
-
-        .has-vivid-green-cyan-background-color {
-            background-color: var(--wp--preset--color--vivid-green-cyan) !important;
-        }
-
-        .has-pale-cyan-blue-background-color {
-            background-color: var(--wp--preset--color--pale-cyan-blue) !important;
-        }
-
-        .has-vivid-cyan-blue-background-color {
-            background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
-        }
-
-        .has-vivid-purple-background-color {
-            background-color: var(--wp--preset--color--vivid-purple) !important;
-        }
-
-        .has-black-border-color {
-            border-color: var(--wp--preset--color--black) !important;
-        }
-
-        .has-cyan-bluish-gray-border-color {
-            border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
-        }
-
-        .has-white-border-color {
-            border-color: var(--wp--preset--color--white) !important;
-        }
-
-        .has-pale-pink-border-color {
-            border-color: var(--wp--preset--color--pale-pink) !important;
-        }
-
-        .has-vivid-red-border-color {
-            border-color: var(--wp--preset--color--vivid-red) !important;
-        }
-
-        .has-luminous-vivid-orange-border-color {
-            border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
-        }
-
-        .has-luminous-vivid-amber-border-color {
-            border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
-        }
-
-        .has-light-green-cyan-border-color {
-            border-color: var(--wp--preset--color--light-green-cyan) !important;
-        }
-
-        .has-vivid-green-cyan-border-color {
-            border-color: var(--wp--preset--color--vivid-green-cyan) !important;
-        }
-
-        .has-pale-cyan-blue-border-color {
-            border-color: var(--wp--preset--color--pale-cyan-blue) !important;
-        }
-
-        .has-vivid-cyan-blue-border-color {
-            border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
-        }
-
-        .has-vivid-purple-border-color {
-            border-color: var(--wp--preset--color--vivid-purple) !important;
-        }
-
-        .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
-            background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
-        }
-
-        .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
-            background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
-        }
-
-        .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
-            background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
-        }
-
-        .has-luminous-vivid-orange-to-vivid-red-gradient-background {
-            background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
-        }
-
-        .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
-            background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
-        }
-
-        .has-cool-to-warm-spectrum-gradient-background {
-            background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
-        }
-
-        .has-blush-light-purple-gradient-background {
-            background: var(--wp--preset--gradient--blush-light-purple) !important;
-        }
-
-        .has-blush-bordeaux-gradient-background {
-            background: var(--wp--preset--gradient--blush-bordeaux) !important;
-        }
-
-        .has-luminous-dusk-gradient-background {
-            background: var(--wp--preset--gradient--luminous-dusk) !important;
-        }
-
-        .has-pale-ocean-gradient-background {
-            background: var(--wp--preset--gradient--pale-ocean) !important;
-        }
-
-        .has-electric-grass-gradient-background {
-            background: var(--wp--preset--gradient--electric-grass) !important;
-        }
-
-        .has-midnight-gradient-background {
-            background: var(--wp--preset--gradient--midnight) !important;
-        }
-
-        .has-small-font-size {
-            font-size: var(--wp--preset--font-size--small) !important;
-        }
-
-        .has-medium-font-size {
-            font-size: var(--wp--preset--font-size--medium) !important;
-        }
-
-        .has-large-font-size {
-            font-size: var(--wp--preset--font-size--large) !important;
-        }
-
-        .has-x-large-font-size {
-            font-size: var(--wp--preset--font-size--x-large) !important;
-        }
-    </style>
-    <link rel='stylesheet' id='woocommerce-smallscreen-css'
-          href='/assets/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css' type='text/css'
-          media='only screen and (max-width: 768px)'>
-    <style id='woocommerce-inline-inline-css' type='text/css'>
-        .woocommerce form .form-row .required {
-            visibility: visible;
-        }
-    </style>
-    <link rel='stylesheet' id='newsletter-css' href='/assets/wp-content/plugins/newsletter/style.css' type='text/css'
-          media='all'>
-    <link rel='stylesheet' id='js_composer_front-css'
-          href='/assets/wp-content/plugins/js_composer/assets/css/js_composer.min.css' type='text/css' media='all'>
-    <link rel='stylesheet' id='noubakery-custom-fonts-css'
-          href="/css?family=Libre+Baskerville%3A400%2C400i%2C700%7CPacifico%7CVarela+Round%7CPoppins&#038;ver=2.0.17"
-          type='text/css' media='all'>
-    <link rel='stylesheet' id='font-awesome-css'
-          href='/assets/wp-content/plugins/bakery-helpers/assets/plugins/font-awesome/css/font-awesome.min.css'
-          type='text/css' media='all'>
-    <link rel='stylesheet' id='jquery-bar-rating-css'
-          href='/assets/wp-content/plugins/bakery-helpers/assets/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css'
-          type='text/css' media='all'>
-    <link rel='stylesheet' id='ps-icon-css'
-          href='/assets/wp-content/plugins/bakery-helpers/assets/plugins/ps-icon/ps-icon.css' type='text/css'
-          media='all'>
-    <link rel='stylesheet' id='bootstrap-css'
-          href='/assets/wp-content/plugins/bakery-helpers/assets/plugins/bootstrap/dist/css/bootstrap.min.css'
-          type='text/css' media='all'>
-    <link rel='stylesheet' id='owl-carousel-css'
-          href='/assets/wp-content/plugins/bakery-helpers/assets/plugins/owl-carousel/assets/owl.carousel.css'
-          type='text/css' media='all'>
-    <link rel='stylesheet' id='Magnific-Popup-css'
-          href='/assets/wp-content/plugins/bakery-helpers/assets/plugins/Magnific-Popup/dist/magnific-popup.css'
-          type='text/css' media='all'>
-    <link rel='stylesheet' id='bootstrap-datetimepicker-css'
-          href='/assets/wp-content/plugins/bakery-helpers/assets/plugins/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css'
-          type='text/css' media='all'>
-    <link rel='stylesheet' id='slick-css'
-          href='/assets/wp-content/plugins/bakery-helpers/assets/plugins/slick/slick/slick.css' type='text/css'
-          media='all'>
-    <link rel='stylesheet' id='animate-css'
-          href='/assets/wp-content/plugins/bakery-helpers/assets/plugins/animate.css/animate.min.css' type='text/css'
-          media='all'>
-    <link rel='stylesheet' id='lightGallery-css'
-          href='/assets/wp-content/plugins/bakery-helpers/assets/plugins/lightGallery-master/dist/css/lightgallery.min.css'
-          type='text/css' media='all'>
-    <link rel='stylesheet' id='noubakery-style-css' href='/assets/wp-content/themes/noucake/assets/css/style.css'
-          type='text/css' media='all'>
-    <link rel='stylesheet' id='noubakery-main-css' href='/assets/wp-content/themes/noucake/style.css' type='text/css'
-          media='all'>
-    <script type="text/template" id="tmpl-variation-template">
-        <div class="woocommerce-variation-description">{{{ data.variation.variation_description }}}</div>
-        <div class="woocommerce-variation-price">{{{ data.variation.price_html }}}</div>
-        <div class="woocommerce-variation-availability">{{{ data.variation.availability_html }}}</div>
-    </script>
-    <script type="text/template" id="tmpl-unavailable-variation-template">
-        <p>Sorry, this product is unavailable. Please choose a different combination.</p>
-    </script>
-    <script type='text/javascript' id='jquery-core-js-extra'>
-        /* <![CDATA[ */
-        var woocommerce_price_slider_params = {
-            "currency_format_num_decimals": "0",
-            "currency_format_symbol": "\u00a3",
-            "currency_format_decimal_sep": ".",
-            "currency_format_thousand_sep": ",",
-            "currency_format": "%s%v"
-        };
-        /* ]]> */
-    </script>
-    <script type='text/javascript' src='/assets/wp-includes/js/jquery/jquery.min.js' id='jquery-core-js'></script>
-    <script type='text/javascript' src='/assets/wp-includes/js/jquery/jquery-migrate.min.js'
-            id='jquery-migrate-js'></script>
-    <script type='text/javascript' src='/assets/wp-content/plugins/revslider/public/assets/js/rbtools.min.js' defer=""
-            async="" id='tp-tools-js'></script>
-    <script type='text/javascript' src='/assets/wp-content/plugins/revslider/public/assets/js/rs6.min.js' defer=""
-            async="" id='revmin-js'></script>
-    <script type='text/javascript'
-            src='/assets/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js'
-            id='jquery-blockui-js'></script>
-    <script type='text/javascript' id='wc-add-to-cart-js-extra'>
-        /* <![CDATA[ */
-        var wc_add_to_cart_params = {
-            "ajax_url": "\/wordpress\/bakery\/wp-admin\/admin-ajax.php",
-            "wc_ajax_url": "\/wordpress\/bakery\/?wc-ajax=%%endpoint%%",
-            "i18n_view_cart": "View cart",
-            "cart_url": "http:\/\/warethemes.com\/wordpress\/bakery\/cart\/",
-            "is_cart": "",
-            "cart_redirect_after_add": "no"
-        };
-        /* ]]> */
-    </script>
-    <script type='text/javascript' src='/assets/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js'
-            id='wc-add-to-cart-js'></script>
-    <script type='text/javascript'
-            src='/assets/wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart.js'
-            id='vc_woocommerce-add-to-cart-js-js'></script>
-    <!--[if lt IE 9]>
-    <script type='text/javascript'
-            src='https://d2t7yabstfp7fz.cloudfront.net/assets/wp-content/themes/noucake/assets/js/html5shiv.js'
-            id='html5shiv-js'></script>
-    <![endif]-->
-    <!--[if lt IE 9]>
-    <script type='text/javascript'
-            src='https://d2t7yabstfp7fz.cloudfront.net/assets/wp-content/themes/noucake/assets/js/respond.min.js'
-            id='html5-respond-js'></script>
-    <![endif]-->
-    <link rel="https://api.w.org/" href="http://warethemes.com/wordpress/bakery/wp-json/">
-    <link rel="alternate" type="application/json" href="http://warethemes.com/wordpress/bakery/wp-json/wp/v2/pages/417">
-    <link rel="canonical" href="index.htm">
-    <link rel='shortlink' href='index.htm?p=417'>
-    <link rel="alternate" type="application/json+oembed"
-          href="http://warethemes.com/wordpress/bakery/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwarethemes.com%2Fwordpress%2Fbakery%2Fhome-page-3%2F">
-    <link rel="alternate" type="text/xml+oembed"
-          href="http://warethemes.com/wordpress/bakery/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwarethemes.com%2Fwordpress%2Fbakery%2Fhome-page-3%2F&format=xml">
-    <noscript>
-        <style>.woocommerce-product-gallery {
-            opacity: 1 !important;
-        }</style>
-    </noscript>
-    <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress.">
-    <meta name="generator"
-          content="Powered by Slider Revolution 6.5.9 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
-    <link rel="icon" href="/images/2017/06/favicon.png" sizes="32x32">
-    <link rel="icon" href="/images/2017/06/favicon.png" sizes="192x192">
-    <link rel="apple-touch-icon" href="/images/2017/06/favicon.png">
-    <meta name="msapplication-TileImage" content="https://d2t7yabstfp7fz.cloudfront.net/2017/06/favicon.png">
-    <script type="text/javascript">function setREVStartSize(e) {
-        //window.requestAnimationFrame(function() {
-        window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
-        window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
-        try {
-            var pw = document.getElementById(e.c).parentNode.offsetWidth,
-                newh;
-            pw = pw === 0 || isNaN(pw) ? window.RSIW : pw;
-            e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
-            e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
-            e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
-            e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
-            e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
-            e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
-            e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
-            if (e.layout === "fullscreen" || e.l === "fullscreen")
-                newh = Math.max(e.mh, window.RSIH);
-            else {
-                e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
-                for (var i in e.rl) if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
-                e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
-                e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
-                for (var i in e.rl) if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
-
-                var nl = new Array(e.rl.length),
-                    ix = 0,
-                    sl;
-                e.tabw = e.tabhide >= pw ? 0 : e.tabw;
-                e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
-                e.tabh = e.tabhide >= pw ? 0 : e.tabh;
-                e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
-                for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
-                sl = nl[0];
-                for (var i in nl) if (sl > nl[i] && nl[i] > 0) {
-                    sl = nl[i];
-                    ix = i;
-                }
-                var m = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw - (e.tabw + e.thumbw)) / (e.gw[ix]);
-                newh = (e.gh[ix] * m) + (e.tabh + e.thumbh);
-            }
-            var el = document.getElementById(e.c);
-            if (el !== null && el) el.style.height = newh + "px";
-            el = document.getElementById(e.c + "_wrapper");
-            if (el !== null && el) {
-                el.style.height = newh + "px";
-                el.style.display = "block";
-            }
-        } catch (e) {
-            console.log("Failure at Presize of Slider:" + e)
-        }
-        //});
-    };</script>
-    <script>
-        var woocs_is_mobile = 0;
-        var woocs_special_ajax_mode = 0;
-        var woocs_drop_down_view = "ddslick";
-        var woocs_current_currency = {
-            "name": "EUR",
-            "rate": 0.83284750562172,
-            "symbol": "&pound;",
-            "position": "left",
-            "is_etalon": 0,
-            "hide_cents": 0,
-            "hide_on_front": 0,
-            "rate_plus": 0,
-            "decimals": 2,
-            "description": "European Euro",
-            "flag": "http:\/\/warethemes.com\/wordpress\/bakery\/wp-content\/plugins\/woocommerce-currency-switcher\/img\/no_flag.png"
-        };
-        var woocs_default_currency = {
-            "name": "USD",
-            "rate": 1,
-            "symbol": "&#36;",
-            "position": "left",
-            "is_etalon": 1,
-            "hide_cents": 0,
-            "hide_on_front": 0,
-            "rate_plus": 0,
-            "decimals": 2,
-            "description": "USA dollar",
-            "flag": "http:\/\/warethemes.com\/wordpress\/bakery\/wp-content\/plugins\/woocommerce-currency-switcher\/img\/no_flag.png"
-        };
-        var woocs_redraw_cart = 1;
-        var woocs_array_of_get = '{}';
-        woocs_array_of_get = '{"add-to-cart":"195"}';
-
-        woocs_array_no_cents = '["JPY","TWD"]';
-
-        var woocs_ajaxurl = "http://warethemes.com/wordpress/bakery/wp-admin/admin-ajax.php";
-        var woocs_lang_loading = "loading";
-        var woocs_shop_is_cached = 0;
-    </script>
-    <noscript>
-        <style> .wpb_animate_when_almost_visible {
-            opacity: 1;
-        }</style>
-    </noscript>
 </head>
 <body class="page-template page-template-page-templates page-template-full-width page-template-page-templatesfull-width-php page page-id-417 theme-noucake woocommerce-no-js page-init wpb-js-composer js-comp-ver-6.8.0 vc_responsive currency-eur">
-<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-     style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-    <defs>
-        <filter id="wp-duotone-dark-grayscale">
-            <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
-                           values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix>
-            <fecomponenttransfer color-interpolation-filters="sRGB">
-                <fefuncr type="table" tablevalues="0 0.49803921568627"></fefuncr>
-                <fefuncg type="table" tablevalues="0 0.49803921568627"></fefuncg>
-                <fefuncb type="table" tablevalues="0 0.49803921568627"></fefuncb>
-                <fefunca type="table" tablevalues="1 1"></fefunca>
-            </fecomponenttransfer>
-            <fecomposite in2="SourceGraphic" operator="in"></fecomposite>
-        </filter>
-    </defs>
-</svg>
-<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-     style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-    <defs>
-        <filter id="wp-duotone-grayscale">
-            <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
-                           values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix>
-            <fecomponenttransfer color-interpolation-filters="sRGB">
-                <fefuncr type="table" tablevalues="0 1"></fefuncr>
-                <fefuncg type="table" tablevalues="0 1"></fefuncg>
-                <fefuncb type="table" tablevalues="0 1"></fefuncb>
-                <fefunca type="table" tablevalues="1 1"></fefunca>
-            </fecomponenttransfer>
-            <fecomposite in2="SourceGraphic" operator="in"></fecomposite>
-        </filter>
-    </defs>
-</svg>
-<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-     style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-    <defs>
-        <filter id="wp-duotone-purple-yellow">
-            <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
-                           values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix>
-            <fecomponenttransfer color-interpolation-filters="sRGB">
-                <fefuncr type="table" tablevalues="0.54901960784314 0.98823529411765"></fefuncr>
-                <fefuncg type="table" tablevalues="0 1"></fefuncg>
-                <fefuncb type="table" tablevalues="0.71764705882353 0.25490196078431"></fefuncb>
-                <fefunca type="table" tablevalues="1 1"></fefunca>
-            </fecomponenttransfer>
-            <fecomposite in2="SourceGraphic" operator="in"></fecomposite>
-        </filter>
-    </defs>
-</svg>
-<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-     style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-    <defs>
-        <filter id="wp-duotone-blue-red">
-            <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
-                           values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix>
-            <fecomponenttransfer color-interpolation-filters="sRGB">
-                <fefuncr type="table" tablevalues="0 1"></fefuncr>
-                <fefuncg type="table" tablevalues="0 0.27843137254902"></fefuncg>
-                <fefuncb type="table" tablevalues="0.5921568627451 0.27843137254902"></fefuncb>
-                <fefunca type="table" tablevalues="1 1"></fefunca>
-            </fecomponenttransfer>
-            <fecomposite in2="SourceGraphic" operator="in"></fecomposite>
-        </filter>
-    </defs>
-</svg>
-<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-     style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-    <defs>
-        <filter id="wp-duotone-midnight">
-            <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
-                           values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix>
-            <fecomponenttransfer color-interpolation-filters="sRGB">
-                <fefuncr type="table" tablevalues="0 0"></fefuncr>
-                <fefuncg type="table" tablevalues="0 0.64705882352941"></fefuncg>
-                <fefuncb type="table" tablevalues="0 1"></fefuncb>
-                <fefunca type="table" tablevalues="1 1"></fefunca>
-            </fecomponenttransfer>
-            <fecomposite in2="SourceGraphic" operator="in"></fecomposite>
-        </filter>
-    </defs>
-</svg>
-<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-     style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-    <defs>
-        <filter id="wp-duotone-magenta-yellow">
-            <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
-                           values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix>
-            <fecomponenttransfer color-interpolation-filters="sRGB">
-                <fefuncr type="table" tablevalues="0.78039215686275 1"></fefuncr>
-                <fefuncg type="table" tablevalues="0 0.94901960784314"></fefuncg>
-                <fefuncb type="table" tablevalues="0.35294117647059 0.47058823529412"></fefuncb>
-                <fefunca type="table" tablevalues="1 1"></fefunca>
-            </fecomponenttransfer>
-            <fecomposite in2="SourceGraphic" operator="in"></fecomposite>
-        </filter>
-    </defs>
-</svg>
-<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-     style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-    <defs>
-        <filter id="wp-duotone-purple-green">
-            <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
-                           values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix>
-            <fecomponenttransfer color-interpolation-filters="sRGB">
-                <fefuncr type="table" tablevalues="0.65098039215686 0.40392156862745"></fefuncr>
-                <fefuncg type="table" tablevalues="0 1"></fefuncg>
-                <fefuncb type="table" tablevalues="0.44705882352941 0.4"></fefuncb>
-                <fefunca type="table" tablevalues="1 1"></fefunca>
-            </fecomponenttransfer>
-            <fecomposite in2="SourceGraphic" operator="in"></fecomposite>
-        </filter>
-    </defs>
-</svg>
-<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none"
-     style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-    <defs>
-        <filter id="wp-duotone-blue-orange">
-            <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
-                           values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix>
-            <fecomponenttransfer color-interpolation-filters="sRGB">
-                <fefuncr type="table" tablevalues="0.098039215686275 1"></fefuncr>
-                <fefuncg type="table" tablevalues="0 0.66274509803922"></fefuncg>
-                <fefuncb type="table" tablevalues="0.84705882352941 0.41960784313725"></fefuncb>
-                <fefunca type="table" tablevalues="1 1"></fefunca>
-            </fecomponenttransfer>
-            <fecomposite in2="SourceGraphic" operator="in"></fecomposite>
-        </filter>
-    </defs>
-</svg>
+<th:block th:insert="web/fragments/fragment.html::table"></th:block>
 <div class="ps-searchbox">
     <div class="ps-searchbox__remove"><i class="fa fa-remove"></i></div>
     <div class="container">
@@ -628,166 +33,28 @@
 </div>
 <div class="header--sidebar"></div>
 <header class="header header--2" data-responsive="1199">
-    <div class="header__top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12 ">
-                    <p>460 West 34th Street, 15th floor, New York - Hotline: 804-377-3580 - 804-399-3580</p>
-                </div>
-                <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">
-                    <a class="ps-search-btn" href="#"><i class="ps-icon--search"></i></a>
-
-                    <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="../index-1.htm?currency=EUR"
-                                                          data-toggle="dropdown" aria-haspopup="true"
-                                                          aria-expanded="false">EUR<i class="fa fa-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="../index-2.htm?currency=USD">USD</a></li>
-                            <li><a href="../index-1.htm?currency=EUR">EUR</a></li>
-                        </ul>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <nav class="navigation">
-        <div class="container">
-            <div class="menu-toggle"><span></span></div>
-            <div class="navigation__left">
-                <ul id="menu-left" class="menu menu--left">
-                    <li id="menu-item-436"
-                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-436">
-                        <a href="../index.htm">Home</a>
-                        <ul class="sub-menu">
-                            <li id="menu-item-484"
-                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-484"><a
-                                    href="#">Hot Demo</a></li>
-                            <li id="menu-item-485"
-                                class="end-block menu-item menu-item-type-custom menu-item-object-custom menu-item-485">
-                                <a href="#">Trending</a></li>
-                            <li id="menu-item-464"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-464">
-                                <a href="../index.htm">home page</a></li>
-                            <li id="menu-item-465"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-465"><a
-                                    href="../home-page-2/index.htm">Home page #2</a></li>
-                            <li id="menu-item-466"
-                                class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-417 current_page_item menu-item-466">
-                                <a href="index.htm" aria-current="page">Home page #3</a></li>
-                            <li id="menu-item-486"
-                                class="try-theme menu-item menu-item-type-custom menu-item-object-custom menu-item-486">
-                                <a href="#">Try Theme Now</a></li>
-                        </ul>
-                    </li>
-                    <li id="menu-item-437"
-                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-437"><a
-                            href="../aboutUs/index.htm">About Us</a></li>
-                    <li id="menu-item-438"
-                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-438">
-                        <a href="../shop/index.htm">Products</a>
-                        <ul class="sub-menu">
-                            <li id="menu-item-446"
-                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-446"><a
-                                    href="../shop/index-1.htm?view=list">Product Listing</a></li>
-                            <li id="menu-item-447"
-                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-447"><a
-                                    href="../shop/index-2.htm?view=gird">Product Grid</a></li>
-                            <li id="menu-item-448"
-                                class="menu-item menu-item-type-post_type menu-item-object-product menu-item-448"><a
-                                    href="../product/sangria-cupcakes/index.htm">Simple Product</a></li>
-                            <li id="menu-item-525"
-                                class="menu-item menu-item-type-post_type menu-item-object-product menu-item-525"><a
-                                    href="../product/easy-smore-cupcake/index.htm">Variable product</a></li>
-                            <li id="menu-item-445"
-                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-445"><a
-                                    href="../product/creepy-crawly-cupcakes/index.htm">Order Form</a></li>
-                        </ul>
-                    </li>
-                    <li id="menu-item-439"
-                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-439">
-                        <a href="#">Pages</a>
-                        <ul class="sub-menu">
-                            <li id="menu-item-440"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-440">
-                                <a href="../menu-1/index.htm">Menu #1</a>
-                                <ul class="sub-menu">
-                                    <li id="menu-item-441"
-                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-441">
-                                        <a href="../menu-2/index.htm">Menu #2</a></li>
-                                </ul>
-                            </li>
-                            <li id="menu-item-460"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-460"><a
-                                    href="../wishlist/index.htm">Wishlist</a></li>
-                            <li id="menu-item-459"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-459"><a
-                                    href="../compare/index.htm">Compare</a></li>
-                            <li id="menu-item-442"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-442"><a
-                                    href="../cart/index.htm">Cart</a></li>
-                            <li id="menu-item-443"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-443"><a
-                                    href="../cart/index.htm">Checkout</a></li>
-                            <li id="menu-item-444"
-                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-444"><a
-                                    href="http://warethemes.com/wordpress/bakery/404">404</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <a class="ps-logo" href="../index.htm">
-                <img src="/assets/wp-content2/themes/bakery/assets/images/logo-2.png" class="logo-none-sticky"
-                     alt="Noucake">
-                <img src="/assets/wp-content2/themes/bakery/assets/images/logo-2.png" class="logo-sticky" alt="Noucake">
-            </a>
-            <div class="navigation__right has-menu">
-                <ul id="menu-right" class="menu menu--right">
-                    <li id="menu-item-449"
-                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-449">
-                        <a href="../blog/index.htm">Blog</a>
-                        <ul class="sub-menu">
-                            <li id="menu-item-450"
-                                class="menu-item menu-item-type-post_type menu-item-object-post menu-item-450"><a
-                                    href="../2017/06/23/barbecue-party-tips-for-a-truly-amazing-event-9/index.htm">Blog
-                                detail</a></li>
-                        </ul>
-                    </li>
-                    <li id="menu-item-453"
-                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-453">
-                        <a href="../contact-style-1/index.htm">Contact</a>
-                        <ul class="sub-menu">
-                            <li id="menu-item-452"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-452"><a
-                                    href="../contact-style-1/index.htm">Contact Style #1</a></li>
-                            <li id="menu-item-451"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-451"><a
-                                    href="../contactStyle2/index.htm">Contact style #2</a></li>
-                        </ul>
-                    </li>
-                    <li id="menu-item-454"
-                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-454"><a
-                            href="../typography/index.htm">Typography</a></li>
-                </ul>
+    <th:block th:insert="web/fragments/fragment.html::USD-EURImport"></th:block>
+    <th:block th:insert="web/fragments/fragment.html::class-navigation-import"></th:block>
+   
                 <div id="noubakery_mini_cart" class="ps-cart">
-                    <a class="ps-cart__toggle" href="../cart/index.htm"><span><i>50</i></span><i
+                    <a class="ps-cart__toggle" href="/cart"><span><i>50</i></span><i
                             class="ps-icon--shopping-cart"></i></a>
                     <div class="ps-cart__listing">
                         <div class="ps-cart__content">
 
 
                             <div class="ps-cart-item">
-                                <a href="../cart/index.htm?remove_item=84d9ee44e457ddef7f2c4f25dc8fa865&#038;_wpnonce=9697bccc19"
+                                <a href="/cart?remove_item=84d9ee44e457ddef7f2c4f25dc8fa865&#038;_wpnonce=9697bccc19"
                                    class="ps-cart-item__close remove" title="Remove this item"
                                    data-key="84d9ee44e457ddef7f2c4f25dc8fa865" data-product_id="199"
                                    data-product_sku="HGEGX12"></a>
                                 <div class="ps-cart-item__thumbnail">
-                                    <a href="../product/sweet-cakes/index.htm"><img width="60" height="65"
+                                    <a href="/cart"><img width="60" height="65"
                                                                                     src="/images/2013/06/img-cake-6-60x65.jpg"
                                                                                     class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-207"
                                                                                     alt="" loading="lazy"></a></div>
                                 <div class="ps-cart-item__content">
-                                    <a class="ps-cart-item__title" href="../product/sweet-cakes/index.htm">Sweet
+                                    <a class="ps-cart-item__title" href="/product/cherry">Sweet
                                         Cakes</a>
                                     <p>
                                         <span>Quantity:<i>6</i></span>
@@ -797,20 +64,19 @@
                                     </p>
                                 </div>
                             </div>
-
-
+                            
                             <div class="ps-cart-item">
-                                <a href="../cart/index.htm?remove_item=0e65972dce68dad4d52d063967f0a705&#038;_wpnonce=9697bccc19"
+                                <a href="/cart?remove_item=0e65972dce68dad4d52d063967f0a705&#038;_wpnonce=9697bccc19"
                                    class="ps-cart-item__close remove" title="Remove this item"
                                    data-key="0e65972dce68dad4d52d063967f0a705" data-product_id="198"
                                    data-product_sku="HGEGX13"></a>
                                 <div class="ps-cart-item__thumbnail">
-                                    <a href="../product/cupcake-glory/index.htm"><img width="60" height="65"
+                                    <a href="/product/cherryl"><img width="60" height="65"
                                                                                       src="/images/2017/06/img-cake-9-60x65.jpg"
                                                                                       class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-257"
                                                                                       alt="" loading="lazy"></a></div>
                                 <div class="ps-cart-item__content">
-                                    <a class="ps-cart-item__title" href="../product/cupcake-glory/index.htm">Cupcake
+                                    <a class="ps-cart-item__title" href="/product/cherryl">Cupcake
                                         Glory</a>
                                     <p>
                                         <span>Quantity:<i>6</i></span>
@@ -820,20 +86,19 @@
                                     </p>
                                 </div>
                             </div>
-
-
+                            
                             <div class="ps-cart-item">
-                                <a href="../cart/index.htm?remove_item=85d8ce590ad8981ca2c8286f79f59954&#038;_wpnonce=9697bccc19"
+                                <a href="/cart?remove_item=85d8ce590ad8981ca2c8286f79f59954&#038;_wpnonce=9697bccc19"
                                    class="ps-cart-item__close remove" title="Remove this item"
                                    data-key="85d8ce590ad8981ca2c8286f79f59954" data-product_id="197"
                                    data-product_sku="HGEGX14"></a>
                                 <div class="ps-cart-item__thumbnail">
-                                    <a href="../product/cupcake-queen/index.htm"><img width="60" height="65"
+                                    <a href="/product/cherryl"><img width="60" height="65"
                                                                                       src="/images/2017/06/img-cake-21-60x65.jpg"
                                                                                       class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-269"
                                                                                       alt="" loading="lazy"></a></div>
                                 <div class="ps-cart-item__content">
-                                    <a class="ps-cart-item__title" href="../product/cupcake-queen/index.htm">cupcake
+                                    <a class="ps-cart-item__title" href="/product/cherryl">cupcake
                                         queen</a>
                                     <p>
                                         <span>Quantity:<i>6</i></span>
@@ -843,21 +108,20 @@
                                     </p>
                                 </div>
                             </div>
-
-
+                            
                             <div class="ps-cart-item">
-                                <a href="../cart/index.htm?remove_item=084b6fbb10729ed4da8c3d3f5a3ae7c9&#038;_wpnonce=9697bccc19"
+                                <a href="/cart?remove_item=084b6fbb10729ed4da8c3d3f5a3ae7c9&#038;_wpnonce=9697bccc19"
                                    class="ps-cart-item__close remove" title="Remove this item"
                                    data-key="084b6fbb10729ed4da8c3d3f5a3ae7c9" data-product_id="196"
                                    data-product_sku="HGEGX15"></a>
                                 <div class="ps-cart-item__thumbnail">
-                                    <a href="../product/red-sugar-flower/index.htm"><img width="60" height="65"
+                                    <a href="/product/cherryl"><img width="60" height="65"
                                                                                          src="/images/2017/06/img-cake-12-60x65.jpg"
                                                                                          class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-260"
                                                                                          alt="" loading="lazy"></a>
                                 </div>
                                 <div class="ps-cart-item__content">
-                                    <a class="ps-cart-item__title" href="../product/red-sugar-flower/index.htm">Red
+                                    <a class="ps-cart-item__title" href="/product/cherryl">Red
                                         sugar flower</a>
                                     <p>
                                         <span>Quantity:<i>6</i></span>
@@ -867,21 +131,20 @@
                                     </p>
                                 </div>
                             </div>
-
-
+                            
                             <div class="ps-cart-item">
-                                <a href="../cart/index.htm?remove_item=0336dcbab05b9d5ad24f4333c7658a0e&#038;_wpnonce=9697bccc19"
+                                <a href="/cart?remove_item=0336dcbab05b9d5ad24f4333c7658a0e&#038;_wpnonce=9697bccc19"
                                    class="ps-cart-item__close remove" title="Remove this item"
                                    data-key="0336dcbab05b9d5ad24f4333c7658a0e" data-product_id="195"
                                    data-product_sku="HGEGX16"></a>
                                 <div class="ps-cart-item__thumbnail">
-                                    <a href="../product/pumpkin-brownie-cupcakes/index.htm"><img width="60" height="65"
+                                    <a href="/product/cherryl"><img width="60" height="65"
                                                                                                  src="/images/2017/06/img-cake-19-60x65.jpg"
                                                                                                  class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-267"
                                                                                                  alt="" loading="lazy"></a>
                                 </div>
                                 <div class="ps-cart-item__content">
-                                    <a class="ps-cart-item__title" href="../product/pumpkin-brownie-cupcakes/index.htm">Pumpkin
+                                    <a class="ps-cart-item__title" href="/product/cherryl">Pumpkin
                                         Brownie Cupcakes</a>
                                     <p>
                                         <span>Quantity:<i>6</i></span>
@@ -891,21 +154,20 @@
                                     </p>
                                 </div>
                             </div>
-
-
+                            
                             <div class="ps-cart-item">
-                                <a href="../cart/index.htm?remove_item=a597e50502f5ff68e3e25b9114205d4a&#038;_wpnonce=9697bccc19"
+                                <a href="/cart?remove_item=a597e50502f5ff68e3e25b9114205d4a&#038;_wpnonce=9697bccc19"
                                    class="ps-cart-item__close remove" title="Remove this item"
                                    data-key="a597e50502f5ff68e3e25b9114205d4a" data-product_id="194"
                                    data-product_sku="HGEGX17"></a>
                                 <div class="ps-cart-item__thumbnail">
-                                    <a href="../product/pumpkin-spice-cupcakes/index.htm"><img width="60" height="65"
+                                    <a href="/product/cherryl"><img width="60" height="65"
                                                                                                src="/images/2017/06/img-cake-17-60x65.jpg"
                                                                                                class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-265"
                                                                                                alt=""
                                                                                                loading="lazy"></a></div>
                                 <div class="ps-cart-item__content">
-                                    <a class="ps-cart-item__title" href="../product/pumpkin-spice-cupcakes/index.htm">Pumpkin
+                                    <a class="ps-cart-item__title" href="/product/cherryl">Pumpkin
                                         Spice Cupcakes</a>
                                     <p>
                                         <span>Quantity:<i>4</i></span>
@@ -915,21 +177,20 @@
                                     </p>
                                 </div>
                             </div>
-
-
+                            
                             <div class="ps-cart-item">
-                                <a href="../cart/index.htm?remove_item=bd686fd640be98efaae0091fa301e613&#038;_wpnonce=9697bccc19"
+                                <a href="/cart?remove_item=bd686fd640be98efaae0091fa301e613&#038;_wpnonce=9697bccc19"
                                    class="ps-cart-item__close remove" title="Remove this item"
                                    data-key="bd686fd640be98efaae0091fa301e613" data-product_id="193"
                                    data-product_sku="HGEGX18"></a>
                                 <div class="ps-cart-item__thumbnail">
-                                    <a href="../product/oreo-spider-cupcakes/index.htm"><img width="60" height="65"
+                                    <a href="/product/cherryl"><img width="60" height="65"
                                                                                              src="/images/2017/06/img-cake-16-60x65.jpg"
                                                                                              class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-264"
                                                                                              alt="" loading="lazy"></a>
                                 </div>
                                 <div class="ps-cart-item__content">
-                                    <a class="ps-cart-item__title" href="../product/oreo-spider-cupcakes/index.htm">Oreo
+                                    <a class="ps-cart-item__title" href="/product/cherryl">Oreo
                                         Spider Cupcakes</a>
                                     <p>
                                         <span>Quantity:<i>4</i></span>
@@ -939,15 +200,14 @@
                                     </p>
                                 </div>
                             </div>
-
-
+                            
                             <div class="ps-cart-item">
-                                <a href="../cart/index.htm?remove_item=9dcb88e0137649590b755372b040afad&#038;_wpnonce=9697bccc19"
+                                <a href="/cart?remove_item=9dcb88e0137649590b755372b040afad&#038;_wpnonce=9697bccc19"
                                    class="ps-cart-item__close remove" title="Remove this item"
                                    data-key="9dcb88e0137649590b755372b040afad" data-product_id="188"
                                    data-product_sku="HGEGX19"></a>
                                 <div class="ps-cart-item__thumbnail">
-                                    <a href="../product/chocolate-caspberry-cupcakes/index.htm"><img width="60"
+                                    <a href="/product/cherryl"><img width="60"
                                                                                                      height="65"
                                                                                                      src="/images/2017/06/img-cake-15-60x65.jpg"
                                                                                                      class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-263"
@@ -956,7 +216,7 @@
                                 </div>
                                 <div class="ps-cart-item__content">
                                     <a class="ps-cart-item__title"
-                                       href="../product/chocolate-caspberry-cupcakes/index.htm">Chocolate Raspberry
+                                       href="/product/cherryl">Chocolate Raspberry
                                         Cupcakes</a>
                                     <p>
                                         <span>Quantity:<i>4</i></span>
@@ -966,21 +226,20 @@
                                     </p>
                                 </div>
                             </div>
-
-
+                            
                             <div class="ps-cart-item">
-                                <a href="../cart/index.htm?remove_item=eecca5b6365d9607ee5a9d336962c534&#038;_wpnonce=9697bccc19"
+                                <a href="/cart?remove_item=eecca5b6365d9607ee5a9d336962c534&#038;_wpnonce=9697bccc19"
                                    class="ps-cart-item__close remove" title="Remove this item"
                                    data-key="eecca5b6365d9607ee5a9d336962c534" data-product_id="185"
                                    data-product_sku="HGEGX22"></a>
                                 <div class="ps-cart-item__thumbnail">
-                                    <a href="../product/honey-lemon-cupcakes/index.htm"><img width="60" height="65"
+                                    <a href="/product/cherryl"><img width="60" height="65"
                                                                                              src="/images/2017/06/img-cake-3-60x65.jpg"
                                                                                              class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-251"
                                                                                              alt="" loading="lazy"></a>
                                 </div>
                                 <div class="ps-cart-item__content">
-                                    <a class="ps-cart-item__title" href="../product/honey-lemon-cupcakes/index.htm">Honey
+                                    <a class="ps-cart-item__title" href="/product/cherryl">Honey
                                         Lemon Cupcakes</a>
                                     <p>
                                         <span>Quantity:<i>2</i></span>
@@ -990,21 +249,20 @@
                                     </p>
                                 </div>
                             </div>
-
-
+                            
                             <div class="ps-cart-item">
-                                <a href="../cart/index.htm?remove_item=9872ed9fc22fc182d371c3e9ed316094&#038;_wpnonce=9697bccc19"
+                                <a href="/cart?remove_item=9872ed9fc22fc182d371c3e9ed316094&#038;_wpnonce=9697bccc19"
                                    class="ps-cart-item__close remove" title="Remove this item"
                                    data-key="9872ed9fc22fc182d371c3e9ed316094" data-product_id="186"
                                    data-product_sku="HGEGX21"></a>
                                 <div class="ps-cart-item__thumbnail">
-                                    <a href="../product/sangria-cupcakes/index.htm"><img width="60" height="65"
+                                    <a href="/product/cherryl"><img width="60" height="65"
                                                                                          src="/images/2017/06/img-cake-7-60x65.jpg"
                                                                                          class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-255"
                                                                                          alt="" loading="lazy"></a>
                                 </div>
                                 <div class="ps-cart-item__content">
-                                    <a class="ps-cart-item__title" href="../product/sangria-cupcakes/index.htm">Sangria
+                                    <a class="ps-cart-item__title" href="/product/cherryl">Sangria
                                         Cupcakes</a>
                                     <p>
                                         <span>Quantity:<i>2</i></span>
@@ -1014,21 +272,20 @@
                                     </p>
                                 </div>
                             </div>
-
-
+                            
                             <div class="ps-cart-item">
-                                <a href="../cart/index.htm?remove_item=6cdd60ea0045eb7a6ec44c54d29ed402&#038;_wpnonce=9697bccc19"
+                                <a href="/cart?remove_item=6cdd60ea0045eb7a6ec44c54d29ed402&#038;_wpnonce=9697bccc19"
                                    class="ps-cart-item__close remove" title="Remove this item"
                                    data-key="6cdd60ea0045eb7a6ec44c54d29ed402" data-product_id="184"
                                    data-product_sku="HGEGX23"></a>
                                 <div class="ps-cart-item__thumbnail">
-                                    <a href="../product/blueberry-buttercream/index.htm"><img width="60" height="65"
+                                    <a href="/product/cherryl"><img width="60" height="65"
                                                                                               src="/images/2017/06/img-cake-10-60x65.jpg"
                                                                                               class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-258"
                                                                                               alt="" loading="lazy"></a>
                                 </div>
                                 <div class="ps-cart-item__content">
-                                    <a class="ps-cart-item__title" href="../product/blueberry-buttercream/index.htm">Blueberry
+                                    <a class="ps-cart-item__title" href="/product/cherryl">Blueberry
                                         Buttercream</a>
                                     <p>
                                         <span>Quantity:<i>2</i></span>
@@ -1041,17 +298,17 @@
 
 
                             <div class="ps-cart-item">
-                                <a href="../cart/index.htm?remove_item=4c5bde74a8f110656874902f07378009&#038;_wpnonce=9697bccc19"
+                                <a href="/cart?remove_item=4c5bde74a8f110656874902f07378009&#038;_wpnonce=9697bccc19"
                                    class="ps-cart-item__close remove" title="Remove this item"
                                    data-key="4c5bde74a8f110656874902f07378009" data-product_id="182"
                                    data-product_sku="HGEGX25"></a>
                                 <div class="ps-cart-item__thumbnail">
-                                    <a href="../product/cherry-coke/index.htm"><img width="60" height="65"
+                                    <a href="/product/cherryl"><img width="60" height="65"
                                                                                     src="/images/2017/06/img-cake-11-60x65.jpg"
                                                                                     class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-259"
                                                                                     alt="" loading="lazy"></a></div>
                                 <div class="ps-cart-item__content">
-                                    <a class="ps-cart-item__title" href="../product/cherry-coke/index.htm">Cherry
+                                    <a class="ps-cart-item__title" href="/product/cherryl">Cherry
                                         Coke</a>
                                     <p>
                                         <span>Quantity:<i>2</i></span>
@@ -1061,7 +318,6 @@
                                     </p>
                                 </div>
                             </div>
-
 
                         </div>
 
@@ -1074,25 +330,21 @@
                         </div>
 
                         <div class="ps-cart__footer">
-                            <a class="ps-btn ps-btn--view-bag" href="../cart/index.htm">View bag</a>
+                            <a class="ps-btn ps-btn--view-bag" href="/cart">View bag</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </nav>
 </header>
-
 
 <nav class="ps-mobile-nav hidden-lg hidden-md">
     <ul class="ps-list--footer">
-        <li><a href="../wishlist/index.htm"><i class="ps-icon--heart"></i><span>Wishlist</span></a></li>
+        <li><a href="/wishlist"><i class="ps-icon--heart"></i><span>Wishlist</span></a></li>
 
-        <li><a href="../my-account/index.htm"><i class="ps-icon--profile"></i><span>Account</span></a></li>
+        <li><a href="/my_account"><i class="ps-icon--profile"></i><span>Account</span></a></li>
 
         <li><a class="ps-search-btn" href="#"><i class="ps-icon--search"></i><span>Search</span></a></li>
 
-        <li><a class="ps-cart-count" href="../cart/index.htm"><i class="ps-icon--shopping-cart"></i><span
+        <li><a class="ps-cart-count" href="/cart"><i class="ps-icon--shopping-cart"></i><span
                 class="quantity"><i class="mobile_cart_content">50</i></span><span>Cart</span></a></li>
     </ul>
 </nav>
@@ -1143,7 +395,7 @@
                                               data-frame_1="tp:600;e:expo.out;st:1000;sp:900;sR:1000;"
                                               data-frame_999="y:175%;tp:600;e:expo.out;st:w;sp:900;sR:3100;"
                                               data-frame_999_mask="u:t;" style="z-index:7;"><img
-                                            src="../wp-content/plugins/revslider/public/assets/assets/dummy.png"
+                                            src="/assets/wp-content2/plugins/revslider/public/assets/assets/dummy.png"
                                             class="tp-rs-img rs-lazyload" width="59" height="36"
                                             data-lazyload="https://noucake.s3.amazonaws.com/revslider/home-2/shape.png"
                                             data-no-retina="">
@@ -1157,7 +409,7 @@
                                               data-frame_1="tp:600;e:expo.out;st:1000;sp:900;sR:1000;"
                                               data-frame_999="y:175%;tp:600;e:expo.out;st:w;sp:900;sR:3100;"
                                               data-frame_999_mask="u:t;" style="z-index:8;"><img
-                                            src="../wp-content/plugins/revslider/public/assets/assets/dummy.png"
+                                            src="/assets/wp-content2/plugins/revslider/public/assets/assets/dummy.png"
                                             class="tp-rs-img rs-lazyload" width="59" height="36"
                                             data-lazyload="https://noucake.s3.amazonaws.com/revslider/home-2/shape-2.png"
                                             data-no-retina="">
@@ -1279,7 +531,7 @@
                                               data-frame_1="tp:600;e:expo.out;st:1000;sp:900;sR:1000;"
                                               data-frame_999="y:175%;tp:600;e:expo.out;st:w;sp:900;sR:3100;"
                                               data-frame_999_mask="u:t;" style="z-index:7;"><img
-                                            src="../wp-content/plugins/revslider/public/assets/assets/dummy.png"
+                                            src="/assets/wp-content2/plugins/revslider/public/assets/assets/dummy.png"
                                             class="tp-rs-img rs-lazyload" width="59" height="36"
                                             data-lazyload="https://noucake.s3.amazonaws.com/revslider/home-2/shape.png"
                                             data-no-retina="">
@@ -1293,7 +545,7 @@
                                               data-frame_1="tp:600;e:expo.out;st:1000;sp:900;sR:1000;"
                                               data-frame_999="y:175%;tp:600;e:expo.out;st:w;sp:900;sR:3100;"
                                               data-frame_999_mask="u:t;" style="z-index:8;"><img
-                                            src="../wp-content/plugins/revslider/public/assets/assets/dummy.png"
+                                            src="/assets/wp-content2/plugins/revslider/public/assets/assets/dummy.png"
                                             class="tp-rs-img rs-lazyload" width="59" height="36"
                                             data-lazyload="https://noucake.s3.amazonaws.com/revslider/home-2/shape-2.png"
                                             data-no-retina="">
@@ -1356,7 +608,7 @@
                                 <div class="ps-product" data-mh="abc">
                                     <div class="ps-product__thumbnail">
                                         <div class="ps-badge"><span>51%</span></div>
-                                        <a class="ps-product__overlay" href="../product/sweet-cakes/index.htm"></a>
+                                        <a class="ps-product__overlay" href="/product/cherryl"></a>
                                         <img src="/images/2013/06/img-cake-6-524x566.jpg" class="" alt="Sweet Cakes">
                                         <ul class="ps-product__action">
 
@@ -1372,7 +624,7 @@
                                                    data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
 
                                             <li>
-                                                <a rel="nofollow" href="index-1.htm?add-to-cart=199" data-quantity="1"
+                                                <a rel="nofollow" href="/?add-to-cart=199" data-quantity="1"
                                                    data-product_id="199" data-product_sku="HGEGX12"
                                                    class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
                                                    data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
@@ -1381,11 +633,11 @@
                                         </ul>
                                     </div>
                                     <div class="ps-product__content">
-                                        <a class="ps-product__title" href="../product/sweet-cakes/index.htm">
+                                        <a class="ps-product__title" href="/product/cherryl">
                                             Sweet Cakes </a>
                                         <div class="ps-product__category">
-                                            <a href="../product-category/music/index.htm" rel="tag">Music</a><a
-                                                href="../product-category/music/singles/index.htm" rel="tag">Singles</a>
+                                            <a href="/shop" rel="tag">Music</a><a
+                                                href="/shop" rel="tag">Singles</a>
                                         </div>
                                         <select class="ps-rating rating-0">
                                             <option value="0" selected='selected'>0</option>
@@ -1410,7 +662,7 @@
                                 <div class="ps-product" data-mh="abc">
                                     <div class="ps-product__thumbnail">
                                         <div class="ps-badge"><span>10%</span></div>
-                                        <a class="ps-product__overlay" href="../product/cupcake-glory/index.htm"></a>
+                                        <a class="ps-product__overlay" href="/product/cherryl"></a>
                                         <img src="/images/2017/06/img-cake-9-524x566.jpg" class="" alt="Cupcake Glory">
                                         <ul class="ps-product__action">
 
@@ -1426,7 +678,7 @@
                                                    data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
 
                                             <li>
-                                                <a rel="nofollow" href="index-2.htm?add-to-cart=198" data-quantity="1"
+                                                <a rel="nofollow" href="/?add-to-cart=198" data-quantity="1"
                                                    data-product_id="198" data-product_sku="HGEGX13"
                                                    class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
                                                    data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
@@ -1435,11 +687,11 @@
                                         </ul>
                                     </div>
                                     <div class="ps-product__content">
-                                        <a class="ps-product__title" href="../product/cupcake-glory/index.htm">
+                                        <a class="ps-product__title" href="/product/cherryl">
                                             Cupcake Glory </a>
                                         <div class="ps-product__category">
-                                            <a href="../product-category/music/albums/index.htm" rel="tag">Albums</a><a
-                                                href="../product-category/music/index.htm" rel="tag">Music</a></div>
+                                            <a href="/shop" rel="tag">Albums</a><a
+                                                href="/shop" rel="tag">Music</a></div>
                                         <select class="ps-rating rating-0">
                                             <option value="0" selected='selected'>0</option>
                                             <option value="1">1</option>
@@ -1463,7 +715,7 @@
                                 <div class="ps-product" data-mh="abc">
                                     <div class="ps-product__thumbnail">
                                         <div class="ps-badge"><span>9%</span></div>
-                                        <a class="ps-product__overlay" href="../product/cupcake-queen/index.htm"></a>
+                                        <a class="ps-product__overlay" href="/product/cherryl"></a>
                                         <img src="/images/2017/06/img-cake-21-524x566.jpg" class="" alt="cupcake queen">
                                         <ul class="ps-product__action">
 
@@ -1479,7 +731,7 @@
                                                    data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
 
                                             <li>
-                                                <a rel="nofollow" href="index-3.htm?add-to-cart=197" data-quantity="1"
+                                                <a rel="nofollow" href="/?add-to-cart=197" data-quantity="1"
                                                    data-product_id="197" data-product_sku="HGEGX14"
                                                    class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
                                                    data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
@@ -1488,11 +740,11 @@
                                         </ul>
                                     </div>
                                     <div class="ps-product__content">
-                                        <a class="ps-product__title" href="../product/cupcake-queen/index.htm">
+                                        <a class="ps-product__title" href="/product/cherryl">
                                             cupcake queen </a>
                                         <div class="ps-product__category">
-                                            <a href="../product-category/music/index.htm" rel="tag">Music</a><a
-                                                href="../product-category/music/singles/index.htm" rel="tag">Singles</a>
+                                            <a href="/shop" rel="tag">Music</a><a
+                                                href="/shop" rel="tag">Singles</a>
                                         </div>
                                         <select class="ps-rating rating-0">
                                             <option value="0" selected='selected'>0</option>
@@ -1517,7 +769,7 @@
                                 <div class="ps-product" data-mh="abc">
                                     <div class="ps-product__thumbnail">
                                         <div class="ps-badge"><span>30%</span></div>
-                                        <a class="ps-product__overlay" href="../product/red-sugar-flower/index.htm"></a>
+                                        <a class="ps-product__overlay" href="/product/cherryl"></a>
                                         <img src="/images/2017/06/img-cake-12-524x566.jpg" class=""
                                              alt="Red sugar flower">
                                         <ul class="ps-product__action">
@@ -1534,7 +786,7 @@
                                                    data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
 
                                             <li>
-                                                <a rel="nofollow" href="index-4.htm?add-to-cart=196" data-quantity="1"
+                                                <a rel="nofollow" href="/?add-to-cart=196" data-quantity="1"
                                                    data-product_id="196" data-product_sku="HGEGX15"
                                                    class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
                                                    data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
@@ -1543,11 +795,11 @@
                                         </ul>
                                     </div>
                                     <div class="ps-product__content">
-                                        <a class="ps-product__title" href="../product/red-sugar-flower/index.htm">
+                                        <a class="ps-product__title" href="/product/cherryl">
                                             Red sugar flower </a>
                                         <div class="ps-product__category">
-                                            <a href="../product-category/music/albums/index.htm" rel="tag">Albums</a><a
-                                                href="../product-category/music/index.htm" rel="tag">Music</a></div>
+                                            <a href="/shop" rel="tag">Albums</a><a
+                                                href="/shop" rel="tag">Music</a></div>
                                         <select class="ps-rating rating-0">
                                             <option value="0" selected='selected'>0</option>
                                             <option value="1">1</option>
@@ -1571,7 +823,7 @@
                                 <div class="ps-product" data-mh="abc">
                                     <div class="ps-product__thumbnail">
                                         <a class="ps-product__overlay"
-                                           href="../product/pumpkin-brownie-cupcakes/index.htm"></a>
+                                           href="/product/cherryl"></a>
                                         <img src="/images/2017/06/img-cake-19-524x566.jpg" class=""
                                              alt="Pumpkin Brownie Cupcakes">
                                         <ul class="ps-product__action">
@@ -1588,7 +840,7 @@
                                                    data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
 
                                             <li>
-                                                <a rel="nofollow" href="index-5.htm?add-to-cart=195" data-quantity="1"
+                                                <a rel="nofollow" href="/?add-to-cart=195" data-quantity="1"
                                                    data-product_id="195" data-product_sku="HGEGX16"
                                                    class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
                                                    data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
@@ -1598,11 +850,11 @@
                                     </div>
                                     <div class="ps-product__content">
                                         <a class="ps-product__title"
-                                           href="../product/pumpkin-brownie-cupcakes/index.htm">
+                                           href="/product/cherryl">
                                             Pumpkin Brownie Cupcakes </a>
                                         <div class="ps-product__category">
-                                            <a href="../product-category/music/albums/index.htm" rel="tag">Albums</a><a
-                                                href="../product-category/music/index.htm" rel="tag">Music</a></div>
+                                            <a href="/shop" rel="tag">Albums</a><a
+                                                href="/shop" rel="tag">Music</a></div>
                                         <select class="ps-rating rating-0">
                                             <option value="0" selected='selected'>0</option>
                                             <option value="1">1</option>
@@ -1624,7 +876,7 @@
                                 <div class="ps-product" data-mh="abc">
                                     <div class="ps-product__thumbnail">
                                         <a class="ps-product__overlay"
-                                           href="../product/pumpkin-spice-cupcakes/index.htm"></a>
+                                           href="/product/cherryl"></a>
                                         <img src="/images/2017/06/img-cake-17-524x566.jpg" class=""
                                              alt="Pumpkin Spice Cupcakes">
                                         <ul class="ps-product__action">
@@ -1641,7 +893,7 @@
                                                    data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
 
                                             <li>
-                                                <a rel="nofollow" href="index-6.htm?add-to-cart=194" data-quantity="1"
+                                                <a rel="nofollow" href="/?add-to-cart=194" data-quantity="1"
                                                    data-product_id="194" data-product_sku="HGEGX17"
                                                    class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
                                                    data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
@@ -1650,11 +902,11 @@
                                         </ul>
                                     </div>
                                     <div class="ps-product__content">
-                                        <a class="ps-product__title" href="../product/pumpkin-spice-cupcakes/index.htm">
+                                        <a class="ps-product__title" href="/product/cherryl">
                                             Pumpkin Spice Cupcakes </a>
                                         <div class="ps-product__category">
-                                            <a href="../product-category/music/albums/index.htm" rel="tag">Albums</a><a
-                                                href="../product-category/music/index.htm" rel="tag">Music</a></div>
+                                            <a href="/shop" rel="tag">Albums</a><a
+                                                href="/shop" rel="tag">Music</a></div>
                                         <select class="ps-rating rating-0">
                                             <option value="0" selected='selected'>0</option>
                                             <option value="1">1</option>
@@ -1676,7 +928,7 @@
                                 <div class="ps-product" data-mh="abc">
                                     <div class="ps-product__thumbnail">
                                         <a class="ps-product__overlay"
-                                           href="../product/oreo-spider-cupcakes/index.htm"></a>
+                                           href="/product/cherryl"></a>
                                         <img src="/images/2017/06/img-cake-16-524x566.jpg" class=""
                                              alt="Oreo Spider Cupcakes">
                                         <ul class="ps-product__action">
@@ -1693,7 +945,7 @@
                                                    data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
 
                                             <li>
-                                                <a rel="nofollow" href="index-7.htm?add-to-cart=193" data-quantity="1"
+                                                <a rel="nofollow" href="/?add-to-cart=193" data-quantity="1"
                                                    data-product_id="193" data-product_sku="HGEGX18"
                                                    class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
                                                    data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
@@ -1702,10 +954,10 @@
                                         </ul>
                                     </div>
                                     <div class="ps-product__content">
-                                        <a class="ps-product__title" href="../product/oreo-spider-cupcakes/index.htm">
+                                        <a class="ps-product__title" href="/product/cherryl">
                                             Oreo Spider Cupcakes </a>
                                         <div class="ps-product__category">
-                                            <a href="../product-category/posters/index.htm" rel="tag">Posters</a></div>
+                                            <a href="/shop" rel="tag">Posters</a></div>
                                         <select class="ps-rating rating-0">
                                             <option value="0" selected='selected'>0</option>
                                             <option value="1">1</option>
@@ -1727,7 +979,7 @@
                                 <div class="ps-product" data-mh="abc">
                                     <div class="ps-product__thumbnail">
                                         <a class="ps-product__overlay"
-                                           href="../product/chocolate-caspberry-cupcakes/index.htm"></a>
+                                           href="/product/cherryl"></a>
                                         <img src="/images/2017/06/img-cake-15-524x566.jpg" class=""
                                              alt="Chocolate Raspberry Cupcakes">
                                         <ul class="ps-product__action">
@@ -1744,7 +996,7 @@
                                                    data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
 
                                             <li>
-                                                <a rel="nofollow" href="index-8.htm?add-to-cart=188" data-quantity="1"
+                                                <a rel="nofollow" href="/?add-to-cart=188" data-quantity="1"
                                                    data-product_id="188" data-product_sku="HGEGX19"
                                                    class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
                                                    data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
@@ -1754,10 +1006,10 @@
                                     </div>
                                     <div class="ps-product__content">
                                         <a class="ps-product__title"
-                                           href="../product/chocolate-caspberry-cupcakes/index.htm">
+                                           href="/product/cherry">
                                             Chocolate Raspberry Cupcakes </a>
                                         <div class="ps-product__category">
-                                            <a href="../product-category/posters/index.htm" rel="tag">Posters</a></div>
+                                            <a href="/shop" rel="tag">Posters</a></div>
                                         <select class="ps-rating rating-0">
                                             <option value="0" selected='selected'>0</option>
                                             <option value="1">1</option>
@@ -1795,7 +1047,7 @@
                                         <header class="text-center">
                                             <div class="ps-section__top">Hot Deal Today</div>
 
-                                            <h4><a href="../product/sweet-cakes/index.htm" class="ps-product__title">Vanilla
+                                            <h4><a href="/product/cherryl" class="ps-product__title">Vanilla
                                                 cupcake with red sugar flowers</a></h4>
                                             <p class="p-ps-product__price">Only: <span class="woocs_price_code"
                                                                                        data-product-id="199"><del
@@ -1805,8 +1057,7 @@
                                                     class="woocommerce-Price-amount amount"><span
                                                     class="woocommerce-Price-currencySymbol">&pound;</span>24.15</span></ins></span>
                                             </p>
-
-
+                                            
                                             <div class="ps-product__status row">
                                                 <div class="col-md-6 sold">Already sold: <span>30</span></div>
                                                 <div class="col-md-6 avaiable">avaiable: <span>20</span></div>
@@ -1830,7 +1081,7 @@
                                                     <p>Seconds</p></li>
                                             </ul>
 
-                                            <a data-type="compare" rel="nofollow" href="index-1.htm?add-to-cart=199"
+                                            <a data-type="compare" rel="nofollow" href="/?add-to-cart=199"
                                                data-quantity="1" data-product_id="199" data-product_sku="HGEGX12"
                                                class="ps-btn product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart">Add
                                                 to cart<i class="fa fa-angle-right"></i></a>
@@ -1902,7 +1153,7 @@
                                                 <div class="ps-cake__content">
                                                     <h3>
                                                         <a class="ps-product__title"
-                                                           href="../product/boston-cream-pie/index.htm">
+                                                           href="/product/cherryl">
                                                             Boston Cream Pie </a>
                                                     </h3>
                                                     <p>INGREDIENTS:</p>
@@ -1919,8 +1170,7 @@
                                                                 class="woocommerce-Price-amount amount"><span
                                                                 class="woocommerce-Price-currencySymbol">&pound;</span>16.66</span></span>
                                                     </p>
-
-
+                                                    
                                                 </div>
                                             </div>
                                             <div class="ps-cake--detail ps-cake--detail--2 product">
@@ -1932,7 +1182,7 @@
                                                 <div class="ps-cake__content">
                                                     <h3>
                                                         <a class="ps-product__title"
-                                                           href="../product/eggnog-cupcakes/index.htm">
+                                                           href="/product/cherryl">
                                                             Eggnog Cupcakes </a>
                                                     </h3>
                                                     <p>INGREDIENTS:</p>
@@ -1949,8 +1199,7 @@
                                                                 class="woocommerce-Price-amount amount"><span
                                                                 class="woocommerce-Price-currencySymbol">&pound;</span>16.66</span></span>
                                                     </p>
-
-
+                                                    
                                                 </div>
                                             </div>
                                             <div class="ps-cake--detail ps-cake--detail--2 product">
@@ -1962,7 +1211,7 @@
                                                 <div class="ps-cake__content">
                                                     <h3>
                                                         <a class="ps-product__title"
-                                                           href="../product/creepy-crawly-cupcakes/index.htm">
+                                                           href="/product/cherryl">
                                                             Creepy Crawly Cupcakes </a>
                                                     </h3>
                                                     <p>INGREDIENTS:</p>
@@ -1994,7 +1243,7 @@
                                                 <div class="ps-cake__content">
                                                     <h3>
                                                         <a class="ps-product__title"
-                                                           href="../product/dr-pepper-cupcakes/index.htm">
+                                                           href="/product/cherryl">
                                                             Dr Pepper Cupcakes </a>
                                                     </h3>
                                                     <p>INGREDIENTS:</p>
@@ -2029,7 +1278,7 @@
                                                 <div class="ps-cake__content">
                                                     <h3>
                                                         <a class="ps-product__title"
-                                                           href="../product/super-decadent-chocolate/index.htm">
+                                                           href="/product/cherryl">
                                                             Super Decadent Chocolate </a>
                                                     </h3>
                                                     <p>INGREDIENTS:</p>
@@ -2253,157 +1502,12 @@
             </div>
         </div>
     </div>
-
-    <div th:insert="/fragments/fragment.html::contactUsImport"></div>
-    <div th:insert="/fragments/fragment.html::aboutUs"></div>
-    <div th:insert="/fragments/fragment.html::footerImport"></div>
-
-<div class="modal-popup mfp-with-anim mfp-hide" id="quickview-modal" tabindex="-1">
-    <button class="modal-close"><i class="fa fa-remove"></i></button>
-    <div class="ps-product-modal ps-product--detail clearfix">
-        <span class="cart-loading"><i class="fa fa-spinner fa-spin"></i></span>
-        <div id="product-199"
-             class="post-199 product type-product status-publish has-post-thumbnail product_cat-music product_cat-singles first instock sale featured shipping-taxable purchasable product-type-simple">
-            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 ">
-                <div class="ps-product__thumbnail">
-                    <div class="quickview--main" data-owl-auto="true" data-owl-loop="false" data-owl-speed="10000"
-                         data-owl-gap="0" data-owl-nav="false" data-owl-dots="false" data-owl-animate-in=""
-                         data-owl-animate-out="" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1"
-                         data-owl-item-md="1" data-owl-item-lg="1"
-                         data-owl-nav-left="&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;"
-                         data-owl-nav-right="&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;">
-                        <div class="ps-product__image">
-                            <img src="/images/2013/06/img-cake-6-458x493.jpg" alt="Sweet Cakes">
-                        </div>
-                        <div class="ps-product__image">
-                            <img src="/images/2013/06/img-cake-7-458x493.jpg" alt="Sweet Cakes">
-                        </div>
-                        <div class="ps-product__image">
-                            <img src="/images/2013/06/img-cake-5-458x493.jpg" alt="Sweet Cakes">
-                        </div>
-                        <div class="ps-product__image">
-                            <img src="/images/2013/06/img-cake-4-458x493.jpg" alt="Sweet Cakes">
-                        </div>
-                        <div class="ps-product__image">
-                            <img src="/images/2013/06/img-cake-3-458x493.jpg" alt="Sweet Cakes">
-                        </div>
-                        <div class="ps-product__image">
-                            <img src="/images/2013/06/img-cake-2-458x493.jpg" alt="Sweet Cakes">
-                        </div>
-                        <div class="ps-product__image">
-                            <img src="/images/2013/06/img-cake-1-458x493.jpg" alt="Sweet Cakes">
-                        </div>
-                    </div>
-                    <div class="quickview--thumbnail" data-owl-auto="true" data-owl-loop="false" data-owl-speed="10000"
-                         data-owl-gap="20" data-owl-nav="false" data-owl-dots="false" data-owl-animate-in=""
-                         data-owl-animate-out="" data-owl-item="4" data-owl-item-xs="2" data-owl-item-sm="3"
-                         data-owl-item-md="4" data-owl-item-lg="4"
-                         data-owl-nav-left="&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;"
-                         data-owl-nav-right="&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;">
-                        <img src="/images/2013/06/img-cake-6-100x107.jpg"
-                             alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-6-100x107.jpg">
-                        <img src="/images/2013/06/img-cake-7-100x107.jpg"
-                             alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-7-100x107.jpg">
-                        <img src="/images/2013/06/img-cake-5-100x107.jpg"
-                             alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-5-100x107.jpg">
-                        <img src="/images/2013/06/img-cake-4-100x107.jpg"
-                             alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-4-100x107.jpg">
-                        <img src="/images/2013/06/img-cake-3-100x107.jpg"
-                             alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-3-100x107.jpg">
-                        <img src="/images/2013/06/img-cake-2-100x107.jpg"
-                             alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-2-100x107.jpg">
-                        <img src="/images/2013/06/img-cake-1-100x107.jpg"
-                             alt="https://d2t7yabstfp7fz.cloudfront.net/2013/06/img-cake-1-100x107.jpg">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 ">
-                <header>
-                    <h3 class="ps-product__name">Sweet Cakes</h3>
-                    <select class="ps-rating rating-0">
-                        <option value="0" selected='selected'>0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <p class="ps-product__price price-for-default"><span class="woocs_price_code" data-product-id="199"><del
-                            aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span
-                            class="woocommerce-Price-currencySymbol">&pound;</span>49.14</bdi></span></del> <ins><span
-                            class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&pound;</span>24.15</bdi></span></ins></span>
-                    </p>
-                    <p class="ps-product__price price-for-varian"></p>
-
-                    <div class="ps-product__meta">
-
-
-                        <p><span>Availability: </span> 20 in stock</p>
-
-                        <p class="panel-product-line panel-product-info">
-                            <span class="panel-product-label">SKU:</span> <span class="sku-for-default sku-value">HGEGX12</span><span
-                                class="sku-for-varian sku-value"></span>
-                        </p>
-
-
-                        <p class="category"><span>Categories:</span> <a href="../product-category/music/index.htm"
-                                                                        rel="tag">Music</a>, <a
-                                href="../product-category/music/singles/index.htm" rel="tag">Singles</a></p>
-
-
-                    </div>
-
-
-                    <form class="cart" method="post" enctype='multipart/form-data'>
-                        <div class="ps-product__shop">
-                            <div class="form-group--number quantity">
-                                <button type="button" class="minus"><span>-</span></button>
-                                <input type="number" step="1" min="1" max="20" name="quantity" value="1"
-                                       class="form-control input-text qty text" size="4">
-                                <button type="button" class="plus"><span>+</span></button>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-md-5 col-sm-6 col-xs-12 ">
-                                <button type="submit" name="add-to-cart" value="199"
-                                        class="single_add_to_cart_button button alt ps-btn--fullwidth ps-btn">Add to
-                                    cart <i class="fa fa-angle-right"></i></button>
-                            </div>
-                            <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12 ">
-                                <p class="noubakery-share-post ps-product__sharing"
-                                   data-url="http://warethemes.com/wordpress/bakery/product/sweet-cakes/"
-                                   data-title="Sweet Cakes">
-                                    Share with:
-                                    <a href="#" data-type="facebook" class="share"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" data-type="google" class="share"><i class="fa fa-google-plus"></i></a>
-
-                                    <a href="#" data-type="twitter" class="share"><i class="fa fa-twitter"></i></a>
-                                </p>
-                            </div>
-                        </div>
-
-                    </form>
-
-
-                </header>
-            </div>
-        </div>
     </div>
-</div>
 
-<div class="mfp-with-anim modal-popup mfp-hide" id="modal--subscribe">
-    <button class="modal-close"><i class="fa fa-remove"></i></button>
-    <img src="/assets/wp-content/uploads/2019/09/img-demo-4.png" alt="modal-popup">
-    <form action="http://warethemes.com/wordpress/bakery/?na=s" method="post" class="ps-subscribe__form">
-        <h3>STAY UP-TO-DATE WITH OUR NEWLETTER</h3>
-        <p>Follow us &amp; get <span style="color: #ee7560">20% OFF</span> coupon for first purchase !!!!!</p>
-        <div class="form-group">
-            <input class="form-control" type="text" placeholder="Type your email...">
-            <button class="ps-btn ps-btn--sm">Subscribe</button>
-        </div>
-    </form>
-</div>
+    <div th:insert="web/fragments/fragment.html::contactUsImport"></div>
+    <div th:insert="web/fragments/fragment.html::aboutUs"></div>
+    <div th:insert="web/fragments/fragment.html::footerImport"></div>
+    <div th:insert="web/fragments/fragment.html::underFooterImport"></div>
 
 <script type="text/javascript">
     window.RS_MODULES = window.RS_MODULES || {};
@@ -2433,10 +1537,11 @@
     }
 </script>
 <link rel="preload" as="font" id="rs-icon-set-fa-icon-woff" type="font/woff2" crossorigin="anonymous"
-      href="/assets/wp-content/plugins/revslider/public/assets/fonts/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0"
+      href="/assets/wp-content2/plugins/revslider/public/assets/fonts/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0"
       media="all">
 <link rel="stylesheet" property="stylesheet" id="rs-icon-set-fa-icon-css"
-      href="/assets/wp-content2/plugins/revslider/public/assets/fonts/font-awesome/css/font-awesome.css" type="text/css"
+      href="/assets/wp-content2/plugins/revslider/public/assets/fonts/font-awesome/css/font-awesome.css"
+      type="text/css"
       media="all">
 <link rel='stylesheet' id='woocommerce-currency-switcher-css'
       href='/assets/wp-content/plugins/woocommerce-currency-switcher/css/front.css' type='text/css' media='all'>
@@ -2575,13 +1680,21 @@
         "weekdays": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         "weekdaysShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
         "week": {"dow": 1},
-        "longDateFormat": {"LT": "g:i a", "LTS": null, "L": null, "LL": "F d, Y", "LLL": "F j, Y g:i a", "LLLL": null}
+        "longDateFormat": {
+            "LT": "g:i a",
+            "LTS": null,
+            "L": null,
+            "LL": "F d, Y",
+            "LLL": "F j, Y g:i a",
+            "LLLL": null
+        }
     });
 </script>
 <script type='text/javascript'
         src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'
         id='bootstrap-datetimepicker-js'></script>
-<script type='text/javascript' src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/slick/slick/slick.min.js'
+<script type='text/javascript'
+        src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/slick/slick/slick.min.js'
         id='slick-js'></script>
 <script type='text/javascript'
         src='/assets/wp-content/plugins/bakery-helpers/assets/plugins/lazy-loading-google-maps/jquery.lazy-load-google-maps.js'
@@ -2612,13 +1725,15 @@
 <script type='text/javascript' src='/assets/wp-content/themes/noucake/assets/js/main.js' id='main-js'></script>
 <script type='text/javascript' src='/assets/wp-includes/js/jquery/ui/core.min.js' id='jquery-ui-core-js'></script>
 <script type='text/javascript' src='/assets/wp-includes/js/jquery/ui/mouse.min.js' id='jquery-ui-mouse-js'></script>
-<script type='text/javascript' src='/assets/wp-includes/js/jquery/ui/slider.min.js' id='jquery-ui-slider-js'></script>
+<script type='text/javascript' src='/assets/wp-includes/js/jquery/ui/slider.min.js'
+        id='jquery-ui-slider-js'></script>
 <script type='text/javascript'
         src='/assets/wp-content/plugins/woocommerce/assets/js/jquery-ui-touch-punch/jquery-ui-touch-punch.min.js'
         id='wc-jquery-ui-touchpunch-js'></script>
 <script type='text/javascript' src='/assets/wp-content/plugins/woocommerce-currency-switcher/js/price-slider_33.js'
         id='wc-price-slider_33-js'></script>
-<script type='text/javascript' src='/assets/wp-content/plugins/woocommerce-currency-switcher/js/jquery.ddslick.min.js'
+<script type='text/javascript'
+        src='/assets/wp-content/plugins/woocommerce-currency-switcher/js/jquery.ddslick.min.js'
         id='jquery.ddslick.min-js'></script>
 <script type='text/javascript' src='/assets/wp-content/plugins/woocommerce-currency-switcher/js/front.js'
         id='woocommerce-currency-switcher-js'></script>
@@ -2700,5 +1815,7 @@
     }
     ;
 </script>
+
+   
 </body>
 </html>

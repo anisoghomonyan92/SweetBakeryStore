@@ -4,11 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class AbautUsController {
+public class Shop {
+    @GetMapping(value = "/shop")
+    public String shop() {
 
-    @GetMapping(value = "/about_us")
-    public String aboutUs() {
-
-        return "web/about-us/index";
+        return "web/shop/index";
     }
+
+
+
 }

@@ -1,0 +1,911 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <title>Products &#8211; Noucake</title>
+    <th:block th:insert="web/fragments/fragment.html::headerImport"></th:block>
+    <th:block th:insert="web/fragments/fragment.html::global-styles-inline-css"></th:block>
+    <th:block th:insert="web/fragments/fragment.html::js-css"></th:block>
+
+</head>
+<body class="archive post-type-archive post-type-archive-product theme-noucake woocommerce-shop woocommerce woocommerce-page woocommerce-no-js page-init wpb-js-composer js-comp-ver-6.8.0 vc_responsive currency-usd">
+<th:block th:insert="web/fragments/fragment.html::table"></th:block>
+
+<div class="ps-searchbox">
+    <div class="ps-searchbox__remove"><i class="fa fa-remove"></i></div>
+    <div class="container">
+        <header>
+            <p>Enter your keywords:</p>
+            <form id="search_header" class="search_header_product " method="get"
+                  action="http://warethemes.com/wordpress/bakery/">
+                <input class="form-control" type="text" value="" name="s" autocomplete="off">
+
+                <input type="hidden" name="post_type" value="product">
+                <button type="submit"><i class="ps-icon--search"></i></button>
+            </form>
+        </header>
+        <div class="ps-searchbox__result"></div>
+        <footer class="text-center"><a class="ps-searchbox__morelink" href="#">VIEW ALL RESULT</a></footer>
+    </div>
+</div>
+<div class="header--sidebar"></div>
+<header class="header" data-responsive="1199">
+
+    <th:block th:insert="web/fragments/fragment.html::USD-EURImport"></th:block>
+    <th:block th:insert="web/fragments/fragment.html::class-navigation-import"></th:block>
+
+    <div id="noubakery_mini_cart" class="ps-cart">
+        <a class="ps-cart__toggle" href="/cart"><span><i>0</i></span><i
+                class="ps-icon--shopping-cart"></i></a>
+        <div class="ps-cart__listing ps-cart__listingempty">
+            <div class="ps-cart__content">
+                <p class="ps-cart__conten__tempty">Cart is empty!</p>
+            </div>
+        </div>
+    </div>
+
+</header>
+<nav class="ps-mobile-nav hidden-lg hidden-md">
+    <ul class="ps-list--footer">
+        <li><a href="/wishlist"><i class="ps-icon--heart"></i><span>Wishlist</span></a></li>
+
+        <li><a href="/my_account"><i class="ps-icon--profile"></i><span>Account</span></a></li>
+
+        <li><a class="ps-search-btn" href="#"><i class="ps-icon--search"></i><span>Search</span></a></li>
+
+        <li><a class="ps-cart-count" href="/cart"><i class="ps-icon--shopping-cart"></i><span
+                class="quantity"><i class="mobile_cart_content">0</i></span><span>Cart</span></a></li>
+    </ul>
+</nav>
+<div class="page-wrap">
+    <div class="ps-section--hero">
+        <img src="/assets/wp-content2/uploads/2017/06/slider-6.jpg" alt="productx">
+        <div class="ps-section__content text-center">
+            <h3 class="ps-section__title">productx</h3>
+
+            <div class="ps-breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li class="active">Shop</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+    <div class="ps-section--page  ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 col-lg-push-3 col-md-push-3">
+
+                    <div class="ps-shop-grid pt-80">
+
+                        <div class="ps-shop-features">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
+                                    <a href="#">
+                                        <img class="mb-30" src="/assets/wp-content2/uploads/2017/06/012x.jpg"
+                                             alt="Shop banner">
+                                    </a>
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 ">
+                                    <a href="#">
+                                        <img class="mb-30" src="/assets/wp-content2/uploads/2017/06/022x.jpg"
+                                             alt="Shop banner">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ps-shop-filter ">
+                            <div class="row">
+                                <div class="woocommerce-notices-wrapper"></div>
+                                <form class="woocommerce-ordering" method="get">
+                                    <div class="col-lg-5 col-md-4 col-sm-4 col-xs-12 ">
+                                        <div class="form-group">
+                                            <label>Short by:</label>
+                                            <select name="orderby" class="orderby ps-select">
+                                                <option value="menu_order" selected='selected'>Default sorting</option>
+                                                <option value="popularity">Sort by popularity</option>
+                                                <option value="rating">Sort by average rating</option>
+                                                <option value="date">Sort by latest</option>
+                                                <option value="price">Sort by price: low to high</option>
+                                                <option value="price-desc">Sort by price: high to low</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-4 col-sm-4 col-xs-12 ">
+                                        <div class="form-group">
+                                            <label>Show:</label>
+                                            <select class="ps-select" name="product_per_page" data-placeholder="Show:">
+                                                <option value="9" selected='selected'>9 Items</option>
+                                                <option value="12">12 Items</option>
+                                                <option value="15">15 Items</option>
+                                                <option value="18">18 Items</option>
+                                                <option value="21">21 Items</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 ">
+                                        <ul class="ps-shop-switch">
+                                            <li class="active"><a href="/?view=gird"><i
+                                                    class="fa fa-th"></i></a>
+                                            </li>
+                                            <li class=""><a href="/?view=list"><i class="fa fa-list"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="ps-shop ps-col-tiny products">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 post-181 product type-product status-publish has-post-thumbnail product_cat-clothing product_cat-hoodies first instock shipping-taxable purchasable product-type-simple">
+                                    <div class="ps-product" data-mh="abc">
+                                        <div class="ps-product__thumbnail">
+                                            <a class="ps-product__overlay"
+                                               href="/product/cherryl"></a>
+                                            <img src="/images/2017/06/img-cake-1-524x566.jpg" class=""
+                                                 alt="Becky&#8217;s Snickerdoodle">
+                                            <ul class="ps-product__action">
+
+                                                <li><a data-product_id="181" class="product-quickview popup-modal"
+                                                       href="#quickview-modal" data-effect="mfp-zoom-out"
+                                                       data-tooltip="View"><i class="ps-icon--search"></i></a></li>
+
+                                                <li><a class="product-wishlist" data-product_id="181" href="#"
+                                                       data-tooltip="Add to wishlist"><i class="ps-icon--heart"></i></a>
+                                                </li>
+
+                                                <li><a class="product-compare" data-product_id="181" href="#"
+                                                       data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
+
+                                                <li>
+                                                    <a rel="nofollow" href="/?add-to-cart=181"
+                                                       data-quantity="1" data-product_id="181"
+                                                       data-product_sku="HGEGX27"
+                                                       class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                                       data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="ps-product__content">
+                                            <a class="ps-product__title"
+                                               href="/product/cherry">
+                                                Becky&#8217;s Snickerdoodle </a>
+                                            <div class="ps-product__category">
+                                                <a href="/product/cherry"
+                                                   rel="tag">Clothing</a><a
+                                                    href="/shop" rel="tag">Hoodies</a>
+                                            </div>
+                                            <select class="ps-rating rating-0">
+                                                <option value="0" selected='selected'>0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+
+                                            <p class="ps-product__price"><span class="woocs_price_code"
+                                                                               data-product-id="181"><span
+                                                    class="woocommerce-Price-amount amount"><bdi><span
+                                                    class="woocommerce-Price-currencySymbol">&#36;</span>35.00</bdi></span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 post-184 product type-product status-publish has-post-thumbnail product_cat-clothing product_cat-hoodies  instock shipping-taxable purchasable product-type-simple">
+                                    <div class="ps-product" data-mh="abc">
+                                        <div class="ps-product__thumbnail">
+                                            <a class="ps-product__overlay"
+                                               href="/product/cherry"></a>
+                                            <img src="/images/2017/06/img-cake-10-524x566.jpg" class=""
+                                                 alt="Blueberry Buttercream">
+                                            <ul class="ps-product__action">
+
+                                                <li><a data-product_id="184" class="product-quickview popup-modal"
+                                                       href="#quickview-modal" data-effect="mfp-zoom-out"
+                                                       data-tooltip="View"><i class="ps-icon--search"></i></a></li>
+
+                                                <li><a class="product-wishlist" data-product_id="184" href="#"
+                                                       data-tooltip="Add to wishlist"><i class="ps-icon--heart"></i></a>
+                                                </li>
+
+                                                <li><a class="product-compare" data-product_id="184" href="#"
+                                                       data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
+
+                                                <li>
+                                                    <a rel="nofollow" href="/?add-to-cart=184"
+                                                       data-quantity="1" data-product_id="184"
+                                                       data-product_sku="HGEGX23"
+                                                       class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                                       data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="ps-product__content">
+                                            <a class="ps-product__title"
+                                               href="/product/cherry">
+                                                Blueberry Buttercream </a>
+                                            <div class="ps-product__category">
+                                                <a href="../shop//"
+                                                   rel="tag">Clothing</a><a
+                                                    href="../shop//" rel="tag">Hoodies</a>
+                                            </div>
+                                            <select class="ps-rating rating-0">
+                                                <option value="0" selected='selected'>0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+
+                                            <p class="ps-product__price"><span class="woocs_price_code"
+                                                                               data-product-id="184"><span
+                                                    class="woocommerce-Price-amount amount"><bdi><span
+                                                    class="woocommerce-Price-currencySymbol">&#36;</span>35.00</bdi></span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 post-178 product type-product status-publish has-post-thumbnail product_cat-clothing product_cat-t-shirts  instock shipping-taxable purchasable product-type-simple">
+                                    <div class="ps-product" data-mh="abc">
+                                        <div class="ps-product__thumbnail">
+                                            <a class="ps-product__overlay"
+                                               href="/product/cherry"></a>
+                                            <img src="/images/2017/06/img-cake-21-524x566.jpg" class=""
+                                                 alt="Boston Cream Pie">
+                                            <ul class="ps-product__action">
+
+                                                <li><a data-product_id="178" class="product-quickview popup-modal"
+                                                       href="#quickview-modal" data-effect="mfp-zoom-out"
+                                                       data-tooltip="View"><i class="ps-icon--search"></i></a></li>
+
+                                                <li><a class="product-wishlist" data-product_id="178" href="#"
+                                                       data-tooltip="Add to wishlist"><i class="ps-icon--heart"></i></a>
+                                                </li>
+
+                                                <li><a class="product-compare" data-product_id="178" href="#"
+                                                       data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
+
+                                                <li>
+                                                    <a rel="nofollow" href="/?add-to-cart=178"
+                                                       data-quantity="1" data-product_id="178"
+                                                       data-product_sku="HGEGX31"
+                                                       class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                                       data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="ps-product__content">
+                                            <a class="ps-product__title"
+                                               href="/product/cherry">
+                                                Boston Cream Pie </a>
+                                            <div class="ps-product__category">
+                                                <a href="../shop//"
+                                                   rel="tag">Clothing</a><a
+                                                    href="../shop//" rel="tag">T-shirts</a>
+                                            </div>
+                                            <select class="ps-rating rating-0">
+                                                <option value="0" selected='selected'>0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+
+                                            <p class="ps-product__price"><span class="woocs_price_code"
+                                                                               data-product-id="178"><span
+                                                    class="woocommerce-Price-amount amount"><bdi><span
+                                                    class="woocommerce-Price-currencySymbol">&#36;</span>20.00</bdi></span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 post-182 product type-product status-publish has-post-thumbnail product_cat-clothing product_cat-hoodies last instock featured shipping-taxable purchasable product-type-simple">
+                                    <div class="ps-product" data-mh="abc">
+                                        <div class="ps-product__thumbnail">
+                                            <a class="ps-product__overlay"
+                                               href="/product/cherry"></a>
+                                            <img src="/images/2017/06/img-cake-11-524x566.jpg" class=""
+                                                 alt="Cherry Coke">
+                                            <ul class="ps-product__action">
+
+                                                <li><a data-product_id="182" class="product-quickview popup-modal"
+                                                       href="#quickview-modal" data-effect="mfp-zoom-out"
+                                                       data-tooltip="View"><i class="ps-icon--search"></i></a></li>
+
+                                                <li><a class="product-wishlist" data-product_id="182" href="#"
+                                                       data-tooltip="Add to wishlist"><i class="ps-icon--heart"></i></a>
+                                                </li>
+
+                                                <li><a class="product-compare" data-product_id="182" href="#"
+                                                       data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
+
+                                                <li>
+                                                    <a rel="nofollow" href="/?add-to-cart=182"
+                                                       data-quantity="1" data-product_id="182"
+                                                       data-product_sku="HGEGX25"
+                                                       class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                                       data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="ps-product__content">
+                                            <a class="ps-product__title"
+                                               href="/product/cherry">
+                                                Cherry Coke </a>
+                                            <div class="ps-product__category">
+                                                <a href="../shop//"
+                                                   rel="tag">Clothing</a><a
+                                                    href="../shop//" rel="tag">Hoodies</a>
+                                            </div>
+                                            <select class="ps-rating rating-0">
+                                                <option value="0" selected='selected'>0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+
+                                            <p class="ps-product__price"><span class="woocs_price_code"
+                                                                               data-product-id="182"><span
+                                                    class="woocommerce-Price-amount amount"><bdi><span
+                                                    class="woocommerce-Price-currencySymbol">&#36;</span>35.00</bdi></span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 post-50 product type-product status-publish has-post-thumbnail product_cat-clothing product_cat-hoodies first instock shipping-taxable purchasable product-type-simple">
+                                    <div class="ps-product" data-mh="abc">
+                                        <div class="ps-product__thumbnail">
+                                            <a class="ps-product__overlay"
+                                               href="/product/cherry"></a>
+                                            <img src="/images/2017/06/img-cake-2-524x566.jpg" class=""
+                                                 alt="Cherry Limeade">
+                                            <ul class="ps-product__action">
+
+                                                <li><a data-product_id="50" class="product-quickview popup-modal"
+                                                       href="#quickview-modal" data-effect="mfp-zoom-out"
+                                                       data-tooltip="View"><i class="ps-icon--search"></i></a></li>
+
+                                                <li><a class="product-wishlist" data-product_id="50" href="#"
+                                                       data-tooltip="Add to wishlist"><i class="ps-icon--heart"></i></a>
+                                                </li>
+
+                                                <li><a class="product-compare" data-product_id="50" href="#"
+                                                       data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
+
+                                                <li>
+                                                    <a rel="nofollow" href="/?add-to-cart=50"
+                                                       data-quantity="1" data-product_id="50" data-product_sku="HGEGX26"
+                                                       class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                                       data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="ps-product__content">
+                                            <a class="ps-product__title"
+                                               href="/product/cherry">
+                                                Cherry Limeade </a>
+                                            <div class="ps-product__category">
+                                                <a href="../shop//"
+                                                   rel="tag">Clothing</a><a
+                                                    href="../shop//" rel="tag">Hoodies</a>
+                                            </div>
+                                            <select class="ps-rating rating-0">
+                                                <option value="0" selected='selected'>0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+
+                                            <p class="ps-product__price"><span class="woocs_price_code"
+                                                                               data-product-id="50"><span
+                                                    class="woocommerce-Price-amount amount"><bdi><span
+                                                    class="woocommerce-Price-currencySymbol">&#36;</span>35.00</bdi></span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 post-188 product type-product status-publish has-post-thumbnail product_cat-posters  instock featured shipping-taxable purchasable product-type-simple">
+                                    <div class="ps-product" data-mh="abc">
+                                        <div class="ps-product__thumbnail">
+                                            <a class="ps-product__overlay"
+                                               href="/product/cherry"></a>
+                                            <img src="/images/2017/06/img-cake-15-524x566.jpg" class=""
+                                                 alt="Chocolate Raspberry Cupcakes">
+                                            <ul class="ps-product__action">
+
+                                                <li><a data-product_id="188" class="product-quickview popup-modal"
+                                                       href="#quickview-modal" data-effect="mfp-zoom-out"
+                                                       data-tooltip="View"><i class="ps-icon--search"></i></a></li>
+
+                                                <li><a class="product-wishlist" data-product_id="188" href="#"
+                                                       data-tooltip="Add to wishlist"><i class="ps-icon--heart"></i></a>
+                                                </li>
+
+                                                <li><a class="product-compare" data-product_id="188" href="#"
+                                                       data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
+
+                                                <li>
+                                                    <a rel="nofollow" href="/?add-to-cart=188"
+                                                       data-quantity="1" data-product_id="188"
+                                                       data-product_sku="HGEGX19"
+                                                       class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                                       data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="ps-product__content">
+                                            <a class="ps-product__title"
+                                               href="/product/cherry">
+                                                Chocolate Raspberry Cupcakes </a>
+                                            <div class="ps-product__category">
+                                                <a href="../shop//" rel="tag">Posters</a>
+                                            </div>
+                                            <select class="ps-rating rating-0">
+                                                <option value="0" selected='selected'>0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+
+                                            <p class="ps-product__price"><span class="woocs_price_code"
+                                                                               data-product-id="188"><span
+                                                    class="woocommerce-Price-amount amount"><bdi><span
+                                                    class="woocommerce-Price-currencySymbol">&#36;</span>15.00</bdi></span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 post-176 product type-product status-publish has-post-thumbnail product_cat-clothing product_cat-t-shirts  instock featured shipping-taxable purchasable product-type-variable">
+                                    <div class="ps-product" data-mh="abc">
+                                        <div class="ps-product__thumbnail">
+                                            <a class="ps-product__overlay"
+                                               href="/product/cherry"></a>
+                                            <img src="/images/2013/06/img-cake-4-524x566.jpg" class=""
+                                                 alt="Creepy Crawly Cupcakes">
+                                            <ul class="ps-product__action">
+
+                                                <li><a data-product_id="176" class="product-quickview popup-modal"
+                                                       href="#quickview-modal" data-effect="mfp-zoom-out"
+                                                       data-tooltip="View"><i class="ps-icon--search"></i></a></li>
+
+                                                <li><a class="product-wishlist" data-product_id="176" href="#"
+                                                       data-tooltip="Add to wishlist"><i class="ps-icon--heart"></i></a>
+                                                </li>
+
+                                                <li><a class="product-compare" data-product_id="176" href="#"
+                                                       data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
+
+                                                <li>
+                                                    <a rel="nofollow" href="/product/cherry"
+                                                       data-quantity="1" data-product_id="176"
+                                                       data-product_sku="HGEGX33"
+                                                       class="product-item-cart button product_type_variable add_to_cart_button"
+                                                       data-tooltip="Select options"><i
+                                                            class="ps-icon--shopping-cart"></i></a></li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="ps-product__content">
+                                            <a class="ps-product__title"
+                                               href="/product/cherry">
+                                                Creepy Crawly Cupcakes </a>
+                                            <div class="ps-product__category">
+                                                <a href="../shop//"
+                                                   rel="tag">Clothing</a><a
+                                                    href="../shop//" rel="tag">T-shirts</a>
+                                            </div>
+                                            <select class="ps-rating rating-0">
+                                                <option value="0" selected='selected'>0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+
+                                            <p class="ps-product__price"><span class="woocs_price_code"
+                                                                               data-product-id="176"><span
+                                                    class="woocommerce-Price-amount amount"><bdi><span
+                                                    class="woocommerce-Price-currencySymbol">&#36;</span>20.00</bdi></span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 post-198 product type-product status-publish has-post-thumbnail product_cat-albums product_cat-music last instock sale shipping-taxable purchasable product-type-simple">
+                                    <div class="ps-product" data-mh="abc">
+                                        <div class="ps-product__thumbnail">
+                                            <div class="ps-badge"><span>10%</span></div>
+                                            <a class="ps-product__overlay"
+                                               href="/product/cherry"></a>
+                                            <img src="/images/2017/06/img-cake-9-524x566.jpg" class=""
+                                                 alt="Cupcake Glory">
+                                            <ul class="ps-product__action">
+
+                                                <li><a data-product_id="198" class="product-quickview popup-modal"
+                                                       href="#quickview-modal" data-effect="mfp-zoom-out"
+                                                       data-tooltip="View"><i class="ps-icon--search"></i></a></li>
+
+                                                <li><a class="product-wishlist" data-product_id="198" href="#"
+                                                       data-tooltip="Add to wishlist"><i class="ps-icon--heart"></i></a>
+                                                </li>
+
+                                                <li><a class="product-compare" data-product_id="198" href="#"
+                                                       data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
+
+                                                <li>
+                                                    <a rel="nofollow" href="/?add-to-cart=198"
+                                                       data-quantity="1" data-product_id="198"
+                                                       data-product_sku="HGEGX13"
+                                                       class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                                       data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="ps-product__content">
+                                            <a class="ps-product__title"
+                                               href="/product/cherry">
+                                                Cupcake Glory </a>
+                                            <div class="ps-product__category">
+                                                <a href="../shop//"
+                                                   rel="tag">Albums</a><a href="../shop//"
+                                                                          rel="tag">Music</a></div>
+                                            <select class="ps-rating rating-0">
+                                                <option value="0" selected='selected'>0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+
+                                            <p class="ps-product__price"><span class="woocs_price_code"
+                                                                               data-product-id="198"><del
+                                                    aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span
+                                                    class="woocommerce-Price-currencySymbol">&#36;</span>100.00</bdi></span></del> <ins><span
+                                                    class="woocommerce-Price-amount amount"><bdi><span
+                                                    class="woocommerce-Price-currencySymbol">&#36;</span>90.00</bdi></span></ins></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 post-197 product type-product status-publish has-post-thumbnail product_cat-music product_cat-singles first instock sale featured shipping-taxable purchasable product-type-simple">
+                                    <div class="ps-product" data-mh="abc">
+                                        <div class="ps-product__thumbnail">
+                                            <div class="ps-badge"><span>9%</span></div>
+                                            <a class="ps-product__overlay"
+                                               href="/product/cherry"></a>
+                                            <img src="/images/2017/06/img-cake-21-524x566.jpg" class=""
+                                                 alt="cupcake queen">
+                                            <ul class="ps-product__action">
+
+                                                <li><a data-product_id="197" class="product-quickview popup-modal"
+                                                       href="#quickview-modal" data-effect="mfp-zoom-out"
+                                                       data-tooltip="View"><i class="ps-icon--search"></i></a></li>
+
+                                                <li><a class="product-wishlist" data-product_id="197" href="#"
+                                                       data-tooltip="Add to wishlist"><i class="ps-icon--heart"></i></a>
+                                                </li>
+
+                                                <li><a class="product-compare" data-product_id="197" href="#"
+                                                       data-tooltip="Compare"><i class="ps-icon--reload"></i></a></li>
+
+                                                <li>
+                                                    <a rel="nofollow" href="/?add-to-cart=197"
+                                                       data-quantity="1" data-product_id="197"
+                                                       data-product_sku="HGEGX14"
+                                                       class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                                       data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="ps-product__content">
+                                            <a class="ps-product__title"
+                                               href="/product/cherry">
+                                                cupcake queen </a>
+                                            <div class="ps-product__category">
+                                                <a href="../shop//" rel="tag">Music</a><a
+                                                    href="../shop//"
+                                                    rel="tag">Singles</a></div>
+                                            <select class="ps-rating rating-0">
+                                                <option value="0" selected='selected'>0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+
+                                            <p class="ps-product__price"><span class="woocs_price_code"
+                                                                               data-product-id="197"><del
+                                                    aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span
+                                                    class="woocommerce-Price-currencySymbol">&#36;</span>33.00</bdi></span></del> <ins><span
+                                                    class="woocommerce-Price-amount amount"><bdi><span
+                                                    class="woocommerce-Price-currencySymbol">&#36;</span>30.00</bdi></span></ins></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <nav class="ps-pagination">
+                            <ul class='page-numbers'>
+                                <li><span aria-current="page" class="page-numbers current">1</span></li>
+                                <li><a class="page-numbers" href="../home-page-2//">2</a></li>
+                                <li><a class="page-numbers" href="../home-page-3//">3</a></li>
+                                <li><a class="next page-numbers" href="../home-page-2//">&rarr;</a></li>
+                            </ul>
+                        </nav>
+
+                    </div>
+
+                </div>
+                <div id="sidebar-shop" class="col-lg-3 col-md-3 col-sm-12 col-xs-12 col-lg-pull-9 col-md-pull-9">
+                    <div class="ps-sidebar">
+                        <aside class="ps-widget ps-widget--sidebar widget search-3 widget_search">
+                            <div class="ps-widget__header"><h3 class="ps-widget__title">Search</h3></div>
+                            <div class="ps-widget--search">
+                                <form role="search" method="get" action="http://warethemes.com/wordpress/bakery/">
+                                    <input class="form-control" type="text" value="" name="s"
+                                           placeholder="Type here bakery name...">
+
+                                    <input type="hidden" name="post_type" value="product">
+                                    <button type="submit"><i class="ps-icon--search"></i></button>
+                                </form>
+                            </div>
+                        </aside>
+                        <aside class="ps-widget ps-widget--sidebar widget noubakery_theme_widget_categories-3 ps-widget--category">
+                            <div class="ps-widget__header"><h3 class="ps-widget__title">Categories</h3></div>
+                            <ul class="ps-list--circle">
+                                <li class="current">
+                                    <a href="/">
+                                        <span class="circle"></span>All bakery (20)</a>
+                                </li>
+
+                                <li class=""><a href="../shop//"><span
+                                        class="circle"></span>Albums</a></li>
+                                <li class=""><a href="../shop//"><span
+                                        class="circle"></span>Clothing</a></li>
+                                <li class=""><a href="../shop//"><span
+                                        class="circle"></span>Hoodies</a></li>
+                                <li class=""><a href="../shop//"><span class="circle"></span>Music</a>
+                                </li>
+                                <li class=""><a href="../shop//"><span
+                                        class="circle"></span>Posters</a></li>
+                                <li class=""><a href="../shop//"><span
+                                        class="circle"></span>Singles</a></li>
+                                <li class=""><a href="../shop//"><span
+                                        class="circle"></span>T-shirts</a></li>
+                            </ul>
+                        </aside>
+                        <aside class="ps-widget ps-widget--sidebar widget woocommerce_price_filter-2 woocommerce widget_price_filter">
+                            <div class="ps-widget__header"><h3 class="ps-widget__title">Filter by price</h3></div>
+                            <form method="get" action="http://warethemes.com/wordpress/bakery/shop/">
+                                <div class="price_slider_wrapper">
+                                    <div class="price_slider" style="display:none;"></div>
+                                    <div class="price_slider_amount" data-step="10">
+                                        <input type="text" id="min_price" name="min_price" value="0" data-min="0"
+                                               placeholder="Min price">
+                                        <input type="text" id="max_price" name="max_price" value="90" data-max="90"
+                                               placeholder="Max price">
+                                        <button type="submit" class="button">Filter</button>
+                                        <div class="price_label" style="display:none;">
+                                            Price: <span class="from"></span> &mdash; <span class="to"></span>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </aside>
+                        <aside class="ps-widget ps-widget--sidebar widget noubakery_theme_widget_banner-3 ps-widget--ads">
+                            <div class="ps-widget__header"><h3 class="ps-widget__title">ADS BANNER</h3></div>
+                            <div class="ps-widget__content">
+                                <a class="panel-box-banner" href="#">
+                                    <img src="/assets/wp-content2/uploads/2017/05/banner2x.png" alt="ADS BANNER">
+
+                                </a>
+                            </div>
+                        </aside>
+                        <aside class="ps-widget ps-widget--sidebar widget woocommerce_products-2 woocommerce widget_products">
+                            <div class="ps-widget__header"><h3 class="ps-widget__title">BEST SELLER</h3></div>
+                            <ul class="product_list_widget">
+                                <div class="product ps-product--sidebar">
+                                    <div class="ps-product__thumbnail">
+                                        <a class="ps-product__overlay"
+                                           href="/product/cherry"></a>
+                                        <img width="75" height="81" src="/images/2013/06/img-cake-6-75x81.jpg"
+                                             class="attachment-noubakery_75x81 size-noubakery_75x81 wp-image-207" alt=""
+                                             loading="lazy"></div>
+                                    <div class="ps-product__content">
+                                        <h4 class="ps-product__title">
+                                            <a href="/product/cherry">Sweet Cakes</a>
+                                        </h4>
+                                        <p class="ps-product__price"><span class="woocs_price_code"
+                                                                           data-product-id="199"><del
+                                                aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span
+                                                class="woocommerce-Price-currencySymbol">&#36;</span>59.00</bdi></span></del> <ins><span
+                                                class="woocommerce-Price-amount amount"><bdi><span
+                                                class="woocommerce-Price-currencySymbol">&#36;</span>29.00</bdi></span></ins></span>
+                                        </p>
+                                        <a rel="nofollow" href="/?add-to-cart=199" data-quantity="1"
+                                           data-product_id="199" data-product_sku="HGEGX12"
+                                           class="ps-btn ps-btn--xs product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart">Add
+                                            to cart</a></div>
+
+                                </div>
+                                <div class="product ps-product--sidebar">
+                                    <div class="ps-product__thumbnail">
+                                        <a class="ps-product__overlay"
+                                           href="/product/cherry"></a>
+                                        <img width="75" height="81" src="/images/2017/06/img-cake-9-75x81.jpg"
+                                             class="attachment-noubakery_75x81 size-noubakery_75x81 wp-image-257" alt=""
+                                             loading="lazy"></div>
+                                    <div class="ps-product__content">
+                                        <h4 class="ps-product__title">
+                                            <a href="/product/cherry">Cupcake Glory</a>
+                                        </h4>
+                                        <p class="ps-product__price"><span class="woocs_price_code"
+                                                                           data-product-id="198"><del
+                                                aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span
+                                                class="woocommerce-Price-currencySymbol">&#36;</span>100.00</bdi></span></del> <ins><span
+                                                class="woocommerce-Price-amount amount"><bdi><span
+                                                class="woocommerce-Price-currencySymbol">&#36;</span>90.00</bdi></span></ins></span>
+                                        </p>
+                                        <a rel="nofollow" href="/?add-to-cart=198" data-quantity="1"
+                                           data-product_id="198" data-product_sku="HGEGX13"
+                                           class="ps-btn ps-btn--xs product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart">Add
+                                            to cart</a></div>
+
+                                </div>
+                                <div class="product ps-product--sidebar">
+                                    <div class="ps-product__thumbnail">
+                                        <a class="ps-product__overlay"
+                                           href="/product/cherry"></a>
+                                        <img width="75" height="81" src="/images/2017/06/img-cake-21-75x81.jpg"
+                                             class="attachment-noubakery_75x81 size-noubakery_75x81 wp-image-269" alt=""
+                                             loading="lazy"></div>
+                                    <div class="ps-product__content">
+                                        <h4 class="ps-product__title">
+                                            <a href="/product/cherry">cupcake queen</a>
+                                        </h4>
+                                        <p class="ps-product__price"><span class="woocs_price_code"
+                                                                           data-product-id="197"><del
+                                                aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span
+                                                class="woocommerce-Price-currencySymbol">&#36;</span>33.00</bdi></span></del> <ins><span
+                                                class="woocommerce-Price-amount amount"><bdi><span
+                                                class="woocommerce-Price-currencySymbol">&#36;</span>30.00</bdi></span></ins></span>
+                                        </p>
+                                        <a rel="nofollow" href="/?add-to-cart=197" data-quantity="1"
+                                           data-product_id="197" data-product_sku="HGEGX14"
+                                           class="ps-btn ps-btn--xs product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart">Add
+                                            to cart</a></div>
+
+                                </div>
+                                <div class="product ps-product--sidebar">
+                                    <div class="ps-product__thumbnail">
+                                        <a class="ps-product__overlay"
+                                           href="/product/cherry"></a>
+                                        <img width="75" height="81" src="/images/2017/06/img-cake-12-75x81.jpg"
+                                             class="attachment-noubakery_75x81 size-noubakery_75x81 wp-image-260" alt=""
+                                             loading="lazy"></div>
+                                    <div class="ps-product__content">
+                                        <h4 class="ps-product__title">
+                                            <a href="/product/cherry">Red sugar flower</a>
+                                        </h4>
+                                        <p class="ps-product__price"><span class="woocs_price_code"
+                                                                           data-product-id="196"><del
+                                                aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span
+                                                class="woocommerce-Price-currencySymbol">&#36;</span>50.00</bdi></span></del> <ins><span
+                                                class="woocommerce-Price-amount amount"><bdi><span
+                                                class="woocommerce-Price-currencySymbol">&#36;</span>35.00</bdi></span></ins></span>
+                                        </p>
+                                        <a rel="nofollow" href="/?add-to-cart=196" data-quantity="1"
+                                           data-product_id="196" data-product_sku="HGEGX15"
+                                           class="ps-btn ps-btn--xs product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart">Add
+                                            to cart</a></div>
+
+                                </div>
+                                <div class="product ps-product--sidebar">
+                                    <div class="ps-product__thumbnail">
+                                        <a class="ps-product__overlay"
+                                           href="/product/cherry"></a>
+                                        <img width="75" height="81" src="/images/2017/06/img-cake-19-75x81.jpg"
+                                             class="attachment-noubakery_75x81 size-noubakery_75x81 wp-image-267" alt=""
+                                             loading="lazy"></div>
+                                    <div class="ps-product__content">
+                                        <h4 class="ps-product__title">
+                                            <a href="/product/cherry">Pumpkin Brownie
+                                                Cupcakes</a>
+                                        </h4>
+                                        <p class="ps-product__price"><span class="woocs_price_code"
+                                                                           data-product-id="195"><span
+                                                class="woocommerce-Price-amount amount"><bdi><span
+                                                class="woocommerce-Price-currencySymbol">&#36;</span>9.00</bdi></span></span>
+                                        </p>
+                                        <a rel="nofollow" href="/?add-to-cart=195" data-quantity="1"
+                                           data-product_id="195" data-product_sku="HGEGX16"
+                                           class="ps-btn ps-btn--xs product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart">Add
+                                            to cart</a></div>
+
+                                </div>
+                            </ul>
+                        </aside>
+                        <aside class="ps-widget ps-widget--sidebar widget tag_cloud-3 widget_tag_cloud">
+                            <div class="ps-widget__header"><h3 class="ps-widget__title">Tags</h3></div>
+                            <div class="tagcloud">
+                                <ul class='wp-tag-cloud' role='list'>
+                                    <li><a href="/category/the_rolling_pin"
+                                           class="tag-cloud-link tag-link-58 tag-link-position-1"
+                                           style="font-size: 8pt;" aria-label="bakery (1 item)">bakery</a></li>
+                                    <li><a href="/category/the_rolling_pin"
+                                           class="tag-cloud-link tag-link-59 tag-link-position-2"
+                                           style="font-size: 8pt;" aria-label="bkery (1 item)">bkery</a></li>
+                                    <li><a href="/category/the_rolling_pin"
+                                           class="tag-cloud-link tag-link-57 tag-link-position-3"
+                                           style="font-size: 8pt;" aria-label="coconut (1 item)">coconut</a></li>
+                                    <li><a href="/category/the_rolling_pin"
+                                           class="tag-cloud-link tag-link-18 tag-link-position-4"
+                                           style="font-size: 20pt;" aria-label="Cupcake (7 items)">Cupcake</a></li>
+                                    <li><a href="/category/the_rolling_pin"
+                                           class="tag-cloud-link tag-link-56 tag-link-position-5"
+                                           style="font-size: 8pt;" aria-label="sugar flower (1 item)">sugar flower</a>
+                                    </li>
+                                    <li><a href="/category/the_rolling_pin"
+                                           class="tag-cloud-link tag-link-17 tag-link-position-6"
+                                           style="font-size: 8pt;" aria-label="Travel (1 item)">Travel</a></li>
+                                    <li><a href="/category/the_rolling_pin"
+                                           class="tag-cloud-link tag-link-19 tag-link-position-7"
+                                           style="font-size: 22pt;" aria-label="vanila (9 items)">vanila</a></li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div><!--End .page-wrap-->
+<div th:insert="web/fragments/fragment.html::aboutUs"></div>
+<div th:insert="web/fragments/fragment.html::footerImport"></div>
+<div th:insert="web/fragments/fragment.html::underFooterImport"></div>
+<div th:insert="web/fragments/fragment.html::text_javascript"></div>
+
+</body>
+</html>
