@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class Whishlist {
+public class WhishlistController {
     @GetMapping(value = "/wishlist")
     public String whishlist() {
         return "web/wishlist/index";

@@ -4,9 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class Typography {
-    @GetMapping(value = "/typography")
-    public String compare() {
-        return "web/typography/index";
+public class Menu1Controller {
+    @GetMapping(value = "/menu_1")
+    public String menu1() {
+
+        return "web/menu-1/index";
     }
 }
