@@ -1,4 +1,4 @@
-package repository;
+package am.itspace.sweetbakerystore.repository;
 
 import am.itspace.sweetbakerystore.entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
