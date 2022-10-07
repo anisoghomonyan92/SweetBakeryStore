@@ -1,4 +1,4 @@
-package am.itspace.sweetbakerystore.controller;
+package am.itspace.sweetbakerystore.controller.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
 
     @GetMapping(value = "/")
-    public String massage() {
+    public String mainPage() {
         return "web/index";
     }
 }
