@@ -18,11 +18,11 @@ public class CategoryAdminController {
 
     @PostMapping(value = "/categories-add")
     public String addCategory() {
-        return "admin/categories";
+        return "redirect:/admin/categories";
     }
 
     @PostMapping(value = "/categories-edit")
     public String editCategoryPage() {
-        return "admin/categories-edit";
+        return "redirect:/admin/categories-edit";
     }
 }

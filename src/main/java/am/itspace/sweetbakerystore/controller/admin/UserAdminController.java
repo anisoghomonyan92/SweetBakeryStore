@@ -18,6 +18,6 @@ public class UserAdminController {
 
     @PostMapping(value = "/users/change-role")
     public String userChangeRole() {
-        return "admin/users";
+        return "redirect:/admin/users";
     }
 }

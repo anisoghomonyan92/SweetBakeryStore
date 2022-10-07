@@ -19,12 +19,12 @@ public class ProductAdminController {
 
     @PostMapping(value = "/products-add")
     public String addProduct() {
-        return "admin/products";
+        return "redirect:/admin/products";
     }
 
     @PostMapping(value = "/products-edit")
     public String editProductPage() {
-        return "admin/products";
+        return "redirect:/admin/products";
     }
 
 }

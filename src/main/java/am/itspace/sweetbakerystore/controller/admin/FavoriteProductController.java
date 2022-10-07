@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class FavoriteProductController {
     @GetMapping(value = "/favorite-products")
-    public String orderPage() {
+    public String favoriteProductPage() {
         return "admin/favorite-products";
     }
 }

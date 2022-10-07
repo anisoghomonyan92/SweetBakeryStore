@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PaymentAdminController {
 
     @GetMapping(value = "/payments")
-    public String orderPage() {
+    public String paymentPage() {
         return "admin/payments";
     }
 }

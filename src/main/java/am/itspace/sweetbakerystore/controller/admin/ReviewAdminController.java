@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ReviewAdminController {
     @GetMapping(value = "/reviews")
-    public String usersPage() {
+    public String reviewPage() {
         return "admin/reviews";
     }
 
