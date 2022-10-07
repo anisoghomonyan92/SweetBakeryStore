@@ -1,12 +1,12 @@
-package am.itspace.sweetbakerystore.controller;
+package am.itspace.sweetbakerystore.controller.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class CategoryController {
-    @GetMapping(value = "/category/the_rolling_pin")
+    @GetMapping(value = "/category/the-rolling-pin")
     public String productRollingPin() {
-        return "web/category/the_rolling_pin/index";
+        return "web/category/the-rolling-pin/index";
     }
 }

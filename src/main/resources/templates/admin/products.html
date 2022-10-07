@@ -1,0 +1,374 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>::eBakery:: Dashboard</title>
+    <link rel="icon" href="/admin/favicon.ico" type="image/x-icon"> <!-- Favicon-->
+
+    <!-- plugin css file  -->
+    <link rel="stylesheet" href="/admin/dist/assets/plugin/datatables/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="/admin/dist/assets/plugin/datatables/dataTables.bootstrap5.min.css">
+    <!-- project css file  -->
+    <link rel="stylesheet" href="/ebazar.style.min.css">
+</head>
+
+<body>
+<div id="ebazar-layout" class="theme-blue">
+
+    <!-- sidebar -->
+    <div th:insert="/admin/fragments/fragment::slidebar"></div>
+    <!-- main body area -->
+    <div class="main px-lg-4 px-md-4">
+        <div th:insert="/admin/fragments/fragment::headerImport"></div>
+
+        <!-- Body: Body -->
+        <div class="body d-flex py-3">
+            <div class="container-xxl">
+                <div class="row g-3">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="tab-filter d-flex align-items-center justify-content-between mb-3 flex-wrap">
+                            <ul class="nav nav-tabs tab-card tab-body-header rounded  d-inline-flex w-sm-100">
+                                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab"
+                                                        href="#summery-today">Today</a></li>
+                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab"
+                                                        href="#summery-week">Week</a></li>
+                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#summery-month">Month</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab"
+                                                        href="#summery-year">Year</a></li>
+                            </ul>
+                            <div class="date-filter d-flex align-items-center mt-2 mt-sm-0 w-sm-100">
+                                <div class="input-group">
+                                    <input type="date" class="form-control">
+                                    <button class="btn btn-primary" type="button"><i class="icofont-star fs-5"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- Row end  -->
+
+        <div class="row g-3 mb-3">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="myDataTable_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="myDataTable"
+                                           class="table table-hover align-middle mb-0 nowrap dataTable no-footer dtr-inline"
+                                           style="width: 100%;" role="grid" aria-describedby="myDataTable_info">
+                                        <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="myDataTable"
+                                                rowspan="1" colspan="1" style="width: 94.2px;" aria-sort="ascending"
+                                                aria-label="Id: activate to sort column descending">Id
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="myDataTable" rowspan="1"
+                                                colspan="1" style="width: 250.2px;"
+                                                aria-label="Categorie: activate to sort column ascending">Categorie
+                                            </th>
+                                            <th class="dt-body-right sorting" tabindex="0"
+                                                aria-controls="myDataTable" rowspan="1" colspan="1"
+                                                style="width: 251.2px;"
+                                                aria-label="Date: activate to sort column ascending">Date
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="myDataTable" rowspan="1"
+                                                colspan="1" style="width: 144.2px;"
+                                                aria-label="Status: activate to sort column ascending">Status
+                                            </th>
+                                            <th class="dt-body-right sorting" tabindex="0"
+                                                aria-controls="myDataTable" rowspan="1" colspan="1"
+                                                style="width: 172.2px;"
+                                                aria-label="Action: activate to sort column ascending">Action
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr role="row" class="odd">
+                                            <td tabindex="0" class="sorting_1"><strong>#0001</strong></td>
+                                            <td>Watch</td>
+                                            <td class=" dt-body-right">March 13, 2021</td>
+                                            <td><span class="badge bg-success">Published</span></td>
+                                            <td class=" dt-body-right">
+                                                <div class="btn-group" role="group"
+                                                     aria-label="Basic outlined example">
+                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
+                                                       class="btn btn-outline-secondary"><i
+                                                            class="icofont-edit text-success"></i></a>
+                                                    <button type="button"
+                                                            class="btn btn-outline-secondary deleterow"><i
+                                                            class="icofont-ui-delete text-danger"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td tabindex="0" class="sorting_1"><strong>#0002</strong></td>
+                                            <td>Toy</td>
+                                            <td class=" dt-body-right">January 14, 2021</td>
+                                            <td><span class="badge bg-warning">Scheduled</span></td>
+                                            <td class=" dt-body-right">
+                                                <div class="btn-group" role="group"
+                                                     aria-label="Basic outlined example">
+                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
+                                                       class="btn btn-outline-secondary"><i
+                                                            class="icofont-edit text-success"></i></a>
+                                                    <button type="button"
+                                                            class="btn btn-outline-secondary deleterow"><i
+                                                            class="icofont-ui-delete text-danger"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td tabindex="0" class="sorting_1"><strong>#0003</strong></td>
+                                            <td>Laptop</td>
+                                            <td class=" dt-body-right">February 08, 2021</td>
+                                            <td><span class="badge bg-success">Published</span></td>
+                                            <td class=" dt-body-right">
+                                                <div class="btn-group" role="group"
+                                                     aria-label="Basic outlined example">
+                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
+                                                       class="btn btn-outline-secondary"><i
+                                                            class="icofont-edit text-success"></i></a>
+                                                    <button type="button"
+                                                            class="btn btn-outline-secondary deleterow"><i
+                                                            class="icofont-ui-delete text-danger"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td tabindex="0" class="sorting_1"><strong>#0004</strong></td>
+                                            <td>Mobile</td>
+                                            <td class=" dt-body-right">April 02, 2021</td>
+                                            <td><span class="badge bg-warning">Scheduled</span></td>
+                                            <td class=" dt-body-right">
+                                                <div class="btn-group" role="group"
+                                                     aria-label="Basic outlined example">
+                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
+                                                       class="btn btn-outline-secondary"><i
+                                                            class="icofont-edit text-success"></i></a>
+                                                    <button type="button"
+                                                            class="btn btn-outline-secondary deleterow"><i
+                                                            class="icofont-ui-delete text-danger"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td tabindex="0" class="sorting_1"><strong>#0005</strong></td>
+                                            <td>Tv</td>
+                                            <td class=" dt-body-right">June 19, 2021</td>
+                                            <td><span class="badge bg-success">Published</span></td>
+                                            <td class=" dt-body-right">
+                                                <div class="btn-group" role="group"
+                                                     aria-label="Basic outlined example">
+                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
+                                                       class="btn btn-outline-secondary"><i
+                                                            class="icofont-edit text-success"></i></a>
+                                                    <button type="button"
+                                                            class="btn btn-outline-secondary deleterow"><i
+                                                            class="icofont-ui-delete text-danger"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td tabindex="0" class="sorting_1"><strong>#0006</strong></td>
+                                            <td>Cloths</td>
+                                            <td class=" dt-body-right">April 10, 2021</td>
+                                            <td><span class="badge bg-warning">Scheduled</span></td>
+                                            <td class=" dt-body-right">
+                                                <div class="btn-group" role="group"
+                                                     aria-label="Basic outlined example">
+                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
+                                                       class="btn btn-outline-secondary"><i
+                                                            class="icofont-edit text-success"></i></a>
+                                                    <button type="button"
+                                                            class="btn btn-outline-secondary deleterow"><i
+                                                            class="icofont-ui-delete text-danger"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td tabindex="0" class="sorting_1"><strong>#0007</strong></td>
+                                            <td>Footwear</td>
+                                            <td class=" dt-body-right">May 11, 2021</td>
+                                            <td><span class="badge bg-success">Published</span></td>
+                                            <td class=" dt-body-right">
+                                                <div class="btn-group" role="group"
+                                                     aria-label="Basic outlined example">
+                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
+                                                       class="btn btn-outline-secondary"><i
+                                                            class="icofont-edit text-success"></i></a>
+                                                    <button type="button"
+                                                            class="btn btn-outline-secondary deleterow"><i
+                                                            class="icofont-ui-delete text-danger"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td tabindex="0" class="sorting_1"><strong>#0008</strong></td>
+                                            <td>Kitchenware</td>
+                                            <td class=" dt-body-right">June 13, 2021</td>
+                                            <td><span class="badge bg-danger">Hidden</span></td>
+                                            <td class=" dt-body-right">
+                                                <div class="btn-group" role="group"
+                                                     aria-label="Basic outlined example">
+                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
+                                                       class="btn btn-outline-secondary"><i
+                                                            class="icofont-edit text-success"></i></a>
+                                                    <button type="button"
+                                                            class="btn btn-outline-secondary deleterow"><i
+                                                            class="icofont-ui-delete text-danger"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td tabindex="0" class="sorting_1"><strong>#0009</strong></td>
+                                            <td>Beautywear</td>
+                                            <td class=" dt-body-right">June 13, 2021</td>
+                                            <td><span class="badge bg-danger">Hidden</span></td>
+                                            <td class=" dt-body-right">
+                                                <div class="btn-group" role="group"
+                                                     aria-label="Basic outlined example">
+                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
+                                                       class="btn btn-outline-secondary"><i
+                                                            class="icofont-edit text-success"></i></a>
+                                                    <button type="button"
+                                                            class="btn btn-outline-secondary deleterow"><i
+                                                            class="icofont-ui-delete text-danger"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td tabindex="0" class="sorting_1"><strong>#0010</strong></td>
+                                            <td>Game accessories</td>
+                                            <td class=" dt-body-right">February 13, 2021</td>
+                                            <td><span class="badge bg-success">Published</span></td>
+                                            <td class=" dt-body-right">
+                                                <div class="btn-group" role="group"
+                                                     aria-label="Basic outlined example">
+                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
+                                                       class="btn btn-outline-secondary"><i
+                                                            class="icofont-edit text-success"></i></a>
+                                                    <button type="button"
+                                                            class="btn btn-outline-secondary deleterow"><i
+                                                            class="icofont-ui-delete text-danger"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-5">
+                                    <div class="dataTables_info" id="myDataTable_info" role="status"
+                                         aria-live="polite">Showing 1 to 10 of 13 entries
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-7">
+                                    <div class="dataTables_paginate paging_simple_numbers"
+                                         id="myDataTable_paginate">
+                                        <ul class="pagination">
+                                            <li class="paginate_button page-item previous disabled"
+                                                id="myDataTable_previous"><a href="#" aria-controls="myDataTable"
+                                                                             data-dt-idx="0" tabindex="0"
+                                                                             class="page-link">Previous</a></li>
+                                            <li class="paginate_button page-item active"><a href="#"
+                                                                                            aria-controls="myDataTable"
+                                                                                            data-dt-idx="1"
+                                                                                            tabindex="0"
+                                                                                            class="page-link">1</a>
+                                            </li>
+                                            <li class="paginate_button page-item "><a href="#"
+                                                                                      aria-controls="myDataTable"
+                                                                                      data-dt-idx="2" tabindex="0"
+                                                                                      class="page-link">2</a></li>
+                                            <li class="paginate_button page-item next" id="myDataTable_next"><a
+                                                    href="#" aria-controls="myDataTable" data-dt-idx="3"
+                                                    tabindex="0" class="page-link">Next</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-3 mb-3 row-deck">
+            <div class="col-lg-4 col-md-12">
+                <div class="card">
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
+                        <h6 class="m-0 fw-bold">Active Users Status</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="p-4 active-user bg-lightblue rounded-2 mb-2">
+                            <span class="fw-bold d-flex justify-content-center fs-3">1345</span>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Active pages</th>
+                                    <th scope="col">Users</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><a href="#">product</a></td>
+                                    <td>245</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">product-cart</a></td>
+                                    <td>455</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">admin-profile</a></td>
+                                    <td>45</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Order History</a></td>
+                                    <td>545</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">product-detail</a></td>
+                                    <td>55</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- Row end  -->
+    </div>
+</div>
+</div>
+
+<!-- Jquery Core Js -->
+<script src="/admin/dist/assets/bundles/libscripts.bundle.js"></script>
+<!-- Plugin Js -->
+<script src="/admin/dist/assets/bundles/apexcharts.bundle.js"></script>
+<script src="/admin/dist/assets/bundles/dataTables.bundle.js"></script>
+<script src="/admin/dist/assets/js/page/index.js"></script>
+<script src="/admin/maps/api/js?key=AIzaSyB1Jr7axGGkwvHRnNfoOzoVRFV3yOPHJEU&callback=myMap"></script>
+<!-- Jquery Page Js -->
+<script src="/admin/dist/assets/js/template.js"></script>
+<script>
+    $('#myDataTable')
+        .addClass('nowrap')
+        .dataTable({
+            responsive: true,
+            columnDefs: [{
+                targets: [-1, -3],
+                className: 'dt-body-right'
+            }]
+        });
+</script>
+</body>
+</html>
