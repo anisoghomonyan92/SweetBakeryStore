@@ -5,15 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
-    <title>My account &#8211; Noucake</title>
+    <title>Noucake &#8211; Bakery wordpress theme</title>
     <th:block th:insert="web/fragments/fragment.html::headerImport"></th:block>
     <th:block th:insert="web/fragments/fragment.html::global-styles-inline-css"></th:block>
     <th:block th:insert="web/fragments/fragment.html::js-css"></th:block>
 
 </head>
-<body class="page-template page-template-page-templates page-template-full-width page-template-page-templatesfull-width-php page page-id-7 theme-noucake woocommerce-account woocommerce-page woocommerce-no-js page-init wpb-js-composer js-comp-ver-6.8.0 vc_responsive currency-usd">
+<body class="home page-template page-template-page-templates page-template-full-width page-template-page-templatesfull-width-php page page-id-327 theme-noucake woocommerce-no-js page-init wpb-js-composer js-comp-ver-6.8.0 vc_responsive currency-eur">
 <th:block th:insert="web/fragments/fragment.html::table"></th:block>
-
 <div class="ps-searchbox">
     <div class="ps-searchbox__remove"><i class="fa fa-remove"></i></div>
     <div class="container">
@@ -36,7 +35,6 @@
 
     <th:block th:insert="web/fragments/fragment.html::USD-EURImport"></th:block>
     <th:block th:insert="web/fragments/fragment.html::class-navigation-import"></th:block>
-
 </header>
 <nav class="ps-mobile-nav hidden-lg hidden-md">
     <ul class="ps-list--footer">
@@ -44,7 +42,8 @@
                 class="ps-icon--heart"></i><span>Wishlist</span></a></li>
 
         <li><a href="https://warethemes.com/wordpress/bakery/my-account/"><i
-                class="ps-icon--profile"></i><span>Account</span></a></li>
+                class="ps-icon--profile"></i><span>Account</span></a>
+        </li>
 
         <li><a class="ps-search-btn" href="#"><i class="ps-icon--search"></i><span>Search</span></a></li>
 
@@ -62,13 +61,14 @@
 
             <div class="ps-breadcrumb">
                 <ol class="breadcrumb">
-                    <li><a href="https://warethemes.com/wordpress/bakery">Home</a></li>
+                    <li><a href="web/index">Home</a></li>
                     <li class="active">My account</li>
                 </ol>
             </div>
 
         </div>
     </div>
+
     <div class="ps-section row wpb_row vc_row-fluid pt-40 pb-40">
         <div class="container">
             <div class="wpb_column vc_column_container vc_col-sm-12">
@@ -77,10 +77,10 @@
                         <div class="woocommerce">
                             <nav class="woocommerce-MyAccount-navigation">
                                 <ul>
-                                    <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--dashboard is-active">
+                                    <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--dashboard">
                                         <a href="/my-account">Dashboard</a>
                                     </li>
-                                    <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders ">
+                                    <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders is-active">
                                         <a href="/my-orders">Orders</a>
                                     </li>
                                     <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address">
@@ -97,21 +97,98 @@
                             </nav>
                             <div class="woocommerce-MyAccount-content">
                                 <div class="woocommerce-notices-wrapper"></div>
-                                <p>
-                                    Hello <strong>a</strong> (not <strong>a</strong>? <a
-                                        href="/web/my-account/index">Log
-                                    out</a>)</p>
+                                <form class="woocommerce-EditAccountForm edit-account" action="" method="post">
+
+
+                                    <p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
+                                        <label for="account_first_name">First name&nbsp;<span class="required">*</span></label>
+                                        <input type="text"
+                                               class="woocommerce-Input woocommerce-Input--text input-text form-control"
+                                               name="account_first_name" id="account_first_name"
+                                               autocomplete="given-name" value="">
+                                    </p>
+                                    <p class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
+                                        <label for="account_last_name">Last name&nbsp;<span
+                                                class="required">*</span></label>
+                                        <input type="text"
+                                               class="woocommerce-Input woocommerce-Input--text input-text form-control"
+                                               name="account_last_name" id="account_last_name"
+                                               autocomplete="family-name" value="">
+                                    </p>
+                                    <div class="clear"></div>
+
+                                    <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                        <label for="account_display_name">Display name&nbsp;<span
+                                                class="required">*</span></label>
+                                        <input type="text"
+                                               class="woocommerce-Input woocommerce-Input--text input-text form-control"
+                                               name="account_display_name" id="account_display_name" value="a">
+                                        <span><em>This will be how your name will be displayed in the account section and in reviews</em></span>
+                                    </p>
+                                    <div class="clear"></div>
+
+                                    <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                        <label for="account_email">Email address&nbsp;<span
+                                                class="required">*</span></label>
+                                        <input type="email"
+                                               class="woocommerce-Input woocommerce-Input--email input-text form-control"
+                                               name="account_email" id="account_email" autocomplete="email"
+                                               value="a@mail.ru">
+                                    </p>
+
+                                    <fieldset>
+                                        <legend>Password change</legend>
+
+                                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                            <label for="password_current">Current password (leave blank to leave
+                                                unchanged)</label>
+                                            <span class="password-input"><input type="password"
+                                                                                class="woocommerce-Input woocommerce-Input--password input-text form-control"
+                                                                                name="password_current"
+                                                                                id="password_current"
+                                                                                autocomplete="off"><span
+                                                    class="show-password-input"></span></span>
+                                        </p>
+                                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                            <label for="password_1">New password (leave blank to leave
+                                                unchanged)</label>
+                                            <span class="password-input"><input type="password"
+                                                                                class="woocommerce-Input woocommerce-Input--password input-text form-control"
+                                                                                name="password_1" id="password_1"
+                                                                                autocomplete="off"><span
+                                                    class="show-password-input"></span></span>
+                                        </p>
+                                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                            <label for="password_2">Confirm new password</label>
+                                            <span class="password-input"><input type="password"
+                                                                                class="woocommerce-Input woocommerce-Input--password input-text form-control"
+                                                                                name="password_2" id="password_2"
+                                                                                autocomplete="off"><span
+                                                    class="show-password-input"></span></span>
+                                        </p>
+                                    </fieldset>
+                                    <div class="clear"></div>
+
+
+                                    <p>
+                                        <input type="hidden" id="save-account-details-nonce"
+                                               name="save-account-details-nonce" value="f8a2ae4776"><input type="hidden"
+                                                                                                           name="_wp_http_referer"
+                                                                                                           value="/wordpress/bakery/my-account/edit-account/">
+                                        <button type="submit" class="woocommerce-Button button"
+                                                name="save_account_details" value="Save changes">Save changes
+                                        </button>
+                                        <input type="hidden" name="action" value="save_account_details">
+                                    </p>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-</div><!--End .page-wrap-->
-
-</div><!--End .page-wrap-->
+    </div><!--End .page-wrap-->
+</div>
 
 <div id="back2top"><i class="fa fa-angle-up"></i></div>
 <div class="loader"></div>
