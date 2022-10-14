@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" dir="ltr">
+<html class="no-js" lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org/">
 
 <head>
     <meta charset="utf-8">
@@ -27,325 +27,243 @@
         <!-- Body: Body -->
         <div class="body d-flex py-3">
             <div class="container-xxl">
-                <div class="row g-3">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="tab-filter d-flex align-items-center justify-content-between mb-3 flex-wrap">
-                            <ul class="nav nav-tabs tab-card tab-body-header rounded  d-inline-flex w-sm-100">
-                                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab"
-                                                        href="#summery-today">Today</a></li>
-                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab"
-                                                        href="#summery-week">Week</a></li>
-                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#summery-month">Month</a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab"
-                                                        href="#summery-year">Year</a></li>
-                            </ul>
-                            <div class="date-filter d-flex align-items-center mt-2 mt-sm-0 w-sm-100">
-                                <div class="input-group">
-                                    <input type="date" class="form-control">
-                                    <button class="btn btn-primary" type="button"><i class="icofont-star fs-5"></i>
-                                    </button>
-                                </div>
+                <div class="row align-items-center">
+                    <div class="border-0 mb-4">
+                        <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
+                            <h3 class="fw-bold mb-0">Products</h3>
+                            <div class="btn-group group-link btn-set-task w-sm-100">
+                                <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/product-grid"
+                                   class="btn d-inline-flex align-items-center" aria-current="page"><i
+                                        class="icofont-wall px-2 fs-5"></i>Grid View</a>
+                                <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/product-list"
+                                   class="btn active d-inline-flex align-items-center"><i
+                                        class="icofont-listing-box px-2 fs-5"></i> List View</a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div><!-- Row end  -->
+                </div> <!-- Row end  -->
+                <div class="row g-3 mb-3">
+                    <div class="col-md-12 col-lg-4 col-xl-4 col-xxl-3">
+                        <div class="sticky-lg-top">
+                            <div class="card mb-3">
+                                <div class="reset-block">
+                                    <div class="filter-title">
+                                        <h4 class="title">Filter</h4>
+                                    </div>
+                                    <div class="filter-btn">
+                                        <a class="btn btn-primary" href="#">Reset</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card mb-3">
+                                <div class="categories">
+                                    <div class="filter-title">
+                                        <a class="title" data-bs-toggle="collapse" href="#category" role="button"
+                                           aria-expanded="true">Categories</a>
+                                    </div>
+                                    <div class="collapse show" id="category">
+                                        <div class="filter-search">
+                                            <form>
+                                                <input id="searchInput" type="text" placeholder="Search"
+                                                       class="form-control"
+                                                >
+                                                <button><i class="lni lni-search-alt"></i></button>
+                                            </form>
+                                        </div>
 
-        <div class="row g-3 mb-3">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div id="myDataTable_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <table id="myDataTable"
-                                           class="table table-hover align-middle mb-0 nowrap dataTable no-footer dtr-inline"
-                                           style="width: 100%;" role="grid" aria-describedby="myDataTable_info">
-                                        <thead>
-                                        <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="myDataTable"
-                                                rowspan="1" colspan="1" style="width: 94.2px;" aria-sort="ascending"
-                                                aria-label="Id: activate to sort column descending">Id
-                                            </th>
-                                            <th class="sorting" tabindex="0" aria-controls="myDataTable" rowspan="1"
-                                                colspan="1" style="width: 250.2px;"
-                                                aria-label="Categorie: activate to sort column ascending">Categorie
-                                            </th>
-                                            <th class="dt-body-right sorting" tabindex="0"
-                                                aria-controls="myDataTable" rowspan="1" colspan="1"
-                                                style="width: 251.2px;"
-                                                aria-label="Date: activate to sort column ascending">Date
-                                            </th>
-                                            <th class="sorting" tabindex="0" aria-controls="myDataTable" rowspan="1"
-                                                colspan="1" style="width: 144.2px;"
-                                                aria-label="Status: activate to sort column ascending">Status
-                                            </th>
-                                            <th class="dt-body-right sorting" tabindex="0"
-                                                aria-controls="myDataTable" rowspan="1" colspan="1"
-                                                style="width: 172.2px;"
-                                                aria-label="Action: activate to sort column ascending">Action
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr role="row" class="odd">
-                                            <td tabindex="0" class="sorting_1"><strong>#0001</strong></td>
-                                            <td>Watch</td>
-                                            <td class=" dt-body-right">March 13, 2021</td>
-                                            <td><span class="badge bg-success">Published</span></td>
-                                            <td class=" dt-body-right">
-                                                <div class="btn-group" role="group"
-                                                     aria-label="Basic outlined example">
-                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
-                                                       class="btn btn-outline-secondary"><i
-                                                            class="icofont-edit text-success"></i></a>
-                                                    <button type="button"
-                                                            class="btn btn-outline-secondary deleterow"><i
-                                                            class="icofont-ui-delete text-danger"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td tabindex="0" class="sorting_1"><strong>#0002</strong></td>
-                                            <td>Toy</td>
-                                            <td class=" dt-body-right">January 14, 2021</td>
-                                            <td><span class="badge bg-warning">Scheduled</span></td>
-                                            <td class=" dt-body-right">
-                                                <div class="btn-group" role="group"
-                                                     aria-label="Basic outlined example">
-                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
-                                                       class="btn btn-outline-secondary"><i
-                                                            class="icofont-edit text-success"></i></a>
-                                                    <button type="button"
-                                                            class="btn btn-outline-secondary deleterow"><i
-                                                            class="icofont-ui-delete text-danger"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="odd">
-                                            <td tabindex="0" class="sorting_1"><strong>#0003</strong></td>
-                                            <td>Laptop</td>
-                                            <td class=" dt-body-right">February 08, 2021</td>
-                                            <td><span class="badge bg-success">Published</span></td>
-                                            <td class=" dt-body-right">
-                                                <div class="btn-group" role="group"
-                                                     aria-label="Basic outlined example">
-                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
-                                                       class="btn btn-outline-secondary"><i
-                                                            class="icofont-edit text-success"></i></a>
-                                                    <button type="button"
-                                                            class="btn btn-outline-secondary deleterow"><i
-                                                            class="icofont-ui-delete text-danger"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td tabindex="0" class="sorting_1"><strong>#0004</strong></td>
-                                            <td>Mobile</td>
-                                            <td class=" dt-body-right">April 02, 2021</td>
-                                            <td><span class="badge bg-warning">Scheduled</span></td>
-                                            <td class=" dt-body-right">
-                                                <div class="btn-group" role="group"
-                                                     aria-label="Basic outlined example">
-                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
-                                                       class="btn btn-outline-secondary"><i
-                                                            class="icofont-edit text-success"></i></a>
-                                                    <button type="button"
-                                                            class="btn btn-outline-secondary deleterow"><i
-                                                            class="icofont-ui-delete text-danger"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="odd">
-                                            <td tabindex="0" class="sorting_1"><strong>#0005</strong></td>
-                                            <td>Tv</td>
-                                            <td class=" dt-body-right">June 19, 2021</td>
-                                            <td><span class="badge bg-success">Published</span></td>
-                                            <td class=" dt-body-right">
-                                                <div class="btn-group" role="group"
-                                                     aria-label="Basic outlined example">
-                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
-                                                       class="btn btn-outline-secondary"><i
-                                                            class="icofont-edit text-success"></i></a>
-                                                    <button type="button"
-                                                            class="btn btn-outline-secondary deleterow"><i
-                                                            class="icofont-ui-delete text-danger"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td tabindex="0" class="sorting_1"><strong>#0006</strong></td>
-                                            <td>Cloths</td>
-                                            <td class=" dt-body-right">April 10, 2021</td>
-                                            <td><span class="badge bg-warning">Scheduled</span></td>
-                                            <td class=" dt-body-right">
-                                                <div class="btn-group" role="group"
-                                                     aria-label="Basic outlined example">
-                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
-                                                       class="btn btn-outline-secondary"><i
-                                                            class="icofont-edit text-success"></i></a>
-                                                    <button type="button"
-                                                            class="btn btn-outline-secondary deleterow"><i
-                                                            class="icofont-ui-delete text-danger"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="odd">
-                                            <td tabindex="0" class="sorting_1"><strong>#0007</strong></td>
-                                            <td>Footwear</td>
-                                            <td class=" dt-body-right">May 11, 2021</td>
-                                            <td><span class="badge bg-success">Published</span></td>
-                                            <td class=" dt-body-right">
-                                                <div class="btn-group" role="group"
-                                                     aria-label="Basic outlined example">
-                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
-                                                       class="btn btn-outline-secondary"><i
-                                                            class="icofont-edit text-success"></i></a>
-                                                    <button type="button"
-                                                            class="btn btn-outline-secondary deleterow"><i
-                                                            class="icofont-ui-delete text-danger"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td tabindex="0" class="sorting_1"><strong>#0008</strong></td>
-                                            <td>Kitchenware</td>
-                                            <td class=" dt-body-right">June 13, 2021</td>
-                                            <td><span class="badge bg-danger">Hidden</span></td>
-                                            <td class=" dt-body-right">
-                                                <div class="btn-group" role="group"
-                                                     aria-label="Basic outlined example">
-                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
-                                                       class="btn btn-outline-secondary"><i
-                                                            class="icofont-edit text-success"></i></a>
-                                                    <button type="button"
-                                                            class="btn btn-outline-secondary deleterow"><i
-                                                            class="icofont-ui-delete text-danger"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="odd">
-                                            <td tabindex="0" class="sorting_1"><strong>#0009</strong></td>
-                                            <td>Beautywear</td>
-                                            <td class=" dt-body-right">June 13, 2021</td>
-                                            <td><span class="badge bg-danger">Hidden</span></td>
-                                            <td class=" dt-body-right">
-                                                <div class="btn-group" role="group"
-                                                     aria-label="Basic outlined example">
-                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
-                                                       class="btn btn-outline-secondary"><i
-                                                            class="icofont-edit text-success"></i></a>
-                                                    <button type="button"
-                                                            class="btn btn-outline-secondary deleterow"><i
-                                                            class="icofont-ui-delete text-danger"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td tabindex="0" class="sorting_1"><strong>#0010</strong></td>
-                                            <td>Game accessories</td>
-                                            <td class=" dt-body-right">February 13, 2021</td>
-                                            <td><span class="badge bg-success">Published</span></td>
-                                            <td class=" dt-body-right">
-                                                <div class="btn-group" role="group"
-                                                     aria-label="Basic outlined example">
-                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
-                                                       class="btn btn-outline-secondary"><i
-                                                            class="icofont-edit text-success"></i></a>
-                                                    <button type="button"
-                                                            class="btn btn-outline-secondary deleterow"><i
-                                                            class="icofont-ui-delete text-danger"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-5">
-                                    <div class="dataTables_info" id="myDataTable_info" role="status"
-                                         aria-live="polite">Showing 1 to 10 of 13 entries
+
+                                        <div id="categoryResult">
+
+
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-7">
-                                    <div class="dataTables_paginate paging_simple_numbers"
-                                         id="myDataTable_paginate">
-                                        <ul class="pagination">
-                                            <li class="paginate_button page-item previous disabled"
-                                                id="myDataTable_previous"><a href="#" aria-controls="myDataTable"
-                                                                             data-dt-idx="0" tabindex="0"
-                                                                             class="page-link">Previous</a></li>
-                                            <li class="paginate_button page-item active"><a href="#"
-                                                                                            aria-controls="myDataTable"
-                                                                                            data-dt-idx="1"
-                                                                                            tabindex="0"
-                                                                                            class="page-link">1</a>
-                                            </li>
-                                            <li class="paginate_button page-item "><a href="#"
-                                                                                      aria-controls="myDataTable"
-                                                                                      data-dt-idx="2" tabindex="0"
-                                                                                      class="page-link">2</a></li>
-                                            <li class="paginate_button page-item next" id="myDataTable_next"><a
-                                                    href="#" aria-controls="myDataTable" data-dt-idx="3"
-                                                    tabindex="0" class="page-link">Next</a></li>
-                                        </ul>
+                            </div>
+
+                            <div class="card mb-3">
+                                <div class="price-range-block">
+                                    <div class="filter-title">
+                                        <a class="title" data-bs-toggle="collapse" href="#pricingTwo" role="button"
+                                           aria-expanded="false">Pricing Range</a>
+                                    </div>
+                                    <div class="collapse show" id="pricingTwo">
+                                        <div class="price-range">
+                                            <div class="price-amount flex-wrap">
+                                                <div class="amount-input mt-1">
+                                                    <label class="fw-bold">Minimum Price</label>
+                                                    <input type="text" id="minAmount2" class="form-control">
+                                                </div>
+                                                <div class="amount-input mt-1">
+                                                    <label class="fw-bold">Maximum Price</label>
+                                                    <input type="text" id="maxAmount2" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div id="slider-range2"
+                                                 class="slider-range noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr">
+                                                <div class="noUi-base">
+                                                    <div class="noUi-connects">
+                                                        <div class="noUi-connect"
+                                                             style="transform: translate(7.45%) scale(0.12500000000000003, 1);"></div>
+                                                    </div>
+                                                    <div class="noUi-origin"
+                                                         style="transform: translate(-925.5%, 0px); z-index: 5;">
+                                                        <div class="noUi-handle noUi-handle-lower" data-handle="0"
+                                                             tabindex="0" role="slider" aria-orientation="horizontal"
+                                                             aria-valuemin="0.0" aria-valuemax="399.0"
+                                                             aria-valuenow="149.0" aria-valuetext="149.00">
+                                                            <div class="noUi-touch-area"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="noUi-origin"
+                                                         style="transform: translate(-800.5%, 0px); z-index: 6;">
+                                                        <div class="noUi-handle noUi-handle-upper" data-handle="1"
+                                                             tabindex="0" role="slider" aria-orientation="horizontal"
+                                                             aria-valuemin="149.0" aria-valuemax="2000.0"
+                                                             aria-valuenow="399.0" aria-valuetext="399.00">
+                                                            <div class="noUi-touch-area"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="card">
+                                <div class="rating-block">
+                                    <div class="filter-title">
+                                        <a class="title" data-bs-toggle="collapse" href="#rating" role="button"
+                                           aria-expanded="false">Select Rating</a>
+                                    </div>
+                                    <div class="collapse show" id="rating">
+                                        <div class="filter-rating">
+                                            <ul>
+                                                <li>
+                                                    <div class="rating-check">
+                                                        <input type="checkbox" id="rating-5">
+                                                        <label for="rating-5"><span></span>
+
+                                                        </label>
+                                                        <p>
+                                                            <i class="icofont-star"></i>
+                                                            <i class="icofont-star"></i>
+                                                            <i class="icofont-star"></i>
+                                                            <i class="icofont-star"></i>
+                                                            <i class="icofont-star"></i>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="rating-check">
+                                                        <input type="checkbox" id="rating-4">
+                                                        <label for="rating-4"><span></span></label>
+                                                        <p>
+                                                            <i class="icofont-star"></i>
+                                                            <i class="icofont-star"></i>
+                                                            <i class="icofont-star"></i>
+                                                            <i class="icofont-star"></i>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="rating-check">
+                                                        <input type="checkbox" id="rating-3">
+                                                        <label for="rating-3"><span></span></label>
+                                                        <p>
+                                                            <i class="icofont-star"></i>
+                                                            <i class="icofont-star"></i>
+                                                            <i class="icofont-star"></i>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="rating-check">
+                                                        <input type="checkbox" id="rating-2">
+                                                        <label for="rating-2"><span></span></label>
+                                                        <p>
+                                                            <i class="icofont-star"></i>
+                                                            <i class="icofont-star"></i>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="rating-check">
+                                                        <input type="checkbox" id="rating-1">
+                                                        <label for="rating-1"><span></span></label>
+                                                        <p>
+                                                            <i class="icofont-star"></i>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="col-md-12 col-lg-8 col-xl-8 col-xxl-9">
+                        <div class="card mb-3 bg-transparent p-2">
+                            <div class="card border-0 mb-1">
+
+                                <div class="card-body d-flex align-items-center flex-column flex-md-row"
+                                     th:each="product: ${products}">
+                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/product-detail">
+                                        <img th:if="${product.productPic != null}"
+                                             th:src="@{/products/getImage(fileName=${product.productPic})}">
+                                        <img th:if="${product.productPic == null}"
+                                             src="/images/product-defoult.jpg" height=50 width=100>
+                                    </a>
+                                    <div class="ms-md-4 m-0 mt-4 mt-md-0 text-md-start text-center w-100">
+                                        <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/product-detail">
+                                            <h6 class="mb-3 fw-bold" th:text="${product.name}">Product's name</h6>
+                                        </a>
+                                        <div class="d-flex flex-row flex-wrap align-items-center justify-content-center justify-content-md-start">
+                                            <div class="pe-xl-5 pe-md-4 ps-md-0 px-3 mb-2">
+                                                <div class="text-muted small">Price</div>
+                                                <strong th:text="${product.price}">20h:46m:30s</strong>
+                                            </div>
+                                            <div class="pe-xl-5 pe-md-4 ps-md-0 px-3 mb-2">
+                                                <div class="text-muted small">Category</div>
+                                                <strong th:text="${product.category.name}">Bank Offer</strong>
+                                            </div>
+                                            <div class="pe-xl-5 pe-md-4 ps-md-0 px-3 mb-2">
+                                                <div class="text-muted small">In Store</div>
+                                                <strong th:text="${product.inStore}">$149</strong>
+                                            </div>
+                                            <div class="pe-xl-5 pe-md-4 ps-md-0 px-3 mb-2">
+                                                <div class="text-muted small">Ratings</div>
+                                                <strong><i class="icofont-star text-warning"></i>4.5 <span
+                                                        class="text-muted">(145)</span></strong>
+                                            </div>
+                                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+
+                                                <a th:href="@{/products/delete(id=${product.id})}">
+                                                    <button type="button" class="btn btn-outline-secondary deleterow"><i
+                                                            class="icofont-ui-delete text-danger"></i></button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div th:if="${products.totalPages > 0}" class="page"
+                         th:each="pageNumber : ${pageNumbers}">
+                        <a th:href="@{/products(size=${products.size}, page=${pageNumber})}"
+                           th:text="${pageNumber}"
+                           th:class="${pageNumber==products.number + 1} ? active"></a>
+                    </div>
                 </div>
+                <!-- Row end  -->
             </div>
         </div>
-        <div class="row g-3 mb-3 row-deck">
-            <div class="col-lg-4 col-md-12">
-                <div class="card">
-                    <div class="card-header py-3 d-flex justify-content-between align-items-center bg-transparent border-bottom-0">
-                        <h6 class="m-0 fw-bold">Active Users Status</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="p-4 active-user bg-lightblue rounded-2 mb-2">
-                            <span class="fw-bold d-flex justify-content-center fs-3">1345</span>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th scope="col">Active pages</th>
-                                    <th scope="col">Users</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td><a href="#">product</a></td>
-                                    <td>245</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">product-cart</a></td>
-                                    <td>455</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">admin-profile</a></td>
-                                    <td>45</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Order History</a></td>
-                                    <td>545</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">product-detail</a></td>
-                                    <td>55</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!-- Row end  -->
+
     </div>
 </div>
 </div>
@@ -359,7 +277,52 @@
 <script src="/admin/maps/api/js?key=AIzaSyB1Jr7axGGkwvHRnNfoOzoVRFV3yOPHJEU&callback=myMap"></script>
 <!-- Jquery Page Js -->
 <script src="/admin/dist/assets/js/template.js"></script>
-<script>
+<script th:inline="javascript">
+
+    let categories = /*[[${categories}]]*/
+
+
+        let
+    div = $('#categoryResult')
+    let content = '';
+
+    for (let i = 0; i < categories.length; i++) {
+
+        content +=
+            '   <div class="filter-category">\n' +
+            '       <ul class="category-list">\n' +
+            '           <li><a href="/product?category=' + categories[i].id + '" >' + categories[i].name + '</a>\n' +
+            '           </li>\n' +
+            '       </ul>\n' +
+            '   </div>'
+    }
+    div.append(content)
+
+    $('#searchInput').keyup(function () {
+        div.empty();
+        content = ''
+        let keyword = $(this).val()
+
+        for (let i = 0; i < categories.length; i++) {
+
+            if (categories[i].name.toLowerCase().startsWith(keyword)) {
+                console.log('>>>>>>>>>>', keyword)
+
+                content +=
+                    '   <div class="filter-category">\n' +
+                    '       <ul class="category-list">\n' +
+                    '           <li><a href="/product?category=' + categories[i].id + '" >' + categories[i].name + '</a>\n' +
+                    '           </li>\n' +
+                    '       </ul>\n' +
+                    '   </div>'
+
+            }
+
+        }
+        div.append(content)
+
+    })
+
     $('#myDataTable')
         .addClass('nowrap')
         .dataTable({
