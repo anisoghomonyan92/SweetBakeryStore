@@ -1,6 +1,5 @@
 package am.itspace.sweetbakerystore.service;
 
-import am.itspace.sweetbakerystore.SweetBakeryStoreApplication;
 import am.itspace.sweetbakerystore.entity.Address;
 import am.itspace.sweetbakerystore.entity.City;
 import am.itspace.sweetbakerystore.entity.Role;
@@ -9,15 +8,15 @@ import am.itspace.sweetbakerystore.repository.AddressRepository;
 import am.itspace.sweetbakerystore.repository.CityRepository;
 import am.itspace.sweetbakerystore.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+
 import org.apache.commons.io.IOUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
 
 import javax.annotation.PostConstruct;
 import java.io.File;
@@ -25,36 +24,46 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
+
 import java.util.Optional;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class UserService {
-    private final UserRepository userRepository;
+
+    public final UserRepository userRepository;
+    private final CityRepository cityRepository;
+    private final AddressRepository addressRepository;
     private final PasswordEncoder passwordEncoder;
-    @Value("${task.management.images.folder}")
+
+    @Value("${sweet.bakery.store.images.folder}")
     private String folderPath;
 
-    @Autowired
-    private CityRepository cityRepository;
-    @Autowired
-    private AddressRepository addressRepository;
+    public Page<User> findPaginated(Pageable pageable) {
+        return userRepository.findAll(pageable);
+    }
+    public byte[] getUserImage(String fileName) throws IOException {
+        InputStream inputStream = new FileInputStream(folderPath + File.separator + fileName);
+        return IOUtils.toByteArray(inputStream);
+    }
+
+    public void deleteById(int id) {
+        userRepository.deleteById(id);
+    }
+
 
     public Optional<User> findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
-    public byte[] getUserImage(String fileName) throws IOException {
-        InputStream inputStream = new FileInputStream(folderPath + File.separator + fileName);
-        return IOUtils.toByteArray(inputStream);
-    }
+
 
     public void saveUser(User user, MultipartFile file) throws IOException {
         if (!file.isEmpty() && file.getSize() > 0) {
             String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
             File newFile = new File(folderPath + File.separator + fileName);
             file.transferTo(newFile);
-            user.setUserPic(fileName);
+            user.setProfilePic(fileName);
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
@@ -91,4 +100,6 @@ public class UserService {
                     .build());
         }
     }
+
+
 }

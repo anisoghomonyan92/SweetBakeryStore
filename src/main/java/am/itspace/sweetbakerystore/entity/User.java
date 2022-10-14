@@ -27,8 +27,7 @@ public class User {
     private String phone;
     @ManyToOne
     private Address address;
-    @Column(name="picture")
-    private String userPic;
+    private String profilePic;
     @Enumerated(value = EnumType.STRING)
     private Role role;
     private boolean isActive;

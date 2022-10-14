@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" dir="ltr">
+<html class="no-js" lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org/">
 
 <head>
     <meta charset="utf-8">
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/admin/dist/assets/plugin/datatables/dataTables.bootstrap5.min.css">
     <!-- project css file  -->
     <link rel="stylesheet" href="/ebazar.style.min.css">
+
 </head>
 
 <body>
@@ -24,169 +25,184 @@
     <div class="main px-lg-4 px-md-4">
         <div th:insert="/admin/fragments/fragment::headerImport"></div>
 
-        <!-- Body: Body -->
         <div class="body d-flex py-3">
             <div class="container-xxl">
-                <div class="row g-3">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="tab-filter d-flex align-items-center justify-content-between mb-3 flex-wrap">
-                            <ul class="nav nav-tabs tab-card tab-body-header rounded  d-inline-flex w-sm-100">
-                                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab"
-                                                        href="#summery-today">Today</a></li>
-                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab"
-                                                        href="#summery-week">Week</a></li>
-                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#summery-month">Month</a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab"
-                                                        href="#summery-year">Year</a></li>
-                            </ul>
-                            <div class="date-filter d-flex align-items-center mt-2 mt-sm-0 w-sm-100">
-                                <div class="input-group">
-                                    <input type="date" class="form-control">
-                                    <button class="btn btn-primary" type="button"><i class="icofont-star fs-5"></i>
-                                    </button>
-                                    <div class="col-sm-12">
-                                        <div class="card mb-3">
-                                            <div class="card-body">
-                                                <div id="myProjectTable_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="myProjectTable_length"><label>Show <select name="myProjectTable_length" aria-controls="myProjectTable" class="form-select form-select-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="myProjectTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="myProjectTable"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="myProjectTable" class="table table-hover align-middle mb-0 nowrap dataTable no-footer dtr-inline" style="width: 100%;" role="grid" aria-describedby="myProjectTable_info">
-                                                    <thead>
-                                                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="myProjectTable" rowspan="1" colspan="1" style="width: 58.2px;" aria-sort="ascending" aria-label="Id: activate to sort column descending">Id</th><th class="sorting" tabindex="0" aria-controls="myProjectTable" rowspan="1" colspan="1" style="width: 152.2px;" aria-label="Customers: activate to sort column ascending">Customers</th><th class="sorting" tabindex="0" aria-controls="myProjectTable" rowspan="1" colspan="1" style="width: 97.2px;" aria-label="Register Date: activate to sort column ascending">Register Date</th><th class="sorting" tabindex="0" aria-controls="myProjectTable" rowspan="1" colspan="1" style="width: 173.2px;" aria-label="Mail: activate to sort column ascending">Mail</th><th class="sorting" tabindex="0" aria-controls="myProjectTable" rowspan="1" colspan="1" style="width: 78.2px;" aria-label="Phone: activate to sort column ascending">Phone</th><th class="dt-body-right sorting" tabindex="0" aria-controls="myProjectTable" rowspan="1" colspan="1" style="width: 68.2px;" aria-label="Country: activate to sort column ascending">Country</th><th class="sorting" tabindex="0" aria-controls="myProjectTable" rowspan="1" colspan="1" style="width: 90.2px;" aria-label="Total Order: activate to sort column ascending">Total Order</th><th class="dt-body-right sorting" tabindex="0" aria-controls="myProjectTable" rowspan="1" colspan="1" style="width: 68.2px;" aria-label="Actions: activate to sort column ascending">Actions</th></tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr role="row" class="odd">
-                                                        <td tabindex="0" class="sorting_1"><strong>#CS-00002</strong></td>
-                                                        <td>
-                                                            <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/customer-detail">
-                                                                <img class="avatar rounded" src="https://pixelwibes.com/template/ebazar/laravel/public/backend/dist/assets/images/xs/avatar1.svg" alt="">
-                                                                <span class="fw-bold ms-1">Joan Dyer</span>
-                                                            </a>
-                                                        </td>
-                                                        <td>
-                                                            12/03/2021
-                                                        </td>
-                                                        <td>JoanDyer@gmail.com</td>
-                                                        <td>202-555-0983</td>
-                                                        <td class=" dt-body-right">South Africa</td>
-                                                        <td>18</td>
-                                                        <td class=" dt-body-right">
-                                                            <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#expedit"><i class="icofont-edit text-success"></i></button>
-                                                                <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                            </div>
-                                                        </td>
-                                                    </tr><tr role="row" class="even">
-                                                        <td tabindex="0" class="sorting_1"><strong>#CS-00004</strong></td>
-                                                        <td>
-                                                            <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/customer-detail">
-                                                                <img class="avatar rounded" src="https://pixelwibes.com/template/ebazar/laravel/public/backend/dist/assets/images/xs/avatar3.svg" alt="">
-                                                                <span class="fw-bold ms-1">Phil Glover</span>
-                                                            </a>
-                                                        </td>
-                                                        <td>
-                                                            16/03/2021
-                                                        </td>
-                                                        <td>PhilGlover@gmail.com</td>
-                                                        <td>843-555-0175</td>
-                                                        <td class=" dt-body-right">Sri Lanka</td>
-                                                        <td>05</td>
-                                                        <td class=" dt-body-right">
-                                                            <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#expedit"><i class="icofont-edit text-success"></i></button>
-                                                                <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                            </div>
-                                                        </td>
-                                                    </tr><tr role="row" class="odd">
-                                                        <td tabindex="0" class="sorting_1"><strong>#CS-00006</strong></td>
-                                                        <td>
-                                                            <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/customer-detail">
-                                                                <img class="avatar rounded" src="https://pixelwibes.com/template/ebazar/laravel/public/backend/dist/assets/images/xs/avatar2.svg" alt="">
-                                                                <span class="fw-bold ms-1">Ryan Randall</span>
-                                                            </a>
-                                                        </td>
-                                                        <td>
-                                                            12/03/2021
-                                                        </td>
-                                                        <td>RyanRandall@gmail.com</td>
-                                                        <td>303-555-0151</td>
-                                                        <td class=" dt-body-right">Australia</td>
-                                                        <td>4568</td>
-                                                        <td class=" dt-body-right">
-                                                            <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#expedit"><i class="icofont-edit text-success"></i></button>
-                                                                <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                            </div>
-                                                        </td>
-                                                    </tr><tr role="row" class="even">
-                                                        <td tabindex="0" class="sorting_1"><strong>#CS-00008</strong></td>
-                                                        <td>
-                                                            <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/customer-detail">
-                                                                <img class="avatar rounded" src="https://pixelwibes.com/template/ebazar/laravel/public/backend/dist/assets/images/xs/avatar4.svg" alt="">
-                                                                <span class="fw-bold ms-1">Victor Rampling</span>
-                                                            </a>
-                                                        </td>
-                                                        <td>
-                                                            25/02/2021
-                                                        </td>
-                                                        <td>VictorRampling@gmail.com</td>
-                                                        <td>404-555-0100</td>
-                                                        <td class=" dt-body-right">Israel</td>
-                                                        <td>14</td>
-                                                        <td class=" dt-body-right">
-                                                            <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#expedit"><i class="icofont-edit text-success"></i></button>
-                                                                <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                            </div>
-                                                        </td>
-                                                    </tr><tr role="row" class="odd">
-                                                        <td tabindex="0" class="sorting_1"><strong>#CS-00014</strong></td>
-                                                        <td>
-                                                            <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/customer-detail">
-                                                                <img class="avatar rounded" src="https://pixelwibes.com/template/ebazar/laravel/public/backend/dist/assets/images/xs/avatar6.svg" alt="">
-                                                                <span class="fw-bold ms-1">Robert Anderson</span>
-                                                            </a>
-                                                        </td>
-                                                        <td>
-                                                            18/01/2021
-                                                        </td>
-                                                        <td>RobertAnderson@gmail.com</td>
-                                                        <td>502-555-0133</td>
-                                                        <td class=" dt-body-right">Malaysia</td>
-                                                        <td>02</td>
-                                                        <td class=" dt-body-right">
-                                                            <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#expedit"><i class="icofont-edit text-success"></i></button>
-                                                                <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                            </div>
-                                                        </td>
-                                                    </tr><tr role="row" class="even">
-                                                        <td tabindex="0" class="sorting_1"><strong>#CS-00018</strong></td>
-                                                        <td>
-                                                            <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/customer-detail">
-                                                                <img class="avatar rounded" src="https://pixelwibes.com/template/ebazar/laravel/public/backend/dist/assets/images/xs/avatar5.svg" alt="">
-                                                                <span class="fw-bold ms-1">Sally Graham</span>
-                                                            </a>
-                                                        </td>
-                                                        <td>
-                                                            16/02/2021
-                                                        </td>
-                                                        <td>SallyGraham@gmail.com</td>
-                                                        <td>502-555-0118</td>
-                                                        <td class=" dt-body-right">Indonesia</td>
-                                                        <td>03</td>
-                                                        <td class=" dt-body-right">
-                                                            <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#expedit"><i class="icofont-edit text-success"></i></button>
-                                                                <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
-                                                            </div>
-                                                        </td>
-                                                    </tr></tbody>
-                                                </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="myProjectTable_info" role="status" aria-live="polite">Showing 1 to 6 of 6 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="myProjectTable_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="myProjectTable_previous"><a href="#" aria-controls="myProjectTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="myProjectTable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item next disabled" id="myProjectTable_next"><a href="#" aria-controls="myProjectTable" data-dt-idx="2" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="row align-items-center">
+                    <div class="border-0 mb-4">
+                        <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
+                            <h3 class="fw-bold mb-0">Customers Information</h3>
+                            <div class="col-auto d-flex w-sm-100">
+                                <button type="button" class="btn btn-primary btn-set-task w-sm-100"
+                                        data-bs-toggle="modal" data-bs-target="#expadd"><i
+                                        class="icofont-plus-circle me-2 fs-6"></i>Add Customers
+                                </button>
                             </div>
                         </div>
+                    </div>
+                </div> <!-- Row end  -->
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="myProjectTable"
+                               class="table table-hover align-middle mb-0 nowrap dataTable no-footer dtr-inline collapsed"
+                               style="width: 100%;" role="grid"
+                               aria-describedby="myProjectTable_info">
+                            <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="myProjectTable"
+                                    rowspan="1" colspan="1" style="width: 64.19999980926514px;"
+                                    aria-sort="ascending"
+                                    aria-label="Id: activate to sort column descending">Id
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="myProjectTable"
+                                    rowspan="1" colspan="1" style="width: 162.19999980926514px;"
+                                    aria-label="Customers: activate to sort column ascending">
+                                    Customers
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="myProjectTable"
+                                    rowspan="1" colspan="1" style="width: 184.19999980926514px;"
+                                    aria-label="Mail: activate to sort column ascending">Mail
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="myProjectTable"
+                                    rowspan="1" colspan="1" style="width: 85.19999980926514px;"
+                                    aria-label="Phone: activate to sort column ascending">Phone
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="myProjectTable"
+                                    rowspan="1" colspan="1" style="width: 104.19999980926514px;"
+                                    aria-label="Register Date: activate to sort column ascending">
+                                    Picture
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="myProjectTable"
+                                    rowspan="1" colspan="1" style="width: 104.19999980926514px;"
+                                    aria-label="Register Date: activate to sort column ascending">
+                                    Role
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="myProjectTable"
+                                    rowspan="1" colspan="1" style="width: 104.19999980926514px;"
+                                    aria-label="Register Date: activate to sort column ascending">
+                                    IsActive
+                                </th>
+
+                                <th class="dt-body-right sorting" tabindex="0"
+                                    aria-controls="myProjectTable" rowspan="1" colspan="1"
+                                    style="width: 74.19999980926514px;"
+                                    aria-label="Country: activate to sort column ascending">Address
+                                </th>
+                                <th class="dt-body-right sorting" tabindex="0" aria-controls="myDataTable"
+                                    rowspan="1" colspan="1" style="width: 199.19999980926514px;"
+                                    aria-label="Date: activate to sort column ascending">Action
+                                </th>
+
+                            </tr>
+                            </thead>
+
+                            <tr role="row" class="odd" th:each="user, iter: ${users}">
+                                <td th:text="${iter.index +1}" tabindex="0" class="sorting_1"><strong>#CS-00002</strong>
+                                </td>
+                                <td th:text="${user.name + ' ' + user.surname}">
+                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/customer-detail">
+                                        <img class="avatar rounded"
+                                             src="https://pixelwibes.com/template/ebazar/laravel/public/backend/dist/assets/images/xs/avatar1.svg"
+                                             alt="">
+                                        <span class="fw-bold ms-1"></span>
+                                    </a>
+                                </td>
+                                <td th:text="${user.email}">
+                                </td>
+                                <td th:text="${user.phone}">JoanDyer@gmail.com</td>
+                                <td>
+                                    <img th:if="${user.profilePic != null}"
+                                         th:src="@{/users/getImage(fileName=${user.profilePic})}">
+                                    <img th:if="${user.profilePic == null}"
+                                         src="/admin/dist/assets/images/xs/avatar1.svg" height=50 width=100>
+                                </td>
+                                <td th:text="${user.role.name()}">Role</td>
+                                <td th:text="${user.isActive()}">IsActive</td>
+                                <td th:text="${user.address.city.name+ ' '+ user.address.name}">Address</td>
+                                <br>
+
+                                <td class=" dt-body-right">
+                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                        <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
+                                           class="btn btn-outline-secondary"><i
+                                                class="icofont-edit text-success"></i></a>
+                                        <a th:href="@{/users/delete(id=${user.id})}">
+                                            <button type="button"
+                                                    class="btn btn-outline-secondary deleterow"><i
+                                                    class="icofont-ui-delete text-danger"></i></button>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div th:if="${users.totalPages > 0}" class="page"
+                             th:each="pageNumber : ${pageNumbers}">
+                            <a th:href="@{/users(size=${users.size}, page=${pageNumber})}"
+                               th:text="${pageNumber}"
+                               th:class="${pageNumber==users.number + 1} ? active"></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Edit Customers-->
+        <div class="modal fade" id="expedit" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title  fw-bold" id="expeditLabel"> Edit Customers</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="deadline-form">
+                            <form>
+                                <div class="row g-3 mb-3">
+                                    <div class="col-sm-12">
+                                        <label for="item1" class="form-label">Customers Name</label>
+                                        <input type="text" class="form-control" id="item1" value="Cloth">
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label for="taxtno1" class="form-label">Customers Profile</label>
+                                        <input type="file" class="form-control" id="taxtno1">
+                                    </div>
+                                </div>
+                                <div class="row g-3 mb-3">
+                                    <div class="col-sm-6">
+                                        <label class="form-label">Country</label>
+                                        <input type="text" class="form-control" value="South Africa">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="abc1" class="form-label">Customers Register date</label>
+                                        <input type="date" class="form-control w-100" id="abc1" value="2021-03-12">
+                                    </div>
+                                </div>
+                                <div class="row g-3 mb-3">
+                                    <div class="col-sm-6">
+                                        <label for="mailid" class="form-label">Mail</label>
+                                        <input type="text" class="form-control" id="mailid"
+                                               value="PhilGlover@gmail.com">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="phoneid" class="form-label">Phone</label>
+                                        <input type="text" class="form-control" id="phoneid" value="843-555-0175">
+                                    </div>
+                                </div>
+                                <div class="row g-3 mb-3">
+                                    <div class="col-sm-6">
+                                        <label class="form-label">Total Order</label>
+                                        <input type="text" class="form-control" value="18">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </div>
             </div>
@@ -204,17 +220,31 @@
 <script src="/admin/maps/api/js?key=AIzaSyB1Jr7axGGkwvHRnNfoOzoVRFV3yOPHJEU&callback=myMap"></script>
 <!-- Jquery Page Js -->
 <script src="/admin/dist/assets/js/template.js"></script>
+
 <script>
-    $('#myDataTable')
-        .addClass('nowrap')
-        .dataTable({
-            responsive: true,
-            columnDefs: [{
-                targets: [-1, -3],
-                className: 'dt-body-right'
-            }]
+    // project data table
+    $(document).ready(function () {
+        $('#myProjectTable')
+            .addClass('nowrap')
+            .dataTable({
+                responsive: true,
+                columnDefs: [{
+                    targets: [-1, -3],
+                    className: 'dt-body-right'
+                }]
+            });
+        $('.deleterow').on('click', function () {
+            var tablename = $(this).closest('table').DataTable();
+            tablename
+                .row($(this)
+                    .parents('tr'))
+                .remove()
+                .draw();
+
         });
+    });
 </script>
 </body>
 
 </html>
+
