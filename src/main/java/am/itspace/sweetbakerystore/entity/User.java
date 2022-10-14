@@ -27,11 +27,11 @@ public class User {
     private String phone;
     @ManyToOne
     private Address address;
-    private String userPic;
+    private String profilePic;
     @Enumerated(value = EnumType.STRING)
     private Role role;
     private boolean isActive;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date date;
+    private Date createAt;
 
 }
