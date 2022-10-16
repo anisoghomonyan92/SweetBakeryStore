@@ -25,7 +25,7 @@ public class UserAccountController {
 
     @PostMapping(value = "/my-account-edit")
     public String userEditAccount() {
-        return "redirect: /web/user-account";
+        return "redirect:/user/my-account";
     }
 
     @GetMapping(value = "/my-orders")
@@ -40,7 +40,7 @@ public class UserAccountController {
 
     @PostMapping(value = "/edit-address")
     public String userEditAddress() {
-        return "redirect: /web/user-account/index";
+        return "redirect:/user/my-account";
     }
 
 }
