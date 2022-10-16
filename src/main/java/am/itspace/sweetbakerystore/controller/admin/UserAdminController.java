@@ -1,9 +1,7 @@
 package am.itspace.sweetbakerystore.controller.admin;
 
-
-import am.itspace.sweetbakerystore.entity.Role;
+import am.itspace.sweetbakerystore.entity.Payment;
 import am.itspace.sweetbakerystore.entity.User;
-
 import am.itspace.sweetbakerystore.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -71,7 +69,4 @@ public class UserAdminController {
 
         return "redirect:/admin/users";
     }
-
-
-
 }
