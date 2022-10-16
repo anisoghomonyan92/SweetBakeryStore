@@ -122,7 +122,7 @@
                                                         </table>
                                                         <div  th:if="${orders.totalPages > 0}" class="page"
                                                               th:each="pageNumber : ${pageNumbers}">
-                                                            <a th:href="@{/orders(size=${orders.size}, page=${pageNumber})}"
+                                                            <a th:href="@{/admin/orders(size=${orders.size}, page=${pageNumber})}"
                                                                th:text="${pageNumber}"
                                                                th:class="${pageNumber==orders.number + 1} ? active"></a>
                                                     </div>

@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -46,6 +47,16 @@ public class AddressController {
     @GetMapping(value = "/addresses/delete")
     public String delete(@RequestParam("id") int id) {
         addressService.deleteById(id);
-        return "redirect:/addresses";
+        return "redirect:/admin/addresses";
+    }
+
+    @GetMapping (value = "/addresses-edit")
+    public String editAddressesPage() {
+        return "admin/addresses-edit";
+    }
+
+    @PostMapping(value = "/addresses-edit")
+    public String editAddresses() {
+        return "redirect:/admin/addresses";
     }
 }

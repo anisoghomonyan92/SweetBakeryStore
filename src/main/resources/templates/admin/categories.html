@@ -28,7 +28,7 @@
             <div class="border-0 mb-4">
                 <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
                     <h3 class="fw-bold mb-0">Categorie List</h3>
-                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-add"
+                    <a href="/admin/products-add"
                        class="btn btn-primary py-2 px-5 btn-set-task w-sm-100"><i
                             class="icofont-plus-circle me-2 fs-6"></i> Add Categories</a>
                 </div>
@@ -80,10 +80,10 @@
 
                                             <td class=" dt-body-right">
                                                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
+                                                    <a href="/admin/categories-edit"
                                                        class="btn btn-outline-secondary"><i
                                                             class="icofont-edit text-success"></i></a>
-                                                    <a th:href="@{/categories/delete(id=${category.id})}">
+                                                    <a th:href="@{/admin/categories/delete(id=${category.id})}">
                                                         <button type="button"
                                                                 class="btn btn-outline-secondary deleterow"><i
                                                                 class="icofont-ui-delete text-danger"></i></button>
@@ -95,7 +95,7 @@
                                     </table>
                                     <div th:if="${categories.totalPages > 0}" class="page"
                                          th:each="pageNumber : ${pageNumbers}">
-                                        <a th:href="@{/categories(size=${categories.size}, page=${pageNumber})}"
+                                        <a th:href="@{/admin/categories(size=${categories.size}, page=${pageNumber})}"
                                            th:text="${pageNumber}"
                                            th:class="${pageNumber==categories.number + 1} ? active"></a>
                                     </div>

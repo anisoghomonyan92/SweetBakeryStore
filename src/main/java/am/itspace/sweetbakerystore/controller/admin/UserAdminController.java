@@ -1,7 +1,9 @@
 package am.itspace.sweetbakerystore.controller.admin;
 
-import am.itspace.sweetbakerystore.entity.Payment;
+
+import am.itspace.sweetbakerystore.entity.Role;
 import am.itspace.sweetbakerystore.entity.User;
+
 import am.itspace.sweetbakerystore.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -12,6 +14,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -40,6 +43,8 @@ public class UserAdminController {
                     .collect(Collectors.toList());
             modelMap.addAttribute("pageNumbers", pageNumbers);
         }
+        List<Role> roles = Arrays.asList(Role.values());
+        modelMap.addAttribute("roles", roles);
         return "admin/users";
     }
 
@@ -51,16 +56,22 @@ public class UserAdminController {
     @GetMapping(value = "/users/delete")
     public String delete(@RequestParam("id") int id) {
         userService.deleteById(id);
-        return "redirect:/users";
-    }
-
-    @GetMapping(value = "/users/change-role")
-    public String userChangeRolePage() {
-        return "admin/users";
-    }
-
-    @PostMapping(value = "/users/change-role")
-    public String userChangeRole() {
         return "redirect:/admin/users";
     }
+
+//    @GetMapping(value = "/users/change-role")
+//    public String userChangeRolePage() {
+//        return "admin/users";
+//    }
+
+    @PostMapping(value = "/users/change-role")
+    public String userChangeRole(@RequestParam("userId") int userId,
+                                 @RequestParam("role") Role role) {
+       Optional<User> userOptional= userService.findById(userId, role);
+
+        return "redirect:/admin/users";
+    }
+
+
+
 }

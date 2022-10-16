@@ -109,7 +109,7 @@
                                                 </div>
                                                 <div th:if="${reviews.totalPages > 0}" class="page"
                                                      th:each="pageNumber : ${pageNumbers}">
-                                                    <a th:href="@{/reviews(size=${reviews.size}, page=${pageNumber})}"
+                                                    <a th:href="@{/admin/reviews(size=${reviews.size}, page=${pageNumber})}"
                                                        th:text="${pageNumber}"
                                                        th:class="${pageNumber==reviews.number + 1} ? active"></a>
                                                 </div>

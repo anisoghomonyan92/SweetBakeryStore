@@ -77,10 +77,10 @@
                                             <td th:text="${address.name}"></td>
                                             <td class=" dt-body-right">
                                                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit"
+                                                    <a href="/admin/addresses-edit"
                                                        class="btn btn-outline-secondary"><i
                                                             class="icofont-edit text-success"></i></a>
-                                                    <a th:href="@{/addresses/delete(id=${address.id})}">
+                                                    <a th:href="@{/admin/addresses/delete(id=${address.id})}">
                                                         <button type="button"
                                                                 class="btn btn-outline-secondary deleterow"><i
                                                                 class="icofont-ui-delete text-danger"></i>
@@ -94,7 +94,7 @@
                             </div>
                             <div th:if="${addresses.totalPages > 0}" class="page"
                                  th:each="pageNumber : ${pageNumbers}">
-                                <a th:href="@{/addresses(size=${addresses.size}, page=${pageNumber})}"
+                                <a th:href="@{/admin/addresses(size=${addresses.size}, page=${pageNumber})}"
                                    th:text="${pageNumber}"
                                    th:class="${pageNumber==addresses.number + 1} ? active"></a>
                             </div>

@@ -214,7 +214,7 @@
                                      th:each="product: ${products}">
                                     <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/product-detail">
                                         <img th:if="${product.productPic != null}"
-                                             th:src="@{/products/getImage(fileName=${product.productPic})}">
+                                             th:src="@{/admin/products/getImage(fileName=${product.productPic})}">
                                         <img th:if="${product.productPic == null}"
                                              src="/images/product-defoult.jpg" height=50 width=100>
                                     </a>
@@ -242,7 +242,7 @@
                                             </div>
                                             <div class="btn-group" role="group" aria-label="Basic outlined example">
 
-                                                <a th:href="@{/products/delete(id=${product.id})}">
+                                                <a th:href="@{/admin/products/delete(id=${product.id})}">
                                                     <button type="button" class="btn btn-outline-secondary deleterow"><i
                                                             class="icofont-ui-delete text-danger"></i></button>
                                                 </a>
@@ -255,7 +255,7 @@
                     </div>
                     <div th:if="${products.totalPages > 0}" class="page"
                          th:each="pageNumber : ${pageNumbers}">
-                        <a th:href="@{/products(size=${products.size}, page=${pageNumber})}"
+                        <a th:href="@{/admin/products(size=${products.size}, page=${pageNumber})}"
                            th:text="${pageNumber}"
                            th:class="${pageNumber==products.number + 1} ? active"></a>
                     </div>

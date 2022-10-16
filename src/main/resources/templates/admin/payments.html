@@ -107,7 +107,7 @@
                                     </table>
                                     <div th:if="${payments.totalPages > 0}" class="page"
                                           th:each="pageNumber : ${pageNumbers}">
-                                        <a th:href="@{/payments(size=${payments.size}, page=${pageNumber})}"
+                                        <a th:href="@{/admin/payments(size=${payments.size}, page=${pageNumber})}"
                                            th:text="${pageNumber}"
                                            th:class="${pageNumber==payments.number + 1} ? active"></a>
                                     </div>

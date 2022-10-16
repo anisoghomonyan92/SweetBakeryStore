@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -42,6 +43,7 @@ public class UserService {
     public Page<User> findPaginated(Pageable pageable) {
         return userRepository.findAll(pageable);
     }
+
     public byte[] getUserImage(String fileName) throws IOException {
         InputStream inputStream = new FileInputStream(folderPath + File.separator + fileName);
         return IOUtils.toByteArray(inputStream);
@@ -57,7 +59,6 @@ public class UserService {
     }
 
 
-
     public void saveUser(User user, MultipartFile file) throws IOException {
         if (!file.isEmpty() && file.getSize() > 0) {
             String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
@@ -71,7 +72,7 @@ public class UserService {
 
 
     @PostConstruct
-    public void run()  {
+    public void run() {
         Optional<User> byEmail = userRepository.findByEmail("admin@gmail.com");
         if (byEmail.isEmpty()) {
             City gyumri = null;
@@ -100,6 +101,19 @@ public class UserService {
                     .build());
         }
     }
+
+
+    public Optional<User> findById(int userId, Role role) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+           user.setRole(role);
+            userRepository.save(user);
+        }
+        return userOptional;
+
+    }
+
 
 
 }

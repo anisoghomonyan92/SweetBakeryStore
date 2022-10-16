@@ -17,6 +17,7 @@ public class CategoryService {
     private final CategoryRepository categoryRepository;
 
     public Page<Category> findPaginated(Pageable pageable) {
+
         return categoryRepository.findAll(pageable);
     }
 
