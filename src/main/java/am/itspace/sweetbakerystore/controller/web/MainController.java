@@ -74,12 +74,12 @@ public class MainController {
         user.setAddress(savedAddress);
         if (byEmail.isPresent()) {
             modelMap.addAttribute("errorMessage", "Email Already in use");
-            return "/register";
+            return "register";
         } else {
             if (!file.isEmpty() && file.getSize() > 0) {
                 if (file.getContentType() != null && !file.getContentType().contains("image")) {
                     modelMap.addAttribute("errorMessageFile", "Please choose only image");
-                    return "/login";
+                    return "register";
                 }
             }
             userService.saveUser(user, file);
@@ -90,7 +90,7 @@ public class MainController {
     @GetMapping(value = "/admin/verify")
     public String verifyUser(@RequestParam("email") String email, @RequestParam("token") String token) throws Exception {
         userService.verifyUser(email, token);
-        return "redirect:/login-page";
+        return "login-page";
     }
 
     @GetMapping("/login")
