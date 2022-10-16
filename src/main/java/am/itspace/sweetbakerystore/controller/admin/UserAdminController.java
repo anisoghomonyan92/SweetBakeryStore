@@ -54,7 +54,7 @@ public class UserAdminController {
     @GetMapping(value = "/users/delete")
     public String delete(@RequestParam("id") int id) {
         userService.deleteById(id);
-        return "redirect:/admin/users";
+        return "admin/users";
     }
 
 //    @GetMapping(value = "/users/change-role")
