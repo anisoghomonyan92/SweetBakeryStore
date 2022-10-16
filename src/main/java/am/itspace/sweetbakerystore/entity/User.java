@@ -33,5 +33,6 @@ public class User {
     private boolean isActive;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createAt;
+    private String verifyToken;
 
 }

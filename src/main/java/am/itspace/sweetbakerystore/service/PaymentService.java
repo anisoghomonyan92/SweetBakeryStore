@@ -4,7 +4,6 @@ import am.itspace.sweetbakerystore.entity.Payment;
 import am.itspace.sweetbakerystore.repository.PaymentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
