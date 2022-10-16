@@ -42,19 +42,18 @@ public class ProductAdminController {
                     .collect(Collectors.toList());
             modelMap.addAttribute("pageNumbers", pageNumbers);
         }
-
         return "admin/products";
     }
+
     @GetMapping(value = "/products/getImage", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody byte[] getImage(@RequestParam("fileName") String fileName) throws IOException {
         return productService.getProductImage(fileName);
-
     }
 
     @GetMapping(value = "/products/delete")
     public String delete(@RequestParam("id") int id) {
         productService.deleteById(id);
-        return "redirect:/products";
+        return "admin/products";
     }
 
     @GetMapping(value = "/products-add")

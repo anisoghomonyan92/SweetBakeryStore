@@ -1,5 +1,7 @@
 package am.itspace.sweetbakerystore.controller.web;
 
+import am.itspace.sweetbakerystore.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/user")
+@RequiredArgsConstructor
 public class UserAccountController {
+    private final UserService userService;
+
     @GetMapping(value = "/my-account")
     public String userAccount() {
         return "web/user-account/index";
@@ -20,7 +25,7 @@ public class UserAccountController {
 
     @PostMapping(value = "/my-account-edit")
     public String userEditAccount() {
-        return "redirect: web/user-account";
+        return "redirect:/user/my-account";
     }
 
     @GetMapping(value = "/my-orders")
@@ -28,13 +33,14 @@ public class UserAccountController {
         return "web/user-account/my-orders";
     }
 
-    @GetMapping(value = "/my-account/edit-address")
+    @GetMapping(value = "/edit-address")
     public String userAddressPage() {
         return "web/user-account/edit-address";
     }
 
-    @PostMapping(value = "/my-account/edit-address")
+    @PostMapping(value = "/edit-address")
     public String userEditAddress() {
-        return "redirect: web/user-account/edit-address";
+        return "redirect:/user/my-account";
     }
+
 }

@@ -1573,14 +1573,18 @@
                                     href="/contact-style">Contact style #2</a></li>
                         </ul>
                     </li>
-                    <li id="menu-item-454"
-                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-454">
-                        <a href="/login">Log in</a>
+                    <li id="menu-item-454" class="menu-item menu-item-type-post_type menu-item-object-page
+                    menu-item-has-children menu-item-454"
+                        th:if="${currentUser == null}"><a href="/login">Log in</a>
                         <ul class="sub-menu">
                             <li id="menu-item-45"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-452"><a
-                                    href="/login">Register</a></li>
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-452"
+                                th:if="${currentUser == null}"><a href="/register">Register</a>
                         </ul>
+                    </li>
+                    <li id="menu-item-475" class="menu-item menu-item-type-post_type menu-item-object-page
+                    menu-item-has-children menu-item-454"
+                        th:if="${currentUser != null}"><a href="/logoutr">Logout</a>
                     </li>
                 </ul>
 
