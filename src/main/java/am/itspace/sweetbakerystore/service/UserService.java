@@ -43,7 +43,6 @@ public class UserService {
     public Page<User> findPaginated(Pageable pageable) {
         return userRepository.findAll(pageable);
     }
-
     public byte[] getUserImage(String fileName) throws IOException {
         InputStream inputStream = new FileInputStream(folderPath + File.separator + fileName);
         return IOUtils.toByteArray(inputStream);
@@ -59,6 +58,7 @@ public class UserService {
     }
 
 
+
     public void saveUser(User user, MultipartFile file) throws IOException {
         if (!file.isEmpty() && file.getSize() > 0) {
             String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
@@ -72,7 +72,7 @@ public class UserService {
 
 
     @PostConstruct
-    public void run() {
+    public void run()  {
         Optional<User> byEmail = userRepository.findByEmail("admin@gmail.com");
         if (byEmail.isEmpty()) {
             City gyumri = null;
@@ -102,6 +102,19 @@ public class UserService {
         }
     }
 
+    public void verifyUser(String email, String token) throws Exception {
+        Optional<User> userOptional = userRepository.findByEmailAndVerifyToken(email, token);
+        if (userOptional.isEmpty()) {
+            throw new Exception("User doesn't exist with email and token.");
+        }
+        User user = userOptional.get();
+        if (user.isActive()) {
+            throw new Exception("User has already is active.");
+        }
+        user.setActive(true);
+        user.setVerifyToken(null);
+        userRepository.save(user);
+    }
 
     public Optional<User> findById(int userId, Role role) {
         Optional<User> userOptional = userRepository.findById(userId);
