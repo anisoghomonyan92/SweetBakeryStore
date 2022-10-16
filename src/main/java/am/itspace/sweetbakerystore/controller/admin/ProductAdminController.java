@@ -54,7 +54,7 @@ public class ProductAdminController {
     @GetMapping(value = "/products/delete")
     public String delete(@RequestParam("id") int id) {
         productService.deleteById(id);
-        return "admin/products";
+        return "redirect:/admin/products";
     }
 
     @GetMapping(value = "/products-add")
@@ -67,10 +67,16 @@ public class ProductAdminController {
         return "redirect:/admin/products";
     }
 
-    @PostMapping(value = "/products-edit")
+    @GetMapping (value = "/products-edit")
     public String editProductPage() {
+        return "admin/products-edit";
+    }
+
+    @PostMapping(value = "/products-edit")
+    public String editProduct() {
         return "redirect:/admin/products";
     }
+
 
 }
 
