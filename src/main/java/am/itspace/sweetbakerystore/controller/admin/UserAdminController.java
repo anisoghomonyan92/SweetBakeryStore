@@ -1,7 +1,9 @@
 package am.itspace.sweetbakerystore.controller.admin;
 
-import am.itspace.sweetbakerystore.entity.Payment;
+
+import am.itspace.sweetbakerystore.entity.Role;
 import am.itspace.sweetbakerystore.entity.User;
+
 import am.itspace.sweetbakerystore.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -54,13 +56,10 @@ public class UserAdminController {
     @GetMapping(value = "/users/delete")
     public String delete(@RequestParam("id") int id) {
         userService.deleteById(id);
-        return "admin/users";
+        return "redirect:/admin/users";
     }
 
-//    @GetMapping(value = "/users/change-role")
-//    public String userChangeRolePage() {
-//        return "admin/users";
-//    }
+
 
     @PostMapping(value = "/users/change-role")
     public String userChangeRole(@RequestParam("userId") int userId,
@@ -69,4 +68,7 @@ public class UserAdminController {
 
         return "redirect:/admin/users";
     }
+
+
+
 }

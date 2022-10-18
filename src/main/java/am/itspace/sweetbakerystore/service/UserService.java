@@ -8,7 +8,6 @@ import am.itspace.sweetbakerystore.repository.AddressRepository;
 import am.itspace.sweetbakerystore.repository.CityRepository;
 import am.itspace.sweetbakerystore.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -16,7 +15,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 
 import javax.annotation.PostConstruct;
 import java.io.File;
@@ -55,11 +53,9 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-
     public Optional<User> findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
-
 
     public void saveUser(User user, MultipartFile file) throws IOException {
         if (!file.isEmpty() && file.getSize() > 0) {
@@ -81,9 +77,8 @@ public class UserService {
                         "&token=" + user.getVerifyToken() + "\">Activate</a>");
     }
 
-
     @PostConstruct
-    public void run()  {
+    public void run() {
         Optional<User> byEmail = userRepository.findByEmail("admin@gmail.com");
         if (byEmail.isEmpty()) {
             City gyumri = null;
@@ -113,20 +108,6 @@ public class UserService {
         }
     }
 
-
-    public Optional<User> findById(int userId, Role role) {
-        Optional<User> userOptional = userRepository.findById(userId);
-        if (userOptional.isPresent()) {
-            User user = userOptional.get();
-           user.setRole(role);
-            userRepository.save(user);
-        }
-        return userOptional;
-
-    }
-
-
-
     public void verifyUser(String email, String token) throws Exception {
         Optional<User> userOptional = userRepository.findByEmailAndVerifyToken(email, token);
         if (userOptional.isEmpty()) {
@@ -140,4 +121,17 @@ public class UserService {
         user.setVerifyToken(null);
         userRepository.save(user);
     }
+    public Optional<User> findById(int userId, Role role) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setRole(role);
+            userRepository.save(user);
+        }
+        return userOptional;
+
+    }
+
+
+
 }
