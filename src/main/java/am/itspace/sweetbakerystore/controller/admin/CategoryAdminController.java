@@ -48,7 +48,7 @@ public class CategoryAdminController {
     @GetMapping(value = "/categories/delete")
     public String delete(@RequestParam("id") int id) {
         categoryService.deleteById(id);
-        return "redirect:/categories";
+        return "redirect:/admin/categories";
     }
 
     @GetMapping(value = "/categories-add")
@@ -61,8 +61,12 @@ public class CategoryAdminController {
         return "redirect:/admin/categories";
     }
 
-    @PostMapping(value = "/categories-edit")
+    @GetMapping(value = "/categories-edit")
     public String editCategoryPage() {
-        return "redirect:/admin/categories-edit";
+        return "/admin/categories-edit";
+    }
+    @PostMapping(value = "/categories-edit")
+    public String editCategory() {
+        return "redirect:/admin/categories";
     }
 }

@@ -1,4 +1,5 @@
-
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">>
 <div th:fragment="headerImport">
     <style>
 
@@ -209,7 +210,7 @@
     <!-- sidebar -->
     <div class="sidebar px-4 py-4 py-md-4 me-0">
         <div class="d-flex flex-column h-100">
-            <a href="home.html" class="mb-0 brand-icon">
+            <a href="/admin/admin-page" class="mb-0 brand-icon">
 			<span class="logo-icon">
 				<i class="bi bi-bag-check-fill fs-4"></i>
 			</span>
@@ -217,7 +218,7 @@
             </a>
             <!-- Menu: main ul -->
             <ul class="menu-list flex-grow-1 mt-3">
-                <li><a class="m-link active" href="home.html"><i class="icofont-home fs-5"></i>
+                <li><a class="m-link active" href="/admin/admin-page"><i class="icofont-home fs-5"></i>
                     <span>Dashboard</span></a></li>
                 <li class="collapsed">
                     <a class="m-link " data-bs-toggle="collapse" data-bs-target="#menu-product" href="#">
@@ -227,13 +228,13 @@
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse " id="menu-product">
                         <li><a class="ms-link "
-                               href="https://pixelwibes.com/template/ebazar/laravel/public/backend/product-list">Products
+                               href="/admin/products">Products
                             List</a></li>
                         <li><a class="ms-link "
-                               href="https://pixelwibes.com/template/ebazar/laravel/public/backend/product-edit">Products
+                               href="/admin/products-edit">Products
                             Edit</a></li>
                         <li><a class="ms-link "
-                               href="https://pixelwibes.com/template/ebazar/laravel/public/backend/product-add">Products
+                               href="/admin/products-add">Products
                             Add</a></li>
                     </ul>
                 </li>
@@ -245,13 +246,13 @@
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse " id="categories">
                         <li><a class="ms-link "
-                               href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-list">Categories
+                               href="/admin/categories">Categories
                             List</a></li>
                         <li><a class="ms-link "
-                               href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-edit">Categories
+                               href="/admin/categories-edit">Categories
                             Edit</a></li>
                         <li><a class="ms-link "
-                               href="https://pixelwibes.com/template/ebazar/laravel/public/backend/categories-add">Categories
+                               href="/admin/categories-add">Categories
                             Add</a></li>
                     </ul>
                 </li>
@@ -265,73 +266,34 @@
                         <li><a class="ms-link "
                                href="/admin/orders">Orders
                             List</a></li>
-                        <li><a class="ms-link "
-                               href="/order-details">Order
-                            Details</a></li>
                     </ul>
                 </li>
 
+
                 <li class="collapsed">
-                    <a class="m-link " data-bs-toggle="collapse" data-bs-target="#customers-info" href="#">
-                        <i class="icofont-funky-man fs-5"></i> <span>Users</span> <span
-                            class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <a  href="/admin/users"class="m-link " data-bs-target="#customers-info" >
+                        <i class="icofont-funky-man fs-5"></i> <span>Users</span> </a>
                     <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse " id="users">
-                        <li><a class="ms-link "
-                               href="https://pixelwibes.com/template/ebazar/laravel/public/backend/customers">Users
-                            List</a></li>
-                        <li><a class="ms-link "
-                               href="https://pixelwibes.com/template/ebazar/laravel/public/backend/customer-detail">Users
-                            Add</a></li>
-                        <li><a class="ms-link "
-                               href="https://pixelwibes.com/template/ebazar/laravel/public/backend/customer-detail">Users
-                            Edit</a></li>
-                        <li><a class="ms-link "
-                               href="https://pixelwibes.com/template/ebazar/laravel/public/backend/customer-detail">Users
-                            Remove</a></li>
-                    </ul>
                 </li>
 
                 <li class="collapsed">
-                    <a class="m-link " data-bs-toggle="collapse" data-bs-target="#menu-sale" href="#">
-                        <i class="icofont-sale-discount fs-5"></i> <span>Reviews</span> <span
-                            class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse " id="review">
-                        <li><a class="ms-link "
-                               href="https://pixelwibes.com/template/ebazar/laravel/public/backend/coupon-list">Reviews
-                            List</a></li>
-                        <li><a class="ms-link "
-                               href="https://pixelwibes.com/template/ebazar/laravel/public/backend/coupon-add">Reviews
-                            Remove</a></li>
-                    </ul>
+                    <a  href="/admin/reviews"class="m-link "  data-bs-target="#menu-sale" >
+                        <i class="icofont-sale-discount fs-5"></i>
+                        <span>Reviews</span>
+                           </a>
                 </li>
 
                 <li class="collapsed">
-                    <a class="m-link " data-bs-toggle="collapse" data-bs-target="#menu-inventory" href="#">
-                        <i class="icofont-chart-histogram fs-5"></i> <span>Payments</span> <span
-                            class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <a href="/admin/payments" class="m-link " data-bs-target="#menu-inventory" >
+                        <i class="icofont-chart-histogram fs-5"></i> Payments
+                         </a>
                     <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse " id="payment">
-                        <li><a class="ms-link "
-                               href="https://pixelwibes.com/template/ebazar/laravel/public/backend/inventory-info">Payments
-                            List</a></li>
-                    </ul>
                 </li>
 
                 <li class="collapsed">
-                    <a class="m-link " data-bs-toggle="collapse" data-bs-target="#menu-inventory" href="#">
-                        <i class="icofont-chart-histogram fs-5"></i> <span>Address</span> <span
-                            class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse " id="address">
-                        <li><a class="ms-link "
-                               href="https://pixelwibes.com/template/ebazar/laravel/public/backend/inventory-info">Address
-                            List</a></li>
-                        <li><a class="ms-link "
-                               href="https://pixelwibes.com/template/ebazar/laravel/public/backend/purchase">Cites</a>
-                        </li>
-                    </ul>
+                    <a  href="/admin/addresses"class="m-link "  data-bs-target="#menu-inventory" >
+                        <i class="icofont-chart-histogram fs-5"></i> <span>Address</span>
+                       </a>
                 </li>
 
                 <!-- Menu: menu collepce btn -->

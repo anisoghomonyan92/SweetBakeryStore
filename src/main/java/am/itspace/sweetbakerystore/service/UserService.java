@@ -22,6 +22,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
+
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -119,4 +121,20 @@ public class UserService {
         user.setVerifyToken(null);
         userRepository.save(user);
     }
+    public Optional<User> findById(int userId, Role role) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.setRole(role);
+            userRepository.save(user);
+        }
+        return userOptional;
+
+    }
+
+
+
+
+
+
 }
