@@ -101,6 +101,7 @@ public class UserService {
                     .email("admin@gmail.com")
                     .phone("+374")
                     .address(adminAddress)
+                    .isActive(true)
                     .password(passwordEncoder.encode("admin555"))
                     .role(Role.ADMIN)
                     .createAt(new Date())

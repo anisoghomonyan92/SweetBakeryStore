@@ -78,6 +78,7 @@
                                     <form action="/login" method="post"
                                           class="woocommerce-form woocommerce-form-login login">
                                         <!--/*@thymesVar id="currentUser" type=""*/-->
+                                        <p style="color: red" th:if="${param.error}">Email or password are not valid</p>
                                         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                                             <label for="email">Username or email address&nbsp;<span
                                                     class="required">*</span></label>
