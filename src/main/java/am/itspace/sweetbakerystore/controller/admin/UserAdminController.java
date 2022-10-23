@@ -1,9 +1,7 @@
 package am.itspace.sweetbakerystore.controller.admin;
 
-
 import am.itspace.sweetbakerystore.entity.Role;
 import am.itspace.sweetbakerystore.entity.User;
-
 import am.itspace.sweetbakerystore.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -33,7 +31,7 @@ public class UserAdminController {
                             @RequestParam("size") Optional<Integer> size) {
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(5);
-        Page<User> paginated = userService.findPaginated(PageRequest.of(currentPage-1,pageSize));
+        Page<User> paginated = userService.findPaginated(PageRequest.of(currentPage - 1, pageSize));
 
         modelMap.addAttribute("users", paginated);
         int totalPages = paginated.getTotalPages();
@@ -53,22 +51,26 @@ public class UserAdminController {
         return userService.getUserImage(fileName);
 
     }
-    @GetMapping(value = "/users/delete")
-    public String delete(@RequestParam("id") int id) {
+
+    @GetMapping(value = "/users/delete/{id}")
+    public String delete(@PathVariable("id") int id,
+                         ModelMap modelMap) {
+        try{
         userService.deleteById(id);
+        } catch (Exception e) {
+            modelMap.addAttribute("deleteErrorMessage", "You can not delete this object because there is some relationships with it.");
+            return "admin/users";
+        }
         return "redirect:/admin/users";
     }
-
-
 
     @PostMapping(value = "/users/change-role")
     public String userChangeRole(@RequestParam("userId") int userId,
                                  @RequestParam("role") Role role) {
-       Optional<User> userOptional= userService.findById(userId, role);
+        Optional<User> userOptional = userService.findById(userId, role);
 
         return "redirect:/admin/users";
     }
-
 
 
 }

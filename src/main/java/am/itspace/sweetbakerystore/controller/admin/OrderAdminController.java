@@ -1,6 +1,5 @@
 package am.itspace.sweetbakerystore.controller.admin;
 
-import am.itspace.sweetbakerystore.entity.Address;
 import am.itspace.sweetbakerystore.entity.Order;
 import am.itspace.sweetbakerystore.service.OrderService;
 import lombok.RequiredArgsConstructor;
@@ -33,7 +32,7 @@ public class OrderAdminController {
                             @RequestParam("size") Optional<Integer> size) {
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(5);
-        Page<Order> paginated = orderService.findPaginated(PageRequest.of(currentPage-1,pageSize));
+        Page<Order> paginated = orderService.findPaginated(PageRequest.of(currentPage - 1, pageSize));
 
         modelMap.addAttribute("orders", paginated);
         int totalPages = paginated.getTotalPages();
@@ -45,6 +44,7 @@ public class OrderAdminController {
         }
         return "admin/orders";
     }
+
     @GetMapping(value = "/orders/getImage", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody byte[] getImage(@RequestParam("fileName") String fileName) throws IOException {
         return orderService.getProductImage(fileName);

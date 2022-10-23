@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" dir="ltr">
+<html  xmlns:th="http://www.thymeleaf.org/"  class="no-js" lang="en" dir="ltr">
 
 <head>
     <meta charset="utf-8">
@@ -48,6 +48,12 @@
                                 </div>
                             </div>
                         </div>
+                        <form action="/admin/cities-add" method="post">
+                            <input type="hidden" name="id" th:value="${city.id}">
+                            <span style="color: red" th:if="${errorMessage !=null}" th:text="${errorMessage}"></span>
+                            <input type="text" name="name" th:value="${city.name}"><br><br>
+                            <button class="btn btn-primary " value="ADD" >ADD</button>
+                        </form>
                     </div>
                 </div>
             </div>

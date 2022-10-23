@@ -28,7 +28,7 @@
             <div class="border-0 mb-4">
                 <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
                     <h3 class="fw-bold mb-0">Categorie List</h3>
-                    <a href="/admin/products-add"
+                    <a href="/admin/categories-add"
                        class="btn btn-primary py-2 px-5 btn-set-task w-sm-100"><i
                             class="icofont-plus-circle me-2 fs-6"></i> Add Categories</a>
                 </div>
@@ -43,6 +43,9 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
+                                    <div role="alert" class="alert alert-danger" th:if="${deleteErrorMessage !=null}"
+                                         th:text="${deleteErrorMessage}">
+                                    </div>
                                     <table id="myDataTable"
                                            class="table table-hover align-middle mb-0 nowrap dataTable no-footer dtr-inline"
                                            style="width: 100%;" role="grid" aria-describedby="myDataTable_info">
@@ -80,10 +83,10 @@
 
                                             <td class=" dt-body-right">
                                                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                    <a href="/admin/categories-edit"
+                                                    <a th:href="@{/admin/categories-edit(id=${category.id})}"
                                                        class="btn btn-outline-secondary"><i
                                                             class="icofont-edit text-success"></i></a>
-                                                    <a th:href="@{/admin/categories/delete(id=${category.id})}">
+                                                    <a th:href="@{'/admin/categories/delete/'+${category.id}}">
                                                         <button type="button"
                                                                 class="btn btn-outline-secondary deleterow"><i
                                                                 class="icofont-ui-delete text-danger"></i></button>

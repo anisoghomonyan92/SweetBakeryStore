@@ -1,6 +1,5 @@
 package am.itspace.sweetbakerystore.controller.admin;
 
-import am.itspace.sweetbakerystore.entity.Payment;
 import am.itspace.sweetbakerystore.entity.Review;
 import am.itspace.sweetbakerystore.service.ReviewService;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +29,7 @@ public class ReviewAdminController {
                              @RequestParam("size") Optional<Integer> size) {
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(5);
-        Page<Review> paginated = reviewService.findPaginated(PageRequest.of(currentPage-1,pageSize));
+        Page<Review> paginated = reviewService.findPaginated(PageRequest.of(currentPage - 1, pageSize));
 
         modelMap.addAttribute("reviews", paginated);
         int totalPages = paginated.getTotalPages();

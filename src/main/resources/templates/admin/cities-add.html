@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org/" class="no-js" lang="en" dir="ltr">
+<html class="no-js" lang="en" dir="ltr"  xmlns:th="http://www.thymeleaf.org/">
 
 <head>
     <meta charset="utf-8">
@@ -48,15 +48,11 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="/admin/categories-edit" method="post">
-                            <input type="hidden" name="id" th:value="${category.id}">
-                            <span style="color: red" th:if="${errorMessageCategoryName !=null}" th:text="${errorMessageCategoryName}"></span>
-                            <p><label for="name">Category name</label></p>
-                            <input type="text" name="name" id="name" th:value="${category.name}" ><br>
-                            <p><label for="description">Description:</label></p>
-                            <textarea id="description" name="description" rows="4" cols="50" th:text="${category.description}"></textarea><br>
-                            <input type="submit" value="Edit Category" style="background-color: #7258db">
-
+                        <form action="/admin/cities-add" method="post" >
+                            <div role="alert" class="alert alert-danger"th:if="${errorMessage !=null}" th:text="${errorMessage}">
+                            </div>
+                            <input type="text" name="name" placeholder="Please input name"><br><br>
+                            <button class="btn btn-primary " value="ADD" >ADD</button>
                         </form>
                     </div>
                 </div>
@@ -86,5 +82,4 @@
         });
 </script>
 </body>
-
 </html>
