@@ -1,18 +1,16 @@
 package am.itspace.sweetbakerystore.controller.admin;
 
-import am.itspace.sweetbakerystore.entity.Address;
 import am.itspace.sweetbakerystore.entity.Category;
-import am.itspace.sweetbakerystore.entity.Product;
+import am.itspace.sweetbakerystore.security.CurrentUser;
 import am.itspace.sweetbakerystore.service.CategoryService;
+import am.itspace.sweetbakerystore.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +23,7 @@ import java.util.stream.IntStream;
 public class CategoryAdminController {
 
     private final CategoryService categoryService;
+    private final UserService userService;
 
     @GetMapping(value = "/categories")
     public String categoryPage(ModelMap modelMap,
@@ -45,28 +44,52 @@ public class CategoryAdminController {
         return "admin/categories";
     }
 
-    @GetMapping(value = "/categories/delete")
-    public String delete(@RequestParam("id") int id) {
-        categoryService.deleteById(id);
+    @GetMapping(value = "/categories/delete/{id}")
+    public String delete(@PathVariable("id") int id, ModelMap modelMap) {
+        try {
+            categoryService.deleteById(id);
+        } catch (Exception e) {
+            modelMap.addAttribute("deleteErrorMessage", "You can not delete this object because there is some relationships with it.");
+            return "admin/categories";
+        }
         return "redirect:/admin/categories";
     }
 
     @GetMapping(value = "/categories-add")
     public String addCategoryPage() {
-        return "admin/categories";
+        return "admin/categories-add";
     }
 
     @PostMapping(value = "/categories-add")
-    public String addCategory() {
+    public String addCategory(@ModelAttribute Category category,
+                              @AuthenticationPrincipal CurrentUser currentUser,
+                              ModelMap modelMap) throws Exception {
+        Optional<Category> byName = categoryService.findByName(category.getName());
+
+        if (byName.isPresent()) {
+            modelMap.addAttribute("errorMessageCategoryName", "Category with this name has already exists.");
+            return "admin/categories-add";
+        }
+        categoryService.save(category, currentUser);
         return "redirect:/admin/categories";
+
     }
 
     @GetMapping(value = "/categories-edit")
-    public String editCategoryPage() {
-        return "/admin/categories-edit";
+    public String editCategoryPage(@RequestParam("id") int id,
+                                   ModelMap modelMap) {
+        Optional<Category> categoryOptional = categoryService.findByIdForEdit(id);
+        if (categoryOptional.isEmpty()) {
+            return "redirect:/admin/categories";
+        }
+        modelMap.addAttribute("category", categoryOptional.get());
+        return "admin/categories-edit";
     }
+
     @PostMapping(value = "/categories-edit")
-    public String editCategory() {
+    public String editCategory(@ModelAttribute Category category,
+                               @AuthenticationPrincipal CurrentUser currentUser) throws Exception {
+        categoryService.save(category, currentUser);
         return "redirect:/admin/categories";
     }
 }

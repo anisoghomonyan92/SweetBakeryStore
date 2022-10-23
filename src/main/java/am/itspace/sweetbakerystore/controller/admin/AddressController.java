@@ -2,15 +2,13 @@ package am.itspace.sweetbakerystore.controller.admin;
 
 import am.itspace.sweetbakerystore.entity.Address;
 import am.itspace.sweetbakerystore.service.AddressService;
+import am.itspace.sweetbakerystore.service.CityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +21,7 @@ import java.util.stream.IntStream;
 public class AddressController {
 
     private final AddressService addressService;
+    private final CityService cityService;
 
     @GetMapping(value = "/addresses")
     public String addressPage(ModelMap modelMap,
@@ -30,7 +29,7 @@ public class AddressController {
                               @RequestParam("size") Optional<Integer> size) {
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(5);
-        Page<Address> paginated = addressService.findPaginated(PageRequest.of(currentPage-1,pageSize));
+        Page<Address> paginated = addressService.findPaginated(PageRequest.of(currentPage - 1, pageSize));
 
         modelMap.addAttribute("addresses", paginated);
         int totalPages = paginated.getTotalPages();
@@ -42,21 +41,5 @@ public class AddressController {
         }
 
         return "admin/addresses";
-    }
-
-    @GetMapping(value = "/addresses/delete")
-    public String delete(@RequestParam("id") int id) {
-        addressService.deleteById(id);
-        return "redirect:/admin/addresses";
-    }
-
-    @GetMapping (value = "/addresses-edit")
-    public String editAddressesPage() {
-        return "admin/addresses-edit";
-    }
-
-    @PostMapping(value = "/addresses-edit")
-    public String editAddresses() {
-        return "redirect:/admin/addresses";
     }
 }

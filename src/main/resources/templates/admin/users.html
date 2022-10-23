@@ -37,6 +37,9 @@
 
                 <div class="row">
                     <div class="col-sm-12">
+                        <div role="alert" class="alert alert-danger" th:if="${deleteErrorMessage !=null}"
+                             th:text="${deleteErrorMessage}">
+                        </div>
                         <table id="myProjectTable"
                                class="table table-hover align-middle mb-0 nowrap dataTable no-footer dtr-inline collapsed"
                                style="width: 100%;" role="grid"
@@ -91,7 +94,8 @@
                             </thead>
 
                             <tr role="row" class="odd" th:each="user, iter: ${users}">
-                                <td th:text="${iter.index +1}" tabindex="0" class="sorting_1"><strong>#CS-00002</strong></td>
+                                <td th:text="${iter.index +1}" tabindex="0" class="sorting_1"><strong>#CS-00002</strong>
+                                </td>
                                 <td th:text="${user.name + ' ' + user.surname}"></td>
                                 <td th:text="${user.email}"></td>
                                 <td th:text="${user.phone}"></td>
@@ -101,12 +105,12 @@
                                     <img th:if="${user.profilePic == null}"
                                          src="/admin/dist/assets/images/xs/avatar1.svg" height=50 width=100>
                                 </td>
-                                <td >
-                                    <form action="/admin/users/change-role" method="post" >
+                                <td>
+                                    <form action="/admin/users/change-role" method="post">
                                         <input type="hidden" name="userId" th:value="${user.id}">
                                         <select name="role" onchange="$('#changeUserBtn').removeAttr('disabled')">
                                             <option th:each="role: ${roles}" th:text="${role.name()}"
-                                                    th:selected="${user.role.name()==role.name()}" >
+                                                    th:selected="${user.role.name()==role.name()}">
 
                                             </option>
 
@@ -114,7 +118,6 @@
                                         <input id="changeUserBtn" type="submit" value="change"
                                                th:disabled="${user.role.name() eq null}">
                                     </form>
-
                                 </td>
                                 <td th:text="${user.isActive()}">IsActive</td>
                                 <td th:text="${user.address.city.name+ ' '+ user.address.name}">Address</td>
@@ -122,7 +125,7 @@
 
                                 <td class=" dt-body-right">
                                     <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                        <a th:href="@{/admin/users/delete(id=${user.id})}">
+                                        <a th:href="@{'/admin/users/delete/'+ ${user.id}}">
                                             <button type="button"
                                                     class="btn btn-outline-secondary deleterow"><i
                                                     class="icofont-ui-delete text-danger"></i></button>
@@ -194,7 +197,6 @@
                                 </div>
                             </form>
                         </div>
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
