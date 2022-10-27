@@ -1557,8 +1557,15 @@
                                 detail</a></li>
                         </ul>
                     </li>
-                    <li >
+                    <li>
                         <a href="/contact-style">Contact</a>
+                    </li>
+                    <li th:if="${currentUser != null}"><a href="/user/my-account">My Page</a>
+                        <ul class="sub-menu">
+                            <li id="menu-item-501"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-452"
+                                th:if="${currentUser == null}"><a href="/register">Register</a>
+                        </ul>
                     </li>
                     <li id="menu-item-454" class="menu-item menu-item-type-post_type menu-item-object-page
                     menu-item-has-children menu-item-454"
@@ -1586,9 +1593,7 @@
                 </div>
             </div>
         </div>
-
     </nav>
-
 </div>
 
 <div th:fragment="table">

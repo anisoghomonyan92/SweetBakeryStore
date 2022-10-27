@@ -1,7 +1,7 @@
 package am.itspace.sweetbakerystore.controller.web;
 
 import am.itspace.sweetbakerystore.entity.User;
-import am.itspace.sweetbakerystore.service.AboutUserService;
+import am.itspace.sweetbakerystore.service.AboutUsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequiredArgsConstructor
 @Controller
 public class AboutUsController {
-    private final AboutUserService aboutUsService;
+    private final AboutUsService aboutUsService;
 
     @GetMapping(value = "/about-us")
     public String aboutUs() {
