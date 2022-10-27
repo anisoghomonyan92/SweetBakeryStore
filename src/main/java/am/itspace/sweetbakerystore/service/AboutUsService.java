@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-public class AboutUserService {
+public class AboutUsService {
 
     private final JavaMailSender mailSender;
     private final UserService userService;

@@ -33,7 +33,7 @@
 </div>
 <div class="header--sidebar"></div>
 <header class="header" data-responsive="1199">
-    <link rel="icon" href="/images/2017/06/favicon.png" >
+    <link rel="icon" href="/images/2017/06/favicon.png">
     <link rel="icon" href="/images/2017/06/favicon.png">
     <link rel="apple-touch-icon" href="/images/2017/06/favicon.png">
     <th:block th:insert="web/fragments/fragment.html::USD-EURImport"></th:block>
@@ -67,26 +67,26 @@
                             <div class="u-columns col2-set" id="customer_login">
                                 <div class="u-column2 col-2">
                                     <h2>Register</h2>
-                                    <form method="post" action="/register"  enctype="multipart/form-data" class="woocommerce-form woocommerce-form-register register">
+                                    <form method="post" action="/register" enctype="multipart/form-data"
+                                          class="woocommerce-form woocommerce-form-register register">
                                         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                                             <label for="name">Name<span
                                                     class="required">*</span></label>
                                             <input type="text"
                                                    class="woocommerce-Input woocommerce-Input--text input-text"
-                                                   name="name" id="name" ></p>
+                                                   name="name" id="name"></p>
                                         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                                             <label for="surname">Surname<span
                                                     class="required">*</span></label>
                                             <input type="text"
                                                    class="woocommerce-Input woocommerce-Input--text input-text"
-                                                   name="surname" id="surname" ></p>
+                                                   name="surname" id="surname"></p>
                                         <!--/*@thymesVar id="errorMessage" type=""*/-->
-                                        <span style="collapse: red" th:if="${errorMessage != null}"
-                                              th:text="${errorMessage}">  </span>
                                         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                                             <label for="email">Email<span
-                                                    class="required" th:if="${errorMessage != null}"
-                                                    th:text="${errorMessage}"> </span></label>
+                                                    class="required"> </span></label><br>
+                                            <span style="collapse: red" th:if="${errorMessage != null}"
+                                                  th:text="${errorMessage}">  </span>
                                             <input type="email"
                                                    class="woocommerce-Input woocommerce-Input--text input-text"
                                                    name="email" id="email" autocomplete="email">
@@ -107,23 +107,26 @@
                                                     class="required">*</span></label>
                                             <input type="text"
                                                    class="woocommerce-Input woocommerce-Input--text input-text"
-                                                   name="phone" id="phone" ></p>
+                                                   name="phone" id="phone"></p>
                                         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                                             <label for="city">City<span
                                                     class="required">*</span></label>
-                                            <select  name="cityId" id="city"  class="woocommerce-Input woocommerce-Input--text input-text">
-                                                <option th:each="city, iter: ${cities}"  th:text="${city.name}" th:value="${city.id}"></option>
+                                            <select name="cityId" id="city"
+                                                    class="woocommerce-Input woocommerce-Input--text input-text">
+                                                <option th:each="city: ${cities}" th:text="${city.name}"
+                                                        th:value="${city.id}"></option>
                                             </select>
                                         </p>
                                         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                        <label for="address">Address<span
-                                                class="required">*</span></label>
-                                        <input type="text"
-                                               class="woocommerce-Input woocommerce-Input--text input-text"
-                                               name="addressName" id="address" ></p>
-                                            <button type="submit"
-                                                    class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit"
-                                                    name="register" value="Register">Register</button>
+                                            <label for="address">Address<span
+                                                    class="required">*</span></label>
+                                            <input type="text"
+                                                   class="woocommerce-Input woocommerce-Input--text input-text"
+                                                   name="addressName" id="address"></p>
+                                        <button type="submit"
+                                                class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit"
+                                                name="register" value="Register">Register
+                                        </button>
                                         </p>
                                     </form>
                                 </div>
