@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title>Contact style #2 &#8211; Noucake</title>
-
+    <link rel="icon" href="/images/2017/06/favicon.png">
+    <link rel="icon" href="/images/2017/06/favicon.png">
+    <link rel="apple-touch-icon" href="/images/2017/06/favicon.png">
     <th:block th:insert="web/fragments/fragment.html::headerImport"></th:block>
     <th:block th:insert="web/fragments/fragment.html::global-styles-inline-css"></th:block>
     <th:block th:insert="web/fragments/fragment.html::js-css"></th:block>
@@ -68,8 +70,12 @@
     <div class="ps-section pt-80 pb-80">
         <div class="container">
             <div class="ps-contact ps-contact--2">
-                <div class="mb-60" id="contact-map" data-type="coordinates" data-lat="40.74241242338376"
-                     data-lng="-74.00412082672119" data-address="92 9th Ave, New York" data-zoom="17"></div>
+                <div>
+                    <iframe id="contact-map" data-type="coordinates" data-lat="40.79187898650163"
+                            data-lng="43.84571874163061" data-address="Sayat Nova Avenue, Gyumri" data-zoom="17"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29795.43852539858!2d43.833443310955865!3d40.788153439627834!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4041fbed03f9ad71%3A0x215b8e92321efd80!2zU2F5YXQgTm92YSBBdmUsIEd5dW1yaSwg0JDRgNC80LXQvdC40Y8!5e0!3m2!1sru!2sus!4v1666775710337!5m2!1sru!2sus">
+                    </iframe>
+                </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                         <div class="ps-contact__info">
@@ -88,41 +94,11 @@
                                     <li><a href="#" target="_blank"><i class="fa fa-rss"></i></a></li>
                                 </ul>
                             </div>
-                            <div class="ps-contact__block">
-                                <h4>OFFICE AT PARIS</h4>
-                                <p><strong>189/32 BASEMENT COMPANY, PARIS, FRANCE</strong></p>
-                                <p><i class="fa fa-envelope-o"></i><a href="/cdn-cgi/l/email-protection"
-                                                                      class="__cf_email__"
-                                                                      data-cfemail="e98c87989c809b90a98b88828c9b90c78a8684">[email&#160;protected]</a>
-                                </p>
-                                <p><i class="fa fa-phone"></i>+1 650-253-0000</p>
-                                <ul class="ps-contact__social">
-                                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-rss"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="ps-contact__block">
-                                <h4>OFFICE AT VIETNAM</h4>
-                                <p><strong>189/32 BASEMENT COMPANY, PARIS, FRANCE</strong></p>
-                                <p><i class="fa fa-envelope-o"></i><a href="/cdn-cgi/l/email-protection"
-                                                                      class="__cf_email__"
-                                                                      data-cfemail="cda8a3bcb8a4bfb48dafaca6a8bfb4e3aea2a0">[email&#160;protected]</a>
-                                </p>
-                                <p><i class="fa fa-phone"></i>+1 650-253-0000</p>
-                                <ul class="ps-contact__social">
-                                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-rss"></i></a></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                         <div class="ps-contact__form">
-                            <form action="http://warethemes.com/wordpress/bakery/" method="POST">
+                            <form method="post" action="/contact-us" class="ps-delivery__form">
                                 <div class="form-group">
                                     <input class="form-control" name="name" type="text" placeholder="First Name">
                                 </div>
@@ -134,13 +110,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <textarea class="form-control" name="content" rows="6"
-                                              placeholder="Text your message here..."></textarea>
-                                </div>
-                                <div class="form-group mt-30">
-                                    <button class="ps-btn ps-btn--sm ps-contact__submit noubakery-contact__submit">
-                                        Submit
-                                    </button>
+                                    <label for="message"></label>
+                                    <textarea class="form-control" name="message" id="message"
+                                              placeholder="Your message"></textarea>
+                                    <div class="form-group mt-30">
+                                        <button type="submit" value="send" class="ps-btn ">Send Message
+                                        </button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -149,7 +125,6 @@
             </div>
         </div>
     </div>
-
 </div><!--End .page-wrap-->
 <div th:insert="web/fragments/fragment.html::aboutUs"></div>
 <div th:insert="web/fragments/fragment.html::footerImport"></div>

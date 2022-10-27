@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 public class ReviewService {
     private final ReviewRepository reviewRepository;
 
-
     public Page<Review> findPaginated(Pageable pageable) {
         return reviewRepository.findAll(pageable);
     }

@@ -46,7 +46,7 @@ public class MainController {
             if (user.getRole() == Role.ADMIN || user.getRole() == Role.PARTNER) {
                 return "redirect:/admin/admin-page";
             } else if (user.getRole() == Role.USER) {
-                return "redirect:/";
+                return "redirect:/user/my-account";
             }
         }
         return "redirect:/";
@@ -87,7 +87,7 @@ public class MainController {
         }
     }
 
-    @GetMapping(value = "/admin/verify")
+    @GetMapping(value = "/user/verify")
     public String verifyUser(@RequestParam("email") String email, @RequestParam("token") String token) throws Exception {
         userService.verifyUser(email, token);
         return "login-page";

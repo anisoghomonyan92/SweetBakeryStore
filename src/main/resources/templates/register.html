@@ -33,10 +33,11 @@
 </div>
 <div class="header--sidebar"></div>
 <header class="header" data-responsive="1199">
-
+    <link rel="icon" href="/images/2017/06/favicon.png" >
+    <link rel="icon" href="/images/2017/06/favicon.png">
+    <link rel="apple-touch-icon" href="/images/2017/06/favicon.png">
     <th:block th:insert="web/fragments/fragment.html::USD-EURImport"></th:block>
     <th:block th:insert="web/fragments/fragment.html::class-navigation-import"></th:block>
-
 </header>
 
 <nav class="ps-mobile-nav hidden-lg hidden-md">
@@ -113,7 +114,6 @@
                                             <select  name="cityId" id="city"  class="woocommerce-Input woocommerce-Input--text input-text">
                                                 <option th:each="city, iter: ${cities}"  th:text="${city.name}" th:value="${city.id}"></option>
                                             </select>
-
                                         </p>
                                         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                                         <label for="address">Address<span
