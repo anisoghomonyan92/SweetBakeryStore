@@ -218,55 +218,74 @@
             </a>
             <!-- Menu: main ul -->
             <ul class="menu-list flex-grow-1 mt-3">
-                <li><a class="m-link active" href="/admin/admin-page"><i class="icofont-home fs-5"></i>
-                    <span>Dashboard</span></a></li>
-                <li class="collapsed">
-                    <a href="/admin/products"  class="m-link " data-bs-target="#menu-product" >
+
+                <li>
+                    <a href="/admin/admin-page"
+                       th:class="${currentUrl == '/admin/admin-page' ? 'm-link active' : 'm-link'}">
+                    <i class="icofont-home fs-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                </li>
+
+
+                <li>
+                    <a href="/admin/products" th:class="${currentUrl == '/admin/products' ? 'm-link active' : 'm-link'}"
+                       data-bs-target="#menu-product">
                         <i class="icofont-truck-loaded fs-5"></i>
                         <span>Products</span>
-                           </a>
+                    </a>
                 </li>
 
+
                 <li class="collapsed">
-                    <a href="/admin/categories" class="m-link " data-bs-target="#categories" >
+                    <a href="/admin/categories"
+                       th:class="${currentUrl == '/admin/categories' ? 'm-link active' : 'm-link'}"
+                       data-bs-target="#categories">
                         <i class="icofont-chart-flow fs-5"></i> <span>Categories</span>
-                            </a>
+                    </a>
                 </li>
 
                 <li class="collapsed">
-                    <a  href="/admin/orders" class="m-link "  data-bs-target="#menu-order" >
+                    <a href="/admin/orders" th:class="${currentUrl == '/admin/orders' ? 'm-link active' : 'm-link'}"
+                       data-bs-target="#menu-order">
                         <i class="icofont-notepad fs-5"></i> <span>Orders</span>
-                           </a>
+                    </a>
                 </li>
 
 
                 <li class="collapsed">
-                    <a  href="/admin/users" class="m-link " data-bs-target="#customers-info" >
+                    <a href="/admin/users" th:class="${currentUrl == '/admin/users' ? 'm-link active' : 'm-link'}"
+                       data-bs-target="#customers-info">
                         <i class="icofont-funky-man fs-5"></i> <span>Users</span> </a>
                     <!-- Menu: Sub menu ul -->
                 </li>
 
                 <li class="collapsed">
-                    <a  href="/admin/reviews"class="m-link "  data-bs-target="#menu-sale" >
+                    <a href="/admin/reviews" th:class="${currentUrl == '/admin/reviews' ? 'm-link active' : 'm-link'}"
+                       data-bs-target="#menu-sale">
                         <i class="icofont-sale-discount fs-5"></i>
                         <span>Reviews</span>
-                           </a>
+                    </a>
                 </li>
 
                 <li class="collapsed">
-                    <a href="/admin/payments" class="m-link " data-bs-target="#menu-inventory" >
+                    <a href="/admin/payments" th:class="${currentUrl == '/admin/payments' ? 'm-link active' : 'm-link'}"
+                       data-bs-target="#menu-inventory">
                         <i class="icofont-chart-histogram fs-5"></i> Payments
-                         </a>
+                    </a>
                     <!-- Menu: Sub menu ul -->
                 </li>
 
                 <li class="collapsed">
-                    <a  href="/admin/addresses"class="m-link "  data-bs-target="#menu-inventory" >
+                    <a href="/admin/addresses"
+                       th:class="${currentUrl == '/admin/addresses' ? 'm-link active' : 'm-link'}"
+                       data-bs-target="#menu-inventory">
                         <i class="icofont-chart-histogram fs-5"></i> <span>Addresses</span>
-                       </a>
+                    </a>
                 </li>
                 <li class="collapsed">
-                    <a  href="/admin/cities"class="m-link "  data-bs-target="#menu-inventory" >
+                    <a href="/admin/cities" th:class="${currentUrl == '/admin/cities' ? 'm-link active' : 'm-link'}"
+                       data-bs-target="#menu-inventory">
                         <i class="icofont-chart-histogram fs-5"></i> <span>Cities</span>
                     </a>
                 </li>
