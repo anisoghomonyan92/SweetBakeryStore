@@ -17691,7 +17691,6 @@ return jQuery;
   return index_umd;
 
 }));
-//# sourceMappingURL=bootstrap.bundle.js.map
 
 /*!
  * Bootstrap Colorpicker v2.3.6

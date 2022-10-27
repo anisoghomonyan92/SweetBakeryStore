@@ -79,7 +79,7 @@ public class UserService {
 
     @PostConstruct
     public void run() {
-        Optional<User> byEmail = userRepository.findByEmail("admin@gmail.com");
+        Optional<User> byEmail = userRepository.findByEmail("itacademy30@gmail.com");
         if (byEmail.isEmpty()) {
             City gyumri = null;
             if (cityRepository.findByName("Gyumri").isEmpty()) {
@@ -98,11 +98,12 @@ public class UserService {
             userRepository.save(User.builder()
                     .name("admin")
                     .surname("admin")
-                    .email("admin@gmail.com")
+                    .email("itacademy30@gmail.com")
                     .phone("+374")
                     .address(adminAddress)
                     .isActive(true)
                     .password(passwordEncoder.encode("admin555"))
+                    .isActive(true)
                     .role(Role.ADMIN)
                     .createAt(new Date())
                     .build());
@@ -122,6 +123,7 @@ public class UserService {
         user.setVerifyToken(null);
         userRepository.save(user);
     }
+
     public Optional<User> findById(int userId, Role role) {
         Optional<User> userOptional = userRepository.findById(userId);
         if (userOptional.isPresent()) {
@@ -130,10 +132,12 @@ public class UserService {
             userRepository.save(user);
         }
         return userOptional;
-
     }
 
     public List<User> findAllUsers() {
         return userRepository.findAll();
+    }
+    public Optional<User> getAdminEmail() {
+       return  userRepository.findByRole(Role.ADMIN);
     }
 }

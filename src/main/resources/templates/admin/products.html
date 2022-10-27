@@ -14,6 +14,343 @@
     <!-- project css file  -->
     <link rel="stylesheet" href="/ebazar.style.min.css">
 </head>
+<style>
+    .size-block, .price-range-block, .rating-block, .color-block, .categories {
+        padding: 15px;
+    }
+    .size-block .filter-title .title, .price-range-block .filter-title .title, .rating-block .filter-title .title, .color-block .filter-title .title, .categories .filter-title .title {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 40px;
+        display: block;
+        position: relative;
+    }
+    .size-block .filter-title .title::before, .price-range-block .filter-title .title::before, .rating-block .filter-title .title::before, .color-block .filter-title .title::before, .categories .filter-title .title::before {
+        position: absolute;
+        content: "\ea99";
+        font-family: 'IcoFont' !important;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        font-size: 24px;
+        color: var(--primary-color);
+    }
+    .size-block .filter-title .title.collapsed::before, .price-range-block .filter-title .title.collapsed::before, .rating-block .filter-title .title.collapsed::before, .color-block .filter-title .title.collapsed::before, .categories .filter-title .title.collapsed::before {
+        content: "\eaa1";
+    }
+    .size-block ul, .price-range-block ul, .rating-block ul, .color-block ul, .categories ul {
+        list-style: none;
+        padding-left: 0px;
+    }
+    .reset-block {
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .reset-block .filter-title .title {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 40px;
+        display: block;
+        position: relative;
+        margin-bottom: 0px;
+    }
+    .size-block .filter-size {
+        padding-top: 8px;
+    }
+    .size-block .filter-size ul li {
+        display: inline-block;
+        text-align: center;
+        width: 35px;
+        height: 35px;
+        line-height: 33px;
+        border: 1px solid var(--border-color);
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 700;
+        border-radius: 4px;
+        margin-top: 8px;
+        transition: all 0.3s linear;
+        cursor: pointer;
+    }
+    .size-block .filter-size ul li + li {
+        margin-left: 2px;
+    }
+    .size-block .filter-size ul li:hover {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        color: #fff;
+    }
+    .size-block .filter-size ul li.active {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        color: #fff;
+    }
+    .price-range-block .price-range .price-amount {
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+    }
+    .price-range-block .price-range .price-amount .amount-input {
+        width: 50%;
+    }
+    .price-range-block .price-range .price-amount .amount-input label {
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 16px;
+        margin-bottom: 0;
+        display: block;
+    }
+    .price-range-block .price-range .price-amount .amount-input input {
+        display: inline-block;
+        width: 95%;
+        height: 40px;
+        border: 1px solid var(--border-color);
+        padding: 0 16px;
+        border-radius: 4px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        margin-top: 8px;
+    }
+    .price-range-block .price-range .price-amount .amount-input:last-child label {
+        padding-left: 0;
+    }
+    .price-range-block .price-range .slider-range {
+        height: 4px;
+        width: 100%;
+        border: 0;
+        border-radius: 10px;
+        background-color: var(--border-color);
+        margin-top: 38px;
+        margin-bottom: 13px;
+    }
+    .price-range-block .price-range .slider-range .ui-slider-range {
+        background-color: var(--primary-color);
+    }
+    .price-range-block .price-range .slider-range .ui-slider-handle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        top: -13px;
+        cursor: pointer;
+        border: 0;
+    }
+    .price-range-block .price-range .slider-range .ui-slider-handle:focus {
+        outline: 0;
+    }
+    .price-range-block .noUi-base {
+        width: 97%;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .price-range-block .noUi-connect {
+        background-color: var(--primary-color);
+    }
+    .price-range-block .noUi-handle {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        top: -9px;
+        cursor: pointer;
+        border: 0;
+        box-shadow: none;
+    }
+    .price-range-block .noUi-handle:after {
+        display: none;
+    }
+    .price-range-block .noUi-handle:before {
+        display: none;
+    }
+    .rating-block .filter-rating {
+        padding-top: 8px;
+    }
+    .rating-block .filter-rating .rating-check {
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        margin-top: 8px;
+    }
+    .rating-block .filter-rating .rating-check input[type="checkbox"] {
+        display: none;
+    }
+    .rating-block .filter-rating .rating-check input[type="checkbox"] + label span {
+        width: 17px;
+        height: 17px;
+        border: 2px solid var(--border-color);
+        border-radius: 4px;
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        margin: 0 5px -3px 0;
+        transition: all 0.4s linear;
+    }
+    .rating-block .filter-rating .rating-check input[type="checkbox"] + label span::before {
+        position: absolute;
+        content: '\eed8';
+        font-family: 'IcoFont' !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        top: 1px;
+        left: -1px;
+        width: 100%;
+        height: 100%;
+        transition: all 0.4s linear;
+        line-height: 0.8;
+        font-size: 16px;
+        color: #fff;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .rating-block .filter-rating .rating-check input[type="checkbox"]:checked + label span {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+    .rating-block .filter-rating .rating-check input[type="checkbox"]:checked + label span::before {
+        opacity: 1;
+        visibility: visible;
+    }
+    .rating-block .filter-rating .rating-check p {
+        padding-left: 5px;
+    }
+    .rating-block .filter-rating .rating-check p i {
+        color: #FFBE27;
+        font-size: 20px;
+    }
+    .color-block .filter-color {
+        padding-top: 8px;
+    }
+    .color-block .filter-color .color-check {
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 8px;
+    }
+    .color-block .filter-color .color-check p {
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+    }
+    .color-block .filter-color .color-check p span {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        margin-right: 11px;
+    }
+    .color-block .filter-color .color-check p strong {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .color-block .filter-color .color-check input[type="checkbox"] {
+        display: none;
+    }
+    .color-block .filter-color .color-check input[type="checkbox"] + label span {
+        width: 17px;
+        height: 17px;
+        border: 2px solid var(--border-color);
+        border-radius: 4px;
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        margin: 0 5px -3px 0;
+        transition: all 0.4s linear;
+    }
+    .color-block .filter-color .color-check input[type="checkbox"] + label span::before {
+        position: absolute;
+        content: '\eed8';
+        font-family: 'IcoFont' !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        top: 1px;
+        left: -1px;
+        width: 100%;
+        height: 100%;
+        transition: all 0.4s linear;
+        line-height: 0.8;
+        font-size: 16px;
+        color: #fff;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .color-block .filter-color .color-check input[type="checkbox"]:checked + label span {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+    .color-block .filter-color .color-check input[type="checkbox"]:checked + label span::before {
+        opacity: 1;
+        visibility: visible;
+    }
+    .categories .filter-search {
+        margin-top: 16px;
+        position: relative;
+    }
+    .categories .filter-search input {
+        width: 100%;
+        height: 40px;
+        border: 1px solid var(--border-color);
+        padding: 0 16px;
+        border-radius: 4px;
+    }
+    .categories .filter-search button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        border: 0;
+        background: none;
+        color: var(--primary-color);
+    }
+    .categories .filter-category .category-list {
+        padding-top: 8px;
+    }
+    .categories .filter-category .category-list li {
+        margin-top: 8px;
+    }
+    .categories .filter-category .category-list li a {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        position: relative;
+        display: block;
+    }
+    .categories .filter-category .category-list li a::before {
+        position: absolute;
+        content: "\ea99";
+        font-family: 'IcoFont' !important;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        font-size: 24px;
+        color: var(--primary-color);
+    }
+    .categories .filter-category .category-list li .sub-category {
+        padding: 8px 0;
+        padding-left: 34px;
+    }
+    .categories .filter-category .category-list li .sub-category li a {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        position: relative;
+        display: block;
+    }
+    .categories .filter-category .category-list li .sub-category li a::before {
+        display: none;
+    }
+
+</style>
 
 <body>
 <div id="ebazar-layout" class="theme-blue">
@@ -286,11 +623,8 @@
 <script src="/admin/dist/assets/js/template.js"></script>
 <script th:inline="javascript">
 
-    let categories = /*[[${categories}]]*/
-
-
-        let
-    div = $('#categoryResult')
+    let categories = /*[[${categories==null? '':categories}]]*/;
+    let div = $('#categoryResult');
     let content = '';
 
     for (let i = 0; i < categories.length; i++) {

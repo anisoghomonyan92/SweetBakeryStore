@@ -23,8 +23,6 @@ import java.util.stream.IntStream;
 public class CategoryAdminController {
 
     private final CategoryService categoryService;
-    private final UserService userService;
-
     @GetMapping(value = "/categories")
     public String categoryPage(ModelMap modelMap,
                                @RequestParam("page") Optional<Integer> page,
