@@ -62,4 +62,12 @@ public class ProductService {
     public void saveProduct(Product product) {
         productRepository.save(product);
     }
+
+    public Long getCountOfProducts() {
+       return productRepository.count();
+    }
+
+    public Double getAmount() {
+      return   productRepository.totalSale();
+    }
 }

@@ -2,12 +2,13 @@ package am.itspace.sweetbakerystore.controller.admin;
 
 import am.itspace.sweetbakerystore.entity.Role;
 import am.itspace.sweetbakerystore.entity.User;
-import am.itspace.sweetbakerystore.service.UserService;
+import am.itspace.sweetbakerystore.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,10 @@ import java.util.stream.IntStream;
 public class UserAdminController {
 
     private final UserService userService;
+    private final OrderService orderService;
+    private final ProductService productService;
+    private final CategoryService categoryService;
+    private final FavoriteProductService favoriteProductService;
 
     @GetMapping(value = "/users")
     public String usersPage(ModelMap modelMap,
@@ -55,10 +60,11 @@ public class UserAdminController {
     @GetMapping(value = "/users/delete/{id}")
     public String delete(@PathVariable("id") int id,
                          ModelMap modelMap) {
-        try{
-        userService.deleteById(id);
+        try {
+            userService.deleteById(id);
         } catch (Exception e) {
-            modelMap.addAttribute("deleteErrorMessage", "You can not delete this object because there is some relationships with it.");
+            modelMap.addAttribute("deleteErrorMessage",
+                    "You can not delete this object because there is some relationships with it.");
             return "admin/users";
         }
         return "redirect:/admin/users";
@@ -67,10 +73,21 @@ public class UserAdminController {
     @PostMapping(value = "/users/change-role")
     public String userChangeRole(@RequestParam("userId") int userId,
                                  @RequestParam("role") Role role) {
-        Optional<User> userOptional = userService.findById(userId, role);
-
+        userService.findById(userId, role);
         return "redirect:/admin/users";
     }
 
+    @GetMapping(value = "/dashboard")
+    public String countOfEntities(Model model) {
+        model.addAttribute("usersCount", userService.getCountOfUsers());
+        model.addAttribute("ordersCount", orderService.getCountOfOrders());
+        model.addAttribute("categoriesCount", categoryService.getCountOfCategories());
+        model.addAttribute("productsCount", productService.getCountOfProducts());
+        model.addAttribute("favoriteProductsCount", favoriteProductService.getCountOfFavoriteProducts());
+        model.addAttribute("productsSale", productService.getAmount());
+        return "/admin/statistics";
+
+
+    }
 
 }

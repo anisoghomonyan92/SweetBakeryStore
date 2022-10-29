@@ -111,9 +111,7 @@
                                         <select name="role" onchange="$('#changeUserBtn').removeAttr('disabled')">
                                             <option th:each="role: ${roles}" th:text="${role.name()}"
                                                     th:selected="${user.role.name()==role.name()}">
-
                                             </option>
-
                                         </select>
                                         <input id="changeUserBtn" type="submit" value="change"
                                                th:disabled="${user.role.name() eq null}">

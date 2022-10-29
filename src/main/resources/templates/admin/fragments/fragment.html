@@ -205,8 +205,6 @@
         </nav>
     </div>
 </div>
-
-
 <div th:fragment="slidebar">
     <!-- sidebar -->
     <div class="sidebar px-4 py-4 py-md-4 me-0">
@@ -223,9 +221,16 @@
                 <li>
                     <a href="/admin/admin-page"
                        th:class="${currentUrl == '/admin/admin-page' ? 'm-link active' : 'm-link'}">
-                    <i class="icofont-home fs-5"></i>
-                    <span>Dashboard</span>
-                </a>
+                        <i class="icofont-home fs-5"></i>
+                        <span>My Page</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/dashboard"
+                       th:class="${currentUrl == '/admin/dashboard' ? 'm-link active' : 'm-link'}">
+                        <i class="icofont-home fs-5"></i>
+                        <span>Dashboard</span>
+                    </a>
                 </li>
 
 
