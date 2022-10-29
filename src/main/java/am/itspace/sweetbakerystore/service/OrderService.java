@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,6 +30,10 @@ public class OrderService {
 
     public Page<Order> findPaginated(Pageable pageable) {
         return orderRepository.findAll(pageable);
+    }
+    @Transactional(readOnly = true)
+    public Long getCountOfOrders() {
+        return orderRepository.count();
     }
 
 
