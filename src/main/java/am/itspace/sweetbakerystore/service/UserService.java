@@ -14,6 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
@@ -137,7 +138,17 @@ public class UserService {
     public List<User> findAllUsers() {
         return userRepository.findAll();
     }
+
     public Optional<User> getAdminEmail() {
-       return  userRepository.findByRole(Role.ADMIN);
+        return userRepository.findByRole(Role.ADMIN);
+    }
+
+    public Long getAll() {
+        return userRepository.count();
+    }
+
+    @Transactional(readOnly = true)
+    public Long getCountOfUsers() {
+        return userRepository.count();
     }
 }

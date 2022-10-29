@@ -1,4 +1,5 @@
 package am.itspace.sweetbakerystore.service;
+
 import am.itspace.sweetbakerystore.entity.Category;
 
 import am.itspace.sweetbakerystore.repository.CategoryRepository;
@@ -31,9 +32,10 @@ public class CategoryService {
     public void deleteById(int id) {
         categoryRepository.deleteById(id);
     }
-    public void save(Category category, CurrentUser currentUser ) throws Exception {
+
+    public void save(Category category, CurrentUser currentUser) throws Exception {
         category.setUser(currentUser.getUser());
-      categoryRepository.save(category);
+        categoryRepository.save(category);
     }
 
     public Optional<Category> findByIdForEdit(int id) {
@@ -42,5 +44,9 @@ public class CategoryService {
 
     public List<Category> findAll() {
         return categoryRepository.findAll();
+    }
+
+    public Long getCountOfCategories() {
+        return categoryRepository.count();
     }
 }
