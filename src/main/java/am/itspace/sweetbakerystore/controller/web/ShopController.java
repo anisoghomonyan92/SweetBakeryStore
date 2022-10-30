@@ -5,6 +5,8 @@ import am.itspace.sweetbakerystore.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -25,13 +27,9 @@ public class ShopController {
     private final ProductService productService;
 
     @GetMapping(value = "/shop")
-    public String shop(ModelMap modelMap,
-                       @RequestParam("page") Optional<Integer> page,
-                       @RequestParam("size") Optional<Integer> size) {
-        int currentPage = page.orElse(1);
-        int pageSize = size.orElse(9);
-        Page<Product> paginated = productService.findPaginated(PageRequest.of(currentPage - 1, pageSize));
+    public String shop(ModelMap modelMap, @PageableDefault(size = 9) Pageable pageable) {
 
+        Page<Product> paginated = productService.findPaginated (pageable);
         modelMap.addAttribute("products", paginated);
         int totalPages = paginated.getTotalPages();
         if (totalPages > 0) {
