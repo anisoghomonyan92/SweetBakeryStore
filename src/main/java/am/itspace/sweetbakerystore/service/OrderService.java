@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -28,5 +29,10 @@ public class OrderService {
 
     public Page<Order> findPaginated(Pageable pageable) {
         return orderRepository.findAll(pageable);
+    }
+
+
+    public Optional<Order> findById(int id) {
+        return orderRepository.findById(id);
     }
 }

@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title>Cherry Coke &#8211; Noucake</title>
-    <link rel="icon" href="/images/2017/06/favicon.png" >
+    <link rel="icon" href="/images/2017/06/favicon.png">
     <link rel="icon" href="/images/2017/06/favicon.png">
     <link rel="apple-touch-icon" href="/images/2017/06/favicon.png">
     <th:block th:insert="web/fragments/fragment.html::headerImport"></th:block>
@@ -51,12 +51,13 @@
                                      src="/images/2017/06/img-cake-11-60x65.jpg"
                                      class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-259"
                                      alt="" loading="lazy"></a></div>
+
                 <div class="ps-cart-item__content">
                     <a class="ps-cart-item__title" href="/">Cherry Coke</a>
                     <p>
                         <span>Quantity:<i>4</i></span>
                         <span>Total: <span class="woocs_special_price_code"><span
-                                class="woocommerce-Price-amount amount"><bdi><span
+                                class="woocommerce-Price-amount amount" th:text="${product.price+'$'}"><bdi><span
                                 class="woocommerce-Price-currencySymbol">&pound;</span>29.15</bdi></span></span></span>
                     </p>
                 </div>
@@ -68,12 +69,12 @@
                    data-key="fc221309746013ac554571fbd180e1c8" data-product_id="181"
                    data-product_sku="HGEGX27"></a>
                 <div class="ps-cart-item__thumbnail">
-                    <a href="/product/cherry"><img width="60" height="65"
-                                                   src="/images/2017/06/img-cake-1-60x65.jpg"
-                                                   class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-249"
-                                                   alt="" loading="lazy"></a></div>
+                    <a href="/product/single-page"><img width="60" height="65"
+                                                        src="/images/2017/06/img-cake-1-60x65.jpg"
+                                                        class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-249"
+                                                        alt="" loading="lazy"></a></div>
                 <div class="ps-cart-item__content">
-                    <a class="ps-cart-item__title" href="/product/cherry">Becky's
+                    <a class="ps-cart-item__title" href="/product/single-page">Becky's
                         Snickerdoodle</a>
                     <p>
                         <span>Quantity:<i>2</i></span>
@@ -90,12 +91,12 @@
                    data-key="8f85517967795eeef66c225f7883bdcb" data-product_id="178"
                    data-product_sku="HGEGX31"></a>
                 <div class="ps-cart-item__thumbnail">
-                    <a href="/product/cherry"><img width="60" height="65"
-                                                   src="/images/2017/06/img-cake-21-60x65.jpg"
-                                                   class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-269"
-                                                   alt="" loading="lazy"></a></div>
+                    <a href="/product/single-page"><img width="60" height="65"
+                                                        src="/images/2017/06/img-cake-21-60x65.jpg"
+                                                        class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-269"
+                                                        alt="" loading="lazy"></a></div>
                 <div class="ps-cart-item__content">
-                    <a class="ps-cart-item__title" href="/product/cherry">Boston Cream
+                    <a class="ps-cart-item__title" href="/product/single-page">Boston Cream
                         Pie</a>
                     <p>
                         <span>Quantity:<i>2</i></span>
@@ -112,12 +113,12 @@
                    data-key="c0c7c76d30bd3dcaefc96f40275bdc0a" data-product_id="50"
                    data-product_sku="HGEGX26"></a>
                 <div class="ps-cart-item__thumbnail">
-                    <a href="/product/cherry"><img width="60" height="65"
-                                                   src="/images/2017/06/img-cake-2-60x65.jpg"
-                                                   class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-250"
-                                                   alt="" loading="lazy"></a></div>
+                    <a href="/product/single-page"><img width="60" height="65"
+                                                        src="/images/2017/06/img-cake-2-60x65.jpg"
+                                                        class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-250"
+                                                        alt="" loading="lazy"></a></div>
                 <div class="ps-cart-item__content">
-                    <a class="ps-cart-item__title" href="/product/cherry">Cherry Limeade</a>
+                    <a class="ps-cart-item__title" href="/product/single-page">Cherry Limeade</a>
                     <p>
                         <span>Quantity:<i>2</i></span>
                         <span>Total: <span class="woocs_special_price_code"><span
@@ -133,10 +134,10 @@
                    data-key="82161242827b703e6acf9c726942a1e4" data-product_id="175"
                    data-product_sku="HGEGX34"></a>
                 <div class="ps-cart-item__thumbnail">
-                    <a href="/product/cherry"><img width="60" height="65"
-                                                   src="/images/2017/06/img-cake-10-60x65.jpg"
-                                                   class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-258"
-                                                   alt="" loading="lazy"></a></div>
+                    <a href="/product/single-page"><img width="60" height="65"
+                                                        src="/images/2017/06/img-cake-10-60x65.jpg"
+                                                        class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-258"
+                                                        alt="" loading="lazy"></a></div>
                 <div class="ps-cart-item__content">
                     <a class="ps-cart-item__title" href="/product/cherry">Dr Pepper
                         Cupcakes</a>
@@ -281,7 +282,6 @@
                 </div>
             </div>
 
-
             <div class="ps-cart-item">
                 <a href="/cart?remove_item=084b6fbb10729ed4da8c3d3f5a3ae7c9&#038;_wpnonce=9697bccc19"
                    class="ps-cart-item__close remove" title="Remove this item"
@@ -384,7 +384,7 @@
             <a class="ps-btn ps-btn--view-bag" href="/cart">View bag</a>
         </div>
     </div>
-    </div>
+
 
 </header>
 
@@ -436,111 +436,33 @@
                 <div class="ps-product--detail">
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 ">
-                            <div class="ps-product__thumbnail">
-
-                                <div class="owl-slider primary" data-owl-auto="true" data-owl-loop="false"
-                                     data-owl-speed="10000" data-owl-gap="0" data-owl-nav="false" data-owl-dots="false"
-                                     data-owl-animate-in="" data-owl-animate-out="" data-owl-item="1"
-                                     data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1"
-                                     data-owl-nav-left="&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;"
-                                     data-owl-nav-right="&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;">
-
-                                    <div id="owl-259" data-position="-1" data-id="259" class="ps-product__image">
-                                        <a href="/images/2017/06/img-cake-11.jpg">
-                                            <img src="/images/2017/06/img-cake-11-458x493.jpg"
-                                                 alt="attachment-https://d2t7yabstfp7fz.cloudfront.net/2017/06/img-cake-11-458x493.jpg">
-                                        </a>
-                                    </div>
-
-                                    <div id="owl-258" data-position="0" data-id="258" class="ps-product__image">
-                                        <a href="/images/2017/06/img-cake-10.jpg">
-                                            <img src="/images/2017/06/img-cake-10-458x493.jpg"
-                                                 alt="attachment-https://d2t7yabstfp7fz.cloudfront.net/2017/06/img-cake-10-458x493.jpg">
-                                        </a>
-                                    </div>
-
-                                    <div id="owl-257" data-position="1" data-id="257" class="ps-product__image">
-                                        <a href="/images/2017/06/img-cake-9.jpg">
-                                            <img src="/images/2017/06/img-cake-9-458x493.jpg"
-                                                 alt="attachment-https://d2t7yabstfp7fz.cloudfront.net/2017/06/img-cake-9-458x493.jpg">
-                                        </a>
-                                    </div>
-
-                                    <div id="owl-263" data-position="2" data-id="263" class="ps-product__image">
-                                        <a href="/images/2017/06/img-cake-15.jpg">
-                                            <img src="/images/2017/06/img-cake-15-458x493.jpg"
-                                                 alt="attachment-https://d2t7yabstfp7fz.cloudfront.net/2017/06/img-cake-15-458x493.jpg">
-                                        </a>
-                                    </div>
-
-                                    <div id="owl-262" data-position="3" data-id="262" class="ps-product__image">
-                                        <a href="/images/2017/06/img-cake-14.jpg">
-                                            <img src="/images/2017/06/img-cake-14-458x493.jpg"
-                                                 alt="attachment-https://d2t7yabstfp7fz.cloudfront.net/2017/06/img-cake-14-458x493.jpg">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="owl-slider second mb-30" data-owl-auto="true" data-owl-loop="false"
-                                     data-owl-speed="10000" data-owl-gap="20" data-owl-nav="false" data-owl-dots="false"
-                                     data-owl-animate-in="" data-owl-animate-out="" data-owl-item="4"
-                                     data-owl-item-xs="2" data-owl-item-sm="3" data-owl-item-md="4" data-owl-item-lg="4"
-                                     data-owl-nav-left="&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;"
-                                     data-owl-nav-right="&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;">
-                                    <img data-id="259" src="/images/2017/06/img-cake-11-100x107.jpg"
-                                         alt="attachment-https://d2t7yabstfp7fz.cloudfront.net/2017/06/img-cake-11-100x107.jpg"><img
-                                        data-id="258" src="/images/2017/06/img-cake-10-100x107.jpg"
-                                        alt="attachment-https://d2t7yabstfp7fz.cloudfront.net/2017/06/img-cake-10-100x107.jpg"><img
-                                        data-id="257" src="/images/2017/06/img-cake-9-100x107.jpg"
-                                        alt="attachment-https://d2t7yabstfp7fz.cloudfront.net/2017/06/img-cake-9-100x107.jpg"><img
-                                        data-id="263" src="/images/2017/06/img-cake-15-100x107.jpg"
-                                        alt="attachment-https://d2t7yabstfp7fz.cloudfront.net/2017/06/img-cake-15-100x107.jpg"><img
-                                        data-id="262" src="/images/2017/06/img-cake-14-100x107.jpg"
-                                        alt="attachment-https://d2t7yabstfp7fz.cloudfront.net/2017/06/img-cake-14-100x107.jpg">
-                                </div>
+                            <div>
+                                <img th:if="${product.productPic != null}"
+                                     th:src="@{/products/getImage(fileName=${product.productPic})}">
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 ">
                             <header>
-                                <h3 class="ps-product__name">Cherry Coke</h3><select class="ps-rating rating-0">
-                                <option value="0" selected='selected'>0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+                                <h3 class="ps-product__name" th:text="${product.name}">Cherry Coke</h3>
+
                                 <p class="ps-product__price price-for-default"><span class="woocs_price_code"
                                                                                      data-product-id="182"><span
                                         class="woocommerce-Price-amount amount"><bdi><span
-                                        class="woocommerce-Price-currencySymbol">&pound;</span>29.15</bdi></span></span>
+                                        class="woocommerce-Price-currencySymbol"
+                                        th:text="${product.price+'$'}">&pound;</span>
                                 </p>
                                 <p class="ps-product__price price-for-varian"></p>
 
-                                <div class="ps-product__description desc-for-default">
-                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-                                        turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor
-                                        sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies
-                                        mi vitae est. Mauris placerat eleifend leo.</p>
+                                <div class="ps-product__description desc-for-default" th:text="${product.description}">
                                 </div>
                                 <div class="ps-product__description desc-for-varian"></div>
 
                                 <div class="ps-product__meta">
+                                    <p><span>Availability: <snap th:text="${product.inStore}"
+                                                                 style="color: orangered"></snap> </span></p>
 
-
-                                    <p><span>Availability: </span> In Stock</p>
-
-                                    <p class="panel-product-line panel-product-info">
-                                        <span class="panel-product-label">SKU:</span> <span
-                                            class="sku-for-default sku-value">HGEGX25</span><span
-                                            class="sku-for-varian sku-value"></span>
-                                    </p>
-
-
-                                    <p class="category"><span>Categories:</span> <a
-                                            href="/shop" rel="tag">Clothing</a>, <a
-                                            href="/shop"
-                                            rel="tag">Hoodies</a></p>
-
+                                    <p class="category"> Categories: <span th:text="${product.category.name}"
+                                                                           style="color: orangered"> </span>
                                 </div>
 
                                 <form class="cart" method="post" enctype='multipart/form-data'>
@@ -567,10 +489,12 @@
 
                                     <div class="row">
                                         <div class="col-lg-6 col-md-5 col-sm-6 col-xs-12 ">
+                                            <!--                                              <a th:href="@{/order/new(id=${product.id})}">-->
                                             <button type="submit" name="add-to-cart" value="182"
                                                     class="single_add_to_cart_button button alt ps-btn--fullwidth ps-btn">
                                                 Add to cart <i class="fa fa-angle-right"></i></button>
                                         </div>
+
                                         <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12 ">
                                             <p class="noubakery-share-post ps-product__sharing"
                                                data-url="http://warethemes.com/wordpress/bakery/product/cherry-coke/"
