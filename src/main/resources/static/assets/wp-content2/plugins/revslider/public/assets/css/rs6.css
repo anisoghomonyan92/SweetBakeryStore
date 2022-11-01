@@ -1418,4 +1418,30 @@ rs-loader.spinner6{width:40px;height:40px;-webkit-transform:translate(-50%,-50%)
 /*  AVADA SCROLL FIX */
 .avada-has-rev-slider-styles .rev_slider_wrapper {
 	transform:none;
+
 }
+
+
+ .pagination {
+	 display: inline;
+	 position: relative;
+	 left: 600px;
+	 padding: 10px 10px;
+	 height: 50px;
+	 width: 50px;
+	 border: 60px;
+	 font-size: x-large;
+ }
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+.pagination a.active {
+	background-color: #ee7560;;
+	color: white;
+}
+.pagination a:hover:not(.active) {background-color: #ddd;}
+

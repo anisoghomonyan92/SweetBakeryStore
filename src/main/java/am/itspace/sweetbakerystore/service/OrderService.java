@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -34,4 +35,10 @@ public class OrderService {
     public Long getCountOfOrders() {
         return orderRepository.count();
     }
+
+
+    public Optional<Order> findById(int id) {
+        return orderRepository.findById(id);
+    }
+
 }
