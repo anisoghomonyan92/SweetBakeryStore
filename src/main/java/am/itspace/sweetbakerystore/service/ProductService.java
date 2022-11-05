@@ -70,4 +70,10 @@ public class ProductService {
     public Double getAmount() {
       return   productRepository.totalSale();
     }
+
+    public Optional<Product> findByID(int id) {
+                 return productRepository.findById(id);
+
+    }
+
 }
