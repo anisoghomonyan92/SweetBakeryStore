@@ -26,14 +26,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/user/**").hasAuthority(Role.USER.name())
-                .antMatchers("/addresses", "/cart").authenticated()
+                .antMatchers("/addresses", "/cart","/add-review").authenticated()
                 .antMatchers("/admin/**").hasAuthority(Role.ADMIN.name())
                 .antMatchers(
                         "/products",
                         "/products-add",
                         "/products-edit",
                         "/favorite-products",
-                        "/reviews")
+                        "/reviews"
+                )
                 .hasAuthority(Role.PARTNER.name())
                 .anyRequest()
                 .permitAll()
