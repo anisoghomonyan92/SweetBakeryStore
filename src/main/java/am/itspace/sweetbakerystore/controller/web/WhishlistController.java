@@ -16,9 +16,5 @@ public class WhishlistController {
         return "web/wishlist/index-1";
     }
 
-    @PostMapping(value = "/review/add")
-    public String addReview() {
-        return "web/wishlist/index-1";
-    }
 
 }
