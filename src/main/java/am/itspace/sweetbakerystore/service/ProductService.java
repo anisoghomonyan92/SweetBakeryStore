@@ -47,7 +47,6 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
-
     public void save(Product product, MultipartFile file, CurrentUser currentUser) throws IOException {
         if (!file.isEmpty() && file.getSize() > 0) {
             String filename = System.currentTimeMillis() + "_" + file.getOriginalFilename();
@@ -101,5 +100,11 @@ public class ProductService {
             productRepository.save(product);
         }
     }
+
+    public Optional<Product> findByID(int id) {
+                 return productRepository.findById(id);
+
+    }
+
 }
 

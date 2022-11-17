@@ -1,8 +1,11 @@
 package am.itspace.sweetbakerystore.controller.web;
 
 import am.itspace.sweetbakerystore.entity.Product;
+import am.itspace.sweetbakerystore.entity.Review;
 import am.itspace.sweetbakerystore.security.CurrentUser;
 import am.itspace.sweetbakerystore.service.ProductService;
+import am.itspace.sweetbakerystore.service.ReviewService;
+import am.itspace.sweetbakerystore.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +27,8 @@ import java.util.stream.IntStream;
 @RequiredArgsConstructor
 public class ShopController {
     private final ProductService productService;
+    private final ReviewService reviewService;
+    private final UserService userService;
 
     @GetMapping(value = "/shop")
     public String shop(ModelMap modelMap, @PageableDefault(size = 9) Pageable pageable) {
@@ -44,13 +49,16 @@ public class ShopController {
         return productService.getProductImage(fileName);
     }
 
-    @GetMapping(value = "/single-page/{id}")
-    public String productSinglePage(@PathVariable("id") int id, ModelMap modelMap) {
+    @GetMapping(value = "/product/single-page/{id}")
+    public String productSinglePage(@PathVariable("id") int id, ModelMap modelMap,
+                                    @AuthenticationPrincipal CurrentUser currentUser
+                                    ) {
         Optional<Product> byId = productService.findById(id);
         if (byId.isEmpty()) {
             return "redirect:/shop";
         }
-        modelMap.addAttribute("product", byId.get());
+        modelMap.addAttribute("product",byId.get());
+        modelMap.addAttribute("currentUser", currentUser);
         return "web/product-category/single-page/index";
     }
 
@@ -67,5 +75,15 @@ public class ShopController {
         productById.ifPresent(product -> product.setId(productId));
         productService.addFavoriteProduct(currentUser, productById.get().getId());
     }
+
+
+
+    @PostMapping(value = "/add-review")
+    public String addReview(@ModelAttribute Review review,
+                           @AuthenticationPrincipal CurrentUser currentUser) {
+            reviewService.save(review,currentUser);
+        return "redirect:/shop";
+    }
+
 
 }

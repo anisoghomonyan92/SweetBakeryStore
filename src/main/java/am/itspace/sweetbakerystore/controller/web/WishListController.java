@@ -14,4 +14,6 @@ public class WishListController {
     public String review() {
         return "web/wishlist/index-1";
     }
+
+
 }
