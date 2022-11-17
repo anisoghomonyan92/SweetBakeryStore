@@ -44,11 +44,11 @@
 
                                 <div class="col-md-6">
                                     <label class="form-label">Price</label>
-                                    <input type="number" class="form-control" name="price">
+                                    <input type="number"  th:min="1" class="form-control" name="price">
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">In Store</label>
-                                    <input type="number" class="form-control" name="inStore">
+                                    <input type="number" th:min="1" class="form-control" name="inStore">
                                 </div>
 
                                 <div class="row g-3 align-items-center">

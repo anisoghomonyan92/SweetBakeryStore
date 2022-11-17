@@ -1,8 +1,10 @@
 package am.itspace.sweetbakerystore.service;
 
 import am.itspace.sweetbakerystore.entity.Category;
+import am.itspace.sweetbakerystore.entity.FavoriteProduct;
 import am.itspace.sweetbakerystore.entity.Product;
 import am.itspace.sweetbakerystore.repository.CategoryRepository;
+import am.itspace.sweetbakerystore.repository.FavoriteProductRepository;
 import am.itspace.sweetbakerystore.repository.ProductRepository;
 import am.itspace.sweetbakerystore.security.CurrentUser;
 import lombok.RequiredArgsConstructor;
@@ -10,13 +12,16 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -24,6 +29,7 @@ import java.util.Optional;
 public class ProductService {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
+    private final FavoriteProductRepository favoriteProductRepository;
     @Value("${sweet.bakery.store.images.folder}")
     private String folderPath;
 
@@ -64,10 +70,36 @@ public class ProductService {
     }
 
     public Long getCountOfProducts() {
-       return productRepository.count();
+        return productRepository.count();
     }
 
     public Double getAmount() {
-      return   productRepository.totalSale();
+        return productRepository.totalSale();
+    }
+
+    public void addFavoriteProduct(@AuthenticationPrincipal CurrentUser currentUser,
+                                   @RequestParam("productId") Integer productId) {
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+        optionalProduct.ifPresent(product -> {
+            Optional<FavoriteProduct> favoriteProduct = favoriteProductRepository
+                    .findByUserAndProduct(currentUser.getUser(), product);
+            if (favoriteProduct.isEmpty()) {
+                FavoriteProduct favProduct = new FavoriteProduct();
+                favProduct.setUser(currentUser.getUser());
+                favProduct.setCreateAt(new Date());
+                favProduct.setProduct(product);
+                favoriteProductRepository.save(favProduct);
+            }
+        });
+
+    }
+
+    public void save(Product product, @AuthenticationPrincipal  CurrentUser currentUser) {
+        Optional<Product> editedProduct = productRepository.findById(product.getId());
+        if(editedProduct.isPresent()){
+            product.setUser(currentUser.getUser());
+            productRepository.save(product);
+        }
     }
 }
+
