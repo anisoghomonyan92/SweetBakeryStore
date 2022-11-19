@@ -1,16 +1,13 @@
 package am.itspace.sweetbakerystore.controller.web;
 
-import am.itspace.sweetbakerystore.entity.City;
 import am.itspace.sweetbakerystore.entity.Product;
 import am.itspace.sweetbakerystore.entity.Review;
-import am.itspace.sweetbakerystore.entity.User;
 import am.itspace.sweetbakerystore.security.CurrentUser;
 import am.itspace.sweetbakerystore.service.ProductService;
 import am.itspace.sweetbakerystore.service.ReviewService;
 import am.itspace.sweetbakerystore.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
@@ -20,13 +17,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Controller
+@RequestMapping("/products")
 @RequiredArgsConstructor
 public class ShopController {
     private final ProductService productService;
@@ -35,8 +32,7 @@ public class ShopController {
 
     @GetMapping(value = "/shop")
     public String shop(ModelMap modelMap, @PageableDefault(size = 9) Pageable pageable) {
-
-        Page<Product> paginated = productService.findPaginated (pageable);
+        Page<Product> paginated = productService.findPaginated(pageable);
         modelMap.addAttribute("products", paginated);
         int totalPages = paginated.getTotalPages();
         if (totalPages > 0) {
@@ -48,7 +44,7 @@ public class ShopController {
         return "web/shop/index";
     }
 
-    @GetMapping(value = "/products/getImage", produces = MediaType.IMAGE_JPEG_VALUE)
+    @GetMapping(value = "/getImage", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody byte[] getImage(@RequestParam("fileName") String fileName) throws IOException {
         return productService.getProductImage(fileName);
     }
@@ -58,7 +54,7 @@ public class ShopController {
                                     @AuthenticationPrincipal CurrentUser currentUser
                                     ) {
         Optional<Product> byId = productService.findById(id);
-        if(byId.isEmpty()){
+        if (byId.isEmpty()) {
             return "redirect:/shop";
         }
         modelMap.addAttribute("product",byId.get());
@@ -67,8 +63,23 @@ public class ShopController {
     }
 
 
+    @GetMapping(value = "/add/favorite-product")
+    public void addFavProduct() {
+    }
+
+    @PostMapping(value = "/add/favorite-product")
+    @ResponseBody
+    public void addFavProduct(@AuthenticationPrincipal CurrentUser currentUser,
+                                @RequestParam int productId) {
+        Optional<Product> productById = productService.findById(productId);
+        productById.ifPresent(product -> product.setId(productId));
+        productService.addFavoriteProduct(currentUser, productById.get().getId());
+    }
+
+
+
     @PostMapping(value = "/add-review")
-    public String addReviw(@ModelAttribute Review review,
+    public String addReview(@ModelAttribute Review review,
                            @AuthenticationPrincipal CurrentUser currentUser) {
             reviewService.save(review,currentUser);
         return "redirect:/shop";
