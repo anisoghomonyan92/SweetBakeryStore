@@ -7,6 +7,7 @@ import am.itspace.sweetbakerystore.entity.User;
 import am.itspace.sweetbakerystore.repository.AddressRepository;
 import am.itspace.sweetbakerystore.repository.CityRepository;
 import am.itspace.sweetbakerystore.repository.UserRepository;
+import am.itspace.sweetbakerystore.security.CurrentUser;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -150,5 +151,9 @@ public class UserService {
     @Transactional(readOnly = true)
     public Long getCountOfUsers() {
         return userRepository.count();
+    }
+
+    public Object saveUserAddress(CurrentUser currentUser) {
+        return currentUser.getUser().getAddress();
     }
 }

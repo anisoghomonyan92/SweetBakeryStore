@@ -10,4 +10,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
             + "JOIN product p ON user_order.product_id = p.id ", nativeQuery = true)
     double totalSale();
 
+
+
 }

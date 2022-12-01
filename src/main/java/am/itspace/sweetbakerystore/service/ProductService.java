@@ -1,5 +1,7 @@
 package am.itspace.sweetbakerystore.service;
 
+import am.itspace.sweetbakerystore.dto.BasketDto;
+import am.itspace.sweetbakerystore.dto.BasketRequest;
 import am.itspace.sweetbakerystore.entity.Category;
 import am.itspace.sweetbakerystore.entity.Product;
 import am.itspace.sweetbakerystore.repository.CategoryRepository;
@@ -13,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -26,6 +29,9 @@ public class ProductService {
     private final CategoryRepository categoryRepository;
     @Value("${sweet.bakery.store.images.folder}")
     private String folderPath;
+
+    @Resource(name = "basketDto")
+    private BasketDto basketDto;
 
 
     public Page<Product> findPaginated(Pageable pageable) {
@@ -64,16 +70,16 @@ public class ProductService {
     }
 
     public Long getCountOfProducts() {
-       return productRepository.count();
+        return productRepository.count();
     }
 
     public Double getAmount() {
-      return   productRepository.totalSale();
+        return productRepository.totalSale();
     }
 
-    public Optional<Product> findByID(int id) {
-                 return productRepository.findById(id);
-
+    public void addBasket(CurrentUser currentUser, int productId, BasketRequest basketRequest) {
+        Optional<Product> byProductId = productRepository.findById(productId);
+        byProductId.ifPresent(product -> product.setId(productId));
     }
 
 }

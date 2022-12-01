@@ -1110,11 +1110,12 @@
                   };
                 $.ajax({
                     type       : "POST",
-                    data       : data,
-                    url        : noubakery_theme_params.ajax_url,
-                    success    : function(data){
-                        if(data.status == '1'){
-                            $('#noubakery_mini_cart').html(data.html); 
+                    data: JSON.stringify({product_id: $(this).data('product_id')}),
+                    url: '/remove/basket',
+                    contentType: "application/json",
+                    success: function (data) {
+                        if (data) {
+                            $('#noubakery_mini_cart').html(data.html);
                         }
                     },
                 });
@@ -1463,12 +1464,12 @@
         $('body').on('click', '.reset_variations', function(){
             $('select.ps-select').niceSelect('update');
         });
-        $('.ps-section--cart').on('click', '.ps-cart-listing__remove', function(){
-            var product = $(this).closest('product'),
-            url = $(this).data('url');
-            product.remove();
-            window.location.href = url;
-        });
+        // $('.ps-section--cart').on('click', '.ps-cart-listing__remove', function(){
+        //     var product = $(this).closest('product'),
+        //     url = $(this).data('url');
+        //     product.remove();
+        //     window.location.href = url;
+        // });
         $('.ps-searchbox__morelink').on('click', function(){
             $('#search_header').submit();
             return false;
