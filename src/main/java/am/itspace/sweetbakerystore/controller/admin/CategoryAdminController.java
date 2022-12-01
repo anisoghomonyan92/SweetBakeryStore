@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,6 +24,7 @@ import java.util.stream.IntStream;
 public class CategoryAdminController {
 
     private final CategoryService categoryService;
+
     @GetMapping(value = "/categories")
     public String categoryPage(ModelMap modelMap,
                                @RequestParam("page") Optional<Integer> page,
@@ -86,7 +88,7 @@ public class CategoryAdminController {
 
     @PostMapping(value = "/categories-edit")
     public String editCategory(@ModelAttribute Category category,
-                               @AuthenticationPrincipal CurrentUser currentUser) throws Exception {
+    @AuthenticationPrincipal CurrentUser currentUser) throws Exception {
         categoryService.save(category, currentUser);
         return "redirect:/admin/categories";
     }

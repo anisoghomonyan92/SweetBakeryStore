@@ -73,7 +73,7 @@ public class UserAdminController {
     @PostMapping(value = "/users/change-role")
     public String userChangeRole(@RequestParam("userId") int userId,
                                  @RequestParam("role") Role role) {
-        userService.findById(userId, role);
+        userService.findByIdAndRole(userId, role);
         return "redirect:/admin/users";
     }
 
