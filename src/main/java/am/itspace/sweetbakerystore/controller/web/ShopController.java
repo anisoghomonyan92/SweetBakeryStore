@@ -23,6 +23,7 @@ import java.util.stream.IntStream;
 
 
 @Controller
+@RequestMapping("/products")
 @RequiredArgsConstructor
 public class ShopController {
     private final ProductService productService;
@@ -31,7 +32,6 @@ public class ShopController {
 
     @GetMapping(value = "/shop")
     public String shop(ModelMap modelMap, @PageableDefault(size = 9) Pageable pageable) {
-
         Page<Product> paginated = productService.findPaginated(pageable);
         modelMap.addAttribute("products", paginated);
         int totalPages = paginated.getTotalPages();
@@ -44,7 +44,7 @@ public class ShopController {
         return "web/shop/index";
     }
 
-    @GetMapping(value = "/products/getImage", produces = MediaType.IMAGE_JPEG_VALUE)
+    @GetMapping(value = "/getImage", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody byte[] getImage(@RequestParam("fileName") String fileName) throws IOException {
         return productService.getProductImage(fileName);
     }
@@ -63,11 +63,27 @@ public class ShopController {
     }
 
 
+    @GetMapping(value = "/add/favorite-product")
+    public void addFavProduct() {
+    }
+
+    @PostMapping(value = "/add/favorite-product")
+    @ResponseBody
+    public void addFavProduct(@AuthenticationPrincipal CurrentUser currentUser,
+                                @RequestParam int productId) {
+        Optional<Product> productById = productService.findById(productId);
+        productById.ifPresent(product -> product.setId(productId));
+        productService.addFavoriteProduct(currentUser, productById.get().getId());
+    }
+
+
+
     @PostMapping(value = "/add-review")
-    public String addReviw(@ModelAttribute Review review,
+    public String addReview(@ModelAttribute Review review,
                            @AuthenticationPrincipal CurrentUser currentUser) {
         reviewService.save(review, currentUser);
         return "redirect:/shop";
     }
+
 
 }

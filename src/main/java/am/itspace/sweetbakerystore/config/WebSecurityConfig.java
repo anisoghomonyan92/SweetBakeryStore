@@ -31,19 +31,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/user/**").hasAuthority(Role.USER.name())
-                .antMatchers("/addresses","/cart","/add-review").authenticated()
+                .antMatchers("/addresses", "/products/add/favorite-product", "/cart", "/add-review").authenticated()
                 .antMatchers("/admin/**").hasAuthority(Role.ADMIN.name())
                 .antMatchers(
                         "/products",
                         "/products-add",
                         "/products-edit",
                         "/favorite-products",
-                        "/reviews"
-                )
+                        "/reviews", "/admin-page")
                 .hasAuthority(Role.PARTNER.name())
                 .anyRequest()
                 .permitAll()
-
                 .and()
                 .exceptionHandling().accessDeniedPage("/access-denied");
     }

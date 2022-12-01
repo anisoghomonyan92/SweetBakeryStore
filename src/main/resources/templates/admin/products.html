@@ -18,6 +18,7 @@
     .size-block, .price-range-block, .rating-block, .color-block, .categories {
         padding: 15px;
     }
+
     .size-block .filter-title .title, .price-range-block .filter-title .title, .rating-block .filter-title .title, .color-block .filter-title .title, .categories .filter-title .title {
         font-weight: 700;
         font-size: 16px;
@@ -25,6 +26,7 @@
         display: block;
         position: relative;
     }
+
     .size-block .filter-title .title::before, .price-range-block .filter-title .title::before, .rating-block .filter-title .title::before, .color-block .filter-title .title::before, .categories .filter-title .title::before {
         position: absolute;
         content: "\ea99";
@@ -35,19 +37,23 @@
         font-size: 24px;
         color: var(--primary-color);
     }
+
     .size-block .filter-title .title.collapsed::before, .price-range-block .filter-title .title.collapsed::before, .rating-block .filter-title .title.collapsed::before, .color-block .filter-title .title.collapsed::before, .categories .filter-title .title.collapsed::before {
         content: "\eaa1";
     }
+
     .size-block ul, .price-range-block ul, .rating-block ul, .color-block ul, .categories ul {
         list-style: none;
         padding-left: 0px;
     }
+
     .reset-block {
         padding: 15px;
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
+
     .reset-block .filter-title .title {
         font-weight: 700;
         font-size: 16px;
@@ -56,9 +62,11 @@
         position: relative;
         margin-bottom: 0px;
     }
+
     .size-block .filter-size {
         padding-top: 8px;
     }
+
     .size-block .filter-size ul li {
         display: inline-block;
         text-align: center;
@@ -74,19 +82,23 @@
         transition: all 0.3s linear;
         cursor: pointer;
     }
+
     .size-block .filter-size ul li + li {
         margin-left: 2px;
     }
+
     .size-block .filter-size ul li:hover {
         background-color: var(--primary-color);
         border-color: var(--primary-color);
         color: #fff;
     }
+
     .size-block .filter-size ul li.active {
         background-color: var(--primary-color);
         border-color: var(--primary-color);
         color: #fff;
     }
+
     .price-range-block .price-range .price-amount {
         display: -moz-flex;
         display: -ms-flex;
@@ -94,9 +106,11 @@
         display: flex;
         justify-content: space-between;
     }
+
     .price-range-block .price-range .price-amount .amount-input {
         width: 50%;
     }
+
     .price-range-block .price-range .price-amount .amount-input label {
         font-weight: 300;
         font-size: 12px;
@@ -104,6 +118,7 @@
         margin-bottom: 0;
         display: block;
     }
+
     .price-range-block .price-range .price-amount .amount-input input {
         display: inline-block;
         width: 95%;
@@ -116,9 +131,11 @@
         line-height: 22px;
         margin-top: 8px;
     }
+
     .price-range-block .price-range .price-amount .amount-input:last-child label {
         padding-left: 0;
     }
+
     .price-range-block .price-range .slider-range {
         height: 4px;
         width: 100%;
@@ -128,9 +145,11 @@
         margin-top: 38px;
         margin-bottom: 13px;
     }
+
     .price-range-block .price-range .slider-range .ui-slider-range {
         background-color: var(--primary-color);
     }
+
     .price-range-block .price-range .slider-range .ui-slider-handle {
         width: 30px;
         height: 30px;
@@ -140,18 +159,22 @@
         cursor: pointer;
         border: 0;
     }
+
     .price-range-block .price-range .slider-range .ui-slider-handle:focus {
         outline: 0;
     }
+
     .price-range-block .noUi-base {
         width: 97%;
         left: 0;
         right: 0;
         margin: auto;
     }
+
     .price-range-block .noUi-connect {
         background-color: var(--primary-color);
     }
+
     .price-range-block .noUi-handle {
         width: 20px;
         height: 20px;
@@ -162,15 +185,19 @@
         border: 0;
         box-shadow: none;
     }
+
     .price-range-block .noUi-handle:after {
         display: none;
     }
+
     .price-range-block .noUi-handle:before {
         display: none;
     }
+
     .rating-block .filter-rating {
         padding-top: 8px;
     }
+
     .rating-block .filter-rating .rating-check {
         display: -moz-flex;
         display: -ms-flex;
@@ -178,9 +205,11 @@
         display: flex;
         margin-top: 8px;
     }
+
     .rating-block .filter-rating .rating-check input[type="checkbox"] {
         display: none;
     }
+
     .rating-block .filter-rating .rating-check input[type="checkbox"] + label span {
         width: 17px;
         height: 17px;
@@ -192,6 +221,7 @@
         margin: 0 5px -3px 0;
         transition: all 0.4s linear;
     }
+
     .rating-block .filter-rating .rating-check input[type="checkbox"] + label span::before {
         position: absolute;
         content: '\eed8';
@@ -209,24 +239,30 @@
         opacity: 0;
         visibility: hidden;
     }
+
     .rating-block .filter-rating .rating-check input[type="checkbox"]:checked + label span {
         background-color: var(--primary-color);
         border-color: var(--primary-color);
     }
+
     .rating-block .filter-rating .rating-check input[type="checkbox"]:checked + label span::before {
         opacity: 1;
         visibility: visible;
     }
+
     .rating-block .filter-rating .rating-check p {
         padding-left: 5px;
     }
+
     .rating-block .filter-rating .rating-check p i {
         color: #FFBE27;
         font-size: 20px;
     }
+
     .color-block .filter-color {
         padding-top: 8px;
     }
+
     .color-block .filter-color .color-check {
         display: -moz-flex;
         display: -ms-flex;
@@ -235,26 +271,31 @@
         justify-content: space-between;
         margin-top: 8px;
     }
+
     .color-block .filter-color .color-check p {
         display: -moz-flex;
         display: -ms-flex;
         display: -o-flex;
         display: flex;
     }
+
     .color-block .filter-color .color-check p span {
         width: 24px;
         height: 24px;
         border-radius: 50%;
         margin-right: 11px;
     }
+
     .color-block .filter-color .color-check p strong {
         font-weight: 500;
         font-size: 16px;
         line-height: 22px;
     }
+
     .color-block .filter-color .color-check input[type="checkbox"] {
         display: none;
     }
+
     .color-block .filter-color .color-check input[type="checkbox"] + label span {
         width: 17px;
         height: 17px;
@@ -266,6 +307,7 @@
         margin: 0 5px -3px 0;
         transition: all 0.4s linear;
     }
+
     .color-block .filter-color .color-check input[type="checkbox"] + label span::before {
         position: absolute;
         content: '\eed8';
@@ -283,18 +325,22 @@
         opacity: 0;
         visibility: hidden;
     }
+
     .color-block .filter-color .color-check input[type="checkbox"]:checked + label span {
         background-color: var(--primary-color);
         border-color: var(--primary-color);
     }
+
     .color-block .filter-color .color-check input[type="checkbox"]:checked + label span::before {
         opacity: 1;
         visibility: visible;
     }
+
     .categories .filter-search {
         margin-top: 16px;
         position: relative;
     }
+
     .categories .filter-search input {
         width: 100%;
         height: 40px;
@@ -302,6 +348,7 @@
         padding: 0 16px;
         border-radius: 4px;
     }
+
     .categories .filter-search button {
         position: absolute;
         top: 0;
@@ -312,12 +359,15 @@
         background: none;
         color: var(--primary-color);
     }
+
     .categories .filter-category .category-list {
         padding-top: 8px;
     }
+
     .categories .filter-category .category-list li {
         margin-top: 8px;
     }
+
     .categories .filter-category .category-list li a {
         font-weight: 500;
         font-size: 16px;
@@ -325,6 +375,7 @@
         position: relative;
         display: block;
     }
+
     .categories .filter-category .category-list li a::before {
         position: absolute;
         content: "\ea99";
@@ -335,10 +386,12 @@
         font-size: 24px;
         color: var(--primary-color);
     }
+
     .categories .filter-category .category-list li .sub-category {
         padding: 8px 0;
         padding-left: 34px;
     }
+
     .categories .filter-category .category-list li .sub-category li a {
         font-weight: 500;
         font-size: 16px;
@@ -346,6 +399,7 @@
         position: relative;
         display: block;
     }
+
     .categories .filter-category .category-list li .sub-category li a::before {
         display: none;
     }
@@ -553,21 +607,21 @@
 
                                 <div class="card-body d-flex align-items-center flex-column flex-md-row"
                                      th:each="product: ${products}">
-                                    <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/product-detail">
+                                    <a href="#">
                                         <img th:if="${product.productPic != null}"
                                              th:src="@{/admin/products/getImage(fileName=${product.productPic})}"
-                                             height="50" width="100">
+                                             height="100" width="100">
                                         <img th:if="${product.productPic == null}"
-                                             src="/images/product-defoult.jpg" height=50 width=100>
+                                             src="/images/product-default.jpg" height=100 width=100>
                                     </a>
                                     <div class="ms-md-4 m-0 mt-4 mt-md-0 text-md-start text-center w-100">
-                                        <a href="https://pixelwibes.com/template/ebazar/laravel/public/backend/product-detail">
+                                        <a href="#">
                                             <h6 class="mb-3 fw-bold" th:text="${product.name}">Product's name</h6>
                                         </a>
                                         <div class="d-flex flex-row flex-wrap align-items-center justify-content-center justify-content-md-start">
                                             <div class="pe-xl-5 pe-md-4 ps-md-0 px-3 mb-2">
                                                 <div class="text-muted small">Price</div>
-                                                <strong th:text="${product.price}">20h:46m:30s</strong>
+                                                <strong th:text="${product.price}">AMD</strong>
                                             </div>
                                             <div class="pe-xl-5 pe-md-4 ps-md-0 px-3 mb-2">
                                                 <div class="text-muted small">Category</div>
@@ -575,7 +629,7 @@
                                             </div>
                                             <div class="pe-xl-5 pe-md-4 ps-md-0 px-3 mb-2">
                                                 <div class="text-muted small">In Store</div>
-                                                <strong th:text="${product.inStore}">$149</strong>
+                                                <strong th:text="${product.inStore}"></strong>
                                             </div>
                                             <div class="pe-xl-5 pe-md-4 ps-md-0 px-3 mb-2">
                                                 <div class="text-muted small">Ratings</div>
@@ -583,7 +637,7 @@
                                                         class="text-muted">(145)</span></strong>
                                             </div>
                                             <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                <a th:href="@{/admin/products-edit(id=${product.id})}"
+                                                <a th:href="@{'/admin/products-edit'(id=${product.id})}"
                                                    class="btn btn-outline-secondary"><i
                                                         class="icofont-edit text-success"></i></a>
                                                 <a th:href="@{'/admin/products/delete/'+${product.id}}">
@@ -623,7 +677,7 @@
 <script src="/admin/dist/assets/js/template.js"></script>
 <script th:inline="javascript">
 
-    let categories = /*[[${categories==null? '':categories}]]*/;
+    let categories =/*[[${categories==null? '':categories}]]*/;
     let div = $('#categoryResult');
     let content = '';
 

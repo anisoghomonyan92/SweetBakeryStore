@@ -72,7 +72,7 @@ public class ProductAdminController {
         if (!file.isEmpty() && file.getSize() > 0) {
             if (file.getContentType() != null && !file.getContentType().contains("image")) {
                 modelMap.addAttribute("errorMessageFile", "Please choose only image");
-                return "addUser";
+                return "admin/products-add";
             }
         }
         productService.save(product, file, currentUser);
@@ -96,6 +96,17 @@ public class ProductAdminController {
         return "admin/products-edit";
     }
 
+    @PostMapping(value = "/products-edit")
+    public String editProduct(@ModelAttribute Product product,
+                              @RequestParam("productImage") MultipartFile file,
+                              @AuthenticationPrincipal CurrentUser currentUser,
+                              ModelMap modelMap) throws Exception {
+        if (!file.isEmpty() && file.getSize() > 0) {
+            if (file.getContentType() != null && !file.getContentType().contains("image")) {
+                modelMap.addAttribute("errorMessageFile", "Please choose only image");
+            }
+        }
+        productService.save(product, file, currentUser);
+        return "redirect:/admin/products";
+    }
 }
-
-

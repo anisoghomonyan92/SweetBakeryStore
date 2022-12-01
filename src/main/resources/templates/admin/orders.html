@@ -116,7 +116,7 @@
                                                                 <td>
                                                                     <img th:if="${order.product.productPic != null}"
                                                                          th:src="@{/admin/orders/getImage(fileName=${order.product.productPic})}"
-                                                                         height=50 width=100>
+                                                                         height=100 width=100>
                                                                 </td>
                                                                 <td th:text="${order.product.name}"></td>
                                                                 <td th:text="${order.user.name + ' '+ order.user.surname}"></td>

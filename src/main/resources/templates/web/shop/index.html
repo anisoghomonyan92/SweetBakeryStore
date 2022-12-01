@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title>Products &#8211; Noucake</title>
-    <link rel="icon" href="/images/2017/06/favicon.png" >
+    <link rel="icon" href="/images/2017/06/favicon.png">
     <link rel="icon" href="/images/2017/06/favicon.png">
     <link rel="apple-touch-icon" href="/images/2017/06/favicon.png">
     <th:block th:insert="web/fragments/fragment.html::headerImport"></th:block>
@@ -23,7 +23,7 @@
         <header>
             <p>Enter your keywords:</p>
             <form id="search_header" class="search_header_product " method="get"
-                  action="http://warethemes.com/wordpress/bakery/">
+                  action="/bakery/">
                 <input class="form-control" type="text" value="" name="s" autocomplete="off">
 
                 <input type="hidden" name="post_type" value="product">
@@ -136,20 +136,23 @@
 
                         <div class="ps-shop ps-col-tiny products">
                             <div class="row">
-                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 post-181 product type-product status-publish has-post-thumbnail product_cat-clothing product_cat-hoodies first instock shipping-taxable purchasable product-type-simple" th:each="product: ${products}">
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 post-181 product type-product status-publish has-post-thumbnail product_cat-clothing product_cat-hoodies first instock shipping-taxable purchasable product-type-simple"
+                                     th:each="product: ${products}">
                                     <div class="ps-product" data-mh="abc">
                                         <div class="ps-product__thumbnail">
                                             <a
-                                             th:href="@{'/product/single-page/' + ${product.id}}">
-                                            <img th:if="${product.productPic != null}"
-                                                 th:src="@{/products/getImage(fileName=${product.productPic})}"></a>
+                                                    th:href="@{'/products/single-page/' + ${product.id}}">
+                                                <img th:if="${product.productPic != null}"
+                                                     th:src="@{/products/getImage(fileName=${product.productPic})}"></a>
                                             <ul class="ps-product__action">
 
                                                 <li><a data-product_id="181" class="product-quickview popup-modal"
                                                        href="#quickview-modal" data-effect="mfp-zoom-out"
                                                        data-tooltip="View"><i class="ps-icon--search"></i></a></li>
 
-                                                <li><a class="product-wishlist" data-product_id="181" href="#"
+                                                <li>
+                                                    <a class="product-wishlist "
+                                                       th:attr="data-product_id=${product.id}"  href="#"
                                                        data-tooltip="Add to wishlist"><i class="ps-icon--heart"></i></a>
                                                 </li>
 
@@ -169,7 +172,8 @@
                                             </ul>
                                         </div>
                                         <div class="ps-product__content">
-                                            <a th:href="@{'/product/single-page/' + ${product.id}}" class="ps-product__title" th:text="${product.name}">
+                                            <a th:href="@{'/products/single-page/' + ${product.id}}"
+                                               class="ps-product__title" th:text="${product.name}">
                                                 Becky&#8217;s Snickqerdoodle </a>
                                             <select class="ps-rating rating-0">
                                                 <option value="0" selected='selected'>0</option>
@@ -179,19 +183,21 @@
                                                 <option value="4">4</option>
                                                 <option value="5">5</option>
                                             </select>
-                                            <p class="ps-product__price"  th:text="${product.price+'$'}" ><span class="woocs_price_code"
-                                                                               data-product-id="181"><span
+                                            <p class="ps-product__price" th:text="${product.price+'$'}"><span
+                                                    class="woocs_price_code"
+                                                    data-product-id="181"><span
                                                     class="woocommerce-Price-amount amount"><bdi><span
-                                                    class="woocommerce-Price-currencySymbol">&#36;</span >35.00</bdi></span></span>
+                                                    class="woocommerce-Price-currencySymbol">&#36;</span>35.00</bdi></span></span>
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div><br><br>
-                        <div  class="pagination" th:if="${products.totalPages > 0}"
+                        </div>
+                        <br><br>
+                        <div class="pagination" th:if="${products.totalPages > 0}"
                              th:each="pageNumber : ${pageNumbers}">
-                            <a th:href="@{/shop(size=${products.size}, page=${pageNumber})}"
+                            <a th:href="@{/products/shop(size=${products.size}, page=${pageNumber})}"
                                th:text="${pageNumber}"
                                th:class="${pageNumber==products.number + 1} ? active">
                             </a>
@@ -204,7 +210,7 @@
                         <aside class="ps-widget ps-widget--sidebar widget search-3 widget_search">
                             <div class="ps-widget__header"><h3 class="ps-widget__title">Search</h3></div>
                             <div class="ps-widget--search">
-                                <form role="search" method="get" action="http://warethemes.com/wordpress/bakery/">
+                                <form role="search" method="get" action="/bakery/">
                                     <input class="form-control" type="text" value="" name="s"
                                            placeholder="Type here bakery name...">
 
@@ -239,7 +245,7 @@
                         </aside>
                         <aside class="ps-widget ps-widget--sidebar widget woocommerce_price_filter-2 woocommerce widget_price_filter">
                             <div class="ps-widget__header"><h3 class="ps-widget__title">Filter by price</h3></div>
-                            <form method="get" action="http://warethemes.com/wordpress/bakery/shop/">
+                            <form method="get" action="/bakery/shop/">
                                 <div class="price_slider_wrapper">
                                     <div class="price_slider" style="display:none;"></div>
                                     <div class="price_slider_amount" data-step="10">
@@ -272,13 +278,13 @@
                                 <div class="product ps-product--sidebar">
                                     <div class="ps-product__thumbnail">
                                         <a class="ps-product__overlay"
-                                           href="/product/single-page"></a>
+                                           href="/products/single-page"></a>
                                         <img width="75" height="81" src="/images/2013/06/img-cake-6-75x81.jpg"
                                              class="attachment-noubakery_75x81 size-noubakery_75x81 wp-image-207" alt=""
                                              loading="lazy"></div>
                                     <div class="ps-product__content">
                                         <h4 class="ps-product__title">
-                                            <a href="/product/single-page">Sweet Cakes</a>
+                                            <a href="/products/single-page">Sweet Cakes</a>
                                         </h4>
                                         <p class="ps-product__price"><span class="woocs_price_code"
                                                                            data-product-id="199"><del
@@ -296,13 +302,13 @@
                                 <div class="product ps-product--sidebar">
                                     <div class="ps-product__thumbnail">
                                         <a class="ps-product__overlay"
-                                           href="/product/single-page"></a>
+                                           href="/products/single-page"></a>
                                         <img width="75" height="81" src="/images/2017/06/img-cake-9-75x81.jpg"
                                              class="attachment-noubakery_75x81 size-noubakery_75x81 wp-image-257" alt=""
                                              loading="lazy"></div>
                                     <div class="ps-product__content">
                                         <h4 class="ps-product__title">
-                                            <a href="/product/single-page">Cupcake Glory</a>
+                                            <a href="/products/single-page">Cupcake Glory</a>
                                         </h4>
                                         <p class="ps-product__price"><span class="woocs_price_code"
                                                                            data-product-id="198"><del
@@ -320,13 +326,13 @@
                                 <div class="product ps-product--sidebar">
                                     <div class="ps-product__thumbnail">
                                         <a class="ps-product__overlay"
-                                           href="/product/single-page"></a>
+                                           href="/products/single-page"></a>
                                         <img width="75" height="81" src="/images/2017/06/img-cake-21-75x81.jpg"
                                              class="attachment-noubakery_75x81 size-noubakery_75x81 wp-image-269" alt=""
                                              loading="lazy"></div>
                                     <div class="ps-product__content">
                                         <h4 class="ps-product__title">
-                                            <a href="/product/single-page">cupcake queen</a>
+                                            <a href="/products/single-page">cupcake queen</a>
                                         </h4>
                                         <p class="ps-product__price"><span class="woocs_price_code"
                                                                            data-product-id="197"><del
@@ -344,13 +350,13 @@
                                 <div class="product ps-product--sidebar">
                                     <div class="ps-product__thumbnail">
                                         <a class="ps-product__overlay"
-                                           href="/product/single-page"></a>
+                                           href="/products/single-page"></a>
                                         <img width="75" height="81" src="/images/2017/06/img-cake-12-75x81.jpg"
                                              class="attachment-noubakery_75x81 size-noubakery_75x81 wp-image-260" alt=""
                                              loading="lazy"></div>
                                     <div class="ps-product__content">
                                         <h4 class="ps-product__title">
-                                            <a href="/product/single-page">Red sugar flower</a>
+                                            <a href="/products/single-page">Red sugar flower</a>
                                         </h4>
                                         <p class="ps-product__price"><span class="woocs_price_code"
                                                                            data-product-id="196"><del
@@ -368,13 +374,13 @@
                                 <div class="product ps-product--sidebar">
                                     <div class="ps-product__thumbnail">
                                         <a class="ps-product__overlay"
-                                           href="/product/single-page"></a>
+                                           href="/products/single-page"></a>
                                         <img width="75" height="81" src="/images/2017/06/img-cake-19-75x81.jpg"
                                              class="attachment-noubakery_75x81 size-noubakery_75x81 wp-image-267" alt=""
                                              loading="lazy"></div>
                                     <div class="ps-product__content">
                                         <h4 class="ps-product__title">
-                                            <a href="/product/single-page">Pumpkin Brownie
+                                            <a href="/products/single-page">Pumpkin Brownie
                                                 Cupcakes</a>
                                         </h4>
                                         <p class="ps-product__price"><span class="woocs_price_code"
