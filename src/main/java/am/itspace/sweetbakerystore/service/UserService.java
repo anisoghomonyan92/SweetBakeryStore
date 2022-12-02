@@ -72,11 +72,15 @@ public class UserService {
         user.setActive(false);
         user.setVerifyToken(UUID.randomUUID().toString());
         userRepository.save(user);
-        mailService.sendHtmlMail(user.getEmail(), "Please verify your email.",
+        mailService.sendHtmlMail(user.getEmail(), "Please verify your registration.",
                 "Hi " + user.getName() + "," + "\n" +
-                        "Please verify your account by clicking on this link -> " +
-                        "<a href=\"http://localhost:8080/user/verify?email=" + user.getEmail() +
+                        "Please verify your account by clicking on this link " +
+                        "<a href=\"http://localhost:8080/verify/user?email=" + user.getEmail() +
                         "&token=" + user.getVerifyToken() + "\">Activate</a>");
+    }
+
+    public User save(User user) {
+        return userRepository.save(user);
     }
 
     @PostConstruct
@@ -112,21 +116,25 @@ public class UserService {
         }
     }
 
-    public void verifyUser(String email, String token) throws Exception {
-        Optional<User> userOptional = userRepository.findByEmailAndVerifyToken(email, token);
+    public boolean verifyUser(String email, String token) throws Exception {
+        Optional<User> userOptional = userRepository.findByEmailAndVerifyToken(email, token);;
         if (userOptional.isEmpty()) {
-            throw new Exception("User doesn't exist with email and token.");
+//            throw new Exception("User doesn't exist with email and token.");
+            return false;
+        } else {
+            User user = userOptional.get();
+            if(user.isActive()){
+                return false;
+            }
+            userRepository.enable(user.getId());
+            user.setVerifyToken(null);
+            user.setActive(true);
+            userRepository.save(user);
+            return true;
         }
-        User user = userOptional.get();
-        if (user.isActive()) {
-            throw new Exception("User has already is active.");
-        }
-        user.setActive(true);
-        user.setVerifyToken(null);
-        userRepository.save(user);
     }
 
-    public Optional<User> findById(int userId, Role role) {
+    public Optional<User> findByIdAndRole(int userId, Role role) {
         Optional<User> userOptional = userRepository.findById(userId);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
@@ -134,10 +142,6 @@ public class UserService {
             userRepository.save(user);
         }
         return userOptional;
-    }
-
-    public List<User> findAllUsers() {
-        return userRepository.findAll();
     }
 
     public Optional<User> getAdminEmail() {
@@ -153,7 +157,41 @@ public class UserService {
         return userRepository.count();
     }
 
+    public User getByEmail(String email) {
+        Optional<User> userByEmail = userRepository.getByEmail(email);
+        userByEmail.ifPresent(user -> userByEmail.get());
+        return userByEmail.get();
+    }
+
+
+    public void updateUser(User user, MultipartFile file) throws IOException {
+        if (!file.isEmpty() && file.getSize() > 0) {
+            String filename = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+            File newFile = new File(folderPath + File.separator + filename);
+            file.transferTo(newFile);
+            user.setProfilePic(filename);
+        }
+        Optional<User> userById = userRepository.findById(user.getId());
+        if (userById.isPresent()) {
+            user.setId(userById.get().getId());
+            user.setRole(userById.get().getRole());
+            user.setCreateAt(userById.get().getCreateAt());
+            user.setActive(user.isActive());
+            user.setPassword(userById.get().getPassword());
+            user.setEmail(userById.get().getEmail());
+            user.setActive(true);
+        }
+        userRepository.save(user);
+    }
+
     public Object saveUserAddress(CurrentUser currentUser) {
         return currentUser.getUser().getAddress();
     }
+}
+
+    public Optional<User> findById(int id) {
+        return userRepository.findById(id);
+    }
+
+
 }

@@ -78,7 +78,7 @@
                         <tr>
                             <td>
                                 <img th:if="${favoriteProduct.getProduct().getProductPic() != null}"
-                                     th:src="@{/admin/products/getImage(fileName=${favoriteProduct.product.productPic})}">
+                                     th:src="@{/products/getImage(fileName=${favoriteProduct.product.productPic})}">
                             </td>
                             <td th:text="${favoriteProduct.product.name}">
                                 <strong th:value="${favoriteProduct.getProduct().name}"></strong>

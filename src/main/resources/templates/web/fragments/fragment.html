@@ -1551,10 +1551,9 @@
                     <li>
                         <a href="/contact-style">Contact</a>
                     </li>
-                    <li th:if="${currentUser != null && currentUser.getRole.name=='USER'}"><a href="/user/my-account">My
-                        Page</a>
-                    <LI th:if="${currentUser != null && currentUser.getRole.name=='ADMIN'}">
-                        <a href="/admin/admin-page"></a>
+                    <li th:if="${currentUser != null && currentUser.getRole.name=='USER'}"><a href="/user/my-account">My Account</a>
+                    <li th:if="${currentUser != null && (currentUser.getRole.name=='ADMIN' || currentUser.getRole.name=='PARTNER')}">
+                        <a href="/admin/admin-page">My Page</a>
                         <ul class="sub-menu">
                             <li id="menu-item-501"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-452"

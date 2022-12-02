@@ -60,7 +60,7 @@ public class MainController {
 
     //Registered user with address and cityId
     @PostMapping("/register")
-    public String addUser(@ModelAttribute User user,
+    public String addUser( @ModelAttribute User user,
                           @RequestParam("userImage") MultipartFile file,
                           @RequestParam("addressName") String addressName,
                           @RequestParam("cityId") int cityId,
@@ -87,12 +87,14 @@ public class MainController {
         }
     }
 
-    @GetMapping(value = "/user/verify")
-    public String verifyUser(@RequestParam("email") String email, @RequestParam("token") String token) throws Exception {
-        userService.verifyUser(email, token);
-        return "login-page";
+    @GetMapping(value = "/verify/user")
+    public String verifyUser( @RequestParam("email") String email, @RequestParam("token") String token,
+                              ModelMap modelMap) throws Exception {
+        boolean verified = userService.verifyUser(email, token);
+        String pageTitle = verified ? "Verification Succeeded!" : "Verification Failed";
+        modelMap.addAttribute("pageTitle", pageTitle);
+        return verified ? "verify-success" : "verify-fail";
     }
-
     @GetMapping("/login")
     public String loginPage() {
         return "login-page";

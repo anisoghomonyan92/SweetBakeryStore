@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -47,6 +48,10 @@ public class AddressService {
     public void save(Address address, City city) {
         cityRepository.save(city);
         addressRepository.save(address);
+    }
+
+    public List<Address> findAll() {
+        return  addressRepository.findAll();
     }
 
 }
