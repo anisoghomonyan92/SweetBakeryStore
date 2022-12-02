@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/" lang="en-US">
+<html xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html" lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title>Cart &#8211; Noucake</title>
-    <link rel="icon" href="/images/2017/06/favicon.png" >
+    <link rel="icon" href="/images/2017/06/favicon.png">
     <link rel="icon" href="/images/2017/06/favicon.png">
     <link rel="apple-touch-icon" href="/images/2017/06/favicon.png">
     <th:block th:insert="web/fragments/fragment.html::headerImport"></th:block>
@@ -38,7 +38,6 @@
     <th:block th:insert="web/fragments/fragment.html::USD-EURImport"></th:block>
     <th:block th:insert="web/fragments/fragment.html::class-navigation-import"></th:block>
 </header>
-
 <nav class="ps-mobile-nav hidden-lg hidden-md">
     <ul class="ps-list--footer">
         <li><a href="/wishlist"><i class="ps-icon--heart"></i><span>Wishlist</span></a></li>
@@ -66,15 +65,64 @@
 
         </div>
     </div>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="product-name"><h4>All Products</h4></th>
+                <th class="product-price"><h4>Price</h4></th>
+                <th class="product-quantity"><h4>Quantity</h4></th>
+                <th class="product-subtotal"><h4>Total</h4></th>
+                <th class="product-remove"></th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr class="woocommerce-cart-form__cart-item cart_item" th:each="basket:${basketDto.basketProductDtos}">
+                <td>
+                    <div class="ps-product--cart">
+                        <img width="100" height="107"
+                             th:src="@{/products/getImage(fileName=${basket.product.productPic})}">
+                        <span
+                                th:text="${basket.product.name}" style="font-size: large">
+                           Becky's
+                        Snickerdoodle</span></div>
+                </td>
+
+                <td class="product-price" data-title="Price" th:text="${basket.amount+'$'}" style="font-size: large">
+                    <span class="woocs_special_price_code"><span class="woocommerce-Price-amount amount"><bdi><span
+                            class="woocommerce-Price-currencySymbol">£</span>29.15</bdi></span></span></td>
+
+                <td class="product-quantity" data-title="Quantity"
+                    style="font-size: large">
+                    <div class="form-group--number quantity">
+                        <button type="button" class="minus"><span>-</span></button>
+                        <input type="number" step="1" min="1" name="cart[fc221309746013ac554571fbd180e1c8][qty]"
+                               value="3" class="form-control input-text qty text" size="4"
+                               th:value="${basket.quantity}">
+                        <button type="button" class="plus"><span>+</span></button>
+                    </div>
+                </td>
+                <td data-title="Subtotal" th:text="${basketDto.total+'$'}" style="font-size: large">
+								<span class="total-row">
+									<span class="woocs_special_price_code"><span
+                                            class="woocommerce-Price-amount amount"><bdi><span
+                                            class="woocommerce-Price-currencySymbol">£</span>87.45</bdi></span></span>								</span>
+                </td>
+                <td data-title="Remove" class="ps-cart-item">
+                    <a class="ps-cart-item__close remove ps-cart-listing__remove " title="Remove this item"
+                       data-key="fc221309746013ac554571fbd180e1c8"
+                       th:attr="data-product_id=${basket.product.id}"
+                       data-product_sku="HGEGX27"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
     <div class="ps-section--cart pt-100 pb-100">
         <div class="container">
             <div class="ps-cart-listing">
-                <p class="hidden-lg"><i>Slide right to view</i></p>
                 <div class="woocommerce">
-                    <div class="alert alert-danger" role="alert">
-                        Your cart is currently empty.
-                    </div>
-
                     <p class="return-to-shop">
                         <a class="ps-btn ps-btn--sm" href="/shop">
                             Return to shop </a>
@@ -90,7 +138,6 @@
 <div th:insert="web/fragments/fragment.html::footerImport"></div>
 <div th:insert="web/fragments/fragment.html::underFooterImport"></div>
 <div th:insert="web/fragments/fragment.html::text_javascript"></div>
-
 
 </body>
 </html>

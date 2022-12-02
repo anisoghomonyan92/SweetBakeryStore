@@ -17,7 +17,7 @@ import java.util.Optional;
 public class AddressService {
 
     private final AddressRepository addressRepository;
-    private  final CityRepository cityRepository;
+    private final CityRepository cityRepository;
 
     public Page<Address> findPaginated(Pageable pageable) {
         return addressRepository.findAll(pageable);
@@ -29,10 +29,10 @@ public class AddressService {
 
 
     public Address saveAddress(Address address) {
-       return addressRepository.save(address);
+        return addressRepository.save(address);
     }
 
-    public Optional<Address> findByName(String name,City city) {
+    public Optional<Address> findByName(String name, City city) {
         return addressRepository.findByNameAndCity(name, city);
     }
 
@@ -53,4 +53,5 @@ public class AddressService {
     public List<Address> findAll() {
         return  addressRepository.findAll();
     }
+
 }

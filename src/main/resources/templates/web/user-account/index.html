@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title>My account &#8211; Noucake</title>
-    <link rel="icon" href="/images/2017/06/favicon.png" >
+    <link rel="icon" href="/images/2017/06/favicon.png">
     <link rel="icon" href="/images/2017/06/favicon.png">
     <link rel="apple-touch-icon" href="/images/2017/06/favicon.png">
     <th:block th:insert="web/fragments/fragment.html::headerImport"></th:block>
@@ -88,7 +88,7 @@
                                         <a href="/user/my-orders">Orders</a>
                                     </li>
                                     <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address">
-                                        <a href="/user/edit-address">Addresses</a>
+                                        <a th:href="${'/user/edit-address?id='+currentUser.id}">Addresses</a>
                                     </li>
                                     <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-account">
                                         <a href="/user/my-account-edit">Account

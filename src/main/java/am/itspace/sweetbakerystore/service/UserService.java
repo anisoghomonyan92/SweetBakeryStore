@@ -7,6 +7,7 @@ import am.itspace.sweetbakerystore.entity.User;
 import am.itspace.sweetbakerystore.repository.AddressRepository;
 import am.itspace.sweetbakerystore.repository.CityRepository;
 import am.itspace.sweetbakerystore.repository.UserRepository;
+import am.itspace.sweetbakerystore.security.CurrentUser;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,6 +24,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -115,13 +117,14 @@ public class UserService {
     }
 
     public boolean verifyUser(String email, String token) throws Exception {
-        Optional<User> userOptional = userRepository.findByEmailAndVerifyToken(email, token);;
+        Optional<User> userOptional = userRepository.findByEmailAndVerifyToken(email, token);
+        ;
         if (userOptional.isEmpty()) {
 //            throw new Exception("User doesn't exist with email and token.");
             return false;
         } else {
             User user = userOptional.get();
-            if(user.isActive()){
+            if (user.isActive()) {
                 return false;
             }
             userRepository.enable(user.getId());
@@ -181,6 +184,12 @@ public class UserService {
         }
         userRepository.save(user);
     }
+
+    public Object saveUserAddress(CurrentUser currentUser) {
+        return currentUser.getUser().getAddress();
+    }
+
+
 
     public Optional<User> findById(int id) {
         return userRepository.findById(id);

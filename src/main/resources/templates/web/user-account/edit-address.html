@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/" lang="en-US">
+<html xmlns:th="http://www.thymeleaf.org/" lang="en-US"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title>My account &#8211; Noucake</title>
-    <link rel="icon" href="/images/2017/06/favicon.png" >
+    <link rel="icon" href="/images/2017/06/favicon.png">
     <link rel="icon" href="/images/2017/06/favicon.png">
     <link rel="apple-touch-icon" href="/images/2017/06/favicon.png">
     <th:block th:insert="web/fragments/fragment.html::headerImport"></th:block>
@@ -77,17 +78,17 @@
             <div class="wpb_column vc_column_container vc_col-sm-12">
                 <div class="vc_column-inner">
                     <div class="wpb_wrapper">
-                        <div class="woocommerce">
-                            <nav class="woocommerce-MyAccount-navigation">
+                        <div class="woocommerce-account" style="display: flex">
+                            <nav class="woocommerce-MyAccount-navigation" style="margin: 50px">
                                 <ul>
                                     <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--dashboard">
                                         <a href="/user/my-account">Dashboard</a>
                                     </li>
-                                    <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders ">
+                                    <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders is-active">
                                         <a href="/user/my-orders">Orders</a>
                                     </li>
-                                    <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address is-active">
-                                        <a href="/my-account/edit-address">Addresses</a>
+                                    <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address">
+                                        <a href="/user/edit-address">Addresses</a>
                                     </li>
                                     <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-account">
                                         <a href="/user/my-account-edit">Account
@@ -98,19 +99,56 @@
                                     </li>
                                 </ul>
                             </nav>
-                            <div class="woocommerce-MyAccount-content">
+                            <div class="woocommerce-MyAccount-content" style="margin: 100px; margin-top: 60px">
                                 <div class="woocommerce-notices-wrapper"></div>
-                                <div class="woocommerce-message woocommerce-message--info woocommerce-Message woocommerce-Message--info woocommerce-info">
-                                    <a class="woocommerce-Button button" href="/products">Browse products</a>
-                                    No order has been made yet.	</div>
+                                <span style=" font-weight: bold;font-size: large">City</span>
+                                <div th:text="${#authentication.getPrincipal().getUser().getAddress().getCity().getName()}"></div>
+                                <span style=" font-weight: bold;font-size: large">Street</span>
+                                <div th:text="${#authentication.getPrincipal().getUser().getAddress().getName()}"></div>
+                                <br>
+                            </div>
+                            <div style="margin-top: 40px;width: 300px">
+                                <form class="woocommerce-EditAccountForm edit-account" action="/user/edit-address"
+                                      method="post">
+                                    <input type="hidden" name="id" th:value="${address.id}">
+
+                                    <p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
+                                        <label for="account_first_name">Street&nbsp;<span
+                                                class="required">*</span></label>
+                                        <input type="text"
+                                               class="woocommerce-Input woocommerce-Input--text input-text form-control"
+                                               name="name" id="account_first_name"
+                                               autocomplete="given-name" th:value="${address.name}">
+                                    </p>
+                                    <p class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
+                                        <label>City&nbsp;<span
+                                                class="required">*</span></label>
+                                        <select name="city"
+                                                class="woocommerce-Input woocommerce-Input--text input-text form-control">
+                                            <option value="0">Open this select category</option>
+                                            <option th:selected="${address.city eq city}" th:each="city:${cities}"
+                                                    th:text="${city.name}"
+                                                    th:value="${city.id}"></option>
+                                        </select>
+                                    </p>
+                                    <div class="ps-cart-listing">
+                                        <div class="woocommerce">
+                                            <p class="return-to-shop">
+                                                <button class="ps-btn ps-btn--sm" href="/shop">
+                                                    Edit Address
+                                                </button>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div><!--End .page-wrap-->
+    </div><!--End .page-wrap-->
+</div>
 
 <div id="back2top"><i class="fa fa-angle-up"></i></div>
 <div class="loader"></div>
@@ -318,15 +356,14 @@
                                 </p>
                             </div>
                         </div>
-
                     </form>
-
-
                 </header>
             </div>
         </div>
     </div>
 </div>
 <div th:insert="web/fragments/fragment.html::text_javascript"></div>
+
 </body>
 </html>
+

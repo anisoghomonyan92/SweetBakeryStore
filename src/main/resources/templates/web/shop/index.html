@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,7 +50,8 @@
         <li><a class="ps-search-btn" href="#"><i class="ps-icon--search"></i><span>Search</span></a></li>
 
         <li><a class="ps-cart-count" href="/cart"><i class="ps-icon--shopping-cart"></i><span
-                class="quantity"><i class="mobile_cart_content">0</i></span><span>Cart</span></a></li>
+                class="quantity"><i class="mobile_cart_content">0</i></span><span>Cart</span></a>
+        </li>
     </ul>
 </nav>
 <div class="page-wrap">
@@ -65,7 +66,6 @@
                     <li class="active">Shop</li>
                 </ol>
             </div>
-
         </div>
     </div>
     <div class="ps-section--page  ">
@@ -161,10 +161,12 @@
 
                                                 <li>
                                                     <a rel="nofollow" href="/?add-to-cart=181"
-                                                       data-quantity="1" data-product_id="181"
+                                                       data-quantity="1"
+                                                       th:attr="data-product_id=${product.id}"
                                                        data-product_sku="HGEGX27"
                                                        class="product-item-cart button product_type_simple add_to_cart_button ajax_add_to_cart"
-                                                       data-tooltip="Add to cart"><i class="ps-icon--shopping-cart"></i></a>
+                                                       data-tooltip="Add to cart">
+                                                        <i class="ps-icon--shopping-cart"></i></a>
                                                 </li>
 
                                             </ul>
