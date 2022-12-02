@@ -25,6 +25,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -106,18 +107,24 @@ public class ProductService {
 
     }
 
-    public void save(Product product, @AuthenticationPrincipal  CurrentUser currentUser) {
+    public void save(Product product, @AuthenticationPrincipal CurrentUser currentUser) {
         Optional<Product> editedProduct = productRepository.findById(product.getId());
-        if(editedProduct.isPresent()){
+        if (editedProduct.isPresent()) {
             product.setUser(currentUser.getUser());
             productRepository.save(product);
         }
     }
 
     public Optional<Product> findByID(int id) {
-                 return productRepository.findById(id);
+        return productRepository.findById(id);
 
     }
 
+    public List<Product> getAllProducts(String keyword) {
+        if (keyword != null && !keyword.equals(" ")) {
+            return  productRepository.search(keyword);
+        }
+        return productRepository.findAll();
+    }
 }
 

@@ -38,7 +38,7 @@ public class UserAccountController {
     private final UserService userService;
     private final AddressService addressService;
     private final CityService cityService;
-    private final AddressService addressService;
+
 
     @GetMapping(value = "/my-account")
     public String userAccount() {

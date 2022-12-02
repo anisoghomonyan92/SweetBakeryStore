@@ -117,13 +117,14 @@ public class UserService {
     }
 
     public boolean verifyUser(String email, String token) throws Exception {
-        Optional<User> userOptional = userRepository.findByEmailAndVerifyToken(email, token);;
+        Optional<User> userOptional = userRepository.findByEmailAndVerifyToken(email, token);
+        ;
         if (userOptional.isEmpty()) {
 //            throw new Exception("User doesn't exist with email and token.");
             return false;
         } else {
             User user = userOptional.get();
-            if(user.isActive()){
+            if (user.isActive()) {
                 return false;
             }
             userRepository.enable(user.getId());
@@ -187,7 +188,8 @@ public class UserService {
     public Object saveUserAddress(CurrentUser currentUser) {
         return currentUser.getUser().getAddress();
     }
-}
+
+
 
     public Optional<User> findById(int id) {
         return userRepository.findById(id);
