@@ -7,6 +7,7 @@ import am.itspace.sweetbakerystore.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -69,7 +70,7 @@ public class ProductAdminController {
     public String addProduct(@ModelAttribute Product product,
                              @RequestParam("productImage") MultipartFile file,
                              @AuthenticationPrincipal CurrentUser currentUser,
-                             ModelMap modelMap ) throws IOException {
+                             ModelMap modelMap) throws IOException {
         if (!file.isEmpty() && file.getSize() > 0) {
             if (file.getContentType() != null && !file.getContentType().contains("image")) {
                 modelMap.addAttribute("errorMessageFile", "Please choose only image");
@@ -109,5 +110,14 @@ public class ProductAdminController {
         }
         productService.save(product, file, currentUser);
         return "redirect:/admin/products";
+    }
+
+    @GetMapping("/search")
+    public String search(@Param("products") String productList,
+                         ModelMap modelMap) {
+        List<Product> listProducts = productService.getAllProducts(productList);
+        modelMap.addAttribute("products", listProducts);
+        return ("/admin/products");
+
     }
 }
