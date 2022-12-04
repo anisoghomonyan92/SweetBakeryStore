@@ -120,9 +120,9 @@ public class ProductService {
 
     }
 
-    public List<Product> getAllProducts(String keyword) {
-        if (keyword != null && !keyword.equals(" ")) {
-            return  productRepository.search(keyword);
+    public List<Product> getAllProducts(String productList) {
+        if (productList != null && !productList.equals(" ")) {
+            return productRepository.findAll(productList);
         }
         return productRepository.findAll();
     }
