@@ -1,11 +1,14 @@
 package am.itspace.sweetbakerystore.controller.admin;
 
 import am.itspace.sweetbakerystore.entity.Order;
+import am.itspace.sweetbakerystore.security.CurrentUser;
 import am.itspace.sweetbakerystore.service.OrderService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,12 +25,14 @@ import java.util.stream.IntStream;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/admin")
+@Slf4j
 public class OrderAdminController {
 
     private final OrderService orderService;
 
     @GetMapping(value = "/orders")
     public String orderPage(ModelMap modelMap,
+                            @AuthenticationPrincipal CurrentUser currentUser,
                             @RequestParam("page") Optional<Integer> page,
                             @RequestParam("size") Optional<Integer> size) {
         int currentPage = page.orElse(1);
@@ -42,6 +47,7 @@ public class OrderAdminController {
                     .collect(Collectors.toList());
             modelMap.addAttribute("pageNumbers", pageNumbers);
         }
+        log.info("Controller admin/orders called by {}", currentUser.getUser().getEmail());
         return "admin/orders";
     }
 

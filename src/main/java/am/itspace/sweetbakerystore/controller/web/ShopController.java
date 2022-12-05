@@ -6,6 +6,7 @@ import am.itspace.sweetbakerystore.security.CurrentUser;
 import am.itspace.sweetbakerystore.service.ProductService;
 import am.itspace.sweetbakerystore.service.ReviewService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -25,13 +26,16 @@ import java.util.stream.IntStream;
 @Controller
 @RequestMapping("/products")
 @RequiredArgsConstructor
+@Slf4j
 public class ShopController {
     private final ProductService productService;
     private final ReviewService reviewService;
 
 
     @GetMapping(value = "/shop")
-    public String shop(ModelMap modelMap, @PageableDefault(size = 9) Pageable pageable) {
+    public String shop(ModelMap modelMap,
+                       @PageableDefault(size = 9) Pageable pageable
+                       ) {
         Page<Product> paginated = productService.findPaginated(pageable);
         modelMap.addAttribute("products", paginated);
         int totalPages = paginated.getTotalPages();
@@ -49,7 +53,7 @@ public class ShopController {
         return productService.getProductImage(fileName);
     }
 
-    @GetMapping(value = "/product/single-page/{id}")
+    @GetMapping(value = "/single-page/{id}")
     public String productSinglePage(@PathVariable("id") int id, ModelMap modelMap,
                                     @AuthenticationPrincipal CurrentUser currentUser
     ) {
@@ -70,18 +74,19 @@ public class ShopController {
     @PostMapping(value = "/add/favorite-product")
     @ResponseBody
     public void addFavProduct(@AuthenticationPrincipal CurrentUser currentUser,
-                                @RequestParam int productId) {
+                              @RequestParam int productId) {
         Optional<Product> productById = productService.findById(productId);
         productById.ifPresent(product -> product.setId(productId));
         productService.addFavoriteProduct(currentUser, productById.get().getId());
     }
 
 
-
     @PostMapping(value = "/add-review")
     public String addReview(@ModelAttribute Review review,
-                           @AuthenticationPrincipal CurrentUser currentUser) {
+                            @AuthenticationPrincipal CurrentUser currentUser
+    ) {
         reviewService.save(review, currentUser);
+        log.info("Controller products/add-review called by {}", currentUser.getUser().getEmail());
         return "redirect:/shop";
     }
 

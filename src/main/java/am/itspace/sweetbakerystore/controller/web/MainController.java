@@ -9,6 +9,7 @@ import am.itspace.sweetbakerystore.service.AddressService;
 import am.itspace.sweetbakerystore.service.CityService;
 import am.itspace.sweetbakerystore.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -23,6 +24,7 @@ import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class MainController {
 
     private final UserService userService;
@@ -43,6 +45,7 @@ public class MainController {
     public String loginSuccess(@AuthenticationPrincipal CurrentUser currentUser) {
         if (currentUser != null) {
             User user = currentUser.getUser();
+            log.info("User with username {} logged", currentUser.getUser().getEmail());
             if (user.getRole() == Role.ADMIN || user.getRole() == Role.PARTNER) {
                 return "redirect:/admin/admin-page";
             } else if (user.getRole() == Role.USER) {
@@ -60,11 +63,12 @@ public class MainController {
 
     //Registered user with address and cityId
     @PostMapping("/register")
-    public String addUser( @ModelAttribute User user,
+    public String addUser(@ModelAttribute User user,
                           @RequestParam("userImage") MultipartFile file,
                           @RequestParam("addressName") String addressName,
                           @RequestParam("cityId") int cityId,
-                          ModelMap modelMap) throws IOException {
+                          ModelMap modelMap
+                          ) throws IOException {
         Optional<User> byEmail = userService.findByEmail(user.getEmail());
         City byID = cityService.findByID(cityId);
         Address address = new Address();
@@ -82,19 +86,21 @@ public class MainController {
                     return "register";
                 }
             }
+            log.info("User with username {} registered", user.getEmail());
             userService.saveUser(user, file);
             return "redirect:/login";
         }
     }
 
     @GetMapping(value = "/verify/user")
-    public String verifyUser( @RequestParam("email") String email, @RequestParam("token") String token,
-                              ModelMap modelMap) throws Exception {
+    public String verifyUser(@RequestParam("email") String email, @RequestParam("token") String token,
+                             ModelMap modelMap) throws Exception {
         boolean verified = userService.verifyUser(email, token);
         String pageTitle = verified ? "Verification Succeeded!" : "Verification Failed";
         modelMap.addAttribute("pageTitle", pageTitle);
         return verified ? "verify-success" : "verify-fail";
     }
+
     @GetMapping("/login")
     public String loginPage() {
         return "login-page";
