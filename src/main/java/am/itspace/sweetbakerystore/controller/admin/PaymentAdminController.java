@@ -1,10 +1,13 @@
 package am.itspace.sweetbakerystore.controller.admin;
 
 import am.itspace.sweetbakerystore.entity.Payment;
+import am.itspace.sweetbakerystore.security.CurrentUser;
 import am.itspace.sweetbakerystore.service.PaymentService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,12 +22,14 @@ import java.util.stream.IntStream;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/admin")
+@Slf4j
 public class PaymentAdminController {
 
     private final PaymentService paymentService;
 
     @GetMapping(value = "/payments")
     public String paymentPage(ModelMap modelMap,
+                              @AuthenticationPrincipal CurrentUser currentUser,
                               @RequestParam("page") Optional<Integer> page,
                               @RequestParam("size") Optional<Integer> size) {
         int currentPage = page.orElse(1);
@@ -39,6 +44,7 @@ public class PaymentAdminController {
                     .collect(Collectors.toList());
             modelMap.addAttribute("pageNumbers", pageNumbers);
         }
+        log.info("Controller admin/payments called by {}", currentUser.getUser().getEmail());
         return "admin/payments";
     }
 }

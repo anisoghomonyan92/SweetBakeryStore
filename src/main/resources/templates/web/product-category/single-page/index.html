@@ -23,7 +23,7 @@
         <header>
             <p>Enter your keywords:</p>
             <form id="search_header" class="search_header_product " method="get"
-                  action="/bakery/">
+                  action="/bakery">
                 <input class="form-control" type="text" value="" name="s" autocomplete="off">
 
                 <input type="hidden" name="post_type" value="product">
@@ -70,9 +70,9 @@
                    data-product_sku="HGEGX27"></a>
                 <div class="ps-cart-item__thumbnail">
                     <a href="/products/single-page"><img width="60" height="65"
-                                                        src="/images/2017/06/img-cake-1-60x65.jpg"
-                                                        class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-249"
-                                                        alt="" loading="lazy"></a></div>
+                                                         src="/images/2017/06/img-cake-1-60x65.jpg"
+                                                         class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-249"
+                                                         alt="" loading="lazy"></a></div>
                 <div class="ps-cart-item__content">
                     <a class="ps-cart-item__title" href="/products/single-page">Becky's
                         Snickerdoodle</a>
@@ -92,9 +92,9 @@
                    data-product_sku="HGEGX31"></a>
                 <div class="ps-cart-item__thumbnail">
                     <a href="/products/single-page"><img width="60" height="65"
-                                                        src="/images/2017/06/img-cake-21-60x65.jpg"
-                                                        class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-269"
-                                                        alt="" loading="lazy"></a></div>
+                                                         src="/images/2017/06/img-cake-21-60x65.jpg"
+                                                         class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-269"
+                                                         alt="" loading="lazy"></a></div>
                 <div class="ps-cart-item__content">
                     <a class="ps-cart-item__title" href="/products/single-page">Boston Cream
                         Pie</a>
@@ -114,9 +114,9 @@
                    data-product_sku="HGEGX26"></a>
                 <div class="ps-cart-item__thumbnail">
                     <a href="/products/single-page"><img width="60" height="65"
-                                                        src="/images/2017/06/img-cake-2-60x65.jpg"
-                                                        class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-250"
-                                                        alt="" loading="lazy"></a></div>
+                                                         src="/images/2017/06/img-cake-2-60x65.jpg"
+                                                         class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-250"
+                                                         alt="" loading="lazy"></a></div>
                 <div class="ps-cart-item__content">
                     <a class="ps-cart-item__title" href="/products/single-page">Cherry Limeade</a>
                     <p>
@@ -135,9 +135,9 @@
                    data-product_sku="HGEGX34"></a>
                 <div class="ps-cart-item__thumbnail">
                     <a href="/products/single-page"><img width="60" height="65"
-                                                        src="/images/2017/06/img-cake-10-60x65.jpg"
-                                                        class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-258"
-                                                        alt="" loading="lazy"></a></div>
+                                                         src="/images/2017/06/img-cake-10-60x65.jpg"
+                                                         class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-258"
+                                                         alt="" loading="lazy"></a></div>
                 <div class="ps-cart-item__content">
                     <a class="ps-cart-item__title" href="/product/cherry">Dr Pepper
                         Cupcakes</a>
@@ -450,7 +450,7 @@
                                         class="woocommerce-Price-amount amount"><bdi><span
                                         class="woocommerce-Price-currencySymbol"
                                         th:text="${product.price+'$'}">&pound;</span>
-                                </p>
+                                 </p>
                                 <p class="ps-product__price price-for-varian"></p>
 
                                 <div class="ps-product__description desc-for-default" th:text="${product.description}">
@@ -552,8 +552,8 @@
                                                         rel="nofollow" id="cancel-comment-reply-link"
                                                         href="/?add-to-cart=196#respond"
                                                         style="display:none;">Cancel Reply</a></small></h3>
-                                                <form action="/bakery/wp-comments-post.php"
-                                                      method="post" id="commentform" class="comment-form">
+                                                <form action="/add-review" method="post" id="commentform"
+                                                      class="comment-form">
                                                     <div class="form-group">
                                                         <label class="panel-review-label">Your rating</label>
                                                         <select class="ps-rating" name="rating">

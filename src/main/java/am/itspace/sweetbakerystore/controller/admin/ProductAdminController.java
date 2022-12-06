@@ -5,6 +5,7 @@ import am.itspace.sweetbakerystore.security.CurrentUser;
 import am.itspace.sweetbakerystore.service.CategoryService;
 import am.itspace.sweetbakerystore.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.repository.query.Param;
@@ -15,7 +16,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +25,7 @@ import java.util.stream.IntStream;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/admin")
+@Slf4j
 public class ProductAdminController {
 
     private final ProductService productService;
@@ -32,6 +33,7 @@ public class ProductAdminController {
 
     @GetMapping(value = "/products")
     public String productPage(ModelMap modelMap,
+                              @AuthenticationPrincipal CurrentUser currentUser,
                               @RequestParam("page") Optional<Integer> page,
                               @RequestParam("size") Optional<Integer> size) {
         int currentPage = page.orElse(1);
@@ -46,23 +48,29 @@ public class ProductAdminController {
                     .collect(Collectors.toList());
             modelMap.addAttribute("pageNumbers", pageNumbers);
         }
+        log.info("Controller admin/products called by {}", currentUser.getUser().getEmail());
         return "admin/products";
     }
 
     @GetMapping(value = "/products/delete/{id}")
-    public String delete(@PathVariable("id") int id, ModelMap modelMap) {
+    public String delete(@PathVariable("id") int id,
+                         ModelMap modelMap,
+                         @AuthenticationPrincipal CurrentUser currentUser) {
         try {
             productService.deleteById(id);
         } catch (Exception e) {
             modelMap.addAttribute("deleteErrorMessage", "You can not delete this object because there is some relationships with it.");
             return "admin/products";
         }
+        log.info("Controller admin/products/delete called by {}", currentUser.getUser().getEmail());
         return "redirect:/admin/products";
     }
 
     @GetMapping(value = "/products-add")
-    public String addProductPage(ModelMap modelMap) {
+    public String addProductPage(ModelMap modelMap,
+                                 @AuthenticationPrincipal CurrentUser currentUser) {
         modelMap.addAttribute("categories", categoryService.findAll());
+        log.info("Controller admin/products-add called by {}", currentUser.getUser().getEmail());
         return "admin/products-add";
     }
 
@@ -77,6 +85,7 @@ public class ProductAdminController {
                 return "admin/products-add";
             }
         }
+        log.info("Controller admin/products-add added by {}", currentUser.getUser().getEmail());
         productService.save(product, file, currentUser);
         return "redirect:/admin/products";
     }
@@ -88,11 +97,13 @@ public class ProductAdminController {
 
     @GetMapping(value = "/products-edit")
     public String editProductPage(@RequestParam("id") int id,
-                                  ModelMap modelMap) {
+                                  ModelMap modelMap,
+                                  @AuthenticationPrincipal CurrentUser currentUser) {
         Optional<Product> productOptional = productService.findById(id);
         if (productOptional.isEmpty()) {
             return "redirect:/admin/products";
         }
+        log.info("Controller admin/products-edit called by {}", currentUser.getUser().getEmail());
         modelMap.addAttribute("product", productOptional.get());
         modelMap.addAttribute("categories", categoryService.findAll());
         return "admin/products-edit";
@@ -108,6 +119,7 @@ public class ProductAdminController {
                 modelMap.addAttribute("errorMessageFile", "Please choose only image");
             }
         }
+        log.info("Controller admin/products-edit update by {}", currentUser.getUser().getEmail());
         productService.save(product, file, currentUser);
         return "redirect:/admin/products";
     }

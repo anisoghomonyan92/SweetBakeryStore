@@ -5,33 +5,25 @@ import am.itspace.sweetbakerystore.security.CurrentUser;
 import am.itspace.sweetbakerystore.service.AddressService;
 import am.itspace.sweetbakerystore.service.CityService;
 import am.itspace.sweetbakerystore.entity.User;
-import am.itspace.sweetbakerystore.security.CurrentUser;
-import am.itspace.sweetbakerystore.service.AddressService;
 import am.itspace.sweetbakerystore.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.aspectj.bridge.Message;
 import org.springframework.http.MediaType;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 import java.io.IOException;
 import java.security.Principal;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/user")
 @RequiredArgsConstructor
+@Slf4j
 public class UserAccountController {
 
     private final BCryptPasswordEncoder passwordEncoder;
@@ -48,6 +40,7 @@ public class UserAccountController {
     @GetMapping(value = "/my-account-edit")
     public String userEditAccountPage(@AuthenticationPrincipal CurrentUser currentUser,
                                       ModelMap modelMap) {
+        log.info("Endpoint user/my-account-edit called by {}", currentUser.getUser().getEmail());
         String email = currentUser.getUsername();
         User user = userService.getByEmail(email);
         modelMap.addAttribute("user", user);
@@ -56,7 +49,7 @@ public class UserAccountController {
     }
 
     @PostMapping(value = "/my-account-edit")
-    public String userEditAccount( @ModelAttribute User user,
+    public String userEditAccount(@ModelAttribute User user,
                                   @AuthenticationPrincipal CurrentUser currentUser,
                                   @RequestParam("userImage") MultipartFile file,
                                   ModelMap modelMap) throws IOException {
@@ -71,11 +64,12 @@ public class UserAccountController {
             user.setProfilePic(userById.get().getProfilePic());
             userService.updateUser(user, file);
         }
+        log.info("Endpoint user/my-account-edit updated by {}", currentUser.getUser().getEmail());
         return "redirect:/user/my-account";
     }
 
     @PostMapping("/changePassword")
-    public String changePassword( @RequestParam("oldPassword") String oldPassword,
+    public String changePassword(@RequestParam("oldPassword") String oldPassword,
                                  @RequestParam("newPassword") String newPassword,
                                  Principal principal, ModelMap modelMap) {
         String userName = principal.getName();
@@ -88,6 +82,7 @@ public class UserAccountController {
         } else {
             modelMap.addAttribute("message", "Please enter correct old password");
         }
+        log.info("{} changed your password.", principal.getName());
         return "redirect:/user/my-account";
     }
 
@@ -104,6 +99,7 @@ public class UserAccountController {
         if (byIdForEdit.isEmpty()) {
             return "redirect:/user/edit-address";
         }
+        log.info("Endpoint user/edit-address called by {}", currentUser.getUser().getEmail());
         modelMap.addAttribute("currentUser", userService.saveUserAddress(currentUser));
         modelMap.addAttribute("address", byIdForEdit.get());
         modelMap.addAttribute("cities", cityService.findAll());
@@ -111,8 +107,10 @@ public class UserAccountController {
     }
 
     @PostMapping(value = "/edit-address")
-    public String userEditAddress(@ModelAttribute Address address) {
+    public String userEditAddress(@ModelAttribute Address address,
+                                  @AuthenticationPrincipal CurrentUser currentUser) {
         addressService.saveAddress(address);
+        log.info("{} updated address.", currentUser.getUser().getEmail());
         return "redirect:/user/my-account";
     }
 

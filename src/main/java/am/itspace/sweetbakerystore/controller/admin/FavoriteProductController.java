@@ -4,6 +4,7 @@ import am.itspace.sweetbakerystore.entity.FavoriteProduct;
 import am.itspace.sweetbakerystore.security.CurrentUser;
 import am.itspace.sweetbakerystore.service.FavoriteProductService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -21,6 +22,7 @@ import java.util.stream.IntStream;
 @Controller
 @RequestMapping("/user")
 @RequiredArgsConstructor
+@Slf4j
 public class FavoriteProductController {
     private final FavoriteProductService favoriteProductService;
 
@@ -41,6 +43,7 @@ public class FavoriteProductController {
                     .collect(Collectors.toList());
             modelMap.addAttribute("pageNumbers", pageNumbers);
         }
+        log.info("Controller user/favorite-products called by {}", currentUser.getUser().getEmail());
         return "web/wishlist/index";
     }
 }

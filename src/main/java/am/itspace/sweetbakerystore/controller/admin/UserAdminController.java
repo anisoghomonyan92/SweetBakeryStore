@@ -1,12 +1,16 @@
 package am.itspace.sweetbakerystore.controller.admin;
 
+import am.itspace.sweetbakerystore.entity.Product;
 import am.itspace.sweetbakerystore.entity.Role;
 import am.itspace.sweetbakerystore.entity.User;
+import am.itspace.sweetbakerystore.security.CurrentUser;
 import am.itspace.sweetbakerystore.service.*;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -22,6 +26,7 @@ import java.util.stream.IntStream;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/admin")
+@Slf4j
 public class UserAdminController {
 
     private final UserService userService;
@@ -33,7 +38,8 @@ public class UserAdminController {
     @GetMapping(value = "/users")
     public String usersPage(ModelMap modelMap,
                             @RequestParam("page") Optional<Integer> page,
-                            @RequestParam("size") Optional<Integer> size) {
+                            @RequestParam("size") Optional<Integer> size,
+                            @AuthenticationPrincipal CurrentUser currentUser) {
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(5);
         Page<User> paginated = userService.findPaginated(PageRequest.of(currentPage - 1, pageSize));
@@ -46,6 +52,7 @@ public class UserAdminController {
                     .collect(Collectors.toList());
             modelMap.addAttribute("pageNumbers", pageNumbers);
         }
+        log.info("Controller admin/users called by {}", currentUser.getUser().getEmail());
         List<Role> roles = Arrays.asList(Role.values());
         modelMap.addAttribute("roles", roles);
         return "admin/users";
@@ -59,7 +66,8 @@ public class UserAdminController {
 
     @GetMapping(value = "/users/delete/{id}")
     public String delete(@PathVariable("id") int id,
-                         ModelMap modelMap) {
+                         ModelMap modelMap,
+                         @AuthenticationPrincipal CurrentUser currentUser) {
         try {
             userService.deleteById(id);
         } catch (Exception e) {
@@ -67,13 +75,16 @@ public class UserAdminController {
                     "You can not delete this object because there is some relationships with it.");
             return "admin/users";
         }
+        log.info("Controller admin/users/delete called by {}", currentUser.getUser().getEmail());
         return "redirect:/admin/users";
     }
 
     @PostMapping(value = "/users/change-role")
     public String userChangeRole(@RequestParam("userId") int userId,
-                                 @RequestParam("role") Role role) {
+                                 @RequestParam("role") Role role,
+                                 @AuthenticationPrincipal CurrentUser currentUser) {
         userService.findByIdAndRole(userId, role);
+        log.info("Controller admin/users/change-role called by {}", currentUser.getUser().getEmail());
         return "redirect:/admin/users";
     }
 
@@ -89,5 +100,7 @@ public class UserAdminController {
 
 
     }
+
+
 
 }

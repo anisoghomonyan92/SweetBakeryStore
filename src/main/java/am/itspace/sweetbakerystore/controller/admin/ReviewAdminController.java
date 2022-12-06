@@ -1,10 +1,13 @@
 package am.itspace.sweetbakerystore.controller.admin;
 
 import am.itspace.sweetbakerystore.entity.Review;
+import am.itspace.sweetbakerystore.security.CurrentUser;
 import am.itspace.sweetbakerystore.service.ReviewService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +22,7 @@ import java.util.stream.IntStream;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/admin")
+@Slf4j
 public class ReviewAdminController {
 
     private final ReviewService reviewService;
@@ -26,7 +30,8 @@ public class ReviewAdminController {
     @GetMapping(value = "/reviews")
     public String reviewPage(ModelMap modelMap,
                              @RequestParam("page") Optional<Integer> page,
-                             @RequestParam("size") Optional<Integer> size) {
+                             @RequestParam("size") Optional<Integer> size,
+                             @AuthenticationPrincipal CurrentUser currentUser) {
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(5);
         Page<Review> paginated = reviewService.findPaginated(PageRequest.of(currentPage - 1, pageSize));
@@ -39,7 +44,7 @@ public class ReviewAdminController {
                     .collect(Collectors.toList());
             modelMap.addAttribute("pageNumbers", pageNumbers);
         }
-
+        log.info("Controller admin/reviews called by {}", currentUser.getUser().getEmail());
         return "admin/reviews";
     }
 
