@@ -1,22 +1,27 @@
 package am.itspace.sweetbakerystore.controller.web;
 
 import am.itspace.sweetbakerystore.entity.Address;
+import am.itspace.sweetbakerystore.entity.User;
 import am.itspace.sweetbakerystore.security.CurrentUser;
 import am.itspace.sweetbakerystore.service.AddressService;
 import am.itspace.sweetbakerystore.service.CityService;
-import am.itspace.sweetbakerystore.entity.User;
 import am.itspace.sweetbakerystore.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.Optional;
+
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.validation.Valid;
 import java.io.IOException;
 import java.security.Principal;
 
@@ -40,16 +45,16 @@ public class UserAccountController {
     @GetMapping(value = "/my-account-edit")
     public String userEditAccountPage(@AuthenticationPrincipal CurrentUser currentUser,
                                       ModelMap modelMap) {
-        log.info("Endpoint user/my-account-edit called by {}", currentUser.getUser().getEmail());
         String email = currentUser.getUsername();
         User user = userService.getByEmail(email);
+        log.info("Endpoint user/my-account-edit called by {}", currentUser.getUser().getEmail());
         modelMap.addAttribute("user", user);
         modelMap.addAttribute("addresses", addressService.findAll());
         return "web/user-account/edit-account";
     }
 
     @PostMapping(value = "/my-account-edit")
-    public String userEditAccount(@ModelAttribute User user,
+    public String userEditAccount(@Valid @ModelAttribute User user, BindingResult result,
                                   @AuthenticationPrincipal CurrentUser currentUser,
                                   @RequestParam("userImage") MultipartFile file,
                                   ModelMap modelMap) throws IOException {
@@ -62,9 +67,13 @@ public class UserAccountController {
         if (userById.isPresent()) {
             user.setId(userById.get().getId());
             user.setProfilePic(userById.get().getProfilePic());
-            userService.updateUser(user, file);
         }
-        log.info("Endpoint user/my-account-edit updated by {}", currentUser.getUser().getEmail());
+        if (result.hasErrors()) {
+            modelMap.addAttribute("addresses", addressService.findAll());
+            return "web/user-account/edit-account";
+        }
+        log.info("Endpoint user/my-account-edit called by {}", currentUser.getUser().getEmail());
+        userService.updateUser(user, file);
         return "redirect:/user/my-account";
     }
 
@@ -75,7 +84,7 @@ public class UserAccountController {
         String userName = principal.getName();
         User currentUser = this.userService.getByEmail(userName);
         if (this.passwordEncoder.matches(oldPassword, currentUser.getPassword())) {
-            //change password
+            //change user's  password
             currentUser.setPassword(this.passwordEncoder.encode(newPassword));
             this.userService.save(currentUser);
             modelMap.addAttribute("message", "Your password is successfully changed");
@@ -95,13 +104,12 @@ public class UserAccountController {
     public String userAddressPage(@RequestParam("id") int id,
                                   @AuthenticationPrincipal CurrentUser currentUser,
                                   ModelMap modelMap) {
-        Optional<Address> byIdForEdit = addressService.findByIdForEdit(id);
-        if (byIdForEdit.isEmpty()) {
-            return "redirect:/user/edit-address";
+        Optional<Address> addressById = addressService.findById(id);
+        if (addressById.isEmpty()) {
+            return "redirect:/user/my-account";
         }
         log.info("Endpoint user/edit-address called by {}", currentUser.getUser().getEmail());
-        modelMap.addAttribute("currentUser", userService.saveUserAddress(currentUser));
-        modelMap.addAttribute("address", byIdForEdit.get());
+        modelMap.addAttribute("address", addressById.get());
         modelMap.addAttribute("cities", cityService.findAll());
         return "web/user-account/edit-address";
     }

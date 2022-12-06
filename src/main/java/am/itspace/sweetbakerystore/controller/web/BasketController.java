@@ -23,10 +23,13 @@ public class BasketController {
     @Resource(name = "basketDto")
     private BasketDto basketDto;
 
-    @GetMapping(value = "/cart")
-    public String cart(ModelMap modelMap) {
-        modelMap.addAttribute("basketDto", basketDto);
+    @GetMapping(value = "/basket")
+    public String basket() {
+        return "web/basket/index";
+    }
 
+    @GetMapping(value = "/cart")
+    public String cart() {
         return "web/cart/index";
     }
 

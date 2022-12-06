@@ -17,7 +17,8 @@ public class AboutUsService {
     @Value("${spring.mail.username}")
     private String appEmail;
 
-    //Send emails from user to admin email
+
+    //Receive emails from customers and resend  to admin email
     @Async
     public void sendMail(User user, String message) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();

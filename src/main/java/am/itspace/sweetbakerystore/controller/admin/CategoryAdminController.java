@@ -10,8 +10,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -33,7 +35,6 @@ public class CategoryAdminController {
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(5);
         Page<Category> paginated = categoryService.findPaginated(PageRequest.of(currentPage - 1, pageSize));
-
         modelMap.addAttribute("categories", paginated);
         int totalPages = paginated.getTotalPages();
         if (totalPages > 0) {
@@ -61,13 +62,14 @@ public class CategoryAdminController {
     }
 
     @GetMapping(value = "/categories-add")
-    public String addCategoryPage(@AuthenticationPrincipal CurrentUser currentUser) {
+    public String addCategoryPage(@AuthenticationPrincipal CurrentUser currentUser, ModelMap modelMap) {
+        modelMap.addAttribute("category", new Category());
         log.info("Controller admin/categories-add called by {}", currentUser.getUser().getEmail());
         return "admin/categories-add";
     }
 
     @PostMapping(value = "/categories-add")
-    public String addCategory(@ModelAttribute Category category,
+    public String addCategory(@Valid @ModelAttribute Category category, BindingResult result,
                               @AuthenticationPrincipal CurrentUser currentUser,
                               ModelMap modelMap) throws Exception {
         Optional<Category> byName = categoryService.findByName(category.getName());
@@ -75,11 +77,26 @@ public class CategoryAdminController {
             modelMap.addAttribute("errorMessageCategoryName", "Category with this name has already exists.");
             return "admin/categories-add";
         }
+        if (result.hasErrors()) {
+            return "admin/categories-add";
+        }
         log.info("Controller admin/categories-add added by {}", currentUser.getUser().getEmail());
         categoryService.save(category, currentUser);
         return "redirect:/admin/categories";
 
     }
+
+    @GetMapping(value = "/categories/delete/{id}")
+    public String delete(@PathVariable("id") int id, ModelMap modelMap) {
+        try {
+            categoryService.deleteById(id);
+        } catch (Exception e) {
+            modelMap.addAttribute("deleteErrorMessage", "You can not delete this object because there is some relationships with it.");
+            return "admin/categories";
+        }
+        return "redirect:/admin/categories";
+    }
+
 
     @GetMapping(value = "/categories-edit")
     public String editCategoryPage(@RequestParam("id") int id,

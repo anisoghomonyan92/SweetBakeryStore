@@ -15,14 +15,14 @@ import java.util.List;
 public class BasketDto {
 
     private List<BasketProductDto> basketProductDtos = new ArrayList<>();
-    private long total;
+    private double total;
 
     public void setSingleProduct(BasketProductDto product) {
         this.basketProductDtos.add(product);
     }
 
     public void calculateTotal() {
-        total = basketProductDtos.stream().mapToLong(b -> b.getAmount() * b.getQuantity()).sum();
+        total = basketProductDtos.stream().mapToDouble(b -> b.getProduct().getPrice() * b.getQuantity()).sum();
     }
 
     public void removeSingleProduct(int id) {

@@ -7,7 +7,6 @@ import am.itspace.sweetbakerystore.entity.User;
 import am.itspace.sweetbakerystore.repository.AddressRepository;
 import am.itspace.sweetbakerystore.repository.CityRepository;
 import am.itspace.sweetbakerystore.repository.UserRepository;
-import am.itspace.sweetbakerystore.security.CurrentUser;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,8 +23,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
-
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -59,13 +56,13 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
-    public void saveUser(User user, MultipartFile file) throws IOException {
-        if (!file.isEmpty() && file.getSize() > 0) {
-            String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-            File newFile = new File(folderPath + File.separator + fileName);
-            file.transferTo(newFile);
-            user.setProfilePic(fileName);
-        }
+    public void saveUser(User user,int cityId,String addressName, MultipartFile file) throws IOException {
+        setUserPic(user, file);
+        Optional<City> city = cityRepository.findById(cityId);
+        Address address = new Address();
+        address.setCity(city.get());
+        address.setName(addressName);
+        Address savedAddress = addressRepository.save(address);
         user.setRole(Role.USER);
         user.setCreateAt(new Date());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -83,6 +80,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    //Create default user by Admin Role
     @PostConstruct
     public void run() {
         Optional<User> byEmail = userRepository.findByEmail("itacademy30@gmail.com");
@@ -116,24 +114,19 @@ public class UserService {
         }
     }
 
-    public boolean verifyUser(String email, String token) throws Exception {
+    public boolean verifyUser(String email, String token) {
         Optional<User> userOptional = userRepository.findByEmailAndVerifyToken(email, token);
-        ;
-        if (userOptional.isEmpty()) {
-//            throw new Exception("User doesn't exist with email and token.");
+        User user = userOptional.get();
+        if (user.isActive()) {
             return false;
-        } else {
-            User user = userOptional.get();
-            if (user.isActive()) {
-                return false;
-            }
-            userRepository.enable(user.getId());
-            user.setVerifyToken(null);
-            user.setActive(true);
-            userRepository.save(user);
-            return true;
         }
+        userRepository.enable(user.getId());
+        user.setActive(true);
+        user.setVerifyToken(null);
+        userRepository.save(user);
+        return true;
     }
+
 
     public Optional<User> findByIdAndRole(int userId, Role role) {
         Optional<User> userOptional = userRepository.findById(userId);
@@ -166,12 +159,8 @@ public class UserService {
 
 
     public void updateUser(User user, MultipartFile file) throws IOException {
-        if (!file.isEmpty() && file.getSize() > 0) {
-            String filename = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-            File newFile = new File(folderPath + File.separator + filename);
-            file.transferTo(newFile);
-            user.setProfilePic(filename);
-        }
+        setUserPic(user, file);
+        //find user by id and update details
         Optional<User> userById = userRepository.findById(user.getId());
         if (userById.isPresent()) {
             user.setId(userById.get().getId());
@@ -185,15 +174,16 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public Object saveUserAddress(CurrentUser currentUser) {
-        return currentUser.getUser().getAddress();
-    }
-
-
-
     public Optional<User> findById(int id) {
         return userRepository.findById(id);
     }
 
-
+    private void setUserPic(User user, MultipartFile file) throws IOException {
+        if (!file.isEmpty() && file.getSize() > 0) {
+            String filename = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+            File newFile = new File(folderPath + File.separator + filename);
+            file.transferTo(newFile);
+            user.setProfilePic(filename);
+        }
+    }
 }

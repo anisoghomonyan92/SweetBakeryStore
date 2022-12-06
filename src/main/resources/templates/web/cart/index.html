@@ -89,7 +89,7 @@
                         Snickerdoodle</span></div>
                 </td>
 
-                <td class="product-price" data-title="Price" th:text="${basket.amount+'$'}" style="font-size: large">
+                <td class="product-price" data-title="Price" th:text="${basket.product.price+'$'}" style="font-size: large">
                     <span class="woocs_special_price_code"><span class="woocommerce-Price-amount amount"><bdi><span
                             class="woocommerce-Price-currencySymbol">£</span>29.15</bdi></span></span></td>
 
@@ -103,7 +103,7 @@
                         <button type="button" class="plus"><span>+</span></button>
                     </div>
                 </td>
-                <td data-title="Subtotal" th:text="${basketDto.total+'$'}" style="font-size: large">
+                <td data-title="Subtotal" th:text="${basket.product.price+'$'}" style="font-size: large">
 								<span class="total-row">
 									<span class="woocs_special_price_code"><span
                                             class="woocommerce-Price-amount amount"><bdi><span
@@ -119,14 +119,53 @@
             </tbody>
         </table>
     </div>
-    <div class="ps-section--cart pt-100 pb-100">
-        <div class="container">
-            <div class="ps-cart-listing">
-                <div class="woocommerce">
-                    <p class="return-to-shop">
-                        <a class="ps-btn ps-btn--sm" href="/shop">
-                            Return to shop </a>
-                    </p>
+    <div class="ps-cart__process">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 actions">
+
+                <div class="form-groupform-order">
+                    <a class="ps-cart__shopping btn-black back-to-shop" href=/"products/shop/?view=list">Continue
+                        Shopping</a>
+                </div>
+
+
+                <input type="hidden" id="_wpnonce" name="_wpnonce" value="1fb6a8f96b"><input type="hidden"
+                                                                                             name="_wp_http_referer"
+                                                                                             value="/wordpress/bakery/cart/">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
+                <div class="ps-cart__total cart-collaterals">
+                    <div class="cart_totals ">
+
+
+                        <table cellspacing="0" class="table shop_table shop_table_responsive">
+
+                            <tbody>
+                            <tr class="cart-subtotal">
+                                <th>Subtotal</th>
+                                <td data-title="Subtotal">
+                                    <span class="woocs_special_price_code"><span
+                                            class="woocommerce-Price-amount amount"><bdi><span
+                                            class="woocommerce-Price-currencySymbol">£</span>[[${basketDto.total}]]$</bdi></span></span>
+                                </td>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+
+                        <div class="wc-proceed-to-checkout">
+                            <button class="ps-btn ps-btn--sm ps-btn--fullwidth button btn-black" name="update_cart"
+                                    value="Update cart" disabled="" aria-disabled="true">Update cart
+                            </button>
+                            <a href="/payment/card/add"
+                               class="ps-btn ps-btn--sm ps-btn--fullwidth checkout-button button alt wc-forward">
+                                Proceed to checkout</a>
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
         </div>

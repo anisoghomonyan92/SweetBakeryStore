@@ -41,10 +41,6 @@ public class AddressService {
 
     }
 
-    public Optional<Address> findByIdForEdit(int id) {
-        return addressRepository.findById(id);
-    }
-
     public void save(Address address, City city) {
         cityRepository.save(city);
         addressRepository.save(address);
@@ -54,4 +50,11 @@ public class AddressService {
         return  addressRepository.findAll();
     }
 
+    public Optional<Address> findById(Integer addressId) {
+        Optional<Address> addressById = addressRepository.findById(addressId);
+        if(addressById.isPresent()){
+            return addressById;
+        }
+        else return Optional.empty();
+    }
 }

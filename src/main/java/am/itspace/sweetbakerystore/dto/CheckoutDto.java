@@ -1,28 +1,20 @@
-package am.itspace.sweetbakerystore.entity;
+package am.itspace.sweetbakerystore.dto;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import am.itspace.sweetbakerystore.entity.CardType;
+import am.itspace.sweetbakerystore.entity.Status;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
 
-@AllArgsConstructor
-@Builder
 @Data
-@Entity
-@NoArgsConstructor
-@Table(name = "payment")
-public class Payment {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class CheckoutDto {
 
     @Range(max = 16, min = 16, message = "Length must be 16.")
     @Pattern(regexp = "[0-9]", message = "Card number's must contain only digits.")
@@ -30,7 +22,6 @@ public class Payment {
     private String cardNumber;
 
     @Range(max = 3, min = 3, message = "Length must be 3.")
-    @Pattern(regexp = "[0-9]", message = "CVC code must contain only digits.")
     @NotNull(message = "CVC  can't be empty.")
     private Integer cvcCode;
 
@@ -41,11 +32,15 @@ public class Payment {
     @Enumerated(value = EnumType.STRING)
     private Status status;
 
-    @ManyToOne
-    private User user;
-
     @Enumerated(value = EnumType.STRING)
     private CardType cardType;
 
-    private double totalAmount;
+    private boolean isGift;
+
+    private String wishNotes;
+
+    private Integer productId;
+
+    private Integer quantity;
+
 }
