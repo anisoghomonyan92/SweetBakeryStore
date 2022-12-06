@@ -1,29 +1,21 @@
 package am.itspace.sweetbakerystore.controller.web;
 
 import am.itspace.sweetbakerystore.entity.Address;
-import am.itspace.sweetbakerystore.security.CurrentUser;
-import am.itspace.sweetbakerystore.service.AddressService;
-import am.itspace.sweetbakerystore.service.CityService;
 import am.itspace.sweetbakerystore.entity.User;
 import am.itspace.sweetbakerystore.security.CurrentUser;
 import am.itspace.sweetbakerystore.service.AddressService;
+import am.itspace.sweetbakerystore.service.CityService;
 import am.itspace.sweetbakerystore.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.aspectj.bridge.Message;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
-import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.security.Principal;
@@ -56,7 +48,7 @@ public class UserAccountController {
     }
 
     @PostMapping(value = "/my-account-edit")
-    public String userEditAccount( @ModelAttribute User user,
+    public String userEditAccount(@Valid @ModelAttribute User user, BindingResult result,
                                   @AuthenticationPrincipal CurrentUser currentUser,
                                   @RequestParam("userImage") MultipartFile file,
                                   ModelMap modelMap) throws IOException {
@@ -69,19 +61,23 @@ public class UserAccountController {
         if (userById.isPresent()) {
             user.setId(userById.get().getId());
             user.setProfilePic(userById.get().getProfilePic());
-            userService.updateUser(user, file);
         }
+        if (result.hasErrors()) {
+            modelMap.addAttribute("addresses", addressService.findAll());
+            return "web/user-account/edit-account";
+        }
+        userService.updateUser(user, file);
         return "redirect:/user/my-account";
     }
 
     @PostMapping("/changePassword")
-    public String changePassword( @RequestParam("oldPassword") String oldPassword,
+    public String changePassword(@RequestParam("oldPassword") String oldPassword,
                                  @RequestParam("newPassword") String newPassword,
                                  Principal principal, ModelMap modelMap) {
         String userName = principal.getName();
         User currentUser = this.userService.getByEmail(userName);
         if (this.passwordEncoder.matches(oldPassword, currentUser.getPassword())) {
-            //change password
+            //change user's  password
             currentUser.setPassword(this.passwordEncoder.encode(newPassword));
             this.userService.save(currentUser);
             modelMap.addAttribute("message", "Your password is successfully changed");
@@ -98,14 +94,12 @@ public class UserAccountController {
 
     @GetMapping(value = "/edit-address")
     public String userAddressPage(@RequestParam("id") int id,
-                                  @AuthenticationPrincipal CurrentUser currentUser,
                                   ModelMap modelMap) {
-        Optional<Address> byIdForEdit = addressService.findByIdForEdit(id);
-        if (byIdForEdit.isEmpty()) {
-            return "redirect:/user/edit-address";
+        Optional<Address> addressById = addressService.findById(id);
+        if (addressById.isEmpty()) {
+            return "redirect:/user/my-account";
         }
-        modelMap.addAttribute("currentUser", userService.saveUserAddress(currentUser));
-        modelMap.addAttribute("address", byIdForEdit.get());
+        modelMap.addAttribute("address", addressById.get());
         modelMap.addAttribute("cities", cityService.findAll());
         return "web/user-account/edit-address";
     }

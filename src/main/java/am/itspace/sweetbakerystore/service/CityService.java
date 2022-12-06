@@ -19,27 +19,19 @@ public class CityService {
         return cityRepository.findAll();
     }
 
-    public City findByID(int id) {
-        Optional<City> byId = cityRepository.findById(id);
-        if (byId.isEmpty()) {
-            return null;
+        public Optional<City> findByName (String name){
+            return cityRepository.findByName(name);
         }
-        return byId.get();
-    }
 
-    public Optional<City> findByName(String name) {
-        return cityRepository.findByName(name);
-    }
+        public Optional<City> findById ( int cityId){
+            return cityRepository.findById(cityId);
+        }
 
-    public Optional<City> findById(int cityId) {
-        return cityRepository.findById(cityId);
-    }
+        public void deleteById ( int id){
+            cityRepository.deleteById(id);
+        }
 
-    public void deleteById(int id) {
-        cityRepository.deleteById(id);
+        public void save (City city){
+            cityRepository.save(city);
+        }
     }
-
-    public void save(City city) {
-        cityRepository.save(city);
-    }
-}

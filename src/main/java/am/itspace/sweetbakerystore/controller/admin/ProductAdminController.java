@@ -11,9 +11,11 @@ import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.print.attribute.Attribute;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
@@ -36,7 +38,6 @@ public class ProductAdminController {
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(5);
         Page<Product> paginated = productService.findPaginated(PageRequest.of(currentPage - 1, pageSize));
-
         modelMap.addAttribute("products", paginated);
         int totalPages = paginated.getTotalPages();
         if (totalPages > 0) {
@@ -62,19 +63,23 @@ public class ProductAdminController {
     @GetMapping(value = "/products-add")
     public String addProductPage(ModelMap modelMap) {
         modelMap.addAttribute("categories", categoryService.findAll());
+        modelMap.addAttribute("product", new Product());
         return "admin/products-add";
     }
 
     @PostMapping(value = "/products-add")
-    public String addProduct(@ModelAttribute Product product,
+    public String addProduct(@Valid @ModelAttribute Product product, BindingResult result,
                              @RequestParam("productImage") MultipartFile file,
                              @AuthenticationPrincipal CurrentUser currentUser,
-                             ModelMap modelMap ) throws IOException {
+                             ModelMap modelMap) throws IOException {
         if (!file.isEmpty() && file.getSize() > 0) {
             if (file.getContentType() != null && !file.getContentType().contains("image")) {
                 modelMap.addAttribute("errorMessageFile", "Please choose only image");
                 return "admin/products-add";
             }
+        }
+        if (result.hasErrors()) {
+            return "admin/products-add";
         }
         productService.save(product, file, currentUser);
         return "redirect:/admin/products";
@@ -90,6 +95,7 @@ public class ProductAdminController {
                                   ModelMap modelMap) {
         Optional<Product> productOptional = productService.findById(id);
         if (productOptional.isEmpty()) {
+            modelMap.addAttribute("categories", categoryService.findAll());
             return "redirect:/admin/products";
         }
         modelMap.addAttribute("product", productOptional.get());
@@ -98,7 +104,7 @@ public class ProductAdminController {
     }
 
     @PostMapping(value = "/products-edit")
-    public String editProduct(@ModelAttribute Product product,
+    public String editProduct(@Valid @ModelAttribute Product product, BindingResult result,
                               @RequestParam("productImage") MultipartFile file,
                               @AuthenticationPrincipal CurrentUser currentUser,
                               ModelMap modelMap) throws Exception {
@@ -107,7 +113,12 @@ public class ProductAdminController {
                 modelMap.addAttribute("errorMessageFile", "Please choose only image");
             }
         }
+        if (result.hasErrors()) {
+            modelMap.addAttribute("categories", categoryService.findAll());
+            return "admin/products-edit";
+        }
         productService.save(product, file, currentUser);
         return "redirect:/admin/products";
     }
+
 }

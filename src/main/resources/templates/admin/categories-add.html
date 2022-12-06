@@ -48,18 +48,22 @@
                                 </div>
                             </div>
                         </div>
-
-
-                        <form action="/admin/categories-add" method="post">
+                        <form th:action="@{/admin/categories-add}" th:object="${category}" method="post">
                             <div role="alert" class="alert alert-danger" th:if="${errorMessageCategoryName !=null}"
                                  th:text="${errorMessageCategoryName}">
                             </div>
                             <p><label for="name">Category name</label></p>
-                            <input type="text" name="name" id="name" placeholder="Please input name"><br>
-                            <p><label for="description">Description:</label></p>
-                            <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
-                            <button class="btn btn-primary " value="ADD">ADD</button>
+                            <input type="text" name="name" id="name" th:field="*{name}"
+                                   placeholder="Please input name"><br>
+                            <p th:if="${#fields.hasErrors('name')}"
+                               th:errors="*{name}" th:class="error"></p>
 
+                            <p><label for="description">Description:</label></p>
+                            <textarea id="description" name="description" rows="4" cols="50"
+                                      th:field="*{description}"></textarea>
+                            <p th:if="${#fields.hasErrors('description')}"
+                               th:errors="*{description}" th:class="error"></p><br><br>
+                            <button class="btn btn-primary " value="ADD">ADD</button>
                         </form>
                     </div>
                 </div>

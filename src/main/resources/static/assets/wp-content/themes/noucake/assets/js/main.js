@@ -1111,17 +1111,6 @@
                     };
                 $.ajax({
                     type: "POST",
-                    data: JSON.stringify({product_id: $(this).data('product_id')}),
-                    url: '/remove/basket',
-                    contentType: "application/json",
-                    success: function (data) {
-                        if (data) {
-                            $('#noubakery_mini_cart').html(data.html);
-                        }
-                    },
-                });
-                $.ajax({
-                    type: "POST",
                     data: data,
                     url: noubakery_theme_params.ajax_url,
                     success: function (data) {
@@ -1133,8 +1122,6 @@
 
                 return false;
             });
-
-
         }
     }
 
@@ -1490,114 +1477,107 @@
             window.location.href = url;
         });
         $('.ps-searchbox__morelink').on('click', function () {
-            // $('.ps-section--cart').on('click', '.ps-cart-listing__remove', function(){
-            //     var product = $(this).closest('product'),
-            //     url = $(this).data('url');
-            //     product.remove();
-            //     window.location.href = url;
-            // });
-            $('.ps-searchbox__morelink').on('click', function () {
-                $('#search_header').submit();
-                return false;
-            });
+            $('#search_header').submit();
+            return false;
+        });
 
-            $('form.ps-checkout').on('change', '#billing_city, #billing_state, #billing_postcode', function () {
-                $(document.body).trigger('update_checkout');
-            });
+        $('form.ps-checkout').on('change', '#billing_city, #billing_state, #billing_postcode', function () {
+            $(document.body).trigger('update_checkout');
+        });
 
-            $('.search_header_product').on('input', 'input[name="s"]', function () {
-                var val = $(this).val();
-                if (val.length > 2) {
-                    var data = {
-                        key: val,
-                        nonce: noubakery_theme_params.ajax_nonce,
-                        action: 'noubakery_search_products',
-                    };
-                    $.ajax({
-                        type: "POST",
-                        data: data,
-                        url: noubakery_theme_params.ajax_url,
-                        beforeSend: function () {
-                            $('#search_header button').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
-                        },
-                        success: function (data) {
-                            $('#search_header button').html('<i class="ps-icon--search" aria-hidden="true"></i>');
-                            if (data.status == '1') {
-                                $('.ps-searchbox__result').html(data.html);
-                                $('.ps-searchbox__result').show();
-                                if (data.count > 4) {
-                                    $('.ps-searchbox__morelink').show();
-                                } else {
-                                    $('.ps-searchbox__morelink').hide();
-                                }
-                                if (data.count == 0) {
-                                    $('.ps-searchbox__result').html('<p>' + noubakery_theme_params.not_found_posts + '</p>');
-                                    $('.ps-searchbox__result p').css('color', '#FFF');
-                                }
-
+        $('.search_header_product').on('input', 'input[name="s"]', function () {
+            var val = $(this).val();
+            if (val.length > 2) {
+                var data = {
+                    key: val,
+                    nonce: noubakery_theme_params.ajax_nonce,
+                    action: 'noubakery_search_products',
+                };
+                $.ajax({
+                    type: "POST",
+                    data: data,
+                    url: noubakery_theme_params.ajax_url,
+                    beforeSend: function () {
+                        $('#search_header button').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
+                    },
+                    success: function (data) {
+                        $('#search_header button').html('<i class="ps-icon--search" aria-hidden="true"></i>');
+                        if (data.status == '1') {
+                            $('.ps-searchbox__result').html(data.html);
+                            $('.ps-searchbox__result').show();
+                            if (data.count > 4) {
+                                $('.ps-searchbox__morelink').show();
+                            } else {
+                                $('.ps-searchbox__morelink').hide();
                             }
-                        },
-                        error: function (jqXHR, textStatus, errorThrown) {
-                            alert(jqXHR + " :: " + textStatus + " :: " + errorThrown);
+                            if (data.count == 0) {
+                                $('.ps-searchbox__result').html('<p>' + noubakery_theme_params.not_found_posts + '</p>');
+                                $('.ps-searchbox__result p').css('color', '#FFF');
+                            }
+
                         }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert(jqXHR + " :: " + textStatus + " :: " + errorThrown);
+                    }
 
-                    });
-                }
-            });
-
-            if ($('.post-password-form').length > 0) {
-                $('.post-password-form').addClass('form-inline');
-                $('.post-password-form input[name="post_password"]').addClass('form-control');
-                $('.post-password-form input[type="submit"]').addClass('ps-btn ps-btn--sm btn-black');
-            }
-
-            $(".ps-blog-listing .ps-post__thumbnail img").each(function () {
-                var width = $(this).width(),
-                    parent = $(this).closest('.ps-post__thumbnail');
-                parent.css('width', width);
-            });
-
-            if ($('.wp-block-latest-posts').length > 0) {
-                $('.wp-block-latest-posts').addClass('ps-list--arrow');
-            }
-
-            backgroundImage();
-            parallax();
-            menuBtnToggle();
-            subMenuToggle();
-            masonry();
-            rating();
-            mapConfig();
-            niceSelect();
-            countDown();
-            owlCarousel($('.owl-slider'));
-            syncCarousel($('.primary'), $('.second'), 1000);
-            syncCarousel($('.ps-cake-detail'), $('.ps-cake-list'), 1000);
-            magnificPopup();
-            filterSlider();
-            searchToggle();
-            dateTimePicker();
-            backToTop();
-            slickConfig();
-            social_share_popup();
-            newsletter();
-            contact();
-            quick_order();
-            remove_cart_header();
-            productLightbox();
-            found_variation();
-
-        });
-
-        $(window).on('load', function () {
-            $('.loader').addClass('active');
-        });
-
-        $(window).on('load resize', function () {
-            resizeHeader();
-            if (noubakery_theme_params.menu_desktop_fixed == 'yes') {
-                stickyHeader();
+                });
             }
         });
+
+        if ($('.post-password-form').length > 0) {
+            $('.post-password-form').addClass('form-inline');
+            $('.post-password-form input[name="post_password"]').addClass('form-control');
+            $('.post-password-form input[type="submit"]').addClass('ps-btn ps-btn--sm btn-black');
+        }
+
+        $(".ps-blog-listing .ps-post__thumbnail img").each(function () {
+            var width = $(this).width(),
+                parent = $(this).closest('.ps-post__thumbnail');
+            parent.css('width', width);
+        });
+
+        if ($('.wp-block-latest-posts').length > 0) {
+            $('.wp-block-latest-posts').addClass('ps-list--arrow');
+        }
+
+        backgroundImage();
+        parallax();
+        menuBtnToggle();
+        subMenuToggle();
+        masonry();
+        rating();
+        mapConfig();
+        niceSelect();
+        countDown();
+        owlCarousel($('.owl-slider'));
+        syncCarousel($('.primary'), $('.second'), 1000);
+        syncCarousel($('.ps-cake-detail'), $('.ps-cake-list'), 1000);
+        magnificPopup();
+        filterSlider();
+        searchToggle();
+        dateTimePicker();
+        backToTop();
+        slickConfig();
+        social_share_popup();
+        newsletter();
+        contact();
+        quick_order();
+        remove_cart_header();
+        productLightbox();
+        found_variation();
+
     });
+
+    $(window).on('load', function () {
+        $('.loader').addClass('active');
+    });
+
+    $(window).on('load resize', function () {
+        resizeHeader();
+        if (noubakery_theme_params.menu_desktop_fixed == 'yes') {
+            stickyHeader();
+        }
+    });
+
 })(jQuery);

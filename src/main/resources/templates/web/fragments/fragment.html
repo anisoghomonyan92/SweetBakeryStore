@@ -791,12 +791,11 @@
                         <h3
                                 class="ps-widget__title">CONNECT US</h3>
                         <ul class="ps-widget__social">
-                            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://www.google.ru/" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
                         </ul>
-                        <div class="footer-copyright"><p>© 2017 Design by<a href="#"> Alena Studio</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -1500,7 +1499,7 @@
                                     href="/user/favorite-products">Wishlist</a></li>
                             <li id="menu-item-445"
                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-445"><a
-                                    href="/products/single-page">Order Form</a></li>
+                                    href="/user/order-details">Order</a></li>
                         </ul>
                     </li>
                     <li id="menu-item-439"
@@ -1524,10 +1523,7 @@
                                     href="/cart">Cart</a></li>
                             <li id="menu-item-443"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-443"><a
-                                    href="/checkout">Checkout</a></li>
-                            <li id="menu-item-444"
-                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-444"><a
-                                    href="/bakery/404">404</a></li>
+                                    href="/payment/card/add">BILLING DETAILS</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -1551,7 +1547,10 @@
                     <li>
                         <a href="/contact-style">Contact</a>
                     </li>
-                    <li th:if="${currentUser != null && currentUser.getRole.name=='USER'}"><a href="/user/my-account">My Account</a>
+                    <!--/*@thymesVar id="currentUser" type=""*/-->
+                    <li th:if="${currentUser != null && currentUser.getRole.name=='USER'}">
+                        <a href="/user/my-account">My Account</a>
+                    </li>
                     <li th:if="${currentUser != null && (currentUser.getRole.name=='ADMIN' || currentUser.getRole.name=='PARTNER')}">
                         <a href="/admin/admin-page">My Page</a>
                         <ul class="sub-menu">
@@ -1576,7 +1575,7 @@
                 </ul>
 
                 <div id="noubakery_mini_cart" class="ps-cart">
-                    <a class="ps-cart__toggle" href="/cart"><span><i>1</i></span><i class="ps-icon--shopping-cart"></i></a>
+                    <a class="ps-cart__toggle" href="/cart"><span><i th:text="${basketDto.basketProductDtos.size()}"></i></span><i class="ps-icon--shopping-cart"></i></a>
                     <div class="ps-cart__listing">
                         <div class="ps-cart__content">
                             <div class="ps-cart-item" th:each="basket:${basketDto.basketProductDtos}">
@@ -1593,7 +1592,7 @@
                                     <span>Total: <span class="woocs_special_price_code">
                                         <span class="woocommerce-Price-amount amount"><bdi>
                                             <span class="woocommerce-Price-currencySymbol"
-                                                  th:text="${basket.amount+'$'}"></span></bdi></span></span></span>
+                                                  th:text="${basket.product.price+'$'}"></span></bdi></span></span></span>
                                 </p>
                                 </div>
                             </div>

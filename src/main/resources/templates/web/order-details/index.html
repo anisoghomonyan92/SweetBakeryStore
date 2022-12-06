@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title>Order details</title>
-    <link rel="icon" href="/images/2017/06/favicon.png" >
+    <link rel="icon" href="/images/2017/06/favicon.png">
     <link rel="icon" href="/images/2017/06/favicon.png">
     <link rel="apple-touch-icon" href="/images/2017/06/favicon.png">
     <th:block th:insert="web/fragments/fragment.html::headerImport"></th:block>
@@ -18,19 +18,6 @@
 
 <div class="ps-searchbox__remove"><i class="fa fa-remove"></i></div>
 <div class="container">
-    <header>
-        <p>Enter your keywords:</p>
-        <form id="search_header" class="search_header_product " method="get"
-              action="https://warethemes.com/wordpress/bakery/">
-            <input class="form-control" type="text" value="" name="s" autocomplete="off">
-
-            <input type="hidden" name="post_type" value="product">
-            <button type="submit"><i class="ps-icon--search"></i></button>
-        </form>
-    </header>
-    <div class="ps-searchbox__result"></div>
-    <footer class="text-center"><a class="ps-searchbox__morelink" href="#">VIEW ALL RESULT</a></footer>
-</div>
 </div>
 <div class="header--sidebar"></div>
 <header class="header" data-responsive="1199">
@@ -60,7 +47,7 @@
             <div class="ps-breadcrumb">
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/order-details">Order Details</a></li>
+                    <li><a href="/user/order-details">Order Details</a></li>
                     <li class="active">Order received</li>
                 </ol>
             </div>
@@ -79,126 +66,29 @@
                     <ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
 
                         <li class="woocommerce-order-overview__order order">
-                            Order number: <strong>23756</strong>
+                            Order number: <strong th:object="${order}"></strong>
                         </li>
 
                         <li class="woocommerce-order-overview__date date">
-                            Date: <strong>October 06, 2022</strong>
+                            Date: <strong th:value="${order.getOrderDate()}"> </strong>
                         </li>
 
-                        <li class="woocommerce-order-overview__total total">
+                        <li class=" woocommerce-order-overview__total total">
+                            Product id: <strong><span class="woocommerce-Price-amount amount"><bdi><span
+                                class="woocommerce-Price-currencySymbol"
+                                th:value="${order.getProduct().getId()}">;</span></bdi></span></strong>
+                        </li>
+                        <li class=" woocommerce-order-overview__total total">
                             Total: <strong><span class="woocommerce-Price-amount amount"><bdi><span
-                                class="woocommerce-Price-currencySymbol">&#36;</span>15.00</bdi></span></strong>
+                                class="woocommerce-Price-currencySymbol"
+                                th:value="${order.address}">;</span></bdi></span></strong>
                         </li>
-
-
                         <li class="woocommerce-order-overview__payment-method method">
-                            Payment method: <strong>Cash on delivery</strong>
+                            Payment method: <strong>Payed</strong>
                         </li>
 
 
                     </ul>
-
-                    <p>Pay with cash upon delivery.</p>
-                    <section class="woocommerce-order-details">
-                        <h2 class="woocommerce-order-details__title">Order details</h2>
-
-                        <table class="woocommerce-table woocommerce-table--order-details shop_table order_details">
-                            <thead>
-                            <tr>
-                                <th class="woocommerce-table__product-name product-name">Product</th>
-                                <th class="woocommerce-table__product-table product-total">Total</th>
-                            </tr>
-                            </thead>
-
-                            <tbody>
-                            <tr class="woocommerce-table__line-item order_item">
-
-                                <td class="woocommerce-table__product-name product-name">
-                                    <a href="https://warethemes.com/wordpress/bakery/product/honey-lemon-cupcakes/">Honey
-                                        Lemon Cupcakes</a> <strong class="product-quantity">&times;&nbsp;1</strong>
-                                </td>
-
-                                <td class="woocommerce-table__product-total product-total">
-                                        <span class="woocommerce-Price-amount amount"><bdi><span
-                                                class="woocommerce-Price-currencySymbol">&#36;</span>15.00</bdi></span>
-                                </td>
-
-                            </tr>
-
-                            </tbody>
-
-                            <tfoot>
-                            <tr>
-                                <th scope="row">Subtotal:</th>
-                                <td><span class="woocommerce-Price-amount amount"><bdi><span
-                                        class="woocommerce-Price-currencySymbol">&#36;</span>15.00</bdi></span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Shipping:</th>
-                                <td>Flat rate</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Payment method:</th>
-                                <td>Cash on delivery</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Total:</th>
-                                <td><span class="woocommerce-Price-amount amount"><bdi><span
-                                        class="woocommerce-Price-currencySymbol">&#36;</span>15.00</bdi></span></td>
-                            </tr>
-                            </tfoot>
-                        </table>
-
-                        <section class="woocommerce-customer-details">
-                            <h2>Customer details</h2>
-                            <table class="woocommerce-table woocommerce-table--customer-details shop_table customer_details">
-                                <tr>
-                                    <th>Note:</th>
-                                    <td>some notes</td>
-                                </tr>
-                                <tr>
-                                    <th>Email:</th>
-                                    <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                           data-cfemail="b4dcd5df9ad3dbdcf4d9d5ddd89ac6c1">[email&#160;protected]</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Phone:</th>
-                                    <td>+7989898</td>
-                                </tr>
-
-                            </table>
-
-                            <section
-                                    class="woocommerce-columns woocommerce-columns--2 woocommerce-columns--addresses col2-set addresses">
-
-                                <div class="woocommerce-column woocommerce-column--1 woocommerce-column--billing-address col-1">
-
-                                    <h3 class="woocommerce-column__title">Billing address</h3>
-
-                                    <address>
-                                        John Smith<br/><br/><br/><br/><br/><br/>
-                                    </address>
-
-                                </div><!-- /.col-1 -->
-
-                                <div class="woocommerce-column woocommerce-column--2 woocommerce-column--shipping-address col-2">
-
-                                    <h3 class="woocommerce-column__title">Shipping address</h3>
-
-                                    <address>
-                                        John Smith<br/><br/><br/><br/><br/><br/>
-                                    </address>
-
-                                </div><!-- /.col-2 -->
-
-                            </section><!-- /.col2-set -->
-
-
-                        </section>
-
-                    </section>
 
 
                 </div>

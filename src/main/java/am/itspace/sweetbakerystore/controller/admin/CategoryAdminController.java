@@ -3,13 +3,13 @@ package am.itspace.sweetbakerystore.controller.admin;
 import am.itspace.sweetbakerystore.entity.Category;
 import am.itspace.sweetbakerystore.security.CurrentUser;
 import am.itspace.sweetbakerystore.service.CategoryService;
-import am.itspace.sweetbakerystore.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -32,7 +32,6 @@ public class CategoryAdminController {
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(5);
         Page<Category> paginated = categoryService.findPaginated(PageRequest.of(currentPage - 1, pageSize));
-
         modelMap.addAttribute("categories", paginated);
         int totalPages = paginated.getTotalPages();
         if (totalPages > 0) {
@@ -42,6 +41,29 @@ public class CategoryAdminController {
             modelMap.addAttribute("pageNumbers", pageNumbers);
         }
         return "admin/categories";
+    }
+
+    @GetMapping(value = "/categories-add")
+    public String addCategoryPage(ModelMap modelMap) {
+        modelMap.addAttribute("category", new Category());
+        return "admin/categories-add";
+    }
+
+    @PostMapping(value = "/categories-add")
+    public String addCategory(@Valid  @ModelAttribute Category category, BindingResult result,
+                              @AuthenticationPrincipal CurrentUser currentUser,
+                              ModelMap modelMap) throws Exception {
+        Optional<Category> byName = categoryService.findByName(category.getName());
+        if (byName.isPresent()) {
+            modelMap.addAttribute("errorMessageCategoryName", "Category with this name has already exists.");
+            return "admin/categories-add";
+        }
+        if(result.hasErrors()){
+            return "admin/categories-add";
+        }
+        categoryService.save(category, currentUser);
+        return "redirect:/admin/categories";
+
     }
 
     @GetMapping(value = "/categories/delete/{id}")
@@ -55,25 +77,6 @@ public class CategoryAdminController {
         return "redirect:/admin/categories";
     }
 
-    @GetMapping(value = "/categories-add")
-    public String addCategoryPage() {
-        return "admin/categories-add";
-    }
-
-    @PostMapping(value = "/categories-add")
-    public String addCategory(@ModelAttribute Category category,
-                              @AuthenticationPrincipal CurrentUser currentUser,
-                              ModelMap modelMap) throws Exception {
-        Optional<Category> byName = categoryService.findByName(category.getName());
-
-        if (byName.isPresent()) {
-            modelMap.addAttribute("errorMessageCategoryName", "Category with this name has already exists.");
-            return "admin/categories-add";
-        }
-        categoryService.save(category, currentUser);
-        return "redirect:/admin/categories";
-
-    }
 
     @GetMapping(value = "/categories-edit")
     public String editCategoryPage(@RequestParam("id") int id,

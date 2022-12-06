@@ -122,7 +122,7 @@ public class ProductService {
 
     public List<Product> getAllProducts(String keyword) {
         if (keyword != null && !keyword.equals(" ")) {
-            return  productRepository.search(keyword);
+//            return  productRepository.search(keyword);
         }
         return productRepository.findAll();
     }

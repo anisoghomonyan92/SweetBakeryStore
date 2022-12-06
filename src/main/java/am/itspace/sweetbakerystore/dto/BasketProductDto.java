@@ -8,17 +8,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
+
 @NoArgsConstructor
 public class BasketProductDto {
     private Product product;
-    private long amount;
     private int quantity;
 
     public BasketProductDto(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
-        this.amount = (long) (this.quantity * this.product.getPrice());
     }
 
 }

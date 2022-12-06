@@ -12,12 +12,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -36,7 +38,7 @@ public class MainController {
 
     @GetMapping("/access-denied")
     public String accessDenied() {
-        return "access-denied";
+        return "404";
     }
 
     @GetMapping("/login-success")
@@ -52,27 +54,26 @@ public class MainController {
         return "redirect:/";
     }
 
+
     @GetMapping("/register")
     public String registerPage(ModelMap map) {
         map.addAttribute("cities", cityService.findAll());
+        map.addAttribute("user", new User());
         return "register";
     }
 
-    //Registered user with address and cityId
+    //Registration user with address and cityId
     @PostMapping("/register")
-    public String addUser( @ModelAttribute User user,
+    public String addUser(@Valid @ModelAttribute("user") User user, BindingResult result,
                           @RequestParam("userImage") MultipartFile file,
                           @RequestParam("addressName") String addressName,
                           @RequestParam("cityId") int cityId,
                           ModelMap modelMap) throws IOException {
         Optional<User> byEmail = userService.findByEmail(user.getEmail());
-        City byID = cityService.findByID(cityId);
-        Address address = new Address();
-        address.setCity(byID);
-        address.setName(addressName);
-        Address savedAddress = addressService.saveAddress(address);
-        user.setAddress(savedAddress);
-        if (byEmail.isPresent()) {
+        if (result.hasErrors()) {
+            modelMap.addAttribute("cities", cityService.findAll());
+            return "register";
+        } else if (byEmail.isPresent()) {
             modelMap.addAttribute("errorMessage", "Email Already in use");
             return "register";
         } else {
@@ -82,19 +83,20 @@ public class MainController {
                     return "register";
                 }
             }
-            userService.saveUser(user, file);
+            userService.saveUser(user, cityId, addressName, file);
             return "redirect:/login";
         }
     }
 
     @GetMapping(value = "/verify/user")
-    public String verifyUser( @RequestParam("email") String email, @RequestParam("token") String token,
-                              ModelMap modelMap) throws Exception {
+    public String verifyUser(@RequestParam("email") String email, @RequestParam("token") String token,
+                             ModelMap modelMap) throws Exception {
         boolean verified = userService.verifyUser(email, token);
         String pageTitle = verified ? "Verification Succeeded!" : "Verification Failed";
         modelMap.addAttribute("pageTitle", pageTitle);
         return verified ? "verify-success" : "verify-fail";
     }
+
     @GetMapping("/login")
     public String loginPage() {
         return "login-page";

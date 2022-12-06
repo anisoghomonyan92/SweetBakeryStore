@@ -50,37 +50,34 @@ public class ShopController {
     }
 
     @GetMapping(value = "/product/single-page/{id}")
-    public String productSinglePage(@PathVariable("id") int id, ModelMap modelMap,
-                                    @AuthenticationPrincipal CurrentUser currentUser
-    ) {
+    public String productSinglePage(@PathVariable("id") int id, ModelMap modelMap) {
         Optional<Product> byId = productService.findById(id);
         if (byId.isEmpty()) {
             return "redirect:/shop";
         }
         modelMap.addAttribute("product", byId.get());
-        modelMap.addAttribute("currentUser", currentUser);
         return "web/product-category/single-page/index";
     }
 
 
     @GetMapping(value = "/add/favorite-product")
-    public void addFavProduct() {
+    public String addFavProduct() {
+        return "web/shop/index";
     }
 
     @PostMapping(value = "/add/favorite-product")
     @ResponseBody
     public void addFavProduct(@AuthenticationPrincipal CurrentUser currentUser,
-                                @RequestParam int productId) {
+                              @RequestParam int productId) {
         Optional<Product> productById = productService.findById(productId);
         productById.ifPresent(product -> product.setId(productId));
         productService.addFavoriteProduct(currentUser, productById.get().getId());
     }
 
 
-
     @PostMapping(value = "/add-review")
     public String addReview(@ModelAttribute Review review,
-                           @AuthenticationPrincipal CurrentUser currentUser) {
+                            @AuthenticationPrincipal CurrentUser currentUser) {
         reviewService.save(review, currentUser);
         return "redirect:/shop";
     }

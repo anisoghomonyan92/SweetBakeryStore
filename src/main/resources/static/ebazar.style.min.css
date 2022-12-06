@@ -24627,6 +24627,10 @@ input[type=date], input[type=time] {
         font-size: 18px;
     }
 }
+form .error {
+    color: #FF0000 !important;
+    border-color: #FF0000 !important;
+}
 
 .checkout-sidebar-price-table .title {
     font-weight: 400;

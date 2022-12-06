@@ -5,12 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -23,19 +22,42 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Pattern(regexp = "\\D*", message = "Must not contain numbers")
+    @NotBlank(message = "Name can't be empty.")
+    @Size(min = 2, max = 30)
     private String name;
+
+    @Pattern(regexp = "\\D*", message = "Must not contain numbers")
+    @NotBlank(message = "Surname can't be empty.")
+    @Size(min = 2, max = 30)
     private String surname;
+
+    @NotBlank(message = "Email can't be empty.")
+    @Email(message = "Email is not valid", regexp = "^.+@.+\\..+$")
     private String email;
+
+    @NotBlank(message = "Password can't be empty.")
     private String password;
+
+    @NotBlank(message = "Name can't be empty.")
+    @Size(min = 9, max = 20)
     private String phone;
+
+    @NotNull(message = "Address can't be empty.")
     @ManyToOne
     private Address address;
+
     private String profilePic;
+
     @Enumerated(value = EnumType.STRING)
     private Role role;
+
     private boolean isActive;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createAt;
+
     private String verifyToken;
 
 }

@@ -1,10 +1,7 @@
 <databaseChangeLog
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
-   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
-   http://www.liquibase.org/xml/ns/dbchangelog
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <changeSet author="ghakobyan" id="initdb">
@@ -193,7 +190,7 @@
             </column>
             <column name="is_gift" type="INT(1)" defaultValue="0">
             </column>
-            <column name="wish_notes" type="TEXT" >
+            <column name="wish_notes" type="TEXT">
             </column>
             <column name="order_status" type="ENUM('IN-PROCESS','DONE','REJECTED')">
             </column>
@@ -236,7 +233,7 @@
                 referencedColumnNames="id"/>
         <!--End-->
 
-<!--        Review Entity-->
+        <!--        Review Entity-->
         <createTable tableName="review">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
@@ -254,21 +251,21 @@
                 <constraints nullable="false" primaryKey="true"/>
             </column>
         </createTable>
-            <addForeignKeyConstraint
-                    baseColumnNames="user_id"
-                    baseTableName="review"
-                    constraintName="fk_review_user_id"
-                    referencedTableName="user"
-                    referencedColumnNames="id"/>
-            <addForeignKeyConstraint
-                    baseColumnNames="product_id"
-                    baseTableName="review"
-                    constraintName="fk_review_product_id"
-                    referencedTableName="product"
-                    referencedColumnNames="id"/>
+        <addForeignKeyConstraint
+                baseColumnNames="user_id"
+                baseTableName="review"
+                constraintName="fk_review_user_id"
+                referencedTableName="user"
+                referencedColumnNames="id"/>
+        <addForeignKeyConstraint
+                baseColumnNames="product_id"
+                baseTableName="review"
+                constraintName="fk_review_product_id"
+                referencedTableName="product"
+                referencedColumnNames="id"/>
         <!--End-->
 
-<!--        FavoriteProduct Entity-->
+        <!--        FavoriteProduct Entity-->
         <createTable tableName="favorite_product">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
@@ -295,7 +292,14 @@
                 constraintName="fk_favorite_product_product_id"
                 referencedTableName="product"
                 referencedColumnNames="id"/>
-<!--        End-->
+        <!--        End-->
+    </changeSet>
 
+    <!--    //add new column in payment-->
+    <changeSet author="ghakobyan" id="add_total_amount">
+        <addColumn tableName="payment">
+            <column name="total_amount" type="BIGINT">
+            </column>
+        </addColumn>
     </changeSet>
 </databaseChangeLog>

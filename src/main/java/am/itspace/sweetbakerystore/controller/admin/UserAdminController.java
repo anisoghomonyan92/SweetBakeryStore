@@ -79,6 +79,7 @@ public class UserAdminController {
 
     @GetMapping(value = "/dashboard")
     public String countOfEntities(Model model) {
+        //show statistics on admin dashboard
         model.addAttribute("usersCount", userService.getCountOfUsers());
         model.addAttribute("ordersCount", orderService.getCountOfOrders());
         model.addAttribute("categoriesCount", categoryService.getCountOfCategories());
@@ -86,7 +87,6 @@ public class UserAdminController {
         model.addAttribute("favoriteProductsCount", favoriteProductService.getCountOfFavoriteProducts());
         model.addAttribute("productsSale", productService.getAmount());
         return "/admin/statistics";
-
 
     }
 
