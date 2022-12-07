@@ -81,7 +81,7 @@ public class ShopController {
 
     @PostMapping(value = "/add-review")
     public String addReview(@ModelAttribute Review review,
-                           @AuthenticationPrincipal CurrentUser currentUser) {
+                            @AuthenticationPrincipal CurrentUser currentUser) {
         reviewService.save(review, currentUser);
         log.info("Controller products/add-review called by {}", currentUser.getUser().getEmail());
         return "redirect:/shop";

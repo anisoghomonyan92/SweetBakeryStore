@@ -47,6 +47,29 @@ public class CategoryAdminController {
         return "admin/categories";
     }
 
+    @GetMapping(value = "/categories-add")
+    public String addCategoryPage(ModelMap modelMap) {
+        modelMap.addAttribute("category", new Category());
+        return "admin/categories-add";
+    }
+
+    @PostMapping(value = "/categories-add")
+    public String addCategory(@Valid  @ModelAttribute Category category, BindingResult result,
+                              @AuthenticationPrincipal CurrentUser currentUser,
+                              ModelMap modelMap) throws Exception {
+        Optional<Category> byName = categoryService.findByName(category.getName());
+        if (byName.isPresent()) {
+            modelMap.addAttribute("errorMessageCategoryName", "Category with this name has already exists.");
+            return "admin/categories-add";
+        }
+        if(result.hasErrors()){
+            return "admin/categories-add";
+        }
+        categoryService.save(category, currentUser);
+        return "redirect:/admin/categories";
+
+    }
+
     @GetMapping(value = "/categories/delete/{id}")
     public String delete(@PathVariable("id") int id,
                          ModelMap modelMap,

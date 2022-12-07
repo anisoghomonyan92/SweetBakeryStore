@@ -57,6 +57,7 @@ public class MainController {
         return "redirect:/";
     }
 
+
     @GetMapping("/register")
     public String registerPage(ModelMap map) {
         map.addAttribute("cities", cityService.findAll());
