@@ -60,6 +60,7 @@ public class ShopController {
             return "redirect:/shop";
         }
         modelMap.addAttribute("product", byId.get());
+        modelMap.addAttribute("productList",productService.getProductList());
         return "web/product-category/single-page/index";
     }
 
