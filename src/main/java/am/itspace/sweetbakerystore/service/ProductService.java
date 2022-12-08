@@ -126,5 +126,9 @@ public class ProductService {
         }
         return productRepository.findAll();
     }
+
+    public List<Product> getProductList() {
+        return productRepository.findAll();
+    }
 }
 

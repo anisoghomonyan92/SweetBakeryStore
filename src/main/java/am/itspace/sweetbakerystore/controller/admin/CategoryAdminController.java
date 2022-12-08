@@ -48,43 +48,6 @@ public class CategoryAdminController {
     }
 
     @GetMapping(value = "/categories-add")
-    public String addCategoryPage(ModelMap modelMap) {
-        modelMap.addAttribute("category", new Category());
-        return "admin/categories-add";
-    }
-
-    @PostMapping(value = "/categories-add")
-    public String addCategory(@Valid  @ModelAttribute Category category, BindingResult result,
-                              @AuthenticationPrincipal CurrentUser currentUser,
-                              ModelMap modelMap) throws Exception {
-        Optional<Category> byName = categoryService.findByName(category.getName());
-        if (byName.isPresent()) {
-            modelMap.addAttribute("errorMessageCategoryName", "Category with this name has already exists.");
-            return "admin/categories-add";
-        }
-        if(result.hasErrors()){
-            return "admin/categories-add";
-        }
-        categoryService.save(category, currentUser);
-        return "redirect:/admin/categories";
-
-    }
-
-    @GetMapping(value = "/categories/delete/{id}")
-    public String delete(@PathVariable("id") int id,
-                         ModelMap modelMap,
-                         @AuthenticationPrincipal CurrentUser currentUser) {
-        try {
-            categoryService.deleteById(id);
-        } catch (Exception e) {
-            modelMap.addAttribute("deleteErrorMessage", "You can not delete this object because there is some relationships with it.");
-            return "admin/categories";
-        }
-        log.info("Controller admin/categories/delete deleted by {}", currentUser.getUser().getEmail());
-        return "redirect:/admin/categories";
-    }
-
-    @GetMapping(value = "/categories-add")
     public String addCategoryPage(@AuthenticationPrincipal CurrentUser currentUser, ModelMap modelMap) {
         modelMap.addAttribute("category", new Category());
         log.info("Controller admin/categories-add called by {}", currentUser.getUser().getEmail());
@@ -109,18 +72,6 @@ public class CategoryAdminController {
 
     }
 
-    @GetMapping(value = "/categories/delete/{id}")
-    public String delete(@PathVariable("id") int id, ModelMap modelMap) {
-        try {
-            categoryService.deleteById(id);
-        } catch (Exception e) {
-            modelMap.addAttribute("deleteErrorMessage", "You can not delete this object because there is some relationships with it.");
-            return "admin/categories";
-        }
-        return "redirect:/admin/categories";
-    }
-
-
     @GetMapping(value = "/categories-edit")
     public String editCategoryPage(@RequestParam("id") int id,
                                    ModelMap modelMap,
@@ -139,6 +90,20 @@ public class CategoryAdminController {
                                @AuthenticationPrincipal CurrentUser currentUser) throws Exception {
         log.info("Controller admin/categories-edit updated by {}", currentUser.getUser().getEmail());
         categoryService.save(category, currentUser);
+        return "redirect:/admin/categories";
+    }
+
+    @GetMapping(value = "/categories/delete/{id}")
+    public String delete(@PathVariable("id") int id,
+                         ModelMap modelMap,
+                         @AuthenticationPrincipal CurrentUser currentUser) {
+        try {
+            categoryService.deleteById(id);
+        } catch (Exception e) {
+            modelMap.addAttribute("deleteErrorMessage", "You can not delete this object because there is some relationships with it.");
+            return "admin/categories";
+        }
+        log.info("Controller admin/categories/delete deleted by {}", currentUser.getUser().getEmail());
         return "redirect:/admin/categories";
     }
 }
