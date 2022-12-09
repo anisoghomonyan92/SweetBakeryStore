@@ -11,9 +11,4 @@ public class MenuController {
         return "web/menu-1/index";
     }
 
-    @GetMapping(value = "/menu-2")
-    public String menu2() {
-
-        return "web/menu-2/index";
-    }
 }
