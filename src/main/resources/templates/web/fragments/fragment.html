@@ -1,4 +1,5 @@
-
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html" lang="en-US">
 <div th:fragment="headerImport">
     <meta name='robots' content='max-image-preview:large'>
     <link rel='dns-prefetch' href='/'>
@@ -791,17 +792,20 @@
                         <h3
                                 class="ps-widget__title">CONNECT US</h3>
                         <ul class="ps-widget__social">
-                            <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="https://www.google.ru/" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="https://www.google.ru/" target="_blank"><i class="fa fa-google-plus"></i></a>
+                            </li>
                             <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+                            </li>
                         </ul>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
+</div>
+</footer>
 
 </div>
 
@@ -1436,12 +1440,17 @@
     <div class="header__top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12 ">
-                    <p>460 West 34th Street, 15th floor, New York - Hotline: 804-377-3580 - 804-399-3580</p>
-                </div>
-                <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">
-                    <a class="ps-search-btn" href="#"><i class="ps-icon--search"></i></a>
-
+                <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 "
+                     style="margin-left: 850px;display: flex; padding: 20px">
+                    <div style="margin-top: 10px; font-size: 15px;width: 200px">
+                        <ul>
+                            <li>
+                                <a href="?lang=hy">Հայերեն</a> | <a href="?lang=ru">
+                                Русский</a> | <a href="?lang=en">English</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div><a class="ps-search-btn" href="#"><i class="ps-icon--search"></i></a></div>
                     <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="/shop?currency=USD"
                                                           data-toggle="dropdown" aria-haspopup="true"
                                                           aria-expanded="false">USD<i class="fa fa-angle-down"></i></a>
@@ -1463,67 +1472,45 @@
             <div class="menu-toggle"><span></span></div>
             <div class="navigation__left">
                 <ul id="menu-left" class="menu menu--left">
-                    <li id="menu-item-436"
-                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-children menu-item-436">
-                        <a href="/">Home</a>
-                        <ul class="sub-menu">
-                            <li id="menu-item-484"
-                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-484"><a
-                                    href="#">Hot Demo</a></li>
-                            <li id="menu-item-464"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-464">
-                                <a href="/">home page</a></li>
-                            <li id="menu-item-465"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-465"><a
-                                    href="/home-page-2">Home page #2</a></li>
-                            <li id="menu-item-466"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-466"><a
-                                    href="/homePage-3">Home page #3</a></li>
-                            <li id="menu-item-486"
-                                class="try-theme menu-item menu-item-type-custom menu-item-object-custom menu-item-486">
-                                <a href="#">Try Theme Now</a></li>
-                        </ul>
+                    <li id="menu-item-436">
+                        <a href="/" th:text="#{menu.home}">Home</a>
                     </li>
                     <li id="menu-item-437"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-437"><a
-                            href="/about-us">About Us</a></li>
+                            href="/about-us" th:text="#{menu.about-us}">About Us</a></li>
                     <li id="menu-item-438"
                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-438">
-                        <a href="/products/shop">Products</a>
+                        <a href="/products/shop" th:text="#{menu.products}">Products</a>
                         <ul class="sub-menu">
                             <li id="menu-item-446"
                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-446"><a
-                                    href="/products/shop/?view=list">Product Listing</a></li>
+                                    href="/products/shop/?view=list" th:text="#{menu.item.product-listing}">Product
+                                Listing</a></li>
                             <li id="menu-item-460"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-460"><a
-                                    href="/user/favorite-products">Wishlist</a></li>
+                                    href="/user/favorite-products" th:text="#{menu.item.wishlist}">Wishlist</a></li>
                             <li id="menu-item-445"
                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-445"><a
-                                    href="/user/order-details">Order</a></li>
+                                    href="/user/order-details" th:text="#{menu.item.order}">Order</a></li>
                         </ul>
                     </li>
                     <li id="menu-item-439"
                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-439">
-                        <a href="#">Pages</a>
+                        <a href="#" th:text="#{menu.pages}">Pages</a>
                         <ul class="sub-menu">
                             <li id="menu-item-440"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-440">
-                                <a href="/menu-1">Menu #1</a>
+                                <a href="/menu-1" th:text="#{menu.item.menu}">Menu #1</a>
                                 <ul class="sub-menu">
-                                    <li id="menu-item-441"
-                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-441">
-                                        <a href="/menu-2">Menu #2</a></li>
                                 </ul>
                             </li>
-                            <li id="menu-item-459"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-459"><a
-                                    href="/compare">Compare</a></li>
                             <li id="menu-item-442"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-442"><a
-                                    href="/cart">Cart</a></li>
+                                    href="/cart" th:text="#{menu.item.cart}">Cart</a></li>
                             <li id="menu-item-443"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-443"><a
-                                    href="/payment/card/add">BILLING DETAILS</a></li>
+                                    href="/payment/card/add" th:text="#{menu.item.billing-details}">BILLING DETAILS</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -1536,64 +1523,70 @@
                 <ul id="menu-right" class="menu menu--right">
                     <li id="menu-item-449"
                         class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-has-children menu-item-449">
-                        <a href="/blog">Blog</a>
+                        <a href="/blog" th:text="#{menu.blog}">Blog</a>
                         <ul class="sub-menu">
                             <li id="menu-item-450"
                                 class="menu-item menu-item-type-post_type menu-item-object-post menu-item-450"><a
-                                    href="/review">Blog
+                                    href="/review" th:text="#{menu.item.blog-details}">Blog
                                 detail</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/contact-style">Contact</a>
+                        <a href="/contact-style" th:text="#{menu.contact}">Contact</a>
                     </li>
                     <!--/*@thymesVar id="currentUser" type=""*/-->
                     <li th:if="${currentUser != null && currentUser.getRole.name=='USER'}">
-                        <a href="/user/my-account">My Account</a>
+                        <a href="/user/my-account" th:text="#{menu.my-account}">My Account</a>
                     </li>
                     <li th:if="${currentUser != null && (currentUser.getRole.name=='ADMIN' || currentUser.getRole.name=='PARTNER')}">
-                        <a href="/admin/admin-page">My Page</a>
+                        <a href="/admin/admin-page" th:text="#{menu.admin.my-page}">My Page</a>
                         <ul class="sub-menu">
                             <li id="menu-item-501"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-452"
-                                th:if="${currentUser == null}"><a href="/register">Register</a>
+                                th:if="${currentUser == null}"><a href="/register" th:text="#{menu.item.register}">Register</a>
                         </ul>
                     </li>
                     <li id="menu-item-454" class="menu-item menu-item-type-post_type menu-item-object-page
                     menu-item-has-children menu-item-454"
-                        th:if="${currentUser == null}"><a href="/login">Log in</a>
+                        th:if="${currentUser == null}"><a href="/login" th:text="#{menu.login}">Log in</a>
                         <ul class="sub-menu">
                             <li id="menu-item-45"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-452"
-                                th:if="${currentUser == null}"><a href="/register">Register</a>
+                                th:if="${currentUser == null}"><a href="/register" th:text="#{menu.item.register}">Register</a>
                         </ul>
                     </li>
                     <li id="menu-item-475" class="menu-item menu-item-type-post_type menu-item-object-page
                     menu-item-has-children menu-item-454"
-                        th:if="${currentUser != null}"><a href="/logout">Logout</a>
+                        th:if="${currentUser != null}"><a href="/logout" th:text="#{menu.logout}">Logout</a>
                     </li>
                 </ul>
 
                 <div id="noubakery_mini_cart" class="ps-cart">
-                    <a class="ps-cart__toggle" href="/cart"><span><i th:text="${basketDto.basketProductDtos.size()}"></i></span><i class="ps-icon--shopping-cart"></i></a>
+                    <a class="ps-cart__toggle" href="/cart"><span><i
+                            th:text="${basketDto.basketProductDtos.size()}"></i></span><i
+                            class="ps-icon--shopping-cart"></i></a>
                     <div class="ps-cart__listing">
                         <div class="ps-cart__content">
                             <div class="ps-cart-item" th:each="basket:${basketDto.basketProductDtos}">
-                                <a href="/cart" class="ps-cart-item__close remove" title="Remove this item" data-key="fc221309746013ac554571fbd180e1c8"
+                                <a href="/cart" class="ps-cart-item__close remove" title="Remove this item"
+                                   data-key="fc221309746013ac554571fbd180e1c8"
                                    th:attr="data-product_id=${basket.product.id}"
-                                   data-product_sku="HGEGX27"></a>                  <div class="ps-cart-item__thumbnail">
-                                <a href="https://warethemes.com/wordpress/bakery/product/beckys-snickerdoodle/">
-                                    <img width="60" height="65"
-                                         th:src="@{/products/getImage(fileName=${basket.product.productPic})}"
-                                         class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-249" alt="" loading="lazy"></a>                  </div>
+                                   data-product_sku="HGEGX27"></a>
+                                <div class="ps-cart-item__thumbnail">
+                                    <a href="https://warethemes.com/wordpress/bakery/product/beckys-snickerdoodle/">
+                                        <img width="60" height="65"
+                                             th:src="@{/products/getImage(fileName=${basket.product.productPic})}"
+                                             class="attachment-noubakery_60x65 size-noubakery_60x65 wp-image-249" alt=""
+                                             loading="lazy"></a></div>
                                 <div class="ps-cart-item__content">
-                                    <a class="ps-cart-item__title " th:text="${basket.product.name}"></a>                    <p>
-                                    <span >Quantity:<i th:text="${basket.quantity}">1</i></span>
-                                    <span>Total: <span class="woocs_special_price_code">
+                                    <a class="ps-cart-item__title " th:text="${basket.product.name}"></a>
+                                    <p>
+                                        <span>Quantity:<i th:text="${basket.quantity}">1</i></span>
+                                        <span>Total: <span class="woocs_special_price_code">
                                         <span class="woocommerce-Price-amount amount"><bdi>
                                             <span class="woocommerce-Price-currencySymbol"
                                                   th:text="${basket.product.price+'$'}"></span></bdi></span></span></span>
-                                </p>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -1601,7 +1594,8 @@
                             <p>Number of items:<span th:text="${basketDto.basketProductDtos.size()}">1</span></p>
                             <p>Item Total:<span class="woocs_special_price_code">
                                 <span class="woocommerce-Price-amount amount">
-                                    <bdi><span class="woocommerce-Price-currencySymbol" th:text="${basketDto.total+'$'}"></span></bdi></span></span></p>
+                                    <bdi><span class="woocommerce-Price-currencySymbol"
+                                               th:text="${basketDto.total+'$'}"></span></bdi></span></span></p>
                         </div>
 
                         <div class="ps-cart__footer">
@@ -1953,3 +1947,4 @@
     <script type='text/javascript' src='/assets/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js'
             id='wpb_composer_front_js-js'></script>
 </div>
+</html>
