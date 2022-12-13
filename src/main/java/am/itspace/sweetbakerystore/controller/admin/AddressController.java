@@ -25,7 +25,6 @@ import java.util.stream.IntStream;
 public class AddressController {
 
     private final AddressService addressService;
-    private final CityService cityService;
 
     @GetMapping(value = "/addresses")
     public String addressPage(ModelMap modelMap,

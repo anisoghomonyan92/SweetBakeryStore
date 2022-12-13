@@ -1,7 +1,6 @@
 package am.itspace.sweetbakerystore.controller.web;
 
 import am.itspace.sweetbakerystore.dto.CheckoutDto;
-import am.itspace.sweetbakerystore.entity.Payment;
 import am.itspace.sweetbakerystore.security.CurrentUser;
 import am.itspace.sweetbakerystore.service.PaymentService;
 import lombok.RequiredArgsConstructor;
@@ -34,11 +33,11 @@ public class CheckoutController {
 
     @PostMapping(value = "/payment/card/add")
     public String linkCard(@Valid @ModelAttribute CheckoutDto checkoutDto, BindingResult result,
-                           @AuthenticationPrincipal CurrentUser user) {
+                           @AuthenticationPrincipal CurrentUser currentUser) {
         if (result.hasErrors()) {
             return "web/checkout/index";
         } else {
-            paymentService.save(checkoutDto, user);
+            paymentService.save(checkoutDto, currentUser.getUser());
             return "redirect:/user/order-details";
         }
     }

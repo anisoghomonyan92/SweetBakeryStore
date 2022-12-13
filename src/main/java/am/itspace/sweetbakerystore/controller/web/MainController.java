@@ -30,7 +30,6 @@ import java.util.Optional;
 public class MainController {
 
     private final UserService userService;
-    private final AddressService addressService;
     private final CityService cityService;
 
     @GetMapping(value = "/")
@@ -76,6 +75,7 @@ public class MainController {
         Optional<User> byEmail = userService.findByEmail(user.getEmail());
         if (result.hasErrors()) {
             modelMap.addAttribute("cities", cityService.findAll());
+            modelMap.addAttribute("addressName", addressName);
             return "register";
         } else if (byEmail.isPresent()) {
             modelMap.addAttribute("errorMessage", "Email Already in use");

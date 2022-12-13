@@ -142,12 +142,9 @@
                                             <input type="text"
                                                    class="woocommerce-Input woocommerce-Input--text input-text"
                                                    name="addressName" id="address" th:field="*{address}"></p>
-                                        <p th:if="${#fields.hasErrors('address')}"
-                                           th:errors="*{address}" th:class="error"></p>
-
-                                        <button type="submit"
-                                                class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit"
-                                                name="register" value="Register">Register
+                                        <p th:if="${addressName != null && addressName == ''}"
+                                           th:class="error">Address is not valid</p>
+                                        <button type="submit" value="send" class="ps-btn ">Register
                                         </button>
                                     </form>
                                 </div>

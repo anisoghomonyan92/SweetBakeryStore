@@ -32,14 +32,6 @@ public class AddressService {
         return addressRepository.save(address);
     }
 
-    public Optional<Address> findByName(String name, City city) {
-        return addressRepository.findByNameAndCity(name, city);
-    }
-
-    public void saveAddressCity(Address address) {
-        addressRepository.save(address);
-
-    }
 
     public void save(Address address, City city) {
         cityRepository.save(city);
@@ -52,9 +44,7 @@ public class AddressService {
 
     public Optional<Address> findById(Integer addressId) {
         Optional<Address> addressById = addressRepository.findById(addressId);
-        if(addressById.isPresent()){
-            return addressById;
-        }
-        else return Optional.empty();
+        addressById.ifPresent(address -> addressById.get());
+        return addressById;
     }
 }

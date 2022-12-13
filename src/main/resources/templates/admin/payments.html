@@ -74,7 +74,7 @@
                                                 colspan="1"
                                                 style="width: 181.2px;"
                                                 aria-label="Customer Name: activate to sort column ascending">
-                                               Card Number
+                                                Card Number
                                             </th>
                                             <th class="dt-body-right sorting" tabindex="0"
                                                 aria-controls="myDataTable" rowspan="1"
@@ -114,7 +114,7 @@
                                         </tbody>
                                     </table>
                                     <div th:if="${payments.totalPages > 0}" class="page"
-                                          th:each="pageNumber : ${pageNumbers}">
+                                         th:each="pageNumber : ${pageNumbers}">
                                         <a th:href="@{/admin/payments(size=${payments.size}, page=${pageNumber})}"
                                            th:text="${pageNumber}"
                                            th:class="${pageNumber==payments.number + 1} ? active"></a>

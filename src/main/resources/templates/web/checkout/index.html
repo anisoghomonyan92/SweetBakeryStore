@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="woocommerce-notices-wrapper"></div>
-                <form action="/payment/card/add" name="checkout" method="post"
+                <form th:action="@{/payment/card/add}" name="checkout" method="post"
                       class="ps-checkout checkout woocommerce-checkout"
                       th:object="${checkoutDto}" enctype="multipart/form-data">
                     <div class="row">
@@ -128,7 +128,7 @@
                                            th:errors="*{cardNumber}" th:class="error"></p>
                                         <p class="form-row form-row-wide form-group"
                                            data-priority="40"><label for="cvc_code" class="">Cvc_code</label><span
-                                                class="woocommerce-input-wrapper"><input type="text"
+                                                class="woocommerce-input-wrapper"><input type="number"
                                                                                          name="cvcCode"
                                                                                          th:field="*{cvcCode}"
                                                                                          id="cvc_code"

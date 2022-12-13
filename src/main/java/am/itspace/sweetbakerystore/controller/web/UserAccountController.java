@@ -13,7 +13,6 @@ import java.util.Optional;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.http.MediaType;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -91,7 +90,7 @@ public class UserAccountController {
         } else {
             modelMap.addAttribute("message", "Please enter correct old password");
         }
-        log.info("{} changed your password.", principal.getName());
+        log.info("{} changed his password.", principal.getName());
         return "redirect:/user/my-account";
     }
 
