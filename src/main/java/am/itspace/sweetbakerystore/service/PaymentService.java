@@ -5,8 +5,8 @@ import am.itspace.sweetbakerystore.dto.CheckoutDto;
 import am.itspace.sweetbakerystore.entity.Payment;
 import am.itspace.sweetbakerystore.entity.Product;
 import am.itspace.sweetbakerystore.entity.Status;
+import am.itspace.sweetbakerystore.entity.User;
 import am.itspace.sweetbakerystore.repository.PaymentRepository;
-import am.itspace.sweetbakerystore.security.CurrentUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,14 +32,14 @@ public class PaymentService {
 
 
     //Before each order user fill in card details
-    public void save(CheckoutDto checkoutDto, CurrentUser currentUser) {
+    public void save(CheckoutDto checkoutDto, User user) {
         Payment payment = new Payment();
         payment.setCardNumber(checkoutDto.getCardNumber());
         payment.setCvcCode(checkoutDto.getCvcCode());
         payment.setStatus(Status.PAYED);
         payment.setCardType(checkoutDto.getCardType());
         payment.setExpirationDate(checkoutDto.getExpirationDate());
-        payment.setUser(currentUser.getUser());
+        payment.setUser(user);
         if (checkoutDto.getProductId() != null) {
             Optional<Product> productById = productService.findById(checkoutDto.getProductId());
             productById.ifPresent(product -> payment.setTotalAmount(checkoutDto.getQuantity() * product.getPrice()));
@@ -47,6 +47,6 @@ public class PaymentService {
             payment.setTotalAmount(basketDto.getTotal());
         }
         Payment savedPayment = paymentRepository.save(payment);
-        orderService.save(checkoutDto, savedPayment, currentUser.getUser());
+        orderService.save(checkoutDto, savedPayment, user);
     }
 }

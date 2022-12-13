@@ -27,7 +27,7 @@ public class Category {
     @Size(min = 3, max = 20)
     private String name;
 
-    @NotNull(message = "Description can't be empty.")
+    @NotBlank(message = "Description can't be empty.")
     @Size(max = 1200)
     private String description;
 

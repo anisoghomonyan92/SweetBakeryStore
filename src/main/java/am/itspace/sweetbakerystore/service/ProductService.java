@@ -84,7 +84,6 @@ public class ProductService {
         return productRepository.totalSale();
     }
 
-
     public void addBasket(CurrentUser currentUser, int productId, BasketRequest basketRequest) {
         Optional<Product> byProductId = productRepository.findById(productId);
         byProductId.ifPresent(product -> product.setId(productId));
@@ -113,11 +112,6 @@ public class ProductService {
             product.setUser(currentUser.getUser());
             productRepository.save(product);
         }
-    }
-
-    public Optional<Product> findByID(int id) {
-        return productRepository.findById(id);
-
     }
 
     public List<Product> getAllProducts(String productList) {

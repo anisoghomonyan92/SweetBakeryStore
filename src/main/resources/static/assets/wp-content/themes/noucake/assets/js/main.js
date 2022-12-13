@@ -1111,6 +1111,19 @@
                     };
                 $.ajax({
                     type: "POST",
+                    data: JSON.stringify({product_id: $(this).data('product_id')}),
+                    url: '/remove/basket',
+                    contentType: "application/json",
+                    success: function (data) {
+                        if (data) {
+                            $('#noubakery_mini_cart').load('/basket',function(data){
+                                $('#noubakery_mini_cart').html(data.html);
+                            });
+                        }
+                    },
+                });
+                $.ajax({
+                    type: "POST",
                     data: data,
                     url: noubakery_theme_params.ajax_url,
                     success: function (data) {
@@ -1294,20 +1307,15 @@
                 if ($(this).hasClass('delete-wishlist')) {
                     do_action = 'delete';
                 }
+                var button = $(this);
+                var productId = button.data('product_id')
 
-                var button = $(this),
-                    data = {
-                        product_id: button.data('product_id'),
-                        nonce: noubakery_theme_params.ajax_nonce,
-                        action: 'noubakery_wishlist',
-                        do_action: do_action
-                    };
 
+                console.log(productId);
                 if (button.hasClass('added')) {
                     window.location.href = noubakery_theme_params.wishlist_page_url;
                     return false;
                 }
-
                 var product = button.closest('.product'),
                     img = product.find('img').attr('src'),
                     title = product.find('.ps-product__title').text(),
@@ -1315,12 +1323,11 @@
 
                 $.ajax({
                     type: "POST",
-                    data: data,
-                    url: noubakery_theme_params.ajax_url,
+                    url: "/products/add/favorite-product?productId=" + productId,
                     success: function (data) {
-                        console.log(data);
+                        console.log("data", data);
                         button.addClass('added');
-                        if (data.status == '1') {
+                        if (productId) {
                             button.html('<i class="fa fa-check" aria-hidden="true"></i>');
                             $.notify({
                                 icon: img,
@@ -1334,7 +1341,6 @@
                                 template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
                                     '<a href="' + noubakery_theme_params.wishlist_page_url + '"><img data-notify="icon" class="img-circle pull-left"></a>' +
                                     '<span data-notify="title">{1}</span>' +
-                                    '<span data-notify="message">{2}</span>' +
                                     '</div>'
                             });
                         } else {

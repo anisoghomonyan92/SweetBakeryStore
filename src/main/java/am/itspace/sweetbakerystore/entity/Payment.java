@@ -9,8 +9,10 @@ import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -24,17 +26,17 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Range(max = 16, min = 16, message = "Length must be 16.")
-    @Pattern(regexp = "[0-9]", message = "Card number's must contain only digits.")
-    @NotNull(message = "Number of card can't be empty.")
+    @Size(max = 16, min = 16, message = "Length must be 16.")
+    @Pattern(regexp = "^\\d+$", message = "Card number's must contain only digits.")
+    @NotBlank(message = "Number of card can't be empty.")
     private String cardNumber;
 
     @Range(max = 3, min = 3, message = "Length must be 3.")
-    @Pattern(regexp = "[0-9]", message = "CVC code must contain only digits.")
-    @NotNull(message = "CVC  can't be empty.")
+    @Pattern(regexp = "^\\d+$", message = "CVC code must contain only digits.")
+    @NotBlank(message = "CVC  can't be empty.")
     private Integer cvcCode;
 
-    @NotNull(message = "Expiration Date can't be empty.")
+    @NotBlank(message = "Expiration Date can't be empty.")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date expirationDate;
 
